@@ -43,7 +43,7 @@ export default function Article() {
               O impacto da qualidade do ar na produtividade
             </h3>
             <p className={styles.text}>
-              Pesquisas apontam que a má qualidade do ar pode prejudicar diretamente a capacidade de concentração e produtividade. Isso se deve principalmente à presença de poluentes e ao acúmulo de dióxido de carbono (CO2) em ambientes fechados. Quando a concentração de CO2 é alta, por exemplo, o ar fica "pesado", o que pode causar sintomas como sonolência, cansaço, dificuldade para focar em tarefas complexas e até queda no desempenho cognitivo.
+              Pesquisas apontam que a má qualidade do ar pode prejudicar diretamente a capacidade de concentração e produtividade. Isso se deve principalmente à presença de poluentes e ao acúmulo de dióxido de carbono (CO2) em ambientes fechados. Quando a concentração de CO2 é alta, por exemplo, o ar fica &quot;pesado&quot;, o que pode causar sintomas como sonolência, cansaço, dificuldade para focar em tarefas complexas e até queda no desempenho cognitivo.
             </p>
             <h3 className={styles.subtitle}>
               Fatores de risco para a qualidade do ar
