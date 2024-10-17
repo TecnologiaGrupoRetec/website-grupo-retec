@@ -5,15 +5,35 @@ export default function Footer ({}) {
   return (
     <footer className={styles.footer}>
       <div className={styles.content}>
-        <Image className={styles.logo} src={`/home/logo-white-bg.png`} alt="Logo Grupo RETEC" width="273" height="273"/>
+        <Image className={styles.logo} src={`/home/logo.png`} alt="Logo Grupo RETEC" width="273" height="273"/>
         <div className={styles.info}>
-          <div className={styles.anchors}>
-            {/* <a className={styles.anchor} href="">Produtos</a> */}
-            <a className={styles.anchor} href="/projetos">Projetos</a>
-            <a className={styles.anchor} href="/sobre">Sobre Nós</a>
-            <a className={styles.anchor} href="/blog">Blog</a>
-            <a className={styles.anchor} href="https://www.artmosferabrasil.com.br" target="_blank">Ecommerce</a>
-            <a className={styles.anchor} href="https://wa.me/5561991311283?text=Gostaria%20de%20falar%20com%20a%20RETEC" target="_blank">Contato</a>
+          <div className={styles.row}>
+            <div className={styles.anchors}>
+              <a className={styles.anchor} href="#">Produtos</a>
+              <a className={styles.anchor} href="/projetos">Projetos</a>
+              <a className={styles.anchor} href="/sobre">Sobre Nós</a>
+              <a className={styles.anchor} href="/blog">Blog</a>
+              <a className={styles.anchor} href="https://www.artmosferabrasil.com.br" target="_blank">Ecommerce</a>
+              <a className={styles.anchor} href="/contactForm" target="_blank">Contato</a>
+            </div>
+            <div className={styles.addresses}>
+              <div className={styles.column}>
+                <span><b>Brasília</b></span>
+                <p>
+                  SIA Trecho 17 Rua<br/>17 Nº 1380<br/>
+                  CEP: 71.200-249<br/><br/>
+                  (61) 3363-7310
+                </p>
+              </div>
+              <div className={styles.column}>
+                <span><b>Goiânia</b></span>
+                <p>
+                  Av. Caiapó, 452 -<br/>St. Genoveva<br/>
+                  CEP: 74672-400<br/><br/>
+                  (62) 3204-6782
+                </p>
+              </div>
+            </div>
           </div>
           <div className={styles.row}>
             <p>Horário de Funcionamento: Segunda à sexta 08:00 - 18:00</p>

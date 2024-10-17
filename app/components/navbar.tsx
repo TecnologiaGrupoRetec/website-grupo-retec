@@ -25,9 +25,9 @@ export default function Navbar({ activeTab }: { activeTab: string; }) {
             <nav className={styles.navItem}>
               <Link className={isTabActive('home')} href="/">Home</Link>
             </nav>
-            {/* <nav className={styles.navItem}>
-              <Link className={isTabActive('products')} href="">Produtos</Link>
-            </nav> */}
+            <nav className={styles.navItem}>
+              <Link className={isTabActive('products')} href="/#">Produtos</Link>
+            </nav>
             <nav className={styles.navItem}>
               <Link className={isTabActive('projects')} href="/projetos">Projetos</Link>
             </nav>

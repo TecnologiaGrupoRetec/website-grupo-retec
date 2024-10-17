@@ -1,7 +1,7 @@
 .footer {
   width: 100%;
   background-color: $primary;
-  color: $neutral;
+  color: $white;
   font-size: 16px;
   font-weight: 600;
   display: flex;
@@ -35,11 +35,22 @@
 
     .info {
       max-width: 784px;
+      width: 100%;
 
       .row {
         display: flex;
         justify-content: space-between;
         align-items: center;
+      }
+
+      .column {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        p {
+          font-weight: 400;
+        }
       }
 
       .social {
@@ -57,6 +68,8 @@
       margin-bottom: 55px;
       height: fit-content;
       padding-top: 80px;
+      max-width: 300px;
+      height: 100%;
 
       @media (max-width: 1075px) {
         margin-bottom: 32px;
@@ -73,6 +86,21 @@
           width: fit-content;
           text-decoration: underline;
         }
+      }
+    }
+
+    .addresses {
+      display: flex;
+      padding-top: 80px;
+      margin-bottom: 55px;
+      gap: 75px;
+      width: 100%;
+      justify-content: flex-end;
+
+      @media (max-width: 1075px) {
+        gap: 16px;
+        justify-content: center;
+        padding: 0;
       }
     }
 
