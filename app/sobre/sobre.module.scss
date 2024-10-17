@@ -1,0 +1,126 @@
+.page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.detail {
+  font-size: 36px;
+  font-weight: bold;
+  color: $white;
+  margin-top: -20px;
+}
+
+.about {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: $surface;
+
+  .content {
+    max-width: 1440px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 65px 62px 65px 165px;
+    width: 100%;
+
+    @media (max-width: 1075px) {
+      padding: 9%;
+    }
+
+    .description {
+      display: flex;
+      flex-direction: column;
+      width: calc((748px / 1440px) * 100vw);
+      max-width: 748px;
+
+      @media (max-width: 1075px) {
+        width: 100%;
+      }
+    }
+
+    .title {
+      font-size: 16px;
+      color: $secondary;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .subtitle {
+      font-size: 32px;
+      color: $primary;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .text {
+      font-size: 1rem;
+      color: $neutral;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      line-height: 1.4;
+      text-align: justify;
+      margin-bottom: 29px;
+    }
+
+    .bullets {
+      color: $secondary;
+      font-size: 1rem;
+      font-weight: 500;
+
+      .bullet {
+        display: flex;
+        
+        &:not(:last-of-type) {
+          margin-bottom: 8px;
+        }
+
+        .checkbox {
+          margin-right: 8px;
+        }
+
+        .bulletText {
+          padding-top: 4px;
+        }
+      }
+    }
+
+    .contact {
+      margin-top: 50px;
+      height: 64px;
+      padding: 18.5px 40px;
+      font-size: 22px;
+      font-weight: 600;
+      color: $primary;
+      border: 2px solid $primary;
+      border-radius: 8px;
+      max-width: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .images {
+      display: flex;
+      flex-direction: column;
+      max-width: fit-content;
+      gap: 23px;
+  
+      .img {
+        border-radius: 50%;
+        width: calc((298px / 1440px) * 100vw);
+        height: calc((298px / 1440px) * 100vw);
+        max-width: 298px;
+        max-height: 298px;
+  
+        @media (max-width: 1075px) {
+          display: none;
+        }
+      }
+
+    }
+
+  }
+}

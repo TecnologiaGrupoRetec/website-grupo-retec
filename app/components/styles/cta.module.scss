@@ -1,0 +1,36 @@
+.cta {
+  width: 100%;
+  height: 128px;
+  background-color: $neutral;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 1075px) {
+    height: fit-content;
+  }
+
+  .content {
+    width: 100%;
+    max-width: 1440px;
+    padding: 50px 160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: 1075px) {
+      padding: 9%;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      gap: 16px;
+    }
+
+    .title {
+      font-size: 24px;
+      letter-spacing: .5px;
+      font-weight: 400;
+      color: white;
+    }
+  }
+}

@@ -1,0 +1,327 @@
+.page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.about {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .content {
+    max-width: 1440px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 65px 62px 65px 165px;
+    width: 100%;
+
+    @media (max-width: 1075px) {
+      padding: 9%;
+    }
+
+    .description {
+      display: flex;
+      flex-direction: column;
+      width: calc((645px / 1440px) * 100vw);
+      max-width: 645px;
+
+      @media (max-width: 1075px) {
+        width: 100%;
+      }
+    }
+
+    .title {
+      font-size: 16px;
+      color: $secondary;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .subtitle {
+      font-size: 32px;
+      color: $primary;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .text {
+      font-size: 1rem;
+      color: $neutral;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      line-height: 1.4;
+      text-align: justify;
+      margin-bottom: 29px;
+    }
+
+    .bullets {
+      color: $secondary;
+      font-size: 1rem;
+      font-weight: 500;
+
+      .bullet {
+        display: flex;
+        align-items: center;
+        
+        &:not(:last-of-type) {
+          margin-bottom: 8px;
+        }
+
+        .checkbox {
+          margin-right: 8px;
+        }
+      }
+    }
+
+    .logo {
+      border-radius: 50%;
+      width: calc((373px / 1440px) * 100vw);
+      height: calc((373px / 1440px) * 100vw);
+      max-width: 373px;
+      max-height: 373px;
+
+      @media (max-width: 1075px) {
+        display: none;
+      }
+    }
+  }
+}
+
+.benefits {
+  background-color: $primary;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+
+  .content {
+    width: 100%;
+    max-width: 1440px;
+    padding: 70px 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    @media (max-width: 1075px) {
+      padding: 9%;
+    }
+
+    .title {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 45px;
+      text-transform: uppercase;
+      width: fit-content;
+      text-align: center;
+    }
+  }
+
+  .cards {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 27px 20px 39px;
+      height: 362px;
+      max-width: 370px;
+      background-color: transparent;
+      border: 1px solid $neutral-light;
+      border-radius: 10px;
+
+      @media (max-width: 1075px) {
+        height: fit-content;
+      }
+
+      .iconContainer {
+        display: flex;
+        align-items: center;
+        height: 100%;
+      }
+
+      .cardTitle {
+        font-size: 24px;
+        line-height: 30px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+
+      .text {
+        font-size: 12px;
+        letter-spacing: .3px;
+        font-weight: 500;
+        text-align: justify;
+      }
+    }
+  }
+}
+
+.partners {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .content {
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 42px 96px;
+
+    @media (max-width: 1075px) {
+      padding: 9%;
+    }
+
+    .title {
+      font-size: 32px;
+      color: $primary;
+      margin-bottom: 37px;
+      text-align: center;
+      max-width: fit-content;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 48px;
+
+      .partner {
+        max-width: 211px;
+        height: auto;
+      }
+    }
+  }
+}
+
+.location {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: $surface;
+
+  .content {
+    width: 100%;
+    max-width: 1440px;
+    padding: 100px 130px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: 1075px) {
+      padding: 9%;
+      flex-direction: column;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .cards {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 460px;
+      width: 100%;
+      gap: 23px;
+
+      .card {
+        background-color: transparent;
+        position: relative;
+        border: 1px solid $primary;
+        border-radius: 10px;
+        padding: 14px 30px;
+        color: $primary;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+
+        .title {
+          font-size: 24px;
+          font-weight: bold;
+          margin-bottom: 18px;
+        }
+
+        .text {
+          font-size: 1rem;
+          font-weight: 400;
+          margin-bottom: 12px;
+        }
+
+        .link {
+          color: $secondary;
+          text-decoration: underline;
+          font-weight: bold;
+          font-size: 12px;
+          text-transform: uppercase;
+          display: flex;
+          align-items: center;
+
+          .arrow {
+            margin-left: 5px;
+          }
+        }
+
+        .icon {
+          position: absolute;
+          left: -15px;
+        }
+      }
+    }
+
+    .iframes {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .container {
+        border-radius: 10px;
+        border: 1px solid $primary;
+      }
+
+      .iframe {
+        border-radius: 10px;
+
+        @media (max-width: 1075px) {
+          max-width: 100%;
+        }
+      }
+
+      .toggles {
+        margin-top: 17px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 42px;
+
+        a {
+          text-decoration: underline;
+          text-transform: uppercase;
+          color: $primary;
+          font-size: 16px;
+          font-weight: 400;
+          cursor: pointer;
+
+          &.active {
+            font-weight: 900;
+          }
+        }
+      }
+    }
+  }
+}

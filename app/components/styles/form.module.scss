@@ -1,0 +1,24 @@
+.page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0;
+  background-color: $surface;
+
+  @media (max-width: 1075px) {
+    padding: 100px 9%;
+  }
+
+  .content {
+    max-width: 600px;
+    width: 100%;
+  }
+}

@@ -1,0 +1,14 @@
+.button {
+  background-color: $primary;
+  color: white;
+  font-size: 22px;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 18.5px 40px;
+  max-width: fit-content;
+  text-align: center;
+
+  @media (max-width: 1075px) {
+    font-size: 18px;
+  }
+}
