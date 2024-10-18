@@ -9,7 +9,7 @@ export default function Footer ({}) {
         <div className={styles.info}>
           <div className={styles.row}>
             <div className={styles.anchors}>
-              <a className={styles.anchor} href="#">Produtos</a>
+              <a className={styles.anchor} href="/produtos">Produtos</a>
               <a className={styles.anchor} href="/projetos">Projetos</a>
               <a className={styles.anchor} href="/sobre">Sobre Nós</a>
               <a className={styles.anchor} href="/blog">Blog</a>
