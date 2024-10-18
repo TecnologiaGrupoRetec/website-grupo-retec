@@ -9,7 +9,7 @@ export default function ContactForm() {
 
   return (
     <div className={styles.page}>
-
+      <script defer type="text/javascript" src="https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js"></script>
       <section className={styles.form}>
         <div className={styles.content}>
           <Navbar activeTab="contact" />

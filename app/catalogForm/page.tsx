@@ -8,6 +8,7 @@ import Image from "next/image";
 export default function CatalogForm() {
   return (
     <div className={styles.page}>
+      <script defer type="text/javascript" src="https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js"></script>
       <Navbar activeTab="contact" />
 
       <section className={styles.form}>
