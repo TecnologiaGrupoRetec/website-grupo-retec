@@ -18,7 +18,9 @@ export default function Projects() {
       <Main
         title="Explore Nossos Projetos"
         subtitle="Nosso Trabalho"
-      />
+      >
+        <p className={styles.mainText}>Comprometidos com a excelência e a inovação, nossa atuação abrange desde o fornecimento de produtos de alto desempenho até o desenvolvimento de soluções sob medida para projetos de diferentes portes.</p>
+      </Main>
 
       <section className={styles.projects}>
         <div className={styles.content}>

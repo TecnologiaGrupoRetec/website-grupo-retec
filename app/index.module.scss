@@ -191,6 +191,10 @@
       margin-bottom: 37px;
       text-align: center;
       max-width: fit-content;
+
+      @media (max-width: 1075px) {
+        font-size: 28px;
+      }
     }
 
     .row {
@@ -203,6 +207,10 @@
       .partner {
         max-width: 211px;
         height: auto;
+
+        @media (max-width: 1075px) {
+          max-width: 134px;
+        }
       }
     }
   }
@@ -254,6 +262,10 @@
           font-size: 24px;
           font-weight: bold;
           margin-bottom: 18px;
+
+          @media (max-width: 1075px) {
+            font-size: 22px;
+          }
         }
 
         .text {

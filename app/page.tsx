@@ -10,7 +10,7 @@ import Cta from './components/cta';
 import Main from './components/main';
 
 export default function Home() {
-  const [selectedIframe, setSelectedIframe] = useState('gyn');
+  const [selectedIframe, setSelectedIframe] = useState('bsb');
 
   return (
     <div className={styles.page}>
@@ -118,6 +118,20 @@ export default function Home() {
           <div className={styles.cards}>
             <div className={styles.card}>
               <Image className={styles.icon} src={`/home/pin.png`} alt="localização" width="31" height="31"/>
+              <h2 className={styles.title}>Showroom Brasília/DF</h2>
+              <p className={styles.text}>
+                SIA Trecho 17 Rua 17 Nº 1380<br />
+                CEP: 71.200-249
+                <br /><br />
+                (61) 3363-7310
+              </p>
+              <a className={styles.link} href="tel:+556133637310">
+                Fale com a gente
+                <Image className={styles.arrow} src={`/home/arrow.png`} alt="seta para direita" width="14" height="8"/>
+              </a>
+            </div>
+            <div className={styles.card}>
+              <Image className={styles.icon} src={`/home/pin.png`} alt="localização" width="31" height="31"/>
               <h2 className={styles.title}>Loja Goiânia/GO</h2>
               <p className={styles.text}>
                 Av. Caiapó, 452 - St. Genoveva<br />
@@ -126,20 +140,6 @@ export default function Home() {
                 (62) 3204-6782
               </p>
               <a className={styles.link} href="tel:+556232046782">
-                Fale com a gente
-                <Image className={styles.arrow} src={`/home/arrow.png`} alt="seta para direita" width="14" height="8"/>
-              </a>
-            </div>
-            <div className={styles.card}>
-              <Image className={styles.icon} src={`/home/pin.png`} alt="localização" width="31" height="31"/>
-              <h2 className={styles.title}>Loja Brasília/DF</h2>
-              <p className={styles.text}>
-                SIA Trecho 17 Rua 17 Nº 1380<br />
-                CEP: 71.200-249
-                <br /><br />
-                (61) 3363-7310
-              </p>
-              <a className={styles.link} href="tel:+556133637310">
                 Fale com a gente
                 <Image className={styles.arrow} src={`/home/arrow.png`} alt="seta para direita" width="14" height="8"/>
               </a>
@@ -156,16 +156,16 @@ export default function Home() {
             </div>
             <div className={styles.toggles}>
               <a 
-                className={selectedIframe === 'gyn' ? styles.active : ''}
-                onClick={() => setSelectedIframe('gyn')}
-              >
-                Goiânia
-              </a>
-              <a 
                 className={selectedIframe === 'bsb' ? styles.active : ''}
                 onClick={() => setSelectedIframe('bsb')}
               >
                 Brasília
+              </a>
+              <a 
+                className={selectedIframe === 'gyn' ? styles.active : ''}
+                onClick={() => setSelectedIframe('gyn')}
+              >
+                Goiânia
               </a>
             </div>
           </div>
