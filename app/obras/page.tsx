@@ -16,10 +16,9 @@ export default function Projects() {
     <div className={styles.page}>
       <Navbar activeTab="projects" />
       <Main
-        title="Explore Nossos Projetos"
-        subtitle="Nosso Trabalho"
+        title="Explore Nossas Obras"
       >
-        <p className={styles.mainText}>Comprometidos com a excelência e a inovação, nossa atuação abrange desde o fornecimento de produtos de alto desempenho até o desenvolvimento de soluções sob medida para projetos de diferentes portes.</p>
+        <p className={styles.mainText}>Comprometidos com a excelência e a inovação, nossa atuação abrange desde o fornecimento de produtos de alto desempenho até o desenvolvimento de soluções sob medida para projetos e obras de diferentes portes.</p>
       </Main>
 
       <section className={styles.projects}>
