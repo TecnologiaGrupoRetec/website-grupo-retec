@@ -19,6 +19,7 @@ export default function Home() {
       <Main
         title='Especialistas em Fornecimento de Soluções Integradas de Climatização e Conforto Térmico e Qualidade do Ar'
         subtitle='Grupo RETEC'
+        bgImage='/home/new-facade.jpg'
       >
         <a href="/contactForm">
           <Button>Entre em contato</Button>

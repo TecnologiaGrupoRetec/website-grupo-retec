@@ -13,6 +13,7 @@ export default function Home() {
       <Main 
         title="Soluções para climatização"
         subtitle="Grupo RETEC"
+        bgImage="/about/empty-office.jpg"
       >
         <span className={styles.detail}>
           desde 1982

@@ -17,12 +17,14 @@ export default function Projects() {
       <Navbar activeTab="projects" />
       <Main
         title="Explore Nossas Obras"
+        bgImage="/projects/office-inside.jpg"
       >
         <p className={styles.mainText}>Comprometidos com a excelência e a inovação, nossa atuação abrange desde o fornecimento de produtos de alto desempenho até o desenvolvimento de soluções sob medida para projetos e obras de diferentes portes.</p>
       </Main>
 
       <section className={styles.projects}>
         <div className={styles.content}>
+          <h2 className={styles.title}>Nossos cases</h2>
           <div className={styles.categories}>
             <a 
               className={selectedCategory === 'all' ? styles.active : ''}

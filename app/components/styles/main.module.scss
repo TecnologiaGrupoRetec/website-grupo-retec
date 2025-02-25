@@ -7,15 +7,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 
-  &::before {
-    content: "";
+  .background {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('/home/new-facade.jpg');
     background-size: cover;
     background-position: center;
     opacity: 0.2;
