@@ -44,16 +44,20 @@ export default function Home() {
             </p>
             <ul className={styles.bullets}>
               <li className={styles.bullet}>
-                <Image className={styles.checkbox} src={`/home/checkbox.png`} alt="checkbox" width="24" height="24"/>
+                <Image className={styles.checkbox} src={`/home/checkbox.png`} alt="checkbox" width="30" height="30"/>
                 Consultoria em Climatização
               </li>
               <li className={styles.bullet}>
-                <Image className={styles.checkbox} src={`/home/checkbox.png`} alt="checkbox" width="24" height="24"/>
+                <Image className={styles.checkbox} src={`/home/checkbox.png`} alt="checkbox" width="30" height="30"/>
                 Representação
               </li>
               <li className={styles.bullet}>
-                <Image className={styles.checkbox} src={`/home/checkbox.png`} alt="checkbox" width="24" height="24"/>
+                <Image className={styles.checkbox} src={`/home/checkbox.png`} alt="checkbox" width="30" height="30"/>
                 Distribuição (Atacado e Varejo)
+              </li>
+              <li className={styles.bullet}>
+                <Image className={styles.checkbox} src={`/home/checkbox.png`} alt="checkbox" width="30" height="30"/>
+                Serviços de garantia e especializados
               </li>
             </ul>
           </div>
