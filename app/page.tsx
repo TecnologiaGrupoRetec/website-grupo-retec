@@ -107,12 +107,13 @@ export default function Home() {
           <h2 className={styles.title}>Marcas Representadas e Parceiras</h2>
           <div className={styles.row}>
           <Image className={styles.partner} src={`/home/trox.png`} alt="TROX" width="1124" height="292"/>
-          <Image className={styles.partner} src={`/home/armacell.png`} alt="Armacell" width="2233" height="522"/>
-          <Image className={styles.partner} src={`/home/projelmec.png`} alt="projelmec" width="875" height="250"/>
           <Image className={styles.partner} src={`/home/daikin.png`} alt="Daikin" width="1280" height="276"/>
-          <Image className={styles.partner} src={`/home/imi.svg`} alt="IMI" width="1024" height="265"/>
-          <Image className={styles.partner} src={`/home/sicflux.png`} alt="Sicflux" width="400" height="100"/>
           <Image className={styles.partner} src={`/home/evapco.png`} alt="EVAPCO" width="782" height="234"/>
+          <Image className={styles.partner} src={`/home/armacell.png`} alt="Armacell" width="2233" height="522"/>
+          <Image className={styles.partner} src={`/home/armstrong.png`} alt="Armstrong" width="2233" height="522"/>
+          <Image className={styles.partner} src={`/home/imi.svg`} alt="IMI" width="1024" height="265"/>
+          <Image className={styles.partner} src={`/home/projelmec.png`} alt="projelmec" width="875" height="250"/>
+          <Image className={styles.partner} src={`/home/sicflux.png`} alt="Sicflux" width="400" height="100"/>
           </div>
         </div>
       </section>
