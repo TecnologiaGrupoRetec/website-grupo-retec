@@ -7,13 +7,14 @@ import Main from "../components/main";
 import Tag from "../components/tag";
 import Link from "next/link";
 import ArticleCard from "../components/articleCard";
+import Button from "../components/button";
 
 export default function Blog() {
 
   return (
     <div className={styles.page}>
       <Navbar activeTab="blog" />
-      <Main>
+      <Main bgImage="/blog/thumb3.jpg">
         <Tag text="Saúde" />
         <Link className={styles.emphasis} href="/blog/3">
           Como as queimadas afetam a sua saúde, mesmo a quilômetros de distância.
@@ -27,6 +28,9 @@ export default function Blog() {
             26/09/2024
           </span>
         </div>
+        <a href="/blog/3" className={styles.cta}>
+          <Button>Leia mais</Button>
+        </a>
       </Main>
 
       <section className={styles.articles}>
