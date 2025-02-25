@@ -17,11 +17,11 @@ export default function Home() {
       <Navbar activeTab="home" />
       <div className={styles.pannel} />
       <Main
-        title='Especialistas em Soluções Integradas de Climatização e Conforto Térmico e Qualidade do Ar'
+        title='Especialistas em Fornecimento de Soluções Integradas de Climatização e Conforto Térmico e Qualidade do Ar'
         subtitle='Grupo RETEC'
       >
         <a href="/contactForm">
-          <Button>Faça seu Orçamento!</Button>
+          <Button>Entre em contato</Button>
         </a>
       </Main>
 
