@@ -19,7 +19,7 @@ export default function Navbar({ activeTab }: { activeTab: string; }) {
       <header className="App-header">
         <nav className={styles.navbar}>
           <Link href="/">
-            <Image src="/logo-white-no-bg.png" alt="RETEC Logo" width="110" height="39" />
+            <Image src="/logo-since-white-no-bg.svg" alt="RETEC Logo" width="110" height="39" />
           </Link>
           <div className={`${styles.navItemGroup} ${isActive ? styles.active : ''}`}>
             <nav className={styles.navItem}>
