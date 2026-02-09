@@ -14,7 +14,7 @@ export default function Footer ({}) {
               <a className={styles.anchor} href="/sobre">Sobre Nós</a>
               <a className={styles.anchor} href="/blog">Blog</a>
               <a className={styles.anchor} href="https://www.artmosferabrasil.com.br" target="_blank">Ecommerce</a>
-              <a className={styles.anchor} href="/contactForm" target="_blank">Contato</a>
+              <a className={styles.anchor} href="https://wa.me/5561991311283" target="_blank">Contato</a>
             </div>
             <div className={styles.addresses}>
               <div className={styles.column}>

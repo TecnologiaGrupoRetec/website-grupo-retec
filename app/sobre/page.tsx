@@ -56,7 +56,7 @@ export default function Home() {
                 </span>
               </li>
             </ul>
-            <a className={styles.contact} href="/contactForm">
+            <a className={styles.contact} href="https://wa.me/5561991311283">
               Fale com a gente
             </a>
           </div>

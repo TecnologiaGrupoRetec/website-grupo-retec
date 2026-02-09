@@ -21,7 +21,7 @@ export default function Home() {
         subtitle='Grupo RETEC'
         bgImage='/home/new-facade.jpg'
       >
-        <a href="/contactForm">
+        <a href="https://wa.me/5561991311283">
           <Button>Entre em contato</Button>
         </a>
       </Main>

@@ -38,7 +38,7 @@ export default function Navbar({ activeTab }: { activeTab: string; }) {
               <Link className={isTabActive('blog')} href="/blog">Blog</Link>
             </nav>
             <nav className={styles.navItem}>
-              <a className={isTabActive('contact')} href="/contactForm">Contato</a>
+              <a className={isTabActive('contact')} href="https://wa.me/5561991311283">Contato</a>
             </nav>
           </div>
           <div className={`${styles.hamburger} ${isActive ? styles.active : ''}`}  onClick={toggleActiveClass}>
