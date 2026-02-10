@@ -11,7 +11,6 @@ import Main from './components/main';
 
 export default function Home() {
   const [selectedIframe, setSelectedIframe] = useState('bsb');
-
   return (
     <div className={styles.page}>
       <Navbar activeTab="home" />
