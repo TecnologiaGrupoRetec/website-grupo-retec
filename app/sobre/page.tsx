@@ -2,7 +2,7 @@ import styles from "./sobre.module.scss";
 import Navbar from "../components/navbar";
 import Image from "next/image";
 import Footer from '../components/footer';
-import Cta from "../components/cta";
+//import Cta from "../components/cta";
 import Main from "../components/main";
 
 export default function Home() {
