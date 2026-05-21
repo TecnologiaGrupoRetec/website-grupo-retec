@@ -32,7 +32,7 @@ export default function Article() {
                     Patrick Galletti
                   </span>
                   <span className={styles.date}>
-                    26/09/2024
+                    11/05/2026
                   </span>
                 </div>
               </header>

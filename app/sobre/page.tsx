@@ -16,7 +16,7 @@ export default function Home() {
         bgImage="/about/empty-office.jpg"
       >
         <span className={styles.detail}>
-          desde 1982
+          há +40 anos participando da evolução da climatização
         </span>
       </Main>
 
@@ -34,28 +34,8 @@ export default function Home() {
               <br /><br />
               A experiência adquirida ao longo dos anos e a constante busca por parceiros de alto nível, torna o Grupo Retec referência, não só para quem instala, mas também para quem busca soluções ideais aos seus projetos.
               <br /><br />
-              Hoje, com mais de 38 anos de mercado, mantém a liderança na distribuição na área de VAC, com produtos para ar condicionado, difusão de ar, dutos, equipamentos, filtros, isolamentos, ventilação e exaustão, no Distrito Federal e em todo estado de Goiás.
+              Hoje, com mais de 44 anos de mercado, mantém a liderança na distribuição na área de HVAC, com produtos para ar condicionado, difusão de ar, dutos, equipamentos, filtros, isolamentos, ventilação e exaustão, no Distrito Federal e em todo estado de Goiás.
             </p>
-            <ul className={styles.bullets}>
-              <li className={styles.bullet}>
-                <Image className={styles.checkbox} src={`/home/checkbox.png`} alt="checkbox" width="24" height="24"/>
-                <span className={styles.bulletText}>
-                  <b>Missão:</b>&nbsp;Melhorar o mundo e a vida das pessoas através da qualidade do ar.
-                </span>
-              </li>
-              <li className={styles.bullet}>
-                <Image className={styles.checkbox} src={`/home/checkbox.png`} alt="checkbox" width="24" height="24"/>
-                <span className={styles.bulletText}>
-                  <b>Visão:</b>&nbsp;Ser referência no fornecimento de tecnologias térmicas no Brasil.
-                </span>
-              </li>
-              <li className={styles.bullet}>
-                <Image className={styles.checkbox} src={`/home/checkbox.png`} alt="checkbox" width="24" height="24"/>
-                <span className={styles.bulletText}>
-                  <b>Valores:</b>&nbsp;Confiança e Parceria, Qualidade, Servir com Excelência, Integridade e Comprometimento
-                </span>
-              </li>
-            </ul>
             <a className={styles.contact} href="https://wa.me/5561991311283">
               Fale com a gente
             </a>
@@ -67,7 +47,38 @@ export default function Home() {
         </div>
       </section>
 
-      <Cta />
+      <section className={styles.principles}>
+        <div className={styles.principlesContent}>
+          <h2 className={styles.principlesTitle}>
+            Nossos Pilares
+          </h2>
+          <h3 className={styles.principlesSubtitle}>
+            Missão, Visão e Valores
+          </h3>
+          <ul className={styles.bullets}>
+            <li className={styles.bullet}>
+              <Image className={styles.checkbox} src={`/home/checkbox.png`} alt="checkbox" width="24" height="24"/>
+              <span className={styles.bulletText}>
+                <b>Missão:</b>&nbsp;Melhorar o mundo e a vida das pessoas através da qualidade do ar.
+              </span>
+            </li>
+            <li className={styles.bullet}>
+              <Image className={styles.checkbox} src={`/home/checkbox.png`} alt="checkbox" width="24" height="24"/>
+              <span className={styles.bulletText}>
+                <b>Visão:</b>&nbsp;Ser referência no fornecimento de tecnologias térmicas no Brasil.
+              </span>
+            </li>
+            <li className={styles.bullet}>
+              <Image className={styles.checkbox} src={`/home/checkbox.png`} alt="checkbox" width="24" height="24"/>
+              <span className={styles.bulletText}>
+                <b>Valores:</b>&nbsp;Confiança e Parceria, Qualidade, Servir com Excelência, Integridade e Comprometimento
+              </span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      
       <Footer />
     </div>
   );

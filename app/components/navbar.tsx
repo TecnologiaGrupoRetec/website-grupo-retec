@@ -1,53 +1,83 @@
-'use client'
 import Image from "next/image";
-import styles from "./styles/navbar.module.scss";
 import Link from "next/link";
-import { useState } from "react";
 
-export default function Navbar({ activeTab }: { activeTab: string; }) {
-  const [isActive, setIsActive] = useState(false);
-  const toggleActiveClass = () => {
-    setIsActive(!isActive);
-  };
+import styles from "./styles/navbar.module.scss";
 
-  const isTabActive = (tabName: string): string | undefined => {
-    return tabName === activeTab ? styles.active : undefined;
-  }
+type NavbarProps = {
+  activeTab?: string;
+};
+
+export default function Navbar(props: NavbarProps) {
+  void props.activeTab;
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <nav className={styles.navbar}>
-          <Link href="/">
-            <Image src="/logo-since-white-no-bg.svg" alt="RETEC Logo" width="110" height="39" />
+    <header className={styles.navbarSection}>
+      <div className={styles.container}>
+        <div className={styles.navbarShell}>
+          <Link className={styles.logoLink} href="/">
+            <Image
+              src="/logo-since-white-no-bg.svg"
+              alt="Grupo RETEC"
+              width={109}
+              height={38}
+              priority
+            />
           </Link>
-          <div className={`${styles.navItemGroup} ${isActive ? styles.active : ''}`}>
-            <nav className={styles.navItem}>
-              <Link className={isTabActive('home')} href="/">Home</Link>
+
+          <input
+            className={styles.navToggle}
+            id="site-nav-toggle"
+            type="checkbox"
+          />
+          <label className={styles.navToggleButton} htmlFor="site-nav-toggle">
+            <span className={styles.navToggleBar} />
+            <span className={styles.navToggleBar} />
+            <span className={styles.navToggleBar} />
+          </label>
+
+          <div className={styles.navMenu}>
+            <nav className={styles.navLinks} aria-label="Navegacao principal">
+              <Link href="/obras">Obras</Link>
+              <Link href="/sobre">Sobre</Link>
+              <Link href="/blog">Blog</Link>
+              <a href="/#processo">Servicos</a>
+              <details className={styles.navDropdown}>
+                <summary className={styles.navDropdownTrigger}>
+                  Loja Virtual
+                  <span className={styles.navDropdownArrow} aria-hidden="true" />
+                </summary>
+                <div className={styles.navDropdownMenu}>
+                  <a
+                    className={styles.navDropdownItem}
+                    href="https://www.artmosferabrasil.com.br/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    E-commerce
+                  </a>
+                  <a
+                    className={styles.navDropdownItem}
+                    href="https://www.mercadolivre.com.br/pagina/ra20250419195946#from=share_eshop"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Mercado Livre
+                  </a>
+                </div>
+              </details>
             </nav>
-            <nav className={styles.navItem}>
-              <Link className={isTabActive('projects')} href="/obras">Obras</Link>
-            </nav>
-            <nav className={styles.navItem}>
-              <Link className={isTabActive('about')} href="/sobre">Sobre</Link>
-            </nav>
-            <nav className={styles.navItem}>
-              <Link className={isTabActive('ecommerce')} href="https://www.artmosferabrasil.com.br" target="_blank">E-Commerce</Link>
-            </nav>
-            <nav className={styles.navItem}>
-              <Link className={isTabActive('blog')} href="/blog">Blog</Link>
-            </nav>
-            <nav className={styles.navItem}>
-              <a className={isTabActive('contact')} href="https://wa.me/5561991311283">Contato</a>
-            </nav>
+
+            <a
+              className={styles.navCta}
+              href="https://wa.me/5561991311283"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Solicitar Orcamento
+            </a>
           </div>
-          <div className={`${styles.hamburger} ${isActive ? styles.active : ''}`}  onClick={toggleActiveClass}>
-            <span className={`${styles.bar}`}></span>
-            <span className={`${styles.bar}`}></span>
-            <span className={`${styles.bar}`}></span>
-          </div>
-        </nav>
-      </header>
-    </div>
+        </div>
+      </div>
+    </header>
   );
-};
+}

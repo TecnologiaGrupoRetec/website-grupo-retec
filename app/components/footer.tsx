@@ -1,61 +1,119 @@
-import styles from "./styles/footer.module.scss";
 import Image from "next/image";
 
-export default function Footer ({}) {
+import styles from "./styles/footer.module.scss";
+
+const footerGroups = [
+  {
+    title: "Serviços",
+    links: [
+      { label: "Obras", href: "/obras" },
+      { label: "Projetos", href: "/obras" },
+      { label: "Consultoria", href: "/#processo" },
+      { label: "Suporte", href: "/#faq" },
+      { label: "Sobre", href: "/sobre" },
+    ],
+  },
+  {
+    title: "Empresa",
+    links: [
+      { label: "História", href: "/#historia" },
+      { label: "Equipe", href: "/sobre" },
+      { label: "Contato", href: "https://wa.me/5561991311283" },
+      { label: "Blog", href: "/blog" },
+    ],
+  },
+  {
+    title: "Conteúdo",
+    links: [
+      { label: "Artigos", href: "/blog" },
+      { label: "Recursos", href: "/blog" },
+      { label: "Catálogos", href: "https://wa.me/5561991311283" },
+    ],
+  },
+];
+
+const socialLinks = [
+  { href: "https://www.facebook.com/gruporetec", icon: "/social/facebook.png", label: "Facebook" },
+  { href: "https://www.instagram.com/gruporetec/", icon: "/social/instagram.png", label: "Instagram" },
+  { href: "https://www.linkedin.com/company/gruporetec", icon: "/social/linkedin.png", label: "LinkedIn" },
+  { href: "https://www.youtube.com/@GrupoRETEC", icon: "/social/youtube.png", label: "YouTube" },
+];
+
+export default function Footer() {
   return (
     <footer className={styles.footer}>
-      <div className={styles.content}>
-        <Image className={styles.logo} src={`/home/logo.png`} alt="Logo Grupo RETEC" width="273" height="273"/>
-        <div className={styles.info}>
-          <div className={styles.row}>
-            <div className={styles.anchors}>
-              <a className={styles.anchor} href="/produtos">Produtos</a>
-              <a className={styles.anchor} href="/projetos">Projetos</a>
-              <a className={styles.anchor} href="/sobre">Sobre Nós</a>
-              <a className={styles.anchor} href="/blog">Blog</a>
-              <a className={styles.anchor} href="https://www.artmosferabrasil.com.br" target="_blank">Ecommerce</a>
-              <a className={styles.anchor} href="https://wa.me/5561991311283" target="_blank">Contato</a>
-            </div>
-            <div className={styles.addresses}>
-              <div className={styles.column}>
-                <span><b>Brasília</b></span>
-                <p>
-                  SIA Trecho 17 Rua<br/>17 Nº 1380<br/>
-                  CEP: 71.200-249<br/><br/>
-                  (61) 3363-7310
-                </p>
+      <div className={styles.container}>
+        <div className={styles.footerCard}>
+          <div className={styles.footerTop}>
+            <div className={styles.footerBrand}>
+              <div className={styles.footerLogoBadge}>
+                <Image
+                  src="/logo-since-blue.svg"
+                  alt="Grupo RETEC"
+                  width={109}
+                  height={38}
+                />
               </div>
-              <div className={styles.column}>
-                <span><b>Goiânia</b></span>
-                <p>
-                  Av. Caiapó, 452 -<br/>St. Genoveva<br/>
-                  CEP: 74672-400<br/><br/>
-                  (62) 3204-6782
-                </p>
+            </div>
+
+            {footerGroups.map((group) => (
+              <div className={styles.footerColumn} key={group.title}>
+                <h3 className={styles.footerColumnTitle}>{group.title}</h3>
+                <div className={styles.footerLinks}>
+                  {group.links.map((link) => (
+                    <a href={link.href} key={link.label}>
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+
+            <div className={styles.footerColumn}>
+              <h3 className={styles.footerColumnTitle}>Goiânia</h3>
+              <div className={styles.footerAddress}>
+                <p>Av. Caiapó, 452 - St. Genoveva</p>
+                <p>CEP: 74672-400</p>
+                <p>(62) 3204-6782</p>
+                <p>8h às 18h</p>
+              </div>
+            </div>
+
+            <div className={styles.footerColumn}>
+              <h3 className={styles.footerColumnTitle}>Brasília</h3>
+              <div className={styles.footerAddress}>
+                <p>SIA Trecho 17 Rua 17 Nº 1380</p>
+                <p>CEP: 71.200-249</p>
+                <p>(61) 3363-7310</p>
+                <p>8h às 18h</p>
               </div>
             </div>
           </div>
-          <div className={styles.row}>
-            <p>Horário de Funcionamento: Segunda à sexta 08:00 - 18:00</p>
-            <div className={styles.social}>
-              <a href="https://www.instagram.com/gruporetec/" target="_blank">
-                <Image src={`/social/instagram.png`} alt="Instagram" width="29" height="29"/>
-              </a>
-              <a href="https://www.linkedin.com/company/gruporetec" target="_blank">
-                <Image src={`/social/linkedin.png`} alt="Linkedin" width="29" height="29"/>
-              </a>
-              <a href="https://www.facebook.com/gruporetec" target="_blank">
-                <Image src={`/social/facebook.png`} alt="Facebook" width="29" height="29"/>
-              </a>
-              <a href="https://www.youtube.com/@GrupoRETEC" target="_blank">
-                <Image src={`/social/youtube.png`} alt="YouTube" width="29" height="29"/>
-              </a>
+
+          <div className={styles.footerBottom}>
+            <div className={styles.footerCredits}>
+              <p>© 2026 Grupo RETEC. Todos os direitos reservados.</p>
+              <a href="/#faq">Política de privacidade</a>
+              <a href="/#faq">Termos de serviço</a>
+              <a href="/#faq">Configurações de cookies</a>
+            </div>
+
+            <div className={styles.socialRow}>
+              {socialLinks.map((social) => (
+                <a
+                  className={styles.socialIcon}
+                  href={social.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={social.label}
+                  key={social.label}
+                >
+                  <Image src={social.icon} alt="" width={18} height={18} />
+                </a>
+              ))}
             </div>
           </div>
         </div>
-      </div>
-      <div className={styles.copyright}>
-        <p>© 2024 Grupo Retec | Por <a className={styles.detail} href="https://www.instagram.com/mdab.agencia/" target="_blank">MDAB</a></p>
       </div>
     </footer>
   );
