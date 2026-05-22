@@ -16,7 +16,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  background-color: $surface;
+  background-color: $white;
 
   .content {
     max-width: 1440px;
@@ -123,4 +123,59 @@
     }
 
   }
+}
+
+.principles {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #0f2854;
+}
+
+.principlesContent {
+  max-width: 1440px;
+  width: 100%;
+  padding: 65px 165px;
+
+  @media (max-width: 1075px) {
+    padding: 9%;
+  }
+}
+
+.principlesTitle {
+  font-size: 16px;
+  color: $secondary;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.principlesSubtitle {
+  font-size: 32px;
+  color: $white;
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+
+.bullets {
+  color: $secondary;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bullet {
+  display: flex;
+  align-items: flex-start;
+}
+
+.checkbox {
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.bulletText {
+  padding-top: 4px;
+  line-height: 1.4;
 }
