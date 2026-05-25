@@ -261,11 +261,19 @@
   overflow: hidden;
   padding: 160px 0 112px;
   position: relative;
+  
+  // Premium wipe reveal animation from left to right
+  clip-path: inset(0 100% 0 0);
+  animation: heroReveal 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .heroImage {
   object-fit: cover;
   object-position: center bottom;
+  
+  // Subtle scale-down animation
+  transform: scale(1.1);
+  animation: heroImageScale 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .heroOverlay {
@@ -282,6 +290,11 @@
   max-width: 768px;
   position: relative;
   z-index: 1;
+
+  // Fluid slide-in animation from left to right
+  opacity: 0;
+  transform: translateX(-40px);
+  animation: heroContentSlide 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
 }
 
 .heroCopy {
@@ -302,10 +315,58 @@
   max-width: 620px;
 }
 
+.typewriterContainer {
+  display: inline-block;
+  color: #7ab3ef; // Vibrant light blue accent color for premium contrast
+  font-weight: 500;
+}
+
+.typewriterCursor {
+  border-right: 2px solid currentColor;
+  animation: typewriterBlink 0.75s step-end infinite;
+  margin-left: 2px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@keyframes typewriterBlink {
+  from, to { border-color: transparent }
+  50% { border-color: currentColor }
+}
+
 .heroActions {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+}
+
+@keyframes heroReveal {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes heroImageScale {
+  0% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes heroContentSlide {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .primaryButton,
@@ -531,6 +592,22 @@
   gap: 18px;
   min-height: 230px;
   padding: 28px 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: 
+    transform 400ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 400ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 400ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: var(--blue);
+
+    .processIcon {
+      background: rgba(28, 77, 141, 0.15);
+      transform: scale(1.08);
+    }
+  }
 }
 
 .processCardHead {
@@ -549,6 +626,9 @@
   justify-content: center;
   padding: 14px;
   width: 56px;
+  transition: 
+    background-color 400ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
 
   img {
     height: auto;
@@ -599,6 +679,22 @@
   gap: 14px;
   min-height: 190px;
   padding: 24px;
+  box-shadow: 0 4px 12px rgba(15, 40, 84, 0.04);
+  transition: 
+    transform 400ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 400ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-top-color 400ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 36px rgba(15, 40, 84, 0.12);
+    border-top-color: var(--blue);
+
+    .highlightIcon {
+      background: rgba(28, 77, 141, 0.15);
+      transform: scale(1.08);
+    }
+  }
 }
 
 .highlightCardHead {
@@ -626,6 +722,9 @@
   justify-content: center;
   padding: 12px;
   width: 56px;
+  transition: 
+    background-color 400ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
 
   img {
     height: auto;

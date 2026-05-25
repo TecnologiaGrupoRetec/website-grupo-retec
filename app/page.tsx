@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
+import Typewriter from "./components/typewriter";
 import styles from "./index.module.scss";
 
 const timelineItems = [
@@ -23,7 +24,7 @@ const timelineItems = [
     year: "2021 a 2024",
     description:
       "Em busca de melhores condições de atendimento técnico e comercial, iniciamos a transição estratégica para o SIA.",
-    image: "/home/new-facade.jpg",
+    image: "/home/new-facade.webp",
     alt: "Fachada da RETEC no SIA",
   },
   {
@@ -177,7 +178,7 @@ const faqs = [
   {
     question: "Consigo comprar online Grupo RETEC?",
     answer:
-    "Sim! O Grupo RETEC conta com duas opções de compra online: nosso e-commerce oficial, Artmosfera Brasil, e também nossa loja no Mercado Livre. Assim, você pode escolher o canal que preferir para comprar com praticidade e segurança.", 
+      "Sim! O Grupo RETEC conta com duas opções de compra online: nosso e-commerce oficial, Artmosfera Brasil, e também nossa loja no Mercado Livre. Assim, você pode escolher o canal que preferir para comprar com praticidade e segurança.",
   },
 ];
 
@@ -185,7 +186,7 @@ const locations = [
   {
     city: "Brasília",
     subtitle: "Showroom e matriz no coração do Brasil",
-    image: "/home/new-facade.jpg",
+    image: "/home/new-facade.webp",
     alt: "Fachada da unidade Brasília",
     href: "https://www.google.com/maps/search/?api=1&query=SIA+Trecho+17+Rua+17+N%C2%BA+1380+Bras%C3%ADlia",
   },
@@ -207,7 +208,7 @@ export default function Home() {
         <section className={styles.hero}>
           <Image
             className={styles.heroImage}
-            src="/home/new-facade.jpg"
+            src="/home/new-facade.webp"
             alt="Showroom Grupo RETEC"
             fill
             priority
@@ -223,7 +224,8 @@ export default function Home() {
                   climatização que funcionam | HVAC.
                 </h1>
                 <p className={styles.heroText}>
-                  Climatização inteligente para ambientes que respiram conforto
+                  Climatização inteligente para ambientes que respiram{" "}
+                  <Typewriter words={["conforto", "eficiência", "qualidade", "controle"]} />
                 </p>
               </div>
 
@@ -292,8 +294,8 @@ export default function Home() {
 
             <div className={styles.brandSliderSection}>
               <div className={styles.brandSliderIntro}>
-                <p className={styles.eyebrow}>Representadas</p>
-                <h3 className={styles.brandSliderTitle}>Marcas das quais a RETEC é representante</h3>
+                <p className={styles.eyebrow}>Marcas</p>
+                <h3 className={styles.brandSliderTitle}>Marcas das quais a RETEC é representante & parceiras</h3>
               </div>
 
               <div className={styles.brandMarquee}>

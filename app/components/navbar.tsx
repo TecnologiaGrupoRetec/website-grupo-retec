@@ -37,10 +37,10 @@ export default function Navbar(props: NavbarProps) {
 
           <div className={styles.navMenu}>
             <nav className={styles.navLinks} aria-label="Navegacao principal">
-              <Link href="/obras">Obras</Link>
               <Link href="/sobre">Sobre</Link>
+              <Link href="/obras">Obras</Link>
               <Link href="/blog">Blog</Link>
-              <a href="/#processo">Servicos</a>
+              <a href="/#processo">Serviços</a>
               <details className={styles.navDropdown}>
                 <summary className={styles.navDropdownTrigger}>
                   Loja Virtual

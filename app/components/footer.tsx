@@ -33,10 +33,10 @@ const footerGroups = [
 ];
 
 const socialLinks = [
-  { href: "https://www.facebook.com/gruporetec", icon: "/social/facebook.png", label: "Facebook" },
-  { href: "https://www.instagram.com/gruporetec/", icon: "/social/instagram.png", label: "Instagram" },
-  { href: "https://www.linkedin.com/company/gruporetec", icon: "/social/linkedin.png", label: "LinkedIn" },
-  { href: "https://www.youtube.com/@GrupoRETEC", icon: "/social/youtube.png", label: "YouTube" },
+  { href: "https://www.facebook.com/gruporetec", icon: "/social/logo-facebook.svg", label: "Facebook" },
+  { href: "https://www.instagram.com/gruporetec/", icon: "/social/logo-instagram.svg", label: "Instagram" },
+  { href: "https://www.linkedin.com/company/gruporetec", icon: "/social/logo-linkedin.svg", label: "LinkedIn" },
+  { href: "https://www.youtube.com/@GrupoRETEC", icon: "/social/logo-youtube.svg", label: "YouTube" },
 ];
 
 export default function Footer() {
