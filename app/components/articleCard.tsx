@@ -17,19 +17,47 @@ export default function ArticleCard ({
   author: string;
   path: string;
 }) {
+  const avatarSrc = author === "Patrick Galletti" ? "/blog/patrick.png" : "/blog/patrick.png";
+
   return (
-    <Link href={`/blog/${path}`}>
+    <Link href={`/blog/${path}`} className={styles.cardLink}>
       <div className={styles.card}>
-        <Image className={styles.img} src={imgSrc} alt={imgAlt} width="360" height="240"/>
-        <h3 className={styles.title}>
-          { title }
-        </h3>
-        <p className={styles.lead}>
-          { lead }
-        </p>
-        <span className={styles.author}>
-          { author }
-        </span>
+        <div className={styles.cardHeader}>
+          <Image 
+            className={styles.img} 
+            src={imgSrc} 
+            alt={imgAlt} 
+            width={360} 
+            height={240}
+            style={{ objectFit: 'cover' }}
+          />
+        </div>
+        <div className={styles.cardBody}>
+          <h3 className={styles.title}>
+            { title }
+          </h3>
+          <p className={styles.lead}>
+            { lead }
+          </p>
+        </div>
+        <div className={styles.cardFooter}>
+          <div className={styles.authorArea}>
+            <div className={styles.avatarWrapper}>
+              <Image 
+                className={styles.avatar} 
+                src={avatarSrc} 
+                alt={author} 
+                width={32} 
+                height={32} 
+              />
+              <span className={styles.tooltip}>{author}</span>
+            </div>
+            <span className={styles.authorName}>{author}</span>
+          </div>
+          <span className={styles.readMore}>
+            Ler mais <span className={styles.arrow}>→</span>
+          </span>
+        </div>
       </div>
     </Link>
   );

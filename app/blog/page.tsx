@@ -2,9 +2,7 @@ import styles from "./blog.module.scss";
 import Navbar from "../components/navbar";
 import Image from "next/image";
 import Footer from '../components/footer';
-import Cta from "../components/cta";
 import Main from "../components/main";
-import Tag from "../components/tag";
 import Link from "next/link";
 import ArticleCard from "../components/articleCard";
 import Button from "../components/button";
@@ -14,8 +12,7 @@ export default function Blog() {
   return (
     <div className={styles.page}>
       <Navbar activeTab="blog" />
-      <Main bgImage="/blog/thumb3.jpg">
-        <Tag text="Saúde" />
+      <Main bgImage="/blog/thumb3.jpg" className={styles.blogHero}>
         <Link className={styles.emphasis} href="/blog/3">
           Como as queimadas afetam a sua saúde, mesmo a quilômetros de distância.
         </Link>
@@ -35,7 +32,7 @@ export default function Blog() {
 
       <section className={styles.articles}>
         <div className={styles.content}>
-          <ArticleCard 
+          <ArticleCard
             imgSrc="/blog/thumb1.jpg"
             imgAlt="Sala de Aula"
             title="Climatização nas escolas."
@@ -43,7 +40,7 @@ export default function Blog() {
             author="Patrick Galletti"
             path="climatizao-nas-escolas"
           />
-          <ArticleCard 
+          <ArticleCard
             imgSrc="/blog/thumb2.jpg"
             imgAlt="Ambiente de Trabalho"
             title="Climatização no ambiente de trabalho."
@@ -51,7 +48,7 @@ export default function Blog() {
             author="Patrick Galletti"
             path="climatizacao-dentro-do-ambiente-trabalho"
           />
-          <ArticleCard 
+          <ArticleCard
             imgSrc="/blog/thumb3.jpg"
             imgAlt="Queimadas"
             title="Queimadas e Saúde."
@@ -59,7 +56,7 @@ export default function Blog() {
             author="Patrick Galletti"
             path="queimadas-afetam-saude-a-distancia"
           />
-          <ArticleCard 
+          <ArticleCard
             imgSrc="/blog/climatizacao-inteligente.png"
             imgAlt="Queimadas"
             title="Filtragem e renovação de ar em períodos de queimadas: o que muda nos ambientes internos."
@@ -67,7 +64,7 @@ export default function Blog() {
             author="Patrick Galletti"
             path="filtragem-renovacao-ar-queimadas"
           />
-          <ArticleCard 
+          <ArticleCard
             imgSrc="/blog/climatizacao-inteligente.png"
             imgAlt="Queimadas"
             title="Fumaça das queimadas longe dos focos: como conter o impacto em ambientes internos"
@@ -75,7 +72,7 @@ export default function Blog() {
             author="Patrick Galletti"
             path="fumaca-queimadas-longe-focos-ambientes-internos"
           />
-          <ArticleCard 
+          <ArticleCard
             imgSrc="/blog/climatizacao-inteligente.png"
             imgAlt="Queimadas"
             title="Climatização para calor extremo e ar seco: o que precisa estar correto em projetos no Centro-Oeste"
@@ -83,7 +80,7 @@ export default function Blog() {
             author="Patrick Galletti"
             path="climatizacao-calor-extremo-ar-seco-centro-oeste"
           />
-          <ArticleCard 
+          <ArticleCard
             imgSrc="/blog/climatizacao-inteligente.png"
             imgAlt="Queimadas"
             title="Temperatura, umidade e qualidade do ar: o que define um quarto bem climatizado para dormir"
@@ -91,7 +88,7 @@ export default function Blog() {
             author="Patrick Galletti"
             path="temperatura-umidade-qualidade-ar-sono"
           />
-          <ArticleCard 
+          <ArticleCard
             imgSrc="/blog/climatizacao-inteligente.png"
             imgAlt="Queimadas"
             title="Climatização sustentável: o que muda com novos refrigerantes, automação e eficiência energética"
@@ -99,7 +96,7 @@ export default function Blog() {
             author="Patrick Galletti"
             path="climatizacao-calor-extremo-ar-seco-centro-oeste"
           />
-          <ArticleCard 
+          <ArticleCard
             imgSrc="/blog/climatizacao-inteligente.png"
             imgAlt="Queimadas"
             title="Clima seco e climatização: como preservar a saúde respiratória"
@@ -107,7 +104,7 @@ export default function Blog() {
             author="Patrick Galletti"
             path="clima-seco-climatizacao-saude-respiratoria"
           />
-          <ArticleCard 
+          <ArticleCard
             imgSrc="/blog/climatizacao-inteligente.png"
             imgAlt="Queimadas"
             title="Climatização e produtividade: o que muda quando o ambiente de trabalho funciona bem"
@@ -115,7 +112,7 @@ export default function Blog() {
             author="Patrick Galletti"
             path="climatizacao-produtividade-ambiente-trabalho"
           />
-          <ArticleCard 
+          <ArticleCard
             imgSrc="/blog/climatizacao-inteligente.png"
             imgAlt="Queimadas"
             title="Doenças respiratórias no DF e o papel da climatização inteligente nos ambientes internos"
@@ -123,7 +120,7 @@ export default function Blog() {
             author="Patrick Galletti"
             path="doencas-respiratorias-df-climatizacao-inteligente"
           />
-          <ArticleCard 
+          <ArticleCard
             imgSrc="/blog/climatizacao-inteligente.png"
             imgAlt="Queimadas"
             title="Climatização inteligente valoriza imóveis em até 30% e acelera a velocidade de venda"
@@ -133,8 +130,6 @@ export default function Blog() {
           />
         </div>
       </section>
-
-      <Cta />
       <Footer />
     </div>
   );
