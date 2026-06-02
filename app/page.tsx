@@ -1,5 +1,4 @@
 import Image from "next/image";
-
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
 import Typewriter from "./components/typewriter";
@@ -475,7 +474,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-
       <Footer />
     </div>
   );

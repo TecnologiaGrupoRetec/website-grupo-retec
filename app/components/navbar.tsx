@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,9 +12,26 @@ type NavbarProps = {
 
 export default function Navbar(props: NavbarProps) {
   void props.activeTab;
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    // Check on mount (in case the user starts page refreshed while scrolled)
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className={styles.navbarSection}>
+    <header className={`${styles.navbarSection} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.container}>
         <div className={styles.navbarShell}>
           <Link className={styles.logoLink} href="/">
