@@ -4,43 +4,6 @@ import Navbar from "./components/navbar";
 import Typewriter from "./components/typewriter";
 import styles from "./index.module.scss";
 
-const timelineItems = [
-  {
-    year: "1982",
-    description:
-      "Fundada em 1982, a RETEC nasceu com o objetivo de ser referência em climatização para construções de médio e grande porte.",
-    image: "/about/about1.jpeg",
-    alt: "Primeira sede do Grupo RETEC",
-  },
-  {
-    year: "2000",
-    description:
-      "Com o crescimento da empresa e a ampliação do portfólio de clientes, demos um passo importante com a mudança para o SAAN.",
-    image: "/about/about2.jpg",
-    alt: "Momento de expansão da RETEC",
-  },
-  {
-    year: "2021 a 2024",
-    description:
-      "Em busca de melhores condições de atendimento técnico e comercial, iniciamos a transição estratégica para o SIA.",
-    image: "/home/new-facade.webp",
-    alt: "Fachada da RETEC no SIA",
-  },
-  {
-    year: "2024",
-    description:
-      "Inauguramos o showroom no SIA para proporcionar uma experiência mais completa aos nossos clientes e parceiros.",
-    image: "/about/empty-office.jpg",
-    alt: "Showroom da RETEC",
-  },
-  {
-    year: "Hoje",
-    description:
-      "Seguimos evoluindo nossa operação com foco em soluções térmicas, atendimento consultivo e suporte técnico de ponta a ponta.",
-    image: "/about/office-inside.jpg",
-    alt: "Atuação atual do Grupo RETEC",
-  },
-];
 
 const representativeBrands = [
   { src: "/home/empresas_representantes/armacell.png", alt: "Armacell" },
@@ -237,7 +200,7 @@ export default function Home() {
                 >
                   Contato
                 </a>
-                <a className={styles.secondaryButton} href="#historia">
+                <a className={styles.secondaryButton} href="#processo">
                   Explorar
                 </a>
               </div>
@@ -245,52 +208,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section className={styles.section} id="historia">
+        <section className={styles.section} id="marcas">
           <div className={styles.container}>
-            <div className={styles.sectionIntro}>
-              <p className={styles.eyebrow}>Origem</p>
-              <h2 className={styles.sectionTitle}>Quatro décadas construindo confiança</h2>
-              <p className={styles.sectionText}>
-                Desde 1982, o Grupo RETEC trabalha com a mesma determinação de quem
-                entende que cada projeto é um compromisso. Evoluímos em estrutura, mas
-                preservamos o princípio que nos trouxe até aqui: entregar o que se promete.
-              </p>
-            </div>
-
-            <div className={styles.timelineGrid}>
-              {timelineItems.map((item) => (
-                <article className={styles.timelineItem} key={item.year}>
-                  <div className={styles.timelineMedia}>
-                    <Image
-                      src={item.image}
-                      alt={item.alt}
-                      fill
-                      sizes="(max-width: 1100px) 100vw, 180px"
-                    />
-                  </div>
-
-                  <div className={styles.progress}>
-                    <span className={styles.dot} aria-hidden="true" />
-                    <span className={styles.progressLine} aria-hidden="true" />
-                  </div>
-
-                  <div className={styles.timelineCopy}>
-                    <h3 className={styles.timelineYear}>{item.year}</h3>
-                    <p className={styles.timelineDescription}>{item.description}</p>
-                  </div>
-                </article>
-              ))}
-
-              <div className={styles.timelineRail} aria-hidden="true">
-                <Image
-                  src="/home/progressLine.png"
-                  alt=""
-                  width={1413}
-                  height={15}
-                />
-              </div>
-            </div>
-
             <div className={styles.brandSliderSection}>
               <div className={styles.brandSliderIntro}>
                 <p className={styles.eyebrow}>Marcas</p>
