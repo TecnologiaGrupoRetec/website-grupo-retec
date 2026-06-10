@@ -31,10 +31,20 @@ export default function Navbar(props: NavbarProps) {
   }, []);
 
   return (
-    <header className={`${styles.navbarSection} ${scrolled ? styles.scrolled : ""}`}>
-      <div className={styles.container}>
-        <div className={styles.navbarShell}>
-          <Link className={styles.logoLink} href="/">
+    <>
+      <div className={styles.topTicker}>
+        <div className={styles.tickerTrack}>
+          {Array(8).fill("Líder em fornecimento de produtos HVAC no Centro-Oeste").map((text, i) => (
+            <span key={i} className={styles.tickerText}>
+              {text}
+            </span>
+          ))}
+        </div>
+      </div>
+      <header className={`${styles.navbarSection} ${scrolled ? styles.scrolled : ""}`}>
+        <div className={styles.container}>
+          <div className={styles.navbarShell}>
+            <Link className={styles.logoLink} href="/">
             <Image
               src="/logo-since-white-no-bg.svg"
               alt="Grupo RETEC"
@@ -100,5 +110,6 @@ export default function Navbar(props: NavbarProps) {
         </div>
       </div>
     </header>
+    </>
   );
 }
