@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
-import Typewriter from "./components/typewriter";
+import HeroCarousel from "./components/heroCarousel";
 import styles from "./index.module.scss";
 
 
@@ -167,46 +167,7 @@ export default function Home() {
       <Navbar />
 
       <main>
-        <section className={styles.hero}>
-          <Image
-            className={styles.heroImage}
-            src="/home/new-facade.webp"
-            alt="Showroom Grupo RETEC"
-            fill
-            priority
-            sizes="100vw"
-          />
-          <div className={styles.heroOverlay} />
-
-          <div className={styles.container}>
-            <div className={styles.heroContent}>
-              <div className={styles.heroCopy}>
-                <h1 className={styles.heroTitle}>
-                  Especialistas em qualidade do ar e conforto térmico. Criando soluções de
-                  climatização que funcionam | HVAC.
-                </h1>
-                <p className={styles.heroText}>
-                  Climatização inteligente para ambientes que respiram{" "}
-                  <Typewriter words={["conforto", "eficiência", "qualidade", "controle"]} />
-                </p>
-              </div>
-
-              <div className={styles.heroActions}>
-                <a
-                  className={styles.primaryButton}
-                  href="https://wa.me/5561991311283"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Contato
-                </a>
-                <a className={styles.secondaryButton} href="#processo">
-                  Explorar
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
+        <HeroCarousel />
 
         <section className={styles.section} id="marcas">
           <div className={styles.container}>

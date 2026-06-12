@@ -254,26 +254,49 @@
   border-radius: 20px;
 }
 
-.hero {
-  align-items: center;
-  display: flex;
+.heroCarousel {
+  position: relative;
+  width: 100%;
   min-height: 100svh;
   overflow: hidden;
-  padding: 160px 0 112px;
-  position: relative;
+  background-color: #071226;
+}
 
-  // Premium wipe reveal animation from left to right
-  clip-path: inset(0 100% 0 0);
-  animation: heroReveal 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.carouselSlide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), visibility 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  padding: 160px 0 112px;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+
+    .heroImage {
+      animation: kenBurns 7s ease-out forwards;
+    }
+
+    .heroContent {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 
 .heroImage {
   object-fit: cover;
   object-position: center bottom;
-
-  // Subtle scale-down animation
-  transform: scale(1.1);
-  animation: heroImageScale 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform: scale(1.08);
+  will-change: transform;
 }
 
 .heroOverlay {
@@ -290,11 +313,11 @@
   max-width: 768px;
   position: relative;
   z-index: 1;
-
-  // Fluid slide-in animation from left to right
   opacity: 0;
-  transform: translateX(-40px);
-  animation: heroContentSlide 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
+  transform: translateY(24px);
+  transition: 
+    opacity 1s cubic-bezier(0.25, 1, 0.5, 1) 0.3s, 
+    transform 1s cubic-bezier(0.25, 1, 0.5, 1) 0.3s;
 }
 
 .heroCopy {
@@ -303,10 +326,10 @@
 }
 
 .heroTitle {
-  font-size: clamp(2.75rem, 5vw, 3.5rem);
+  font-size: clamp(2.5rem, 4.5vw, 3.5rem);
   font-weight: 700;
   letter-spacing: -0.04em;
-  line-height: 1.08;
+  line-height: 1.1;
 }
 
 .heroText {
@@ -315,67 +338,96 @@
   max-width: 620px;
 }
 
-.typewriterContainer {
-  display: inline-block;
-  color: #7ab3ef; // Vibrant light blue accent color for premium contrast
-  font-weight: 500;
-}
-
-.typewriterCursor {
-  border-right: 2px solid currentColor;
-  animation: typewriterBlink 0.75s step-end infinite;
-  margin-left: 2px;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-@keyframes typewriterBlink {
-
-  from,
-  to {
-    border-color: transparent
-  }
-
-  50% {
-    border-color: currentColor
-  }
-}
-
-.heroActions {
+.carouselDots {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+  gap: 12px;
+  z-index: 10;
 }
 
-@keyframes heroReveal {
-  0% {
-    clip-path: inset(0 100% 0 0);
+.carouselDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 300ms ease, transform 300ms ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.75);
+    transform: scale(1.15);
   }
 
-  100% {
-    clip-path: inset(0 0 0 0);
+  &.activeDot {
+    background: #ffffff;
+    transform: scale(1.25);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
   }
 }
 
-@keyframes heroImageScale {
-  0% {
-    transform: scale(1.1);
+.carouselArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(15, 40, 84, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 300ms, transform 300ms, opacity 300ms;
+  opacity: 0;
+  z-index: 10;
+  font-size: 18px;
+  user-select: none;
+
+  &:hover {
+    background: rgba(15, 40, 84, 0.65);
+    transform: translateY(-50%) scale(1.06);
   }
 
-  100% {
-    transform: scale(1);
+  &.prevArrow {
+    left: 40px;
+  }
+
+  &.nextArrow {
+    right: 40px;
   }
 }
 
-@keyframes heroContentSlide {
-  0% {
-    opacity: 0;
-    transform: translateX(-40px);
-  }
-
-  100% {
+.heroCarousel:hover {
+  .carouselArrow {
     opacity: 1;
-    transform: translateX(0);
+  }
+}
+
+@keyframes kenBurns {
+  0% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1.01);
+  }
+}
+
+@media (max-width: 768px) {
+  .carouselArrow {
+    display: none;
+  }
+  
+  .carouselDots {
+    bottom: 24px;
   }
 }
 
