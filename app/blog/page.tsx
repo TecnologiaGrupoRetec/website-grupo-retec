@@ -12,7 +12,7 @@ export default function Blog() {
   return (
     <div className={styles.page}>
       <Navbar activeTab="blog" />
-      <Main bgImage="/blog/thumb3.jpg" className={styles.blogHero}>
+      <Main bgImage="/blog/foto-periodo-queimadas.webp" className={styles.blogHero}>
         <Link className={styles.emphasis} href="/blog/3">
           Como as queimadas afetam a sua saúde, mesmo a quilômetros de distância.
         </Link>
