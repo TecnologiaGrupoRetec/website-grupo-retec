@@ -27,7 +27,7 @@ export default function Article() {
                   Temperatura, umidade e qualidade do ar: o que define um quarto bem climatizado para dormir
                 </h1>
                 <div className={styles.articleDetails}>
-                  <Image className={styles.authorImg} src="/blog/patrick.png" alt="Patrick Galletti" width="28" height="28" />
+                  <Image className={styles.authorImg} src="/blog/sistema-climatizacao-daikin.webp" alt="Sistema Climatização Daikin" width="28" height="28" />
                   <span className={styles.authorName}>
                     Patrick Galletti
                   </span>
@@ -38,46 +38,46 @@ export default function Article() {
               </header>
               <Image className={styles.img} src="/blog/thumb3.jpg" alt="Bombeiro em Queimada" width="800" height="462" />
               <p className={styles.text}>
-                O sono reparador depende do ambiente em que o corpo descansa. Um estudo publicado no Journal of Physiological Anthropology aponta a faixa entre 16 °C e 20 °C como referência para temperatura ambiente durante o sono, com impacto direto nas fases mais profundas do ciclo. Fora desse intervalo, o organismo trabalha para compensar a variação térmica, o que reduz a eficiência do descanso. Quando o assunto é climatização do quarto, a temperatura é o ponto de partida, mas não o único. 
+                O sono reparador depende do ambiente em que o corpo descansa. Um estudo publicado no Journal of Physiological Anthropology aponta a faixa entre 16 °C e 20 °C como referência para temperatura ambiente durante o sono, com impacto direto nas fases mais profundas do ciclo. Fora desse intervalo, o organismo trabalha para compensar a variação térmica, o que reduz a eficiência do descanso. Quando o assunto é climatização do quarto, a temperatura é o ponto de partida, mas não o único.
               </p>
               <h3 className={styles.subtitle}>
-                Temperatura e ciclos do sono  
+                Temperatura e ciclos do sono
               </h3>
               <p className={styles.text}>
-                A temperatura corporal cai naturalmente nas horas que antecedem o sono. Esse mecanismo fisiológico sinaliza ao organismo que é hora de descansar. Em ambientes muito quentes, o corpo precisa transpirar para regular a temperatura interna, o que provoca despertares frequentes. Em ambientes excessivamente frios, há gasto energético adicional para manter o aquecimento corporal, o que reduz o relaxamento. 
+                A temperatura corporal cai naturalmente nas horas que antecedem o sono. Esse mecanismo fisiológico sinaliza ao organismo que é hora de descansar. Em ambientes muito quentes, o corpo precisa transpirar para regular a temperatura interna, o que provoca despertares frequentes. Em ambientes excessivamente frios, há gasto energético adicional para manter o aquecimento corporal, o que reduz o relaxamento.
               </p>
               <p className={styles.text}>
-                Em residências, o ajuste do ar-condicionado para a faixa adequada precisa considerar o tamanho do quarto, a ocupação, a presença de eletrônicos em uso noturno e o isolamento térmico das paredes e janelas. Aparelhos com modo silencioso e função sleep ajudam a manter o ambiente em temperatura estável sem desconforto sonoro.  
+                Em residências, o ajuste do ar-condicionado para a faixa adequada precisa considerar o tamanho do quarto, a ocupação, a presença de eletrônicos em uso noturno e o isolamento térmico das paredes e janelas. Aparelhos com modo silencioso e função sleep ajudam a manter o ambiente em temperatura estável sem desconforto sonoro.
               </p>
               <h3 className={styles.subtitle}>
-                Umidade relativa e conforto respiratório   
+                Umidade relativa e conforto respiratório
               </h3>
               <p className={styles.text}>
-                Em regiões como o Centro-Oeste, a umidade relativa cai a níveis muito baixos durante a estação seca. Em quartos climatizados, o ar-condicionado tende a reduzir ainda mais essa umidade, intensificando o ressecamento das vias aéreas. Patrick Galletti, engenheiro de climatização e CEO do Grupo RETEC, lembra que a climatização do ambiente exige atenção combinada a temperatura, umidade e renovação do ar.  
+                Em regiões como o Centro-Oeste, a umidade relativa cai a níveis muito baixos durante a estação seca. Em quartos climatizados, o ar-condicionado tende a reduzir ainda mais essa umidade, intensificando o ressecamento das vias aéreas. Patrick Galletti, engenheiro de climatização e CEO do Grupo RETEC, lembra que a climatização do ambiente exige atenção combinada a temperatura, umidade e renovação do ar.
               </p>
               <p className={styles.text}>
-                A faixa de umidade relativa recomendada pela OMS para ambientes internos fica entre 40% e 70%. Em condições muito secas, o uso de umidificadores em quartos ou de sistemas de climatização com controle de umidade torna o ambiente compatível com um sono confortável e protege as vias respiratórias durante a noite.   
+                A faixa de umidade relativa recomendada pela OMS para ambientes internos fica entre 40% e 70%. Em condições muito secas, o uso de umidificadores em quartos ou de sistemas de climatização com controle de umidade torna o ambiente compatível com um sono confortável e protege as vias respiratórias durante a noite.
               </p>
               <h3 className={styles.subtitle}>
-                Qualidade do ar no quarto   
+                Qualidade do ar no quarto
               </h3>
               <p className={styles.text}>
-                A renovação do ar e a filtragem têm efeito direto sobre a sensação ao acordar. Em quartos com baixa renovação, o nível de dióxido de carbono se eleva ao longo da noite, contribuindo para a sensação de cansaço pela manhã mesmo após oito horas de sono. Em ambientes urbanos, particulado fino e poluentes externos também afetam o ar interno quando a vedação é deficiente ou quando o sistema de climatização não inclui filtragem adequada.  
+                A renovação do ar e a filtragem têm efeito direto sobre a sensação ao acordar. Em quartos com baixa renovação, o nível de dióxido de carbono se eleva ao longo da noite, contribuindo para a sensação de cansaço pela manhã mesmo após oito horas de sono. Em ambientes urbanos, particulado fino e poluentes externos também afetam o ar interno quando a vedação é deficiente ou quando o sistema de climatização não inclui filtragem adequada.
               </p>
               <p className={styles.text}>
-                Modelos mais recentes de ar-condicionado incorporam filtros de maior eficiência e, em alguns casos, ionizadores. Em ambientes residenciais com pessoas sensíveis ou pacientes com condições respiratórias crônicas, a combinação de climatização adequada com purificação complementar oferece controle mais consistente sobre a qualidade do ar.  
+                Modelos mais recentes de ar-condicionado incorporam filtros de maior eficiência e, em alguns casos, ionizadores. Em ambientes residenciais com pessoas sensíveis ou pacientes com condições respiratórias crônicas, a combinação de climatização adequada com purificação complementar oferece controle mais consistente sobre a qualidade do ar.
               </p>
               <h3 className={styles.subtitle}>
-                Manutenção e operação   
+                Manutenção e operação
               </h3>
               <p className={styles.text}>
-                Equipamentos sem manutenção preventiva têm efeito oposto ao esperado. Filtros saturados, serpentinas com acúmulo de sujeira e condensados sem escoamento adequado favorecem a proliferação de fungos e bactérias. A higienização periódica e a troca de filtros conforme a recomendação do fabricante são parte do desempenho do equipamento, não um detalhe complementar.  
+                Equipamentos sem manutenção preventiva têm efeito oposto ao esperado. Filtros saturados, serpentinas com acúmulo de sujeira e condensados sem escoamento adequado favorecem a proliferação de fungos e bactérias. A higienização periódica e a troca de filtros conforme a recomendação do fabricante são parte do desempenho do equipamento, não um detalhe complementar.
               </p>
               <p className={styles.text}>
-                Em ambientes corporativos e hotéis, a definição correta do sistema considera ocupação variável, períodos de uso e exigências normativas para qualidade do ar interno. Em residências, o cuidado básico com manutenção e o ajuste correto da operação já entregam ganho significativo.  
+                Em ambientes corporativos e hotéis, a definição correta do sistema considera ocupação variável, períodos de uso e exigências normativas para qualidade do ar interno. Em residências, o cuidado básico com manutenção e o ajuste correto da operação já entregam ganho significativo.
               </p>
               <h3 className={styles.subtitle}>
-                Pontos práticos para o quarto   
+                Pontos práticos para o quarto
               </h3>
               <ul>
                 <li>&nbsp;- Ajustar a temperatura para a faixa de conforto compatível com o uso noturno, considerando o isolamento do ambiente.</li>
@@ -87,10 +87,10 @@ export default function Article() {
                 <li>&nbsp;- Reduzir fontes internas de poluentes no quarto, como produtos químicos voláteis e umidade excessiva em banheiros próximos.</li>
               </ul>
               <p className={styles.text}>
-                A RETEC fornece soluções para climatização residencial e comercial, com atendimento especializado para projetos que exigem controle preciso de temperatura, umidade e qualidade do ar. Fale com a equipe comercial para definições técnicas adequadas a cada ambiente.  
+                A RETEC fornece soluções para climatização residencial e comercial, com atendimento especializado para projetos que exigem controle preciso de temperatura, umidade e qualidade do ar. Fale com a equipe comercial para definições técnicas adequadas a cada ambiente.
               </p>
               <p className={`${styles.text} ${styles.articleNote}`}>
-                Participamos de uma matéria sobre esse tema no Mundo do Ar Condicionado e da Refrigeração. O tema da relação entre climatização e qualidade do sono foi abordado em matéria com participação de Patrick Galletti, CEO do Grupo RETEC. Leia em: https://mundodoaredarefrigeracao.com.br/produto/temperatura-e-qualidade-do-ar-sao-determinantes-para-noites-mais-tranquilas-e-reparadoras/  
+                Participamos de uma matéria sobre esse tema no Mundo do Ar Condicionado e da Refrigeração. O tema da relação entre climatização e qualidade do sono foi abordado em matéria com participação de Patrick Galletti, CEO do Grupo RETEC. Leia em: https://mundodoaredarefrigeracao.com.br/produto/temperatura-e-qualidade-do-ar-sao-determinantes-para-noites-mais-tranquilas-e-reparadoras/
               </p>
             </article>
             <Link className={styles.up} href="#">

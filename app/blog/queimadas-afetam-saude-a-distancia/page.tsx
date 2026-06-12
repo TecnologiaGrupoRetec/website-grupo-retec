@@ -36,7 +36,7 @@ export default function Article() {
                   </span>
                 </div>
               </header>
-              <Image className={styles.img} src="/blog/thumb3.jpg" alt="Bombeiro em Queimada" width="800" height="462" />
+              <Image className={styles.img} src="/blog/queimadas-saude2.webp" alt="Fumaça de queimadas" width="800" height="462" />
               <p className={styles.text}>
                 As queimadas, infelizmente, são um fenômeno recorrente em várias regiões do Brasil e do mundo. Além de causarem graves danos ambientais, essas ocorrências afetam diretamente a nossa saúde, mesmo que estejamos longe das áreas atingidas. A poluição gerada por incêndios florestais pode percorrer grandes distâncias, prejudicando a qualidade do ar e trazendo sérios riscos à nossa saúde respiratória. Neste artigo, vamos entender como as queimadas impactam nossa saúde e apresentar soluções para minimizar seus efeitos, especialmente no ambiente doméstico.
               </p>
@@ -69,23 +69,23 @@ export default function Article() {
                 Embora não seja possível controlar as queimadas, há algumas medidas que você pode adotar para reduzir os impactos na sua saúde, mesmo que esteja longe dos focos de incêndio. Uma das mais eficazes envolve a proteção do ambiente interno, onde passamos a maior parte do tempo.
               </p>
               <p className={styles.text}>
-                <b>1. Mantenha os Ambientes Climatizados</b><br/>
+                <b>1. Mantenha os Ambientes Climatizados</b><br />
                 O uso de ar-condicionado pode ser uma solução eficiente para manter o ar interno em boas condições. Muitos modelos modernos possuem filtros que eliminam partículas poluentes do ambiente. É importante, no entanto, realizar a manutenção regular do aparelho, limpando os filtros para garantir a eficácia da filtragem do ar.
               </p>
               <p className={styles.text}>
-                <b>2. Invista em Purificadores de Ar</b><br/>
+                <b>2. Invista em Purificadores de Ar</b><br />
                 Os purificadores de ar são excelentes aliados para melhorar a qualidade do ar em ambientes fechados, principalmente em áreas com alto índice de poluição devido a queimadas. Eles possuem filtros HEPA (High Efficiency Particulate Air) que são altamente eficientes na remoção de partículas finas, como as liberadas pelas queimadas. Além disso, muitos modelos também eliminam bactérias, vírus e alérgenos do ar, promovendo um ambiente mais saudável.
               </p>
               <p className={styles.text}>
-                <b>3. Evite Ventiladores em Dias de Poluição Alta</b><br/>
+                <b>3. Evite Ventiladores em Dias de Poluição Alta</b><br />
                 Em dias de alta concentração de fumaça e poluição, o uso de ventiladores pode piorar a situação, já que eles podem dispersar ainda mais as partículas nocivas no ar. Se possível, mantenha as janelas e portas fechadas para impedir que a poluição entre em sua casa.
               </p>
               <p className={styles.text}>
-                <b>4. Monitore a Qualidade do Ar</b><br/>
+                <b>4. Monitore a Qualidade do Ar</b><br />
                 Existem aplicativos e sites que fornecem dados sobre a qualidade do ar em tempo real, como o AirVisual ou o Climatempo. Ficar atento a essas informações pode te ajudar a saber quando é seguro sair de casa e quando é melhor permanecer em ambientes fechados e climatizados.
               </p>
               <p className={styles.text}>
-                <b>5. Hidrate-se e Use Máscaras Adequadas</b><br/>
+                <b>5. Hidrate-se e Use Máscaras Adequadas</b><br />
                 A hidratação é essencial para ajudar o corpo a eliminar as toxinas inaladas. Além disso, em dias de poluição extrema, usar máscaras adequadas, como as do tipo PFF2/N95, pode proteger seu sistema respiratório ao bloquear a entrada de partículas perigosas.
               </p>
               <h3 className={styles.subtitle}>

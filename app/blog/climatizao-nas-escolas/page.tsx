@@ -24,7 +24,7 @@ export default function Article() {
               <header className={styles.header}>
                 <Tag text="Saúde" />
                 <h1 className={styles.title}>
-                Climatização adequada nas escolas reduz doenças respiratórias e melhora o desempenho dos alunos
+                  Climatização adequada nas escolas reduz doenças respiratórias e melhora o desempenho dos alunos
                 </h1>
                 <div className={styles.articleDetails}>
                   <Image className={styles.authorImg} src="/blog/patrick.png" alt="Patrick Galletti" width="28" height="28" />
@@ -36,7 +36,7 @@ export default function Article() {
                   </span>
                 </div>
               </header>
-              <Image className={styles.img} src="/blog/thumb1.jpg" alt="Sala de Aula" width="800" height="462" />
+              <Image className={styles.img} src="/blog/climatizacao-escola2.webp" alt="Climatização em escola" width="800" height="462" />
               <p className={styles.text}>
                 A climatização correta em escolas tem impacto direto no bem-estar e na concentração das crianças. O que muitas instituições de ensino não se dão conta é que pequenos ajustes no controle de temperatura e qualidade do ar no ambiente previnem doenças e melhoram a produtividade dos alunos.
               </p>

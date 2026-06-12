@@ -36,7 +36,7 @@ export default function Article() {
                   </span>
                 </div>
               </header>
-              <Image className={styles.img} src="/blog/thumb2.jpg" alt="Trabalho" width="800" height="462" />
+              <Image className={styles.img} src="/blog/climatizacao-trabalho2.webp" alt="Ambiente de trabalho" width="800" height="462" />
               <p className={styles.text}>
                 A produtividade no ambiente de trabalho é influenciada por diversos fatores: a gestão eficiente, o clima organizacional, a motivação dos colaboradores e, muitas vezes negligenciado, a qualidade do ar. Embora invisível, a qualidade do ar tem um impacto direto no bem-estar, na saúde e no desempenho dos colaboradores, influenciando a capacidade de concentração, criatividade e até o humor. Trabalhar em um ambiente com ar contaminado pode levar à redução do rendimento e ao aumento de problemas de saúde, como alergias, fadiga e dores de cabeça.
               </p>
@@ -68,23 +68,23 @@ export default function Article() {
                 Melhorar a qualidade do ar no escritório é um investimento que traz benefícios para a saúde dos colaboradores e para o aumento da produtividade. A seguir, estão algumas soluções eficazes:
               </p>
               <p className={styles.text}>
-                <b>1. Instale Sistemas de Ar-Condicionado de Qualidade</b><br/>
+                <b>1. Instale Sistemas de Ar-Condicionado de Qualidade</b><br />
                 O ar-condicionado é uma das soluções mais eficazes para controlar a qualidade do ar em ambientes fechados. Além de manter a temperatura agradável, muitos sistemas modernos contam com filtros que removem impurezas do ar, como poeira, poluição e até microrganismos. Certifique-se de realizar manutenções regulares e trocar os filtros periodicamente para garantir que o ar que circula no ambiente esteja sempre limpo.
               </p>
               <p className={styles.text}>
-                <b>2. Utilize Purificadores de Ar</b><br/>
+                <b>2. Utilize Purificadores de Ar</b><br />
                 Os purificadores de ar são fundamentais em ambientes onde há grande circulação de pessoas ou pouca ventilação natural. Equipados com filtros HEPA, eles removem partículas ultrafinas, como poluentes e alérgenos, melhorando significativamente a qualidade do ar. Em escritórios onde há uso intensivo de impressoras, copiadoras e outros equipamentos, o uso de purificadores pode minimizar os danos causados pelos poluentes liberados por esses dispositivos.
               </p>
               <p className={styles.text}>
-                <b>3. Invista em Sistemas de Exaustão</b><br/>
+                <b>3. Invista em Sistemas de Exaustão</b><br />
                 Os sistemas de exaustão são ideais para ambientes de trabalho onde há pouca ventilação natural e alta concentração de poluentes no ar. Eles ajudam a remover ar quente, dióxido de carbono e outras partículas contaminantes, promovendo a troca por ar renovado de forma mais eficiente. Isso é especialmente útil em áreas como cozinhas industriais, laboratórios, ou até escritórios que utilizam muitos equipamentos eletrônicos.
               </p>
               <p className={styles.text}>
-                <b>4. Monitore a Qualidade do Ar Interno</b><br/>
+                <b>4. Monitore a Qualidade do Ar Interno</b><br />
                 Uma maneira eficaz de garantir a boa qualidade do ar no ambiente de trabalho é utilizar sensores e aparelhos de monitoramento de CO2 e poluentes. Esses dispositivos permitem que você acompanhe a concentração de gases nocivos no ambiente em tempo real, tomando medidas corretivas quando necessário.
               </p>
               <p className={styles.text}>
-                <b>5. Higienize Regularmente o Ambiente de Trabalho</b><br/>
+                <b>5. Higienize Regularmente o Ambiente de Trabalho</b><br />
                 Manter o ambiente limpo é essencial para evitar o acúmulo de poeira, ácaros e outros que afetam a qualidade do ar. Além disso, é importante utilizar produtos de limpeza que não contenham compostos orgânicos voláteis (COVs), que podem prejudicar a saúde respiratória.
               </p>
               <h3 className={styles.subtitle}>

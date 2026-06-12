@@ -44,6 +44,20 @@ const processSteps = [
     description:
       "Seguimos presentes no pós-venda com orientação, garantia e atendimento técnico especializado.",
   },
+  {
+    number: "05",
+    title: "Serviços Autorizados",
+    icon: "/icons/servicos.svg",
+    description:
+      "Ativações, start-up e manutenções realizadas por técnicos credenciados diretamente pelos principais fabricantes.",
+  },
+  {
+    number: "06",
+    title: "Partes & Peças",
+    icon: "/icons/pecas.svg",
+    description:
+      "Fornecimento de peças de reposição originais e componentes homologados para garantir a longevidade dos equipamentos.",
+  },
 ];
 
 const highlightCards = [
