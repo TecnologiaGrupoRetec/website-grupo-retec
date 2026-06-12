@@ -1,64 +1,106 @@
 'use client'
+
 import { useState } from "react";
 import styles from "./projetos.module.scss";
 import Navbar from "../components/navbar";
 import Image from "next/image";
 import Footer from '../components/footer';
 import Cta from "../components/cta";
-import Main from "../components/main";
 import { projects, tags } from "./projetos";
 
 export default function Projects() {
-  const [selectedCategory, setSelectedCategory] = useState('all')
+  const [selectedCategory, setSelectedCategory] = useState('all');
   const tagNames = Object.values(tags);
 
   return (
     <div className={styles.page}>
       <Navbar activeTab="projects" />
-      <Main
-        title="Explore Nossas Obras"
-        bgImage="/projects/office-inside.jpg"
-      >
-        <p className={styles.mainText}>Comprometidos com a excelência e a inovação, nossa atuação abrange desde o fornecimento de produtos de alto desempenho até o desenvolvimento de soluções sob medida para projetos e obras de diferentes portes.</p>
-      </Main>
 
-      <section className={styles.projects}>
-        <div className={styles.content}>
-          <h2 className={styles.title}>Nossos cases</h2>
-          <div className={styles.categories}>
-            <a 
-              className={selectedCategory === 'all' ? styles.active : ''}
-              onClick={() => setSelectedCategory('all')}
-            >
-              Todos
-            </a>
-            { tagNames.map(tag => (
-              <a 
-                className={selectedCategory === tag ? styles.active : ''}
-                onClick={() => setSelectedCategory(tag)}
-                key={tag.toLowerCase()}
+      <main>
+        {/* Bloco Hero (Banner Principal) */}
+        <section className={styles.hero}>
+          <Image
+            className={styles.heroImage}
+            src="/projects/office-inside.jpg"
+            alt="Explore Nossas Obras"
+            fill
+            priority
+            sizes="100vw"
+          />
+          <div className={styles.heroOverlay} />
+
+          <div className={styles.container}>
+            <div className={styles.heroContent}>
+              <div className={styles.heroCopy}>
+                <h1 className={styles.heroTitle}>Explore Nossas Obras</h1>
+                <p className={styles.heroText}>
+                  Comprometidos com a excelência e a inovação, nossa atuação abrange desde o fornecimento de produtos de alto desempenho até o desenvolvimento de soluções sob medida para projetos e obras de diferentes portes.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Seção de Cases / Projetos */}
+        <section className={styles.projects}>
+          <div className={styles.container}>
+            <div className={`${styles.sectionIntro} ${styles.sectionIntroCentered}`}>
+              <p className={styles.eyebrow}>Portfólio</p>
+              <h2 className={styles.sectionTitle}>Nossos Cases</h2>
+              <p className={styles.sectionText}>
+                Conheça alguns dos principais projetos executados com as soluções e produtos do Grupo RETEC.
+              </p>
+            </div>
+
+            <div className={styles.categories}>
+              <a
+                className={selectedCategory === 'all' ? styles.active : ''}
+                onClick={() => setSelectedCategory('all')}
               >
-                { tag }
+                Todos
               </a>
-            )) }
-          </div>
-          <div className={styles.cards}>
-            { projects.map(project => project.tags.includes(selectedCategory) || selectedCategory === 'all' ? (
-              <div className={styles.card} key={project.name.toLowerCase()}>
-                <Image className={styles.img} src={`/projects/${project.img}`} alt={project.name} width="360" height="467" />
-                { project.tags.map(tag => (
-                  <div className={styles.tag} key={tag}>
-                    { tag }
+              {tagNames.map((tag) => (
+                <a
+                  className={selectedCategory === tag ? styles.active : ''}
+                  onClick={() => setSelectedCategory(tag)}
+                  key={tag.toLowerCase()}
+                >
+                  {tag}
+                </a>
+              ))}
+            </div>
+
+            <div className={styles.cards}>
+              {projects.map((project) =>
+                project.tags.includes(selectedCategory) || selectedCategory === 'all' ? (
+                  <div className={styles.card} key={project.name.toLowerCase()}>
+                    <div className={styles.imageWrapper}>
+                      <Image
+                        className={styles.img}
+                        src={`/projects/${project.img}`}
+                        alt={project.name}
+                        width={360}
+                        height={240}
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <div className={styles.cardBody}>
+                      <div className={styles.tagsContainer}>
+                        {project.tags.map((tag) => (
+                          <span className={styles.tag} key={tag}>
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <h4 className={styles.name}>{project.name}</h4>
+                    </div>
                   </div>
-                )) }
-                <h4 className={styles.name}>
-                  { project.name }
-                </h4>
-              </div>              
-            ) : null) }
+                ) : null
+              )}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
       <Cta />
       <Footer />
