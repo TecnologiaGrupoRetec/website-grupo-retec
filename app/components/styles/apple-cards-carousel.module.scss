@@ -1,0 +1,362 @@
+.section {
+  padding: 112px 0;
+  background-color: $white;
+  overflow: hidden;
+}
+
+.container {
+  width: min(calc(100% - 48px), 1280px);
+  margin: 0 auto;
+}
+
+.sectionIntro {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 48px;
+  gap: 24px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+}
+
+.introLeft {
+  display: grid;
+  gap: 12px;
+  max-width: 680px;
+}
+
+.eyebrow {
+  color: $secondary;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.sectionTitle {
+  color: $primary;
+  font-size: clamp(2.25rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.sectionText {
+  color: $text-neutral;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+// ==========================================
+// CONTROLES DE ROLAGEM
+// ==========================================
+.controls {
+  display: flex;
+  gap: 12px;
+
+  @media (max-width: 768px) {
+    align-self: flex-end;
+  }
+}
+
+.arrowBtn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #f2f3fa;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  color: $primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  font-size: 20px;
+  user-select: none;
+
+  &:hover:not(:disabled) {
+    background: $primary;
+    color: $white;
+    transform: scale(1.05);
+  }
+
+  &:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+}
+
+// ==========================================
+// TRILHA DO CARROSSEL
+// ==========================================
+.carouselWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.scrollTrack {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 12px 4px 32px;
+  margin: 0 -24px;
+  padding-left: 24px;
+  padding-right: 24px;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+}
+
+// ==========================================
+// CARD INDIVIDUAL
+// ==========================================
+.card {
+  position: relative;
+  flex: 0 0 auto;
+  width: 280px;
+  height: 380px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  background-color: #071226;
+  transition: 
+    transform 400ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 400ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 400ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+    border-color: var(--blue);
+
+    .cardImage {
+      transform: scale(1.04);
+    }
+  }
+
+  @media (max-width: 640px) {
+    width: 240px;
+    height: 320px;
+  }
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 18, 38, 0.75) 0%,
+    rgba(7, 18, 38, 0.25) 45%,
+    rgba(7, 18, 38, 0.05) 100%
+  );
+  z-index: 1;
+}
+
+.cardContent {
+  position: absolute;
+  inset: 0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  z-index: 2;
+  color: $white;
+}
+
+.cardCategory {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $secondary;
+  margin-bottom: 6px;
+}
+
+.cardTitle {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0;
+  text-wrap: balance;
+}
+
+// ==========================================
+// MODAL EM TELA CHEIA (POPUP)
+// ==========================================
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(7, 18, 38, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  animation: fadeIn 300ms forwards cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modalBox {
+  background: $white;
+  width: 100%;
+  max-width: 800px;
+  max-height: calc(100vh - 48px);
+  border-radius: 28px;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transform: scale(0.95) translateY(10px);
+  animation: modalIn 400ms forwards cubic-bezier(0.16, 1, 0.3, 1);
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(15, 40, 84, 0.15);
+    border-radius: 10px;
+  }
+}
+
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: $white;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: $primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 200ms ease;
+  font-size: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  &:hover {
+    background: $primary;
+    color: $white;
+    transform: scale(1.05);
+  }
+}
+
+.modalImageWrapper {
+  width: 100%;
+  height: 380px;
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: 640px) {
+    height: 240px;
+  }
+}
+
+.modalImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modalOverlayGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(7, 18, 38, 0.7) 0%,
+    rgba(7, 18, 38, 0.1) 60%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+.modalHeaderContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 32px;
+  color: $white;
+  z-index: 2;
+
+  @media (max-width: 640px) {
+    padding: 20px;
+  }
+}
+
+.modalCategory {
+  font-size: 14px;
+  font-weight: 600;
+  color: $secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.modalTitle {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.modalBody {
+  padding: 40px;
+  color: $text-neutral;
+  font-size: 16px;
+  line-height: 1.7;
+
+  @media (max-width: 640px) {
+    padding: 24px;
+  }
+
+  p {
+    margin: 0 0 20px 0;
+    &:last-child {
+      margin: 0;
+    }
+  }
+}
+
+// ==========================================
+// ANIMAÇÕES
+// ==========================================
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalIn {
+  to {
+    transform: scale(1) translateY(0);
+  }
+}

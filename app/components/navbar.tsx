@@ -70,7 +70,7 @@ export default function Navbar(props: NavbarProps) {
                 <Link href="/sobre">Sobre</Link>
                 <Link href="/obras">Obras</Link>
                 <Link href="/blog">Blog</Link>
-                <a href="/#processo">Soluções</a>
+                <Link href="/solucoes">Soluções</Link>
                 <details className={styles.navDropdown}>
                   <summary className={styles.navDropdownTrigger}>
                     Loja Virtual

@@ -184,3 +184,29 @@ O site segue regras fluidas de adaptação a dispositivos móveis. Respeite as s
 *   **Até 980px**: A Navbar colapsa no menu hambúrguer para mobile.
 *   **Até 900px**: Ajuste de alturas mínimas do Hero (`min-height: 560px` com `padding-top: 176px`) e redimensionamento de colunas de grid de 4 para 1 coluna nas tabelas principais.
 *   **Até 640px**: Fontes principais reduzem proporcionalmente (ex: `.heroTitle` vai para `2.3rem` e `.sectionTitle` para `2rem`) para evitar quebras de linhas indesejadas em telas de celulares pequenos.
+
+---
+
+## 6. Padrões Avançados de Layout e Conversão
+
+Para garantir uma interface sofisticada e focada em conversão de leads B2B, siga estas diretrizes adicionais:
+
+### 6.1. Hero Assimétrico (Equilíbrio Visual com Grafismos)
+Ao desenhar seções Hero que usem grafismos ou ilustrações no lado direito (como o overlay de círculos concêntricos em `/solucoes`), o bloco de texto deve ser deslocado para o centro do viewport para evitar peso excessivo à esquerda:
+*   **Margem do Bloco (`.heroContent`)**: Aplique `padding-left: 96px` no desktop para balancear o layout (ajuste para `48px` em resoluções médias e `0` em dispositivos móveis).
+*   **Parágrafo com Borda Decorativa (`.heroText`)**: Adicione recuo à esquerda (`margin-left: 48px`, `padding-left: 24px`) e uma borda de destaque com a cor `$secondary` (`border-left: 3px solid $secondary`).
+
+### 6.2. Alinhamento Vertical em Cards com Tags (Header & Footer)
+Para manter o alinhamento visual de cards em linha no grid mesmo quando as descrições tenham tamanhos variados, separe o conteúdo e o rodapé:
+*   **Estrutura de Marcação**: Agrupe o conteúdo principal (ícone, título, descrição) em uma classe `.cardHeader` e os metadados e ações em um `.cardFooter`.
+*   **Empurre ao Bottom**: Aplique `margin-top: auto` no `.cardFooter` do card configurado com `display: flex; flex-direction: column;`. Isso garante que divisores horizontais, badges e botões alinhem perfeitamente na mesma altura em todos os cards.
+
+### 6.3. Pílulas de Tags/Badges Discretas
+As tags de identificação de marcas ou subcategorias no rodapé do card devem ser visualmente harmônicas:
+*   **Estilo**: Formato pílula (`border-radius: 12px`), tipografia reduzida (`font-size: 11px`), peso semibold (`font-weight: 600`) e cores de fundo suaves (`rgba(58, 160, 219, 0.08)`) com texto na cor azul de realce (`#1c4d8d`).
+
+### 6.4. Ações de Conversão Contextuais (CTAs de WhatsApp)
+Todos os botões de orçamento rápido em cards devem direcionar para o canal comercial via WhatsApp parametrizados com mensagens contextuais para facilitar a automação e triagem de leads:
+*   **Mensagem Contextual**: A URL deve conter uma mensagem pré-definida codificada dinamicamente (`encodeURIComponent`) que especifique qual produto ou família o cliente está orçando.
+*   **Estilo do Botão (`.cardQuoteButton`)**: Botão compacto arredondado (`border-radius: 20px`), fundo azul e transição no hover que eleva o botão (`transform: translateY(-2px)`) e desloca sutilmente o ícone de seta para a direita (`transform: translateX(2px)`).
+

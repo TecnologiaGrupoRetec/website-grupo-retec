@@ -2,8 +2,9 @@ import Image from "next/image";
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
 import HeroCarousel from "./components/heroCarousel";
+import AppleCardsCarousel from "./components/appleCardsCarousel";
 import styles from "./index.module.scss";
-
+import { Analytics } from "@vercel/analytics/react";
 
 const representativeBrands = [
   { src: "/home/empresas_representantes/armacell.png", alt: "Armacell" },
@@ -276,6 +277,8 @@ export default function Home() {
           </div>
         </section>
 
+        <AppleCardsCarousel />
+
         <section className={`${styles.section} ${styles.sectionDark}`}>
           <div className={styles.container}>
             <div className={`${styles.sectionIntro} ${styles.onDark}`}>
@@ -369,6 +372,7 @@ export default function Home() {
         </section>
       </main>
       <Footer />
+      <Analytics />
     </div>
   );
 }
