@@ -103,7 +103,7 @@ export default function Navbar(props: NavbarProps) {
                 target="_blank"
                 rel="noreferrer"
               >
-                Solicitar Orcamento
+                Solicitar Orçamento
               </a>
             </div>
           </div>

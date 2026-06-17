@@ -5,6 +5,11 @@ import Footer from "../../components/footer";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import vrvFitImg from "../../produtos/climatizacao-equipamentos/vrv-fit.webp";
+import vrv6Img from "../../produtos/climatizacao-equipamentos/vrv6_1.webp";
+import vrvwImg from "../../produtos/climatizacao-equipamentos/vrv-w.webp";
+import vrvInovaImg from "../../produtos/climatizacao-equipamentos/vrv-inova.webp";
+import vrvSImg from "../../produtos/climatizacao-equipamentos/vrv-s.webp";
 import styles from "./detalhe.module.scss";
 
 // Informações detalhadas para cada linha de fornecimento
@@ -20,7 +25,7 @@ const solutionsData: Record<string, {
     title: "Climatização e Equipamentos",
     description: "Máquinas, evaporadoras, condensadoras, fancoletes e sistemas VRV/VRF para projetos comerciais e técnicos.",
     tags: ["Evaporadoras", "Condensadoras", "Fancoletes", "VRV/VRF", "Daikin"],
-    details: "Oferecemos uma linha completa de soluções para climatização e controle de temperatura. Nossos equipamentos atendem desde escritórios comerciais até indústrias e hospitais, garantindo eficiência energética, controle de umidade e alta vazão. Trabalhamos em parceria com marcas líderes de mercado como Daikin, Carrier, Midea e outras referências em sistemas VRV/VRF e Fancoils.",
+    details: "Oferecemos uma linha completa de soluções para climatização e controle de temperatura. Nossos equipamentos atendem desde escritórios comerciais até indústrias e hospitais, garantindo eficiência energética, controle de umidade e alta vazão. Trabalhamos em parceria com marcas líderes de mercado como Daikin, Trox, Midea e outras referências em sistemas VRV/VRF e Fancoils.",
     features: [
       "Sistemas VRV/VRF inteligentes e de alta eficiência",
       "Evaporadoras de embutir, cassetes e hi-walls modernos",
@@ -180,6 +185,126 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
                   </li>
                 ))}
               </ul>
+              <h3 className={styles.subTitle}>Linha Daikin VRV que distribuímos:</h3>
+
+              {params.slug === "climatizacao-e-equipamentos" && (
+                <>
+                  {/* VRV Fit */}
+                  <div className={styles.vrvFitSection}>
+                    <div className={styles.vrvFitContent}>
+                      <h3 className={styles.vrvFitTitle}>
+                        O VRV Fit representa a sofisticação que você merece, aliada à constante inovação da maior empresa de ar-condicionado do mundo.
+                      </h3>
+                      <div className={styles.vrvFitUsage}>
+                        <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                        <blockquote className={styles.vrvFitUsageBlockquote}>
+                          Lojas, escritórios e residências de alto padrão
+                        </blockquote>
+                      </div>
+                    </div>
+                    <div className={styles.vrvFitImageWrapper}>
+                      <Image
+                        src={vrvFitImg}
+                        alt="Daikin VRV Fit"
+                        className={styles.vrvFitImage}
+                        placeholder="blur"
+                      />
+                    </div>
+                  </div>
+
+                  {/* VRV 6 */}
+                  <div className={`${styles.vrvFitSection} ${styles.reversed}`}>
+                    <div className={styles.vrvFitImageWrapper}>
+                      <Image
+                        src={vrv6Img}
+                        alt="Daikin VRV 6"
+                        className={styles.vrvFitImage}
+                        placeholder="blur"
+                      />
+                    </div>
+                    <div className={styles.vrvFitContent}>
+                      <h3 className={styles.vrvFitTitle}>
+                        O VRV 6 Daikin combina alta eficiência, confiabilidade e flexibilidade de instalação, oferecendo uma solução avançada para projetos de climatização comercial e corporativa.
+                      </h3>
+                      <div className={styles.vrvFitUsage}>
+                        <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                        <blockquote className={styles.vrvFitUsageBlockquote}>
+                          Proprietários, projetistas, instaladores e gestores prediais.
+                        </blockquote>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* VRV W */}
+                  <div className={styles.vrvFitSection}>
+                    <div className={styles.vrvFitContent}>
+                      <h3 className={styles.vrvFitTitle}>
+                        O VRV-W Daikin é uma solução de climatização ideal para projetos com pouca ou nenhuma área externa disponível. Seu sistema utiliza água para rejeição de calor, oferecendo maior flexibilidade de instalação, eficiência operacional e adaptação a diferentes tipos de edifícios.
+                      </h3>
+                      <div className={styles.vrvFitUsage}>
+                        <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                        <blockquote className={styles.vrvFitUsageBlockquote}>
+                          Comércios, hospitais, shoppings e prédios.
+                        </blockquote>
+                      </div>
+                    </div>
+                    <div className={styles.vrvFitImageWrapper}>
+                      <Image
+                        src={vrvwImg}
+                        alt="Daikin VRV W"
+                        className={styles.vrvFitImage}
+                        placeholder="blur"
+                      />
+                    </div>
+                  </div>
+
+                  {/* VRV Nova Geração */}
+                  <div className={`${styles.vrvFitSection} ${styles.reversed}`}>
+                    <div className={styles.vrvFitImageWrapper}>
+                      <Image
+                        src={vrvInovaImg}
+                        alt="Daikin VRV Nova Geração"
+                        className={styles.vrvFitImage}
+                        placeholder="blur"
+                      />
+                    </div>
+                    <div className={styles.vrvFitContent}>
+                      <h3 className={styles.vrvFitTitle}>
+                        A solução VRV de nova geração (Inova) da Daikin foi projetada para climatização central com alta eficiência, flexibilidade e controle por zonas.
+                      </h3>
+                      <div className={styles.vrvFitUsage}>
+                        <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                        <blockquote className={styles.vrvFitUsageBlockquote}>
+                          Casas de alto padrão, edifícios comerciais, hotéis e hospitais.
+                        </blockquote>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* VRV S */}
+                  <div className={styles.vrvFitSection}>
+                    <div className={styles.vrvFitContent}>
+                      <h3 className={styles.vrvFitTitle}>
+                        O VRV-S combina alta eficiência energética, conforto e instalação flexível em um sistema compacto para diferentes tipos de projeto.
+                      </h3>
+                      <div className={styles.vrvFitUsage}>
+                        <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                        <blockquote className={styles.vrvFitUsageBlockquote}>
+                          Lojas, escritórios e casas de alto padrão.
+                        </blockquote>
+                      </div>
+                    </div>
+                    <div className={styles.vrvFitImageWrapper}>
+                      <Image
+                        src={vrvSImg}
+                        alt="Daikin VRV S"
+                        className={styles.vrvFitImage}
+                        placeholder="blur"
+                      />
+                    </div>
+                  </div>
+                </>
+              )}
 
               <div className={styles.tagsContainer}>
                 <h4 className={styles.tagsTitle}>Tags Relacionadas:</h4>
