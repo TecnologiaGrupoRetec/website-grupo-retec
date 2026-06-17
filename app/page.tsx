@@ -48,7 +48,7 @@ const processSteps = [
   {
     number: "05",
     title: "Serviços Autorizados",
-    icon: "/icons/servicos.svg",
+    icon: "/icons/acessorios.svg",
     description:
       "Ativações, start-up e manutenções realizadas por técnicos credenciados diretamente pelos principais fabricantes.",
   },

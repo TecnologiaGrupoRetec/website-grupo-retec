@@ -5,6 +5,7 @@ import Footer from "../components/footer";
 import Link from "next/link";
 import styles from "./solucoes.module.scss";
 
+
 const categories = [
   {
     title: "Climatização e Equipamentos",
@@ -12,11 +13,7 @@ const categories = [
     description: "Máquinas, evaporadoras, condensadoras, fancoletes e sistemas VRV/VRF para projetos comerciais e técnicos.",
     tag: ["Evaporadoras", "Condensadoras", "Fancoletes", "VRV/VRF", "Daikin"],
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={styles.cardIcon}>
-        <rect x="2" y="3" width="20" height="14" rx="2" />
-        <line x1="8" y1="21" x2="16" y2="21" />
-        <line x1="12" y1="17" x2="12" y2="21" />
-      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.cardIcon}><path d="M16 12v4" /><path d="M16 6a2 2 0 0 1 1.414.586l4 4A2 2 0 0 1 22 12v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 .586-1.414l4-4A2 2 0 0 1 8 6z" /><path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" /><path d="M2 14h20" /><path d="M8 12v4" /></svg>
     )
   },
   {
@@ -25,9 +22,7 @@ const categories = [
     description: "Chillers, mini chillers, torres de resfriamento e sistemas hidrônicos para aplicações críticas.",
     tag: ["Refrigeração", "Chillers", "Mini Chilers", "Trox"],
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={styles.cardIcon}>
-        <path d="M12 2v20M17 5H7M19 12H5M17 19H7" />
-      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.cardIcon}><path d="M10 2v8" /><path d="M12.8 21.6A2 2 0 1 0 14 18H2" /><path d="M17.5 10a2.5 2.5 0 1 1 2 4H2" /><path d="m6 6 4 4 4-4" /></svg>
     )
   },
   {
@@ -36,10 +31,7 @@ const categories = [
     description: "Exaustores, ventiladores e gabinetes para renovação, insuflamento e extração de ar.",
     tag: ["Exaustão", "Ventilação", "Exaustores", "Ventiladores", "Gabinetes", "Trox"],
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={styles.cardIcon}>
-        <circle cx="12" cy="12" r="10" />
-        <path d="M12 6v6l4 2" />
-      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.cardIcon}><path d="M10.827 16.379a6.082 6.082 0 0 1-8.618-7.002l5.412 1.45a6.082 6.082 0 0 1 7.002-8.618l-1.45 5.412a6.082 6.082 0 0 1 8.618 7.002l-5.412-1.45a6.082 6.082 0 0 1-7.002 8.618l1.45-5.412Z" /><path d="M12 12v.01" /></svg>
     )
   },
   {
@@ -48,9 +40,7 @@ const categories = [
     description: "Grelhas, difusores, venezianas e dampers para distribuição e balanceamento do fluxo de ar.",
     tag: ["Difusão", "Controle de Ar", "Grelhas", "Difusores", "Venezianas", "Dampers", "Trox"],
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={styles.cardIcon}>
-        <path d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.cardIcon}><path d="M18 17.5a2.5 2.5 0 1 1-4 2.03V12" /><path d="M6 12H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" /><path d="M6 8h12" /><path d="M6.6 15.572A2 2 0 1 0 10 17v-5" /></svg>
     )
   },
   {
@@ -59,9 +49,7 @@ const categories = [
     description: "Dutos flexíveis, semi-rígidos, isolados e adaptadores para condução de ar em sistemas HVAC.",
     tag: ["Dutos", "Conexões", "Flexíveis", "Semi-rígidos", "Isolados", "Adaptadores", "Sicflux"],
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={styles.cardIcon}>
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-      </svg>
+      <img src="../../icons/duto.svg" alt="Dutos" width={30} height={30} />
     )
   },
   {
@@ -70,9 +58,7 @@ const categories = [
     description: "Mantas, tubos, fitas e adesivos para eficiência térmica, acabamento e controle de condensação.",
     tag: ["Isolamento", "Vedação", "Térmica", "Armacell"],
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={styles.cardIcon}>
-        <path d="M4 4h16v16H4zM9 9h6v6H9z" />
-      </svg>
+      <img src="../../icons/fita.svg" alt="Fita" width={30} height={30} />
     )
   },
   {
@@ -81,9 +67,7 @@ const categories = [
     description: "Caixas de filtragem, filtros e soluções para renovação e tratamento do ar interno.",
     tag: ["Filtragem", "Qualidade do Ar", "Renovação", "Sicflux"],
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={styles.cardIcon}>
-        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-      </svg>
+      <img src="../../icons/filtro.svg" alt="Filtro" width={30} height={30} />
     )
   },
   {
@@ -92,9 +76,7 @@ const categories = [
     description: "Fitas, adesivos, vedantes e componentes auxiliares para montagem e manutenção HVAC.",
     tag: ["Instalação", "Vedação", "Fixação", "Armaflex", "Retec"],
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={styles.cardIcon}>
-        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-      </svg>
+      <img src="../../icons/acessorios.svg" alt="Acessórios" width={30} height={30} />
     )
   }
 ];

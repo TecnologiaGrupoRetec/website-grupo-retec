@@ -4,6 +4,12 @@
   flex-direction: column;
 }
 
+.container {
+  width: min(calc(100% - 48px), var(--page-max, 1280px));
+  margin: 0 auto;
+  position: relative;
+}
+
 // =========================
 // SOLUÇÕES HERO SECTION 
 // =========================
