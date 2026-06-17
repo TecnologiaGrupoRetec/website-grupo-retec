@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Navbar from "../../components/navbar";
 import Footer from "../../components/footer";
 import Link from "next/link";
@@ -10,6 +11,13 @@ import vrv6Img from "../../produtos/climatizacao-equipamentos/vrv6_1.webp";
 import vrvwImg from "../../produtos/climatizacao-equipamentos/vrv-w.webp";
 import vrvInovaImg from "../../produtos/climatizacao-equipamentos/vrv-inova.webp";
 import vrvSImg from "../../produtos/climatizacao-equipamentos/vrv-s.webp";
+import fancoleteImg from "../../produtos/climatizacao-equipamentos/fancolete-duto-fww.webp";
+import fancoleteFwcImg from "../../produtos/climatizacao-equipamentos/fancolete-duto-fwc.webp";
+import fancoleteFwdhImg from "../../produtos/climatizacao-equipamentos/fancolete-hospitalar-fwdh.webp";
+import casseteImg from "../../produtos/climatizacao-equipamentos/cassete.webp";
+import cassete1viaImg from "../../produtos/climatizacao-equipamentos/cassete-1via.webp";
+import casseteRoundFlowImg from "../../produtos/climatizacao-equipamentos/cassete-round-flow.webp";
+import hiWallImg from "../../produtos/climatizacao-equipamentos/hi-wall.webp";
 import styles from "./detalhe.module.scss";
 
 // Informações detalhadas para cada linha de fornecimento
@@ -129,6 +137,7 @@ const solutionsData: Record<string, {
 
 export default function SolucaoDetalhePage({ params }: { params: { slug: string } }) {
   const data = solutionsData[params.slug];
+  const [selectedCategory, setSelectedCategory] = useState<"VRV" | "Fancolete" | "Cassete" | "Hi-Wall">("VRV");
 
   if (!data) {
     notFound();
@@ -185,124 +194,317 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
                   </li>
                 ))}
               </ul>
-              <h3 className={styles.subTitle}>Linha Daikin VRV que distribuímos:</h3>
+              <h3 className={styles.subTitle}>Linha de Climatização e Equipamentos que distribuímos:</h3>
 
               {params.slug === "climatizacao-e-equipamentos" && (
                 <>
-                  {/* VRV Fit */}
-                  <div className={styles.vrvFitSection}>
-                    <div className={styles.vrvFitContent}>
-                      <h3 className={styles.vrvFitTitle}>
-                        O VRV Fit representa a sofisticação que você merece, aliada à constante inovação da maior empresa de ar-condicionado do mundo.
-                      </h3>
-                      <div className={styles.vrvFitUsage}>
-                        <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
-                        <blockquote className={styles.vrvFitUsageBlockquote}>
-                          Lojas, escritórios e residências de alto padrão
-                        </blockquote>
-                      </div>
-                    </div>
-                    <div className={styles.vrvFitImageWrapper}>
-                      <Image
-                        src={vrvFitImg}
-                        alt="Daikin VRV Fit"
-                        className={styles.vrvFitImage}
-                        placeholder="blur"
-                      />
-                    </div>
+                  <div className={styles.filterContainer}>
+                    {(["VRV", "Fancolete", "Cassete", "Hi-Wall"] as const).map((category) => (
+                      <button
+                        key={category}
+                        className={`${styles.filterButton} ${selectedCategory === category ? styles.active : ""
+                          }`}
+                        onClick={() => setSelectedCategory(category)}
+                      >
+                        {category}
+                      </button>
+                    ))}
                   </div>
 
-                  {/* VRV 6 */}
-                  <div className={`${styles.vrvFitSection} ${styles.reversed}`}>
-                    <div className={styles.vrvFitImageWrapper}>
-                      <Image
-                        src={vrv6Img}
-                        alt="Daikin VRV 6"
-                        className={styles.vrvFitImage}
-                        placeholder="blur"
-                      />
-                    </div>
-                    <div className={styles.vrvFitContent}>
-                      <h3 className={styles.vrvFitTitle}>
-                        O VRV 6 Daikin combina alta eficiência, confiabilidade e flexibilidade de instalação, oferecendo uma solução avançada para projetos de climatização comercial e corporativa.
-                      </h3>
-                      <div className={styles.vrvFitUsage}>
-                        <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
-                        <blockquote className={styles.vrvFitUsageBlockquote}>
-                          Proprietários, projetistas, instaladores e gestores prediais.
-                        </blockquote>
+                  {/* VRV Category Products */}
+                  {selectedCategory === "VRV" && (
+                    <div className={styles.productFadeIn}>
+                      {/* VRV Fit */}
+                      <div className={styles.vrvFitSection}>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            O VRV Fit Daikin representa a sofisticação que você merece, aliada à constante inovação da maior empresa de ar-condicionado do mundo.
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Lojas, escritórios e residências de alto padrão
+                            </blockquote>
+                          </div>
+                        </div>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={vrvFitImg}
+                            alt="Daikin VRV Fit"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
                       </div>
-                    </div>
-                  </div>
 
-                  {/* VRV W */}
-                  <div className={styles.vrvFitSection}>
-                    <div className={styles.vrvFitContent}>
-                      <h3 className={styles.vrvFitTitle}>
-                        O VRV-W Daikin é uma solução de climatização ideal para projetos com pouca ou nenhuma área externa disponível. Seu sistema utiliza água para rejeição de calor, oferecendo maior flexibilidade de instalação, eficiência operacional e adaptação a diferentes tipos de edifícios.
-                      </h3>
-                      <div className={styles.vrvFitUsage}>
-                        <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
-                        <blockquote className={styles.vrvFitUsageBlockquote}>
-                          Comércios, hospitais, shoppings e prédios.
-                        </blockquote>
+                      {/* VRV 6 */}
+                      <div className={`${styles.vrvFitSection} ${styles.reversed}`}>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={vrv6Img}
+                            alt="Daikin VRV 6"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            O VRV 6 Daikin combina alta eficiência, confiabilidade e flexibilidade de instalação, oferecendo uma solução avançada para projetos de climatização comercial e corporativa.
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Proprietários, projetistas, instaladores e gestores prediais.
+                            </blockquote>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                    <div className={styles.vrvFitImageWrapper}>
-                      <Image
-                        src={vrvwImg}
-                        alt="Daikin VRV W"
-                        className={styles.vrvFitImage}
-                        placeholder="blur"
-                      />
-                    </div>
-                  </div>
 
-                  {/* VRV Nova Geração */}
-                  <div className={`${styles.vrvFitSection} ${styles.reversed}`}>
-                    <div className={styles.vrvFitImageWrapper}>
-                      <Image
-                        src={vrvInovaImg}
-                        alt="Daikin VRV Nova Geração"
-                        className={styles.vrvFitImage}
-                        placeholder="blur"
-                      />
-                    </div>
-                    <div className={styles.vrvFitContent}>
-                      <h3 className={styles.vrvFitTitle}>
-                        A solução VRV de nova geração (Inova) da Daikin foi projetada para climatização central com alta eficiência, flexibilidade e controle por zonas.
-                      </h3>
-                      <div className={styles.vrvFitUsage}>
-                        <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
-                        <blockquote className={styles.vrvFitUsageBlockquote}>
-                          Casas de alto padrão, edifícios comerciais, hotéis e hospitais.
-                        </blockquote>
+                      {/* VRV W */}
+                      <div className={styles.vrvFitSection}>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            O VRV-W Daikin é uma solução de climatização ideal para projetos com pouca ou nenhuma área externa disponível. Seu sistema utiliza água para rejeição de calor, oferecendo maior flexibilidade de instalação, eficiência operacional e adaptação a diferentes tipos de edifícios.
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Comércios, hospitais, shoppings e prédios.
+                            </blockquote>
+                          </div>
+                        </div>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={vrvwImg}
+                            alt="Daikin VRV W"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
                       </div>
-                    </div>
-                  </div>
 
-                  {/* VRV S */}
-                  <div className={styles.vrvFitSection}>
-                    <div className={styles.vrvFitContent}>
-                      <h3 className={styles.vrvFitTitle}>
-                        O VRV-S combina alta eficiência energética, conforto e instalação flexível em um sistema compacto para diferentes tipos de projeto.
-                      </h3>
-                      <div className={styles.vrvFitUsage}>
-                        <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
-                        <blockquote className={styles.vrvFitUsageBlockquote}>
-                          Lojas, escritórios e casas de alto padrão.
-                        </blockquote>
+                      {/* VRV Nova Geração */}
+                      <div className={`${styles.vrvFitSection} ${styles.reversed}`}>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={vrvInovaImg}
+                            alt="Daikin VRV Nova Geração"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            A solução VRV Daikin de nova geração (Inova) da Daikin foi projetada para climatização central com alta eficiência, flexibilidade e controle por zonas.
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Casas de alto padrão, edifícios comerciais, hotéis e hospitais.
+                            </blockquote>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* VRV S */}
+                      <div className={styles.vrvFitSection}>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            O VRV-S Daikin combina alta eficiência energética, conforto e instalação flexível em um sistema compacto para diferentes tipos de projeto.
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Lojas, escritórios e casas de alto padrão.
+                            </blockquote>
+                          </div>
+                        </div>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={vrvSImg}
+                            alt="Daikin VRV S"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
                       </div>
                     </div>
-                    <div className={styles.vrvFitImageWrapper}>
-                      <Image
-                        src={vrvSImg}
-                        alt="Daikin VRV S"
-                        className={styles.vrvFitImage}
-                        placeholder="blur"
-                      />
+                  )}
+
+                  {/* Fancolete Category Products */}
+                  {selectedCategory === "Fancolete" && (
+                    <div className={styles.productFadeIn}>
+                      {/* Fancolete Slim FWW */}
+                      <div className={styles.vrvFitSection}>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            O Fancolete de Slim FWW (Duto) Daikin oferece climatização extremamente silenciosa e discreta. Projetado para instalação acima do gesso, garante distribuição uniforme de ar e alta durabilidade.
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Hotéis, escritórios corporativos, hospitais e salas de reunião.
+                            </blockquote>
+                          </div>
+                        </div>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={fancoleteImg}
+                            alt="Fancolete de Embutir Daikin FWW"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Fancolete FWC */}
+                      <div className={`${styles.vrvFitSection} ${styles.reversed}`}>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={fancoleteFwcImg}
+                            alt="Fancolete Daikin FWC"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            Fancolete FWC Daikin dutado com operação padrão ou 100% ar externo, ideal para climatização eficiente em ambientes comerciais, hotéis, hospitais e grandes empreendimentos.
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Shoppings, hotéis, hospitais, edifícios comerciais e ambientes com pé-direito alto ou necessidade de distribuição de ar por dutos.
+                            </blockquote>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Fancolete Hospitalar FWDH */}
+                      <div className={styles.vrvFitSection}>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            Fancolete hospitalar FWDH Daikin desenvolvido para qualidade do ar em ambientes críticos, com dupla ou tripla filtragem e controle preciso para aplicações de saúde.
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Hospitais, clínicas, laboratórios, centros cirúrgicos, salas limpas e ambientes que precisam de maior controle de qualidade do ar, filtragem e segurança operacional.
+                            </blockquote>
+                          </div>
+                        </div>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={fancoleteFwdhImg}
+                            alt="Fancolete Hospitalar Daikin FWDH"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                  )}
+
+                  {/* Cassete Category Products */}
+                  {selectedCategory === "Cassete" && (
+                    <div className={styles.productFadeIn}>
+                      {/* Cassete Daikin 4 Vias */}
+                      <div className={styles.vrvFitSection}>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            O Cassete Daikin de 4 Vias proporciona excelente distribuição de fluxo de ar em quatro direções, ideal para climatizar salas amplas com controle inteligente de aletas.
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Escritórios, lojas comerciais, clínicas e salas de reunião.
+                            </blockquote>
+                          </div>
+                        </div>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={casseteImg}
+                            alt="Cassete Daikin 4 Vias"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Cassete Daikin 1 Via */}
+                      <div className={`${styles.vrvFitSection} ${styles.reversed}`}>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={cassete1viaImg}
+                            alt="Cassete Daikin 1 Via"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            O Cassete Daikin de 1 Via possui design ultra slim de perfil baixo, perfeito para instalação em gessos com espaço de entreforro reduzido, garantindo sofisticação e funcionamento extremamente silencioso.
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Apartamentos residenciais, dormitórios de alto padrão e pequenos escritórios.
+                            </blockquote>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Cassete Daikin Round Flow (360°) */}
+                      <div className={styles.vrvFitSection}>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            O Cassete Daikin Round Flow oferece distribuição de ar em 360° com fluxo de ar circular uniforme para eliminar correntes frias e pontos sem climatização. Conta com sensores inteligentes de presença e de piso.
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Lojas de varejo, restaurantes, auditórios, recepções e escritórios corporativos de conceito aberto.
+                            </blockquote>
+                          </div>
+                        </div>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={casseteRoundFlowImg}
+                            alt="Cassete Daikin Round Flow"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Hi-Wall Category Products */}
+                  {selectedCategory === "Hi-Wall" && (
+                    <div className={styles.productFadeIn}>
+                      <div className={styles.vrvFitSection}>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            O evaporador Hi-Wall Daikin oferece alto conforto térmico com tecnologia avançada de filtragem de ar, baixo consumo elétrico e funcionamento ultra silencioso.
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Quartos, salas de estar residenciais, pequenos escritórios e consultórios.
+                            </blockquote>
+                          </div>
+                        </div>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={hiWallImg}
+                            alt="Hi-Wall Daikin Inverter"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </>
               )}
 
