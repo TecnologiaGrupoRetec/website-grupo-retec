@@ -18,6 +18,8 @@ import casseteImg from "../../produtos/climatizacao-equipamentos/cassete.webp";
 import cassete1viaImg from "../../produtos/climatizacao-equipamentos/cassete-1via.webp";
 import casseteRoundFlowImg from "../../produtos/climatizacao-equipamentos/cassete-round-flow.webp";
 import hiWallImg from "../../produtos/climatizacao-equipamentos/hi-wall.webp";
+import chillerParafusoImg from "../../produtos/refrigeracao-alta-perfomace/chiller-parafuso.webp";
+import chillerUalImg from "../../produtos/refrigeracao-alta-perfomace/chiller-ual.webp";
 import styles from "./detalhe.module.scss";
 
 // Informações detalhadas para cada linha de fornecimento
@@ -505,6 +507,56 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
                       </div>
                     </div>
                   )}
+                </>
+              )}
+
+              {params.slug === "refrigeracao-de-alta-performance" && (
+                <>
+                  {/* Chiller Parafuso */}
+                  <div className={styles.vrvFitSection}>
+                    <div className={styles.vrvFitContent}>
+                      <h3 className={styles.vrvFitTitle}>
+                        Chillers com compressor parafuso Daikin oferecem alta eficiência e confiabilidade no resfriamento de água para sistemas de grande porte. Possuem controle preciso de capacidade e baixo nível de ruído, sendo a solução ideal para processos industriais e grandes edificações.
+                      </h3>
+                      <div className={styles.vrvFitUsage}>
+                        <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                        <blockquote className={styles.vrvFitUsageBlockquote}>
+                          Indústrias farmacêuticas, químicas, shoppings centers, grandes edifícios comerciais e hospitais.
+                        </blockquote>
+                      </div>
+                    </div>
+                    <div className={styles.vrvFitImageWrapper}>
+                      <Image
+                        src={chillerParafusoImg}
+                        alt="Chiller Parafuso Daikin"
+                        className={styles.vrvFitImage}
+                        placeholder="blur"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Chiller UAL */}
+                  <div className={`${styles.vrvFitSection} ${styles.reversed}`}>
+                    <div className={styles.vrvFitImageWrapper}>
+                      <Image
+                        src={chillerUalImg}
+                        alt="Chiller Modular UAL Daikin"
+                        className={styles.vrvFitImage}
+                        placeholder="blur"
+                      />
+                    </div>
+                    <div className={styles.vrvFitContent}>
+                      <h3 className={styles.vrvFitTitle}>
+                        O Chiller Modular UAL Daikin é uma solução flexível e altamente eficiente com condensação a ar. Seu design modular permite o acoplamento de múltiplas unidades para expansão do sistema conforme a necessidade da obra, garantindo facilidade de manutenção e economia.
+                      </h3>
+                      <div className={styles.vrvFitUsage}>
+                        <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                        <blockquote className={styles.vrvFitUsageBlockquote}>
+                          Hotéis, hospitais, prédios comerciais de médio e grande porte, indústrias e projetos com necessidade de expansão modular.
+                        </blockquote>
+                      </div>
+                    </div>
+                  </div>
                 </>
               )}
 
