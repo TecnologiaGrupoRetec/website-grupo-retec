@@ -26,6 +26,19 @@ import exaustorSonora18Img from "../../produtos/exaustao-e-ventilacao/exaustor_b
 import exaustorMega34Img from "../../produtos/exaustao-e-ventilacao/exaustor_sicflux_mega_34_bivolt_silencioso_para_banheiro.webp";
 import exaustorMaxx100Img from "../../produtos/exaustao-e-ventilacao/exaustor-axial-in-line-maxx_100_sicflux.webp";
 import gabineteFh315Img from "../../produtos/exaustao-e-ventilacao/gabinete_de_ventilacao_sicflux_fh_315_com_filtros_g4_m5_220v.webp";
+import damperRgBImg from "../../produtos/difusao-controle-ar/damper_de_regulagem_leve_com_aletas_convergentes_rg_b.webp";
+import grelhaMultivac100Img from "../../produtos/difusao-controle-ar/grelha_com_aletas_fixas_100_multivac_com_tela_anti_inseto.webp";
+import grelhaTroxAtAgImg from "../../produtos/difusao-controle-ar/grelha_de_insuflamento_trox_at_ag.webp";
+import grelhaTroxVatDgImg from "../../produtos/difusao-controle-ar/grelha_de_insuflamento_trox_vat_dg.webp";
+import grelhaTroxArAImg from "../../produtos/difusao-controle-ar/grelha_de_retorno_trox_ar_a.webp";
+import grelhaTroxArAgImg from "../../produtos/difusao-controle-ar/grelha_de_retorno_trox_ar_ag.webp";
+import grelhaSicfluxGvaf125Img from "../../produtos/difusao-controle-ar/grelha_de_saida_de_ar_auto_fechante_gvaf_125_sicflux.webp";
+import grelhaSicfluxGfmT200Img from "../../produtos/difusao-controle-ar/grelha_metalica_fixa_sicflux_gfm_t_200_com_tela_anti_inseto_4_furos.webp";
+import grelhaSicfluxGfmC150Img from "../../produtos/difusao-controle-ar/grelha_metalica_sicflux_gfm_c_150_com_colarinho.webp";
+import grelhaSicfluxS2525Img from "../../produtos/difusao-controle-ar/grelha_quadrada_de_sobrepor_s2525_sicflux_abs_e_anti_uv_teto_parede.webp";
+import grelhaSicfluxRedondaImg from "../../produtos/difusao-controle-ar/grelha_redonda_fixa_com_colarinho_sicflux.webp";
+import grelhaTroxAwkImg from "../../produtos/difusao-controle-ar/grelha_veneziana_de_retorno_trox_awk.webp";
+import reguladorSicfluxRva200Img from "../../produtos/difusao-controle-ar/regulador_de_vazao_de_ar_rva_200_sicflux_para_instalacao_em_teto_plastico_abs_encaixe_ajustavel.webp";
 import styles from "./detalhe.module.scss";
 
 // Informações detalhadas para cada linha de fornecimento
@@ -146,10 +159,21 @@ const solutionsData: Record<string, {
 export default function SolucaoDetalhePage({ params }: { params: { slug: string } }) {
   const data = solutionsData[params.slug];
   const [selectedCategory, setSelectedCategory] = useState<
-    "VRV" | "Fancolete" | "Cassete" | "Hi-Wall" | "Exaustor" | "Gabinete de Ventilação"
+    | "VRV"
+    | "Fancolete"
+    | "Cassete"
+    | "Hi-Wall"
+    | "Exaustor"
+    | "Gabinete de Ventilação"
+    | "Grelhas Trox"
+    | "Grelhas de Ventilação"
+    | "Dampers e Reguladores"
   >(() => {
     if (params.slug === "exaustao-e-ventilacao") {
       return "Exaustor";
+    }
+    if (params.slug === "difusao-e-controle-de-ar") {
+      return "Grelhas Trox";
     }
     return "VRV";
   });
@@ -734,6 +758,337 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
                             className={styles.vrvFitImage}
                             placeholder="blur"
                           />
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </>
+              )}
+
+              {params.slug === "difusao-e-controle-de-ar" && (
+                <>
+                  <div className={styles.filterContainer}>
+                    {(["Grelhas Trox", "Grelhas de Ventilação", "Dampers e Reguladores"] as const).map((category) => (
+                      <button
+                        key={category}
+                        className={`${styles.filterButton} ${selectedCategory === category ? styles.active : ""
+                          }`}
+                        onClick={() => setSelectedCategory(category)}
+                      >
+                        {category}
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Grelhas Trox Category Products */}
+                  {selectedCategory === "Grelhas Trox" && (
+                    <div className={styles.productFadeIn}>
+                      {/* Grelha Trox AT-AG */}
+                      <div className={styles.vrvFitSection}>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            A Grelha Trox AT-AG (Insuflamento) é fabricada em perfis de alumínio extrudado, equipada com aletas horizontais e verticais individualmente ajustáveis para controle preciso da direção do fluxo de ar no ambiente.
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Escritórios comerciais, salas de reunião, hotéis, residências e ambientes que demandam distribuição uniforme e direcionamento do ar climatizado.
+                            </blockquote>
+                          </div>
+                        </div>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={grelhaTroxAtAgImg}
+                            alt="Grelha Trox AT-AG"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Grelha Trox VAT-DG */}
+                      <div className={`${styles.vrvFitSection} ${styles.reversed}`}>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={grelhaTroxVatDgImg}
+                            alt="Grelha Trox VAT-DG"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            A Grelha Trox VAT-DG (Insuflamento Vertical) conta com aletas duplas defletoras ajustáveis, oferecendo excelente controle do jato de ar. Possui registro de regulagem de vazão acoplado para balanceamento perfeito.
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Ambientes corporativos, lojas de departamento, auditórios e locais com pé-direito médio a alto que necessitam de distribuição vertical do fluxo.
+                            </blockquote>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Grelha Trox AR-A */}
+                      <div className={styles.vrvFitSection}>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            A Grelha Trox AR-A (Retorno) é produzida em alumínio anodizado com aletas horizontais fixas inclinadas a 45°. Desenvolvida para captação de ar de retorno ou exaustão, proporcionando baixa perda de carga e excelente acabamento estético.
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Retorno de sistemas de ar condicionado central, exaustão de ar em escritórios, salas comerciais e áreas comuns.
+                            </blockquote>
+                          </div>
+                        </div>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={grelhaTroxArAImg}
+                            alt="Grelha Trox AR-A"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Grelha Trox AR-AG */}
+                      <div className={`${styles.vrvFitSection} ${styles.reversed}`}>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={grelhaTroxArAgImg}
+                            alt="Grelha Trox AR-AG"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            A Grelha Trox AR-AG (Retorno com Registro) é construída em alumínio com aletas fixas defletoras a 45° e registro de regulagem de lâminas opostas integrado, facilitando o balanceamento preciso da vazão do sistema.
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Balanceamento de redes de retorno em sistemas HVAC centrais de escritórios, hotéis, hospitais e edifícios comerciais.
+                            </blockquote>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Grelha Veneziana Trox AWK */}
+                      <div className={styles.vrvFitSection}>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            A Grelha Veneziana Trox AWK possui aletas fixas horizontais curvas, projetada para captação externa ou interna de ar. Evita a visualização do interior do duto e reduz a entrada de água em captações de ar externo.
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Fachadas de edifícios, salas de máquinas, captações externas de ar de renovação e portas de salas técnicas.
+                            </blockquote>
+                          </div>
+                        </div>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={grelhaTroxAwkImg}
+                            alt="Grelha Veneziana Trox AWK"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Grelhas de Ventilação Category Products */}
+                  {selectedCategory === "Grelhas de Ventilação" && (
+                    <div className={styles.productFadeIn}>
+                      {/* Grelha Multivac 100 com Tela */}
+                      <div className={styles.vrvFitSection}>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            A Grelha Multivac com Tela Anti-Inseto é uma grelha circular com aletas fixas de diversos tamanhos. Produzida em plástico de alta resistência e equipada com tela integrada para impedir o acesso de insetos e pequenos detritos.
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Ventilação natural ou mecânica de banheiros, copas, despensas e saídas de ar externas residenciais.
+                            </blockquote>
+                          </div>
+                        </div>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={grelhaMultivac100Img}
+                            alt="Grelha Multivac 100 com Tela"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Grelha Auto-fechante GVAF 125 Sicflux */}
+                      <div className={`${styles.vrvFitSection} ${styles.reversed}`}>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={grelhaSicfluxGvaf125Img}
+                            alt="Grelha Auto-fechante Sicflux GVAF 125"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            A Grelha Auto-fechante GVAF Sicflux conta com aletas móveis gravidade/auto-fechantes de diversos tamanhos. Abrem-se com a pressão da exaustão do ar e fecham-se automaticamente quando o exaustor desliga, impedindo retornos e insetos.
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Terminações externas de exaustores de banheiro, cozinhas residenciais e redes de dutos de exaustão em apartamentos.
+                            </blockquote>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Grelha Metálica Sicflux GFM T-200 */}
+                      <div className={styles.vrvFitSection}>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            A Grelha Metálica Sicflux GFM T é uma grelha metálica plana com tela integrada e aletas fixas, disponível em diversos tamanhos. Conta com furação nos quatro cantos para fixação rápida e durabilidade extrema.
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Ambientes que exigem alta resistência mecânica, como indústrias, garagens comerciais, depósitos e áreas técnicas.
+                            </blockquote>
+                          </div>
+                        </div>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={grelhaSicfluxGfmT200Img}
+                            alt="Grelha Metálica Sicflux GFM T-200"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Grelha Metálica Sicflux GFM C-150 com Colarinho */}
+                      <div className={`${styles.vrvFitSection} ${styles.reversed}`}>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={grelhaSicfluxGfmC150Img}
+                            alt="Grelha Metálica Sicflux GFM C-150 com Colarinho"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            A Grelha Metálica Sicflux GFM C com Colarinho possui diversos tamanhos com acabamento premium e colarinho traseiro integrado para encaixe direto em dutos flexíveis ou rígidos.
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Conexão direta em dutos flexíveis de exaustores de banheiro, coifas residenciais e sistemas de renovação de ar.
+                            </blockquote>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Grelha de Sobrepor Sicflux S2525 ABS */}
+                      <div className={styles.vrvFitSection}>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            A Grelha de Sobrepor Sicflux S2525 ABS é uma grelha quadrada de sobrepor em plástico ABS com proteção anti-UV. Apresenta design de perfil baixo para aplicação em teto ou parede com fino acabamento.
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Acabamento estético de pontos de insuflamento ou exaustão em apartamentos, escritórios, consultórios e residências.
+                            </blockquote>
+                          </div>
+                        </div>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={grelhaSicfluxS2525Img}
+                            alt="Grelha de Sobrepor Sicflux S2525 ABS"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Grelha Redonda Fixa Sicflux com Colarinho */}
+                      <div className={`${styles.vrvFitSection} ${styles.reversed}`}>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={grelhaSicfluxRedondaImg}
+                            alt="Grelha Redonda Fixa Sicflux"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            A Grelha Redonda Fixa Sicflux com Colarinho é circular e projetada com colarinho traseiro integrado para encaixe simples. Fabricada em plástico de alta engenharia para excelente custo-benefício.
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Terminações de redes de dutos de ventilação mecânica, exaustores axiais e renovadores de ar residenciais.
+                            </blockquote>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Dampers e Reguladores Category Products */}
+                  {selectedCategory === "Dampers e Reguladores" && (
+                    <div className={styles.productFadeIn}>
+                      {/* Damper de Regulagem Trox RG-B */}
+                      <div className={styles.vrvFitSection}>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            O Damper de Regulagem Trox RG-B oferece regulagem de vazão leve com acionamento manual e aletas convergentes. Estrutura robusta ideal para controle e balanceamento preciso do fluxo em redes de dutos retangulares.
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Instalação em dutos retangulares para balanceamento de ar condicionado central, ventilação mecânica e isolamento de ramais.
+                            </blockquote>
+                          </div>
+                        </div>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={damperRgBImg}
+                            alt="Damper de Regulagem Trox RG-B"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Regulador de Vazão Sicflux RVA 200 ABS */}
+                      <div className={`${styles.vrvFitSection} ${styles.reversed}`}>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={reguladorSicfluxRva200Img}
+                            alt="Regulador de Vazão Sicflux RVA 200"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            O Regulador de Vazão Sicflux RVA ABS permite ajustar manualmente a vazão de ar do ambiente de forma simples e direta. Fabricado em plástico ABS com encaixe ajustável.
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Instalação em gesso/teto para controle e balanceamento da vazão de ramais residenciais e comerciais de pequeno porte.
+                            </blockquote>
+                          </div>
                         </div>
                       </div>
                     </div>
