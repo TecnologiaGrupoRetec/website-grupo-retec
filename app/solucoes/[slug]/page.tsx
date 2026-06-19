@@ -20,6 +20,12 @@ import casseteRoundFlowImg from "../../produtos/climatizacao-equipamentos/casset
 import hiWallImg from "../../produtos/climatizacao-equipamentos/hi-wall.webp";
 import chillerParafusoImg from "../../produtos/refrigeracao-alta-perfomace/chiller-parafuso.webp";
 import chillerUalImg from "../../produtos/refrigeracao-alta-perfomace/chiller-ual.webp";
+import miniChillerDaikinImg from "../../produtos/refrigeracao-alta-perfomace/mini-chiller-daikin.webp";
+import exaustorAci250Img from "../../produtos/exaustao-e-ventilacao/exaustor_aci_250_sicflux.webp";
+import exaustorSonora18Img from "../../produtos/exaustao-e-ventilacao/exaustor_banheiro_sicflux_sonora_18_silencioso_bivolt.webp";
+import exaustorMega34Img from "../../produtos/exaustao-e-ventilacao/exaustor_sicflux_mega_34_bivolt_silencioso_para_banheiro.webp";
+import exaustorMaxx100Img from "../../produtos/exaustao-e-ventilacao/exaustor-axial-in-line-maxx_100_sicflux.webp";
+import gabineteFh315Img from "../../produtos/exaustao-e-ventilacao/gabinete_de_ventilacao_sicflux_fh_315_com_filtros_g4_m5_220v.webp";
 import styles from "./detalhe.module.scss";
 
 // Informações detalhadas para cada linha de fornecimento
@@ -139,7 +145,14 @@ const solutionsData: Record<string, {
 
 export default function SolucaoDetalhePage({ params }: { params: { slug: string } }) {
   const data = solutionsData[params.slug];
-  const [selectedCategory, setSelectedCategory] = useState<"VRV" | "Fancolete" | "Cassete" | "Hi-Wall">("VRV");
+  const [selectedCategory, setSelectedCategory] = useState<
+    "VRV" | "Fancolete" | "Cassete" | "Hi-Wall" | "Exaustor" | "Gabinete de Ventilação"
+  >(() => {
+    if (params.slug === "exaustao-e-ventilacao") {
+      return "Exaustor";
+    }
+    return "VRV";
+  });
 
   if (!data) {
     notFound();
@@ -196,7 +209,11 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
                   </li>
                 ))}
               </ul>
-              <h3 className={styles.subTitle}>Linha de Climatização e Equipamentos que distribuímos:</h3>
+              <h3 className={styles.subTitle}>
+                {params.slug === "exaustao-e-ventilacao"
+                  ? "Linha de Exaustão e Ventilação que distribuímos:"
+                  : "Linha de Climatização e Equipamentos que distribuímos:"}
+              </h3>
 
               {params.slug === "climatizacao-e-equipamentos" && (
                 <>
@@ -557,6 +574,170 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
                       </div>
                     </div>
                   </div>
+
+                  {/* Mini Chiller Daikin */}
+                  <div className={styles.vrvFitSection}>
+                    <div className={styles.vrvFitContent}>
+                      <h3 className={styles.vrvFitTitle}>
+                        O Mini Chiller Inverter Daikin oferece alto desempenho e eficiência térmica em um design extremamente compacto. Ideal para residências e comércios de pequeno a médio porte, utiliza tecnologia inverter para otimizar o consumo de energia de forma silenciosa.
+                      </h3>
+                      <div className={styles.vrvFitUsage}>
+                        <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                        <blockquote className={styles.vrvFitUsageBlockquote}>
+                          Residências de alto padrão, clínicas, escritórios, consultórios e projetos com restrição de espaço externo.
+                        </blockquote>
+                      </div>
+                    </div>
+                    <div className={styles.vrvFitImageWrapper}>
+                      <Image
+                        src={miniChillerDaikinImg}
+                        alt="Mini Chiller Inverter Daikin"
+                        className={styles.vrvFitImage}
+                        placeholder="blur"
+                      />
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {params.slug === "exaustao-e-ventilacao" && (
+                <>
+                  <div className={styles.filterContainer}>
+                    {(["Exaustor", "Gabinete de Ventilação"] as const).map((category) => (
+                      <button
+                        key={category}
+                        className={`${styles.filterButton} ${selectedCategory === category ? styles.active : ""
+                          }`}
+                        onClick={() => setSelectedCategory(category)}
+                      >
+                        {category}
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Exaustor Category Products */}
+                  {selectedCategory === "Exaustor" && (
+                    <div className={styles.productFadeIn}>
+                      {/* Exaustor ACI 250 */}
+                      <div className={styles.vrvFitSection}>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            O exaustor centrífugo in-line ACI 250 Sicflux é ideal para instalação em redes de dutos de ventilação de médio porte. Desenvolvido para oferecer alta vazão e pressão com baixo nível de ruído, conta com motor de rolamento e carcaça metálica resistente.
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Escritórios, comércios, banheiros públicos, salas de reunião e instalações industriais leves.
+                            </blockquote>
+                          </div>
+                        </div>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={exaustorAci250Img}
+                            alt="Exaustor Centrífugo ACI 250 Sicflux"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Exaustor Sonora 18 */}
+                      <div className={`${styles.vrvFitSection} ${styles.reversed}`}>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={exaustorSonora18Img}
+                            alt="Exaustor de Banheiro Sicflux Sonora 18"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            O exaustor de banheiro Sicflux Sonora 18 oferece exaustão eficiente e extremamente silenciosa para banheiros residenciais. Conta com veneziana traseira antirretorno e funcionamento bivolt.
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Banheiros residenciais, suítes, lavabos e pequenos ambientes sem ventilação natural.
+                            </blockquote>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Exaustor Mega 34 */}
+                      <div className={styles.vrvFitSection}>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            O exaustor Sicflux Mega 34 é uma solução robusta e super silenciosa para a exaustão de banheiros maiores ou comerciais. Com vazão otimizada e fácil instalação, garante a eliminação eficaz de odores e umidade.
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Banheiros de hotéis, escritórios comerciais, consultórios e vestiários de médio porte.
+                            </blockquote>
+                          </div>
+                        </div>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={exaustorMega34Img}
+                            alt="Exaustor Sicflux Mega 34"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Exaustor Maxx 100 */}
+                      <div className={`${styles.vrvFitSection} ${styles.reversed}`}>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={exaustorMaxx100Img}
+                            alt="Exaustor Axial In-Line Maxx 100 Sicflux"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            O exaustor axial in-line Maxx 100 Sicflux é projetado para instalação intermediária em dutos de ventilação, funcionando como reforço de linha. Extremamente compacto e silencioso.
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Sistemas de exaustão residenciais, reforço de fluxo em dutos, escritórios de pequeno porte e lavabos.
+                            </blockquote>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Gabinete de Ventilação Category Products */}
+                  {selectedCategory === "Gabinete de Ventilação" && (
+                    <div className={styles.productFadeIn}>
+                      <div className={styles.vrvFitSection}>
+                        <div className={styles.vrvFitContent}>
+                          <h3 className={styles.vrvFitTitle}>
+                            O Gabinete de Ventilação Sicflux FH 315 com filtros G4+M5 é uma solução de alta performance desenvolvida para insuflamento, renovação e filtragem de ar comercial e corporativo. Sua estrutura robusta garante atenuação acústica e facilidade de manutenção de seus filtros modulares, ideal para garantir a Qualidade do Ar Interno (QAI).
+                          </h3>
+                          <div className={styles.vrvFitUsage}>
+                            <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                            <blockquote className={styles.vrvFitUsageBlockquote}>
+                              Escritórios, salas de aula, clínicas, consultórios, galpões e edifícios comerciais com foco em renovação de ar limpo.
+                            </blockquote>
+                          </div>
+                        </div>
+                        <div className={styles.vrvFitImageWrapper}>
+                          <Image
+                            src={gabineteFh315Img}
+                            alt="Gabinete de Ventilação Sicflux FH 315"
+                            className={styles.vrvFitImage}
+                            placeholder="blur"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </>
               )}
 
