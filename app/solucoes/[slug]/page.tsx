@@ -39,6 +39,10 @@ import grelhaSicfluxS2525Img from "../../produtos/difusao-controle-ar/grelha_qua
 import grelhaSicfluxRedondaImg from "../../produtos/difusao-controle-ar/grelha_redonda_fixa_com_colarinho_sicflux.webp";
 import grelhaTroxAwkImg from "../../produtos/difusao-controle-ar/grelha_veneziana_de_retorno_trox_awk.webp";
 import reguladorSicfluxRva200Img from "../../produtos/difusao-controle-ar/regulador_de_vazao_de_ar_rva_200_sicflux_para_instalacao_em_teto_plastico_abs_encaixe_ajustavel.webp";
+import dutoFlexivelSemIsolamentoImg from "../../produtos/dutos-e-conexoes/duto_flexivel_sem_isolamento_rocktec_ventilacao_e_exaustao.webp";
+import dutoFlexivelComIsolamentoImg from "../../produtos/dutos-e-conexoes/duto_flexvel_com_isolamento_rolo.webp";
+import dutoIsodec16MultivacImg from "../../produtos/dutos-e-conexoes/duto_flexvel_isodec_16_multivac.webp";
+import tuboSemiRigidoTsrImg from "../../produtos/dutos-e-conexoes/tubo_semi_rigido_tsr_sicflux.webp";
 import styles from "./detalhe.module.scss";
 
 // Informações detalhadas para cada linha de fornecimento
@@ -1093,6 +1097,102 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
                       </div>
                     </div>
                   )}
+                </>
+              )}
+
+              {params.slug === "dutos-e-conexoes" && (
+                <>
+                  {/* Duto Flexível Sem Isolamento Rocktec */}
+                  <div className={styles.vrvFitSection}>
+                    <div className={styles.vrvFitContent}>
+                      <h3 className={styles.vrvFitTitle}>
+                        O Duto Flexível Sem Isolamento Rocktec é fabricado em alumínio e poliéster, sem isolamento térmico, projetado para condução de ar em sistemas de ventilação mecânica e exaustão. Apresenta alta flexibilidade e facilidade de instalação em espaços confinados.
+                      </h3>
+                      <div className={styles.vrvFitUsage}>
+                        <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                        <blockquote className={styles.vrvFitUsageBlockquote}>
+                          Sistemas de exaustão de banheiros, coifas residenciais, ventilação permanente e renovação de ar em ambientes comerciais de pequeno porte.
+                        </blockquote>
+                      </div>
+                    </div>
+                    <div className={styles.vrvFitImageWrapper}>
+                      <Image
+                        src={dutoFlexivelSemIsolamentoImg}
+                        alt="Duto Flexível Sem Isolamento Rocktec"
+                        className={styles.vrvFitImage}
+                        placeholder="blur"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Duto Flexível Com Isolamento */}
+                  <div className={`${styles.vrvFitSection} ${styles.reversed}`}>
+                    <div className={styles.vrvFitImageWrapper}>
+                      <Image
+                        src={dutoFlexivelComIsolamentoImg}
+                        alt="Duto Flexível Com Isolamento Térmico"
+                        className={styles.vrvFitImage}
+                        placeholder="blur"
+                      />
+                    </div>
+                    <div className={styles.vrvFitContent}>
+                      <h3 className={styles.vrvFitTitle}>
+                        O Duto Flexível Com Isolamento Térmico é composto por núcleo de alumínio/poliéster revestido por uma espessa camada de lã de vidro estruturada para isolamento térmico e barreira de vapor. Evita condensação externa e minimiza perdas térmicas.
+                      </h3>
+                      <div className={styles.vrvFitUsage}>
+                        <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                        <blockquote className={styles.vrvFitUsageBlockquote}>
+                          Redes de dutos secundários (ramais) de ar condicionado central, sistemas VRV/VRF dutados e interligação de difusores.
+                        </blockquote>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Duto Flexível Isodec Multivac */}
+                  <div className={styles.vrvFitSection}>
+                    <div className={styles.vrvFitContent}>
+                      <h3 className={styles.vrvFitTitle}>
+                        O Duto Flexível Isodec Multivac é termoacústico e fabricado com alta tecnologia. Possui parede interna de alumínio e poliéster, isolamento térmico de alta densidade e revestimento externo resistente. Oferece atenuação acústica superior e barreira contra umidade.
+                      </h3>
+                      <div className={styles.vrvFitUsage}>
+                        <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                        <blockquote className={styles.vrvFitUsageBlockquote}>
+                          Projetos HVAC comerciais, corporativos e hospitalares que requerem controle rigoroso de ruídos e alta eficiência térmica nos ramais de distribuição.
+                        </blockquote>
+                      </div>
+                    </div>
+                    <div className={styles.vrvFitImageWrapper}>
+                      <Image
+                        src={dutoIsodec16MultivacImg}
+                        alt="Duto Flexível Isodec 16 Multivac"
+                        className={styles.vrvFitImage}
+                        placeholder="blur"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Tubo Semi-rígido TSR Sicflux */}
+                  <div className={`${styles.vrvFitSection} ${styles.reversed}`}>
+                    <div className={styles.vrvFitImageWrapper}>
+                      <Image
+                        src={tuboSemiRigidoTsrImg}
+                        alt="Tubo Semi-rígido TSR Sicflux"
+                        className={styles.vrvFitImage}
+                        placeholder="blur"
+                      />
+                    </div>
+                    <div className={styles.vrvFitContent}>
+                      <h3 className={styles.vrvFitTitle}>
+                        O Tubo Semi-rígido TSR Sicflux é confeccionado em alumínio semi-rígido com excelente resistência mecânica. Suporta temperaturas elevadas e mantém sua seção circular aberta mesmo em curvas acentuadas, garantindo mínima perda de carga.
+                      </h3>
+                      <div className={styles.vrvFitUsage}>
+                        <h4 className={styles.vrvFitUsageTitle}>excelente para:</h4>
+                        <blockquote className={styles.vrvFitUsageBlockquote}>
+                          Conexão de exaustores de banheiro, secadoras de roupa, coifas de cozinha, aquecedores a gás e captações técnicas de exaustão.
+                        </blockquote>
+                      </div>
+                    </div>
+                  </div>
                 </>
               )}
 
