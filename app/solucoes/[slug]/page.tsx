@@ -135,6 +135,9 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
     if (params.slug === "difusao-e-controle-de-ar") {
       return "Grelhas Trox";
     }
+    if (params.slug === "isolamento-e-vedacao") {
+      return "Isolamento Térmico";
+    }
     return "VRV";
   });
 

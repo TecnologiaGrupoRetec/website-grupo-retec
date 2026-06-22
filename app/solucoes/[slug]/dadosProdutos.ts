@@ -47,6 +47,16 @@ import dutoFlexivelComIsolamentoImg from "../../produtos/dutos-e-conexoes/duto_f
 import dutoIsodec16MultivacImg from "../../produtos/dutos-e-conexoes/duto_flexvel_isodec_16_multivac.webp";
 import tuboSemiRigidoTsrImg from "../../produtos/dutos-e-conexoes/tubo_semi_rigido_tsr_sicflux.webp";
 
+// 6. Isolamento e Vedação
+import fitaAluminizadaRetecImg from "../../produtos/isolamento-e-vedacao/180_fita_aluminizada_48mm_x_45m_retec.webp";
+import fitaAluminioPirImg from "../../produtos/isolamento-e-vedacao/180_fita_de_alumnio_pir_50mm_x_50m.webp";
+import fitaArquearAluminioImg from "../../produtos/isolamento-e-vedacao/180_fita_de_arquear_em_alumnio_127_x_100000_x_05_mm.webp";
+import fitaArmaflexAfImg from "../../produtos/isolamento-e-vedacao/fita_autoadesiva_armacell_armaflex_af.webp";
+import fitaVedacaoPolietilenoImg from "../../produtos/isolamento-e-vedacao/fita_de_vedao_em_polietileno_20x4mm_rolo_10m.webp";
+import mantaLaRochaTf32Img from "../../produtos/isolamento-e-vedacao/manta_em_la_de_rocha_tf_32.webp";
+import mantaArmaflexAfbrImg from "../../produtos/isolamento-e-vedacao/manta_isolante_elastomrica_armaflex_afbr.webp";
+import tuboArmaflexAfImg from "../../produtos/isolamento-e-vedacao/tubo_isolante_elastomerico_armaflex_af_armacell.webp";
+
 export interface Product {
   titulo: string;
   descricao: string;
@@ -349,6 +359,68 @@ export const produtosPorCategoria: Record<string, CategoryProductsData> = {
         descricao: "O Tubo Semi-rígido TSR Sicflux é confeccionado em alumínio semi-rígido com excelente resistência mecânica. Suporta temperaturas elevadas e mantém sua seção circular aberta mesmo em curvas acentuadas, garantindo mínima perda de carga.",
         excelentePara: "Conexão de exaustores de banheiro, secadoras de roupa, coifas de cozinha, aquecedores a gás e captações técnicas de exaustão.",
         imagem: tuboSemiRigidoTsrImg
+      }
+    ]
+  },
+  "isolamento-e-vedacao": {
+    tabs: [
+      {
+        nome: "Isolamento Térmico",
+        produtos: [
+          {
+            titulo: "Manta em Lã de Rocha TF 32",
+            descricao: "A Manta em Lã de Rocha TF 32 é produzida em lã de rocha basáltica de alta densidade, indicada para isolamento térmico e acústico de superfícies planas ou cilíndricas, como dutos de ar condicionado e tubulações industriais. Possui excelente resistência ao fogo e estabilidade térmica.",
+            excelentePara: "Isolamento termoacústico de dutos de ar condicionado metálicos, salas de máquinas, geradores e superfícies aquecidas.",
+            imagem: mantaLaRochaTf32Img
+          },
+          {
+            titulo: "Manta Isolante Elastomérica Armaflex AF/BR",
+            descricao: "A Manta Isolante Elastomérica Armaflex AF/BR é flexível, de borracha elastomérica com estrutura celular fechada. Oferece controle térmico altamente eficiente, com barreira de vapor ativa integrada para prevenir condensação em tubulações e dutos de grande diâmetro.",
+            excelentePara: "Grandes dutos de ar condicionado, chillers, tanques de água gelada, instalações industriais e controle de condensação.",
+            imagem: mantaArmaflexAfbrImg
+          },
+          {
+            titulo: "Tubo Isolante Elastomérico Armaflex AF Armacell",
+            descricao: "O Tubo Isolante Elastomérico Armaflex AF Armacell é desenvolvido para isolamento térmico de linhas de refrigeração e água gelada. Reduz perdas térmicas e previne corrosão sob o isolamento.",
+            excelentePara: "Tubulações de sistemas de ar condicionado VRV/VRF, linhas de expansão direta (Split), instalações de água gelada e sistemas de aquecimento.",
+            imagem: tuboArmaflexAfImg
+          }
+        ]
+      },
+      {
+        nome: "Fitas e Vedação",
+        produtos: [
+          {
+            titulo: "Fita Aluminizada Retec 48mm x 45m",
+            descricao: "A Fita Aluminizada Retec 48mm x 45m oferece alta refletividade e adesão, desenvolvida especialmente para emendas de dutos de ar, fixação de isolamentos térmicos e acabamentos metálicos. Garante estanqueidade e resistência ao calor.",
+            excelentePara: "União de juntas de dutos flexíveis, acabamento de mantas aluminizadas de lã de vidro ou rocha, e vedações metálicas em HVAC.",
+            imagem: fitaAluminizadaRetecImg
+          },
+          {
+            titulo: "Fita de Alumínio PIR 50mm x 50m",
+            descricao: "A Fita de Alumínio PIR 50mm x 50m conta com adesivo acrílico de alta performance, indicada para selagem e acabamento de painéis pré-isolados de poliuretano (PIR) ou dutos rígidos de ar. Oferece alta durabilidade e resistência contra umidade.",
+            excelentePara: "Emendas e montagem de dutos de painéis pré-isolados (PIR/MPU), garantindo total estanqueidade do sistema de distribuição de ar.",
+            imagem: fitaAluminioPirImg
+          },
+          {
+            titulo: "Fita de Arquear em Alumínio 12.7mm",
+            descricao: "A Fita de Arquear em Alumínio 12.7mm é fabricada em alumínio de alta maleabilidade e resistência. Ideal para amarração e fixação mecânica de isolamentos térmicos externos em tubulações e dutos de grande porte.",
+            excelentePara: "Fixação de mantas e calhas de isolamento térmico em tubulações de água gelada, vapor e dutos industriais.",
+            imagem: fitaArquearAluminioImg
+          },
+          {
+            titulo: "Fita Autoadesiva Armacell Armaflex AF",
+            descricao: "A Fita Autoadesiva Armacell Armaflex AF é fabricada em borracha elastomérica Armaflex AF. Essencial para isolamento e vedação de conexões, válvulas, flanges e locais de difícil acesso, garantindo a continuidade do isolamento sem pontes térmicas.",
+            excelentePara: "Isolamento complementar de conexões, flanges, válvulas, curvas e acabamentos em tubulações de refrigeração.",
+            imagem: fitaArmaflexAfImg
+          },
+          {
+            titulo: "Fita de Vedação em Polietileno 20x4mm",
+            descricao: "A Fita de Vedação em Polietileno 20x4mm é autoadesiva e produzida em espuma de polietileno expandido. Utilizada para vedação física entre flanges de dutos de ar, eliminando vazamentos de fluxo e vibrações.",
+            excelentePara: "Vedação de juntas flangeadas de dutos retangulares de chapa metálica e sistemas de ventilação mecânica.",
+            imagem: fitaVedacaoPolietilenoImg
+          }
+        ]
       }
     ]
   }
