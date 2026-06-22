@@ -57,6 +57,13 @@ import mantaLaRochaTf32Img from "../../produtos/isolamento-e-vedacao/manta_em_la
 import mantaArmaflexAfbrImg from "../../produtos/isolamento-e-vedacao/manta_isolante_elastomrica_armaflex_afbr.webp";
 import tuboArmaflexAfImg from "../../produtos/isolamento-e-vedacao/tubo_isolante_elastomerico_armaflex_af_armacell.webp";
 
+// 7. Filtragem e Qualidade do Ar
+import caixaFiltroFilboxImg from "../../produtos/filtragem-qualidade-ar/caixa_de_filtro_filbox_red_g4_f8_sicflux.webp";
+import filtroPlissadoTroxImg from "../../produtos/filtragem-qualidade-ar/filtro_medio_m5_f754_590x550x48_trox.webp";
+
+// 8. Acessórios e Fixação
+import manometroGlicerinaImg from "../../produtos/acessorios/manometro_com_glicerina_inox_dn100_0_10_bar_0_150_psi_rosca_1_2_inferior.webp";
+
 export interface Product {
   titulo: string;
   descricao: string;
@@ -421,6 +428,32 @@ export const produtosPorCategoria: Record<string, CategoryProductsData> = {
             imagem: fitaVedacaoPolietilenoImg
           }
         ]
+      }
+    ]
+  },
+  "filtragem-e-qualidade-do-ar": {
+    produtos: [
+      {
+        titulo: "Caixa de Filtro Filbox Red G4/F8 Sicflux",
+        descricao: "A Caixa de Filtro Filbox Red G4/F8 Sicflux é uma caixa de filtragem de perfil circular, equipada com filtros grossos G4 e médios F8 (ou filtros combinados) para retenção de poeira e purificação do ar. Gabinete estanque de fácil abertura para manutenção de filtros.",
+        excelentePara: "Redes de dutos de ar de renovação, escritórios, consultórios, salas limpas e ambientes comerciais preocupados com a qualidade do ar interno.",
+        imagem: caixaFiltroFilboxImg
+      },
+      {
+        titulo: "Filtro Plissado Médio M5 F754 Trox",
+        descricao: "O Filtro Plissado Médio M5 F754 Trox é um filtro de ar plissado de classe de filtragem média M5 da marca Trox, modelo F754 (dimensões 590x550x48mm). Possui grande área de filtragem, baixa perda de carga inicial e alta capacidade de retenção de partículas finas.",
+        excelentePara: "Pré-filtragem de unidades de tratamento de ar (UTAs), fancoils, sistemas de exaustão e tomadas de ar externo industriais ou hospitalares.",
+        imagem: filtroPlissadoTroxImg
+      }
+    ]
+  },
+  "acessorios-e-fixacao": {
+    produtos: [
+      {
+        titulo: "Manômetro de Glicerina Inox DN100 Trox / Retec",
+        descricao: "O Manômetro de Glicerina Inox DN100 Trox / Retec é um manômetro analógico com caixa em aço inoxidável e preenchimento de glicerina, diâmetro nominal DN100, escala de 0 a 10 bar (0 a 150 psi) com conexão inferior de rosca 1/2\". A glicerina atenua pulsações e vibrações do ponteiro, garantindo leitura estável e alta vida útil.",
+        excelentePara: "Monitoramento de pressão em tubulações de água gelada de Chillers, bombas d'água, sistemas hidrônicos e redes de incêndio comerciais ou industriais.",
+        imagem: manometroGlicerinaImg
       }
     ]
   }
