@@ -17,6 +17,9 @@ const solutionsData: Record<string, {
   details: string;
   features: string[];
   imageUrl: string;
+  ctaTitle?: string;
+  ctaText?: string;
+  ctaWhatsAppText?: string;
 }> = {
   "climatizacao-e-equipamentos": {
     title: "Climatização e Equipamentos",
@@ -29,7 +32,10 @@ const solutionsData: Record<string, {
       "Condensadoras compactas com tecnologia Inverter",
       "Fancoletes e cassetes hidrônicos de alto desempenho"
     ],
-    imageUrl: "/about/empty-office.webp"
+    imageUrl: "/about/empty-office.webp",
+    ctaTitle: "Climatize seu espaço com máxima eficiência e economia",
+    ctaText: "Evite erros de dimensionamento e gastos excessivos com energia. Fale com nossos engenheiros para definir os equipamentos ideais (VRV/Fancoils) para o seu projeto.",
+    ctaWhatsAppText: "Olá! Preciso de ajuda para dimensionar equipamentos de climatização (VRV/Fancoils) para o meu projeto."
   },
   "refrigeracao-de-alta-performance": {
     title: "Refrigeração de Alta Performance",
@@ -42,7 +48,10 @@ const solutionsData: Record<string, {
       "Sistemas hidrônicos completos com controle inteligente",
       "Suporte e dimensionamento de engenharia especializado"
     ],
-    imageUrl: "/about/office-inside.webp"
+    imageUrl: "/about/office-inside.webp",
+    ctaTitle: "Evite paradas críticas no seu sistema de água gelada",
+    ctaText: "Garanta estabilidade térmica absoluta para sua indústria, hospital ou shopping. Solicite uma cotação de Chillers Daikin e receba suporte de engenharia especializado.",
+    ctaWhatsAppText: "Olá! Gostaria de falar com um especialista em Refrigeração de Alta Performance e Chillers."
   },
   "exaustao-e-ventilacao": {
     title: "Exaustão e Ventilação",
@@ -55,7 +64,10 @@ const solutionsData: Record<string, {
       "Gabinetes de ventilação com atenuação acústica",
       "Sistemas integrados de insuflamento e extração"
     ],
-    imageUrl: "/about/about2.jpg"
+    imageUrl: "/about/about2.jpg",
+    ctaTitle: "Adequado às normas e livre de ar viciado?",
+    ctaText: "Evite multas e garanta a qualidade do ar interno. Nossos técnicos ajudam você a dimensionar exaustores e gabinetes de renovação dentro das normas NBR/Anvisa.",
+    ctaWhatsAppText: "Olá! Preciso de auxílio técnico para dimensionar um sistema de exaustão e renovação de ar dentro das normas."
   },
   "difusao-e-controle-de-ar": {
     title: "Difusão e Controle de Ar",
@@ -68,7 +80,10 @@ const solutionsData: Record<string, {
       "Dampers de regulagem e controle de vazão",
       "Venezianas de captação externa resistentes a intempéries"
     ],
-    imageUrl: "/home/new-facade.webp"
+    imageUrl: "/home/new-facade.webp",
+    ctaTitle: "Elimine correntes de ar frio e ruídos incômodos",
+    ctaText: "Obtenha um fluxo de ar uniforme, silencioso e balanceado. Encontre as grelhas, difusores e dampers reguladores ideais para sua obra comercial ou residencial.",
+    ctaWhatsAppText: "Olá! Gostaria de solicitar cotação e especificações para grelhas, difusores ou dampers."
   },
   "dutos-e-conexoes": {
     title: "Dutos e Conexões",
@@ -81,7 +96,10 @@ const solutionsData: Record<string, {
       "Dutos flexíveis aluminizados com ou sem isolamento",
       "Acessórios e adaptadores para conexões estanques"
     ],
-    imageUrl: "/about/about1.jpeg"
+    imageUrl: "/about/about1.jpeg",
+    ctaTitle: "Máxima estanqueidade e fluxo de ar garantido",
+    ctaText: "Evite desperdício de energia e quedas de pressão na sua rede. Fornecemos dutos flexíveis, semi-rígidos e conexões com encaixe perfeito para montagem rápida.",
+    ctaWhatsAppText: "Olá! Gostaria de orçar dutos e conexões para a minha rede de distribuição de ar."
   },
   "isolamento-e-vedacao": {
     title: "Isolamento e Vedação",
@@ -94,7 +112,10 @@ const solutionsData: Record<string, {
       "Fitas adesivas de vedação e acabamento de alta aderência",
       "Adesivos especiais resistentes a temperaturas extremas"
     ],
-    imageUrl: "/about/empty-office.webp"
+    imageUrl: "/about/empty-office.webp",
+    ctaTitle: "Acabe com o gotejamento e a perda térmica",
+    ctaText: "Previna a condensação e garanta a máxima eficiência de energia na sua linha de frio. Conheça nossa linha completa de mantas e tubos isolantes Armaflex.",
+    ctaWhatsAppText: "Olá! Preciso de soluções de isolamento térmico e vedação para evitar condensação/perda térmica."
   },
   "filtragem-e-qualidade-do-ar": {
     title: "Filtragem e Qualidade do Ar",
@@ -107,7 +128,10 @@ const solutionsData: Record<string, {
       "Caixas de filtragem completas para dutos",
       "Renovação de ar para atendimento às exigências da ANVISA"
     ],
-    imageUrl: "/about/office-inside.webp"
+    imageUrl: "/about/office-inside.webp",
+    ctaTitle: "Proteja a saúde de quem respira no seu ambiente",
+    ctaText: "Garanta ar purificado e livre de contaminantes de acordo com a ANVISA. Fornecemos filtros plissados, absolutos HEPA e caixas de filtragem estanques.",
+    ctaWhatsAppText: "Olá! Gostaria de orçar filtros e caixas de filtragem para melhorar a qualidade do ar interno."
   },
   "acessorios-e-fixacao": {
     title: "Acessórios e Fixação",
@@ -120,7 +144,10 @@ const solutionsData: Record<string, {
       "Fitas aluminizadas e emborrachadas de alta fixação",
       "Ferramental auxiliar e consumíveis de instalação"
     ],
-    imageUrl: "/home/new-facade.webp"
+    imageUrl: "/home/new-facade.webp",
+    ctaTitle: "Segurança estrutural e precisão na sua instalação",
+    ctaText: "Evite acidentes, ruídos de vibração e leituras de pressão imprecisas. Oferecemos suportes reforçados, fitas técnicas de fixação e manômetros de alta precisão.",
+    ctaWhatsAppText: "Olá! Gostaria de cotar acessórios de fixação, manômetros ou consumíveis para instalação de HVAC."
   }
 };
 
@@ -272,13 +299,15 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
             {/* Coluna Lateral (Sidebar CTA) */}
             <div className={styles.sidebar}>
               <div className={styles.ctaCard}>
-                <h3 className={styles.ctaTitle}>Solicite um Orçamento Técnico</h3>
+                <h3 className={styles.ctaTitle}>
+                  {data.ctaTitle || "Solicite um Orçamento Técnico"}
+                </h3>
                 <p className={styles.ctaText}>
-                  Precisa de suporte no dimensionamento ou fornecimento de materiais para esta linha em sua obra? Fale diretamente com nossa equipe.
+                  {data.ctaText || "Precisa de suporte no dimensionamento ou fornecimento de materiais para esta linha em sua obra? Fale diretamente com nossa equipe."}
                 </p>
                 <a
                   href={`https://wa.me/5561991311283?text=${encodeURIComponent(
-                    `Olá! Gostaria de solicitar um orçamento e saber mais informações sobre a linha de fornecimento: ${data.title}.`
+                    data.ctaWhatsAppText || `Olá! Gostaria de solicitar um orçamento e saber mais informações sobre a linha de fornecimento: ${data.title}.`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
