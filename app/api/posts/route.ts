@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
+import { revalidatePath } from "next/cache";
 import { supabase } from "../../../lib/supabase";
 
 export const dynamic = "force-dynamic";
@@ -60,7 +61,11 @@ export async function GET() {
       criado_em: post.criado_em,
     }));
 
-    return NextResponse.json(formattedPosts);
+    return NextResponse.json(formattedPosts, {
+      headers: {
+        "Cache-Control": "no-store, max-age=0, must-revalidate",
+      },
+    });
   } catch (error) {
     console.error("Erro ao ler os posts do Supabase:", error);
     return NextResponse.json(
@@ -144,6 +149,10 @@ export async function POST(request: Request) {
       throw insertError;
     }
 
+    // Invalida o cache do Next.js/Vercel imediatamente
+    revalidatePath("/blog");
+    revalidatePath(`/blog/${slug}`);
+
     return NextResponse.json({ success: true, post: newPost });
   } catch (error) {
     console.error("Erro ao criar post no Supabase:", error);
@@ -182,6 +191,10 @@ export async function DELETE(request: Request) {
     if (deleteError) {
       throw deleteError;
     }
+
+    // Invalida o cache do Next.js/Vercel imediatamente
+    revalidatePath("/blog");
+    revalidatePath(`/blog/${slug}`);
 
     return NextResponse.json({ success: true, message: "Postagem excluída com sucesso." });
   } catch (error) {
