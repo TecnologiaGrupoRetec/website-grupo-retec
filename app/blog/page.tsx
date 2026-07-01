@@ -6,8 +6,55 @@ import Main from "../components/main";
 import Link from "next/link";
 import ArticleCard from "../components/articleCard";
 import Button from "../components/button";
+import { supabase } from "../../lib/supabase";
 
-export default function Blog() {
+export const dynamic = "force-dynamic";
+
+interface Post {
+  slug: string;
+  titulo: string;
+  lead: string;
+  tag: string;
+  autor: string;
+  data: string;
+  imagem_principal: string;
+  corpo_texto: { type: string; text: string }[];
+}
+
+export default async function Blog() {
+  let dynamicPosts: Post[] = [];
+  try {
+    const { data: posts, error } = await supabase
+      .from("posts")
+      .select("*")
+      .order('criado_em', { ascending: false });
+
+    if (error) {
+      console.error("Erro retornado pelo Supabase na página Blog:", error);
+    } else if (posts) {
+      dynamicPosts = posts.map((post: {
+        slug: string;
+        titulo: string;
+        lead: string;
+        tag: string;
+        autor: string;
+        data: string;
+        imagem_principal: string;
+        corpo_texto: unknown;
+      }) => ({
+        slug: post.slug,
+        titulo: post.titulo,
+        lead: post.lead,
+        tag: post.tag,
+        autor: post.autor,
+        data: post.data,
+        imagem_principal: post.imagem_principal,
+        corpo_texto: post.corpo_texto as { type: string; text: string }[],
+      }));
+    }
+  } catch (err) {
+    console.error("Erro ao buscar posts do Supabase na página Blog:", err);
+  }
 
   return (
     <div className={styles.page}>
@@ -32,6 +79,19 @@ export default function Blog() {
 
       <section className={styles.articles}>
         <div className={styles.content}>
+          {/* Posts dinâmicos gerados no painel Admin */}
+          {dynamicPosts.map((post: Post) => (
+            <ArticleCard
+              key={post.slug}
+              imgSrc={post.imagem_principal}
+              imgAlt={post.titulo}
+              title={post.titulo}
+              lead={post.lead}
+              author={post.autor}
+              path={post.slug}
+            />
+          ))}
+
           <ArticleCard
             imgSrc="/blog/climatizacao-escola.webp"
             imgAlt="Sala de Aula"

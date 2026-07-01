@@ -60,7 +60,6 @@ export default function Article() {
                 <li><b>- Compostos orgânicos voláteis (COVs):</b>&nbsp;São liberados por materiais de escritório, tintas, carpetes e produtos de limpeza. Eles podem causar irritação nos olhos, nariz e garganta, além de prejudicar a saúde a longo prazo.</li>
                 <li><b>- Partículas suspensas:</b>&nbsp; Incluem poeira, fumaça, poluentes externos que entram pelas janelas e partículas liberadas pelo uso de equipamentos como impressoras e copiadoras.</li>
               </ul>
-              <Image className={styles.img} src="/blog/meio2.jpg" alt="Queimadas" width="800" height="462" />
               <h3 className={styles.subtitle}>
                 Como melhorar a qualidade do ar no ambiente de trabalho?
               </h3>

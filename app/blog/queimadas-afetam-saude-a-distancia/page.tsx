@@ -61,7 +61,6 @@ export default function Article() {
                 <li><b>- Gestantes:</b>&nbsp;A poluição pode afetar não só a saúde da mãe, mas também do bebê em desenvolvimento, aumentando o risco de complicações.</li>
                 <li><b>- Pessoas com doenças respiratórias:</b>&nbsp;Aqueles que já sofrem com doenças respiratórias, como asma, enfisema ou bronquite, tendem a ter seus sintomas agravados.</li>
               </ul>
-              <Image className={styles.img} src="/blog/meio3.jpg" alt="Queimadas" width="800" height="462" />
               <h3 className={styles.subtitle}>
                 Soluções para proteger sua saúde
               </h3>

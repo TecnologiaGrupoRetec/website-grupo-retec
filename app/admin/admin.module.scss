@@ -1,0 +1,391 @@
+@import "../variables.scss";
+
+.adminContainer {
+  font-family: $main-font;
+  min-height: 100vh;
+  background-color: $surface;
+  color: $primary;
+  display: flex;
+  flex-direction: column;
+}
+
+.loginPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, $primary 0%, darken($primary, 15%) 100%);
+  padding: 20px;
+}
+
+.loginCard {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 40px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: $primary;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  p {
+    font-size: 14px;
+    color: $text-neutral;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+}
+
+.formGroup {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+
+  label {
+    font-size: 13px;
+    font-weight: 600;
+    color: $primary;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  input, textarea, select {
+    font-family: $main-font;
+    padding: 12px 16px;
+    border: 1.5px solid $neutral-light;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background-color: $white;
+    color: $black;
+
+    &:focus {
+      outline: none;
+      border-color: $secondary;
+      box-shadow: 0 0 0 3px rgba(58, 160, 219, 0.15);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+}
+
+.errorMsg {
+  color: #d9534f;
+  background-color: rgba(217, 83, 79, 0.1);
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 13px;
+  width: 100%;
+  margin-bottom: 15px;
+  text-align: center;
+  border: 1px solid rgba(217, 83, 79, 0.2);
+}
+
+.successMsg {
+  color: #4cae4c;
+  background-color: rgba(76, 174, 76, 0.1);
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 13px;
+  width: 100%;
+  margin-bottom: 15px;
+  text-align: center;
+  border: 1px solid rgba(76, 174, 76, 0.2);
+}
+
+.btnPrimary {
+  font-family: $main-font;
+  background-color: $secondary;
+  color: $white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: darken($secondary, 10%);
+    transform: translateY(-1px);
+  }
+
+  &:disabled {
+    background-color: $neutral-light;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+.btnSecondary {
+  font-family: $main-font;
+  background-color: transparent;
+  color: $primary;
+  border: 1.5px solid $primary;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: rgba(0, 45, 93, 0.05);
+  }
+}
+
+.btnDanger {
+  font-family: $main-font;
+  background-color: transparent;
+  color: #d9534f;
+  border: 1.5px solid #d9534f;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: rgba(217, 83, 79, 0.1);
+  }
+}
+
+// Estilos do Dashboard Admin
+.navbar {
+  background-color: $primary;
+  color: $white;
+  padding: 16px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .userInfo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    span {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+  }
+}
+
+.content {
+  padding: 40px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 40px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sectionTitle {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: $primary;
+  border-bottom: 2px solid $neutral-light;
+  padding-bottom: 8px;
+}
+
+.formCard {
+  background-color: $white;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.postsListCard {
+  background-color: $white;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: fit-content;
+}
+
+.postItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid $neutral-light;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: $secondary;
+    background-color: rgba(58, 160, 219, 0.02);
+  }
+
+  .postInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 0;
+      color: $primary;
+    }
+
+    span {
+      font-size: 12px;
+      color: $text-neutral;
+    }
+  }
+}
+
+.emptyState {
+  text-align: center;
+  color: $text-neutral;
+  padding: 30px 10px;
+  font-size: 14px;
+}
+
+.bodyBlocksContainer {
+  margin-bottom: 20px;
+  border: 1.5px dashed $neutral-light;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: rgba($surface, 0.5);
+
+  label {
+    font-size: 14px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 12px;
+  }
+}
+
+.blockItem {
+  background-color: $white;
+  padding: 16px;
+  border-radius: 6px;
+  border: 1px solid $neutral-light;
+  margin-bottom: 12px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .blockHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $neutral-light;
+    padding-bottom: 8px;
+    margin-bottom: 4px;
+
+    span {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: $secondary;
+    }
+
+    button {
+      background: none;
+      border: none;
+      color: #d9534f;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  textarea {
+    min-height: 80px !important;
+  }
+}
+
+.addBlockButtons {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.imagePreview {
+  width: 100%;
+  height: 180px;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 8px;
+  border: 1px solid $neutral-light;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.fileInputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .fileBtn {
+    background-color: $surface;
+    border: 1.5px solid $neutral-light;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: $primary;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $neutral-light;
+    }
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+}

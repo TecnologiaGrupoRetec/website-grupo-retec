@@ -55,7 +55,6 @@ export default function Article() {
               <p className={styles.text}>
                 Galletti lembra que um sistema de climatização adequado deve incluir trocadores de ar que garantam a renovação constante do ar ambiente. “Isso mantém a temperatura confortável e reduz os níveis de dióxido de carbono acumulado. Quando bem projetado, o sistema garante que o ar externo seja filtrado e tratado antes de ser introduzido, ajudando a prevenir a sonolência e a fadiga associadas à alta concentração de CO2”, aponta o especialista.
               </p>
-              <Image className={styles.img} src="/blog/meio1.jpg" alt="Alunos" width="800" height="462" />
               <h3 className={styles.subtitle}>
                 O que as escolas podem fazer
               </h3>
