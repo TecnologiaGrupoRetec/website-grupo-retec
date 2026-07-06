@@ -1,4 +1,12 @@
 .page {
+  --page-max: 1280px;
+  --navy: #0f2854;
+  --blue: #1c4d8d;
+  --border: rgba(0, 0, 0, 0.18);
+  --soft: #f3f6fb;
+  --text: #1f2937;
+  --muted: #5d6677;
+
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -386,4 +394,128 @@
   display: flex;
   flex-direction: column;
   gap: 60px;
+}
+
+// ===================================================
+// SEÇÃO DE EMPRESAS FORNECIDAS
+// ===================================================
+
+// Estilo de espaçamento padrão para a seção
+.section {
+  padding: 112px 0;
+}
+
+// Texto de destaque (Eyebrow/Etiqueta superior)
+.eyebrow {
+  color: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+// Container interno da seção do carrossel
+.brandSliderSection {
+  display: grid;
+  gap: 28px;
+  margin-top: 88px;
+}
+
+// Bloco de cabeçalho (Eyebrow + Título)
+.brandSliderIntro {
+  display: grid;
+  gap: 10px;
+}
+
+// Título principal do carrossel
+.brandSliderTitle {
+  color: var(--navy);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+// Container do carrossel com efeito de esmaecimento (fade) nas bordas laterais
+.brandMarquee {
+  mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+// Esteira de rolagem contínua (comportamento de animação infinita)
+.brandTrack {
+  animation: representative-scroll 28s linear infinite;
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+// Linha que agrupa as marcas horizontalmente
+.brandRow {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  gap: 24px;
+  min-width: max-content;
+  padding-right: 24px;
+}
+
+// Card individual para cada logotipo
+.brandCard {
+  align-items: center;
+  background: $white;
+  border: 1px solid #dce2ec;
+  border-radius: 18px;
+  display: flex;
+  flex: 0 0 auto;
+  height: 108px;
+  justify-content: center;
+  padding: 18px 24px;
+  width: 236px;
+}
+
+// Imagem do logotipo (estilo padrão)
+.brandLogo {
+  height: auto;
+  max-height: 56px;
+  object-fit: contain;
+  width: auto;
+}
+
+// Animação de translação horizontal infinita para efeito de looping contínuo
+@keyframes representative-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 12px));
+  }
+}
+
+// Estilização customizada específica para a seção #clientes (Tema Escuro Monocromático)
+.page :global(#clientes) {
+  .brandCard {
+    background: var(--navy);
+    border-color: rgba(255, 255, 255, 0.12);
+
+    // Deixa as logos levemente transparentes e aplica filtro para torná-las totalmente brancas
+    img {
+      filter: brightness(0) invert(1); // Filtro de inversão de cores para logos monocromáticas brancas
+      opacity: 0.92;
+      transition: opacity 0.3s ease;
+
+      // Controle de dimensionamento para os logotipos caberem perfeitamente no card
+      max-width: 160px;
+      max-height: 48px;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+
+      &:hover {
+        opacity: 1; // Realça a opacidade ao passar o cursor por cima (hover)
+      }
+    }
+  }
 }

@@ -1,10 +1,29 @@
 "use client";
 
+import Image from "next/image";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import Link from "next/link";
 import styles from "./solucoes.module.scss";
 import AppleCardsCarousel from "../components/appleCardsCarousel";
+
+const suppliedCompanies = [
+  { src: "/home/empresas_fornecidas/logo_ache.webp", alt: "Aché" },
+  { src: "/home/empresas_fornecidas/logo_anchieta.webp", alt: "Anchieta" },
+  { src: "/home/empresas_fornecidas/logo_brasal.webp", alt: "Brasal" },
+  { src: "/home/empresas_fornecidas/logo_cifarma.webp", alt: "Cifarma" },
+  { src: "/home/empresas_fornecidas/logo_cimed.webp", alt: "Cimed" },
+  { src: "/home/empresas_fornecidas/ecap-logo.webp", alt: "ECAP" },
+  { src: "/home/empresas_fornecidas/logo_ebm.webp", alt: "EBM" },
+  { src: "/home/empresas_fornecidas/logo_ems.webp", alt: "EMS" },
+  { src: "/home/empresas_fornecidas/logo_fio-cruz.webp", alt: "Fiocruz" },
+  { src: "/home/empresas_fornecidas/logo_grupo-acelerador.webp", alt: "Grupo Acelerador" },
+  { src: "/home/empresas_fornecidas/logo_hospital-albert-einsten.webp", alt: "Hospital Albert Einstein" },
+  { src: "/home/empresas_fornecidas/logo_paulooctavio.webp", alt: "Paulo Octávio" },
+  { src: "/home/empresas_fornecidas/logo_sabin.webp", alt: "Sabin" },
+  { src: "/home/empresas_fornecidas/logo_terral.webp", alt: "Terral" },
+  { src: "/home/empresas_fornecidas/logo_villela-carvalho.webp", alt: "Villela Carvalho" },
+];
 
 const categories = [
   {
@@ -137,6 +156,44 @@ export default function SolucoesPage() {
                 <div className={styles.statCard}>
                   <span className={styles.statNumber}>B2B</span>
                   <p className={styles.statLabel}>suporte para obras HVAC</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Carrosel de Empresas que Fornecemos Soluções de Climatização */}
+        <section className={styles.section} id="clientes">
+          <div className={styles.container}>
+            <div className={styles.brandSliderSection} style={{ marginTop: 0 }}>
+              <div className={styles.brandSliderIntro}>
+                <p className={styles.eyebrow}>Grandes empresas</p>
+                <h3 className={styles.brandSliderTitle}>
+                  Empresas que confiam em nossas soluções de climatização
+                </h3>
+              </div>
+
+              <div className={styles.brandMarquee}>
+                <div className={styles.brandTrack} style={{ animationDuration: "60s" }}>
+                  {[0, 1].map((groupIndex) => (
+                    <div
+                      key={groupIndex}
+                      className={styles.brandRow}
+                      aria-hidden={groupIndex === 1}
+                    >
+                      {suppliedCompanies.map((company) => (
+                        <div className={styles.brandCard} key={`${groupIndex}-${company.alt}`}>
+                          <Image
+                            className={styles.brandLogo}
+                            src={company.src}
+                            alt={company.alt}
+                            width={220}
+                            height={88}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
