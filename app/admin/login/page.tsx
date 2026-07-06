@@ -51,8 +51,8 @@ export default function AdminLogin() {
   return (
     <div className={styles.loginPage}>
       <div className={styles.loginCard}>
-        <h1>RETEC Admin</h1>
-        <p>Acesse o painel para publicar no blog</p>
+        <h1>Painel Blog</h1>
+        <p>Acesse o painel para postar no blog</p>
 
         {error && <div className={styles.errorMsg}>{error}</div>}
 

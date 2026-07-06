@@ -4,7 +4,7 @@ import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import Link from "next/link";
 import styles from "./solucoes.module.scss";
-
+import AppleCardsCarousel from "../components/appleCardsCarousel";
 
 const categories = [
   {
@@ -186,6 +186,19 @@ export default function SolucoesPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/*Seção de soluções por segmento */}
+        <section className={styles.segmentos}>
+          <div className={styles.containerSegmentos}>
+            <div className={`${styles.sectionIntro} ${styles.sectionIntroCentered}`}>
+              <h2 className={styles.sectionTitleDark}>Soluções por Segmento</h2>
+              <p className={styles.sectionTextDark}>
+                Entregamos o dimensionamento técnico e os materiais corretos para cada aplicação.
+              </p>
+            </div>
+            <AppleCardsCarousel />
           </div>
         </section>
       </main>

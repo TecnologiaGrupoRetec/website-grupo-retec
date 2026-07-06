@@ -47,15 +47,15 @@ O projeto foi modernizado utilizando **Next.js (App Router)** e as seguintes sol
 Crie um arquivo `.env.local` na raiz do projeto contendo as seguintes configurações:
 
 ```bash
-# Vercel Blob Storage (Gerado na aba Storage da Vercel)
+# Vercel Blob Storage 
 BLOB_STORE_ID="seu_store_id"
 BLOB_READ_WRITE_TOKEN="seu_token_de_leitura_escrita"
 
-# Supabase (Configurações do Projeto -> API)
+# Supabase 
 NEXT_PUBLIC_SUPABASE_URL="https://seu-projeto.supabase.co"
 SUPABASE_SERVICE_ROLE_KEY="sua_chave_service_role" # Requerido para pular regras RLS no backend
 
-# Credenciais de Acesso - Painel Administrativo
+# Credenciais de Acesso do Admin - Painel Administrativo
 ADMIN_USERNAME="seu_usuario"
 ADMIN_PASSWORD="sua_senha_secreta"
 SESSION_SECRET="uma_chave_longa_e_aleatoria"
@@ -93,3 +93,23 @@ SESSION_SECRET="uma_chave_longa_e_aleatoria"
 5. Solicite uma nova implantação (**Redeploy**).
 
 Pronto! O sistema estará rodando na nuvem integrado ao Supabase e ao Vercel Blob de forma totalmente otimizada.
+
+---
+
+## Desing e Normas de estrutura de páginas - Grupo Retec
+
+### Paleta Principal (Sass Variables)
+| Variável | Valor Hex | Uso Recomendado |
+| :--- | :--- | :--- |
+| `$primary` | `#002D5D` | Azul escuro principal da marca (títulos em páginas claras) |
+| `$secondary` | `#3AA0DB` | Azul claro de destaque (eyebrows, links, botões) |
+| `$detail` | `#74B88E` | Verde detalhe (badges, checkmarks, destaques secundários) |
+| `$neutral` | `#999999` | Cinza neutro padrão |
+| `$neutral-light` | `#D9D9D9` | Cinza claro para linhas de divisão e bordas suaves |
+| `$surface` | `#F2F3FA` | Fundo cinza-azulado suave para seções secundárias |
+| `$text-neutral` | `#6F6F6F` | Cinza focado em legibilidade de textos secundários |
+| `$white` | `#FFFFFF` | Fundos claros de páginas e textos em seções escuras |
+| `$black` | `#000000` | Sombras, sobreposições e contrastes máximos |
+
+
+
