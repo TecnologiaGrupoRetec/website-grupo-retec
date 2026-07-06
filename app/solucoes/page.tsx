@@ -5,24 +5,24 @@ import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import Link from "next/link";
 import styles from "./solucoes.module.scss";
-import AppleCardsCarousel from "../components/appleCardsCarousel";
+import SegmentoCardsCarousel from "../components/segmentoCardsCarousel";
 
 const suppliedCompanies = [
-  { src: "/home/empresas_fornecidas/logo_ache.webp", alt: "Aché" },
-  { src: "/home/empresas_fornecidas/logo_anchieta.webp", alt: "Anchieta" },
-  { src: "/home/empresas_fornecidas/logo_brasal.webp", alt: "Brasal" },
-  { src: "/home/empresas_fornecidas/logo_cifarma.webp", alt: "Cifarma" },
-  { src: "/home/empresas_fornecidas/logo_cimed.webp", alt: "Cimed" },
-  { src: "/home/empresas_fornecidas/ecap-logo.webp", alt: "ECAP" },
-  { src: "/home/empresas_fornecidas/logo_ebm.webp", alt: "EBM" },
-  { src: "/home/empresas_fornecidas/logo_ems.webp", alt: "EMS" },
-  { src: "/home/empresas_fornecidas/logo_fio-cruz.webp", alt: "Fiocruz" },
-  { src: "/home/empresas_fornecidas/logo_grupo-acelerador.webp", alt: "Grupo Acelerador" },
-  { src: "/home/empresas_fornecidas/logo_hospital-albert-einsten.webp", alt: "Hospital Albert Einstein" },
-  { src: "/home/empresas_fornecidas/logo_paulooctavio.webp", alt: "Paulo Octávio" },
-  { src: "/home/empresas_fornecidas/logo_sabin.webp", alt: "Sabin" },
-  { src: "/home/empresas_fornecidas/logo_terral.webp", alt: "Terral" },
-  { src: "/home/empresas_fornecidas/logo_villela-carvalho.webp", alt: "Villela Carvalho" },
+  { src: "/home/empresas_fornecidas/logo_ache.webp", alt: "Aché", link: "https://www.ache.com.br/" },
+  { src: "/home/empresas_fornecidas/logo_anchieta.webp", alt: "Anchieta", link: "https://www.hospitalanchieta.com.br/" },
+  { src: "/home/empresas_fornecidas/logo_brasal.webp", alt: "Brasal", link: "https://www.brasal.com.br/" },
+  { src: "/home/empresas_fornecidas/logo_cifarma.webp", alt: "Cifarma", link: "https://www.cifarma.com.br/" },
+  { src: "/home/empresas_fornecidas/logo_cimed.webp", alt: "Cimed", link: "https://www.cimed.com.br/" },
+  { src: "/home/empresas_fornecidas/ecap-logo.webp", alt: "ECAP", link: "https://www.ecap.com.br/" },
+  { src: "/home/empresas_fornecidas/logo_ebm.webp", alt: "EBM", link: "https://www.ebm.com.br/" },
+  { src: "/home/empresas_fornecidas/logo_ems.webp", alt: "EMS", link: "https://www.ems.com.br/" },
+  { src: "/home/empresas_fornecidas/logo_fio-cruz.webp", alt: "Fiocruz", link: "https://www.fio.cru.org.br/" },
+  { src: "/home/empresas_fornecidas/logo_grupo-acelerador.webp", alt: "Grupo Acelerador", link: "https://www.grupoacelerador.com.br/" },
+  { src: "/home/empresas_fornecidas/logo_hospital-albert-einsten.webp", alt: "Hospital Albert Einstein", link: "https://www.einstein.br/" },
+  { src: "/home/empresas_fornecidas/logo_paulooctavio.webp", alt: "Paulo Octávio", link: "https://www.pauloctavio.com.br/" },
+  { src: "/home/empresas_fornecidas/logo_sabin.webp", alt: "Sabin", link: "https://www.sabin.com.br/" },
+  { src: "/home/empresas_fornecidas/logo_terral.webp", alt: "Terral", link: "https://www.terral.com.br/" },
+  { src: "/home/empresas_fornecidas/logo_villela-carvalho.webp", alt: "Villela Carvalho", link: "https://www.villela.com.br/" },
 ];
 
 const categories = [
@@ -200,6 +200,9 @@ export default function SolucoesPage() {
           </div>
         </section>
 
+        {/* Seção de soluções por segmento */}
+        <SegmentoCardsCarousel />
+
         {/* Seção das Categorias de Produtos */}
         <section className={styles.categoriesSection} id="categorias">
           <div className={styles.container}>
@@ -243,19 +246,6 @@ export default function SolucoesPage() {
                 </div>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/*Seção de soluções por segmento */}
-        <section className={styles.segmentos}>
-          <div className={styles.containerSegmentos}>
-            <div className={`${styles.sectionIntro} ${styles.sectionIntroCentered}`}>
-              <h2 className={styles.sectionTitleDark}>Soluções por Segmento</h2>
-              <p className={styles.sectionTextDark}>
-                Entregamos o dimensionamento técnico e os materiais corretos para cada aplicação.
-              </p>
-            </div>
-            <AppleCardsCarousel />
           </div>
         </section>
       </main>

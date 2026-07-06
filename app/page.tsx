@@ -2,7 +2,6 @@ import Image from "next/image";
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
 import HeroCarousel from "./components/heroCarousel";
-import AppleCardsCarousel from "./components/appleCardsCarousel";
 import styles from "./index.module.scss";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -294,8 +293,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        <AppleCardsCarousel />
 
         <section className={`${styles.section} ${styles.sectionDark}`}>
           <div className={styles.container}>
