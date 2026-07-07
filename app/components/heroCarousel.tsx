@@ -9,21 +9,22 @@ const slides = [
   {
     image: "/home/new-facade.webp",
     alt: "Showroom Grupo RETEC",
-    title: "Especialistas em qualidade do ar e conforto térmico. Criando soluções de climatização que funcionam | HVAC.",
+    title: "Qualidade do ar e conforto térmico para obras que dependem de HVAC bem dimensionado.",
+    subtitle: "Climatização projetada para o desempenho real de cada ambiente.",
     hasTypewriter: true,
   },
   {
     image: "/about/empty-office.webp",
     alt: "Escritório do Grupo RETEC",
-    title: "Mais de 40 anos de liderança e inovação.",
-    subtitle: "Representante e parceira autorizada das principais marcas líderes em HVAC no Centro-Oeste.",
+    title: "+40 anos fornecendo HVAC no Centro-Oeste. ",
+    subtitle: "Representante autorizada das principais marcas de HVAC da região, com acesso a produto original e suporte de fábrica.",
     hasTypewriter: false,
   },
   {
     image: "/about/office-inside.webp",
-    alt: "Atendimento consultivo Grupo RETEC",
+    alt: "Atendimento consultivo e suporte técnico.",
     title: "Atendimento consultivo e suporte técnico.",
-    subtitle: "Apoio completo para o seu projeto, do diagnóstico e orçamento à entrega assistida.",
+    subtitle: "Acompanhamento que começa no diagnóstico e segue até a entrega do material.",
     hasTypewriter: false,
   },
 ];

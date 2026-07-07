@@ -39,42 +39,42 @@ const processSteps = [
     title: "Diagnóstico",
     icon: "/icons/diagnostico.svg",
     description:
-      "Entendemos as necessidades térmicas do projeto, as restrições da obra e os objetivos da operação.",
+      "Analisamos as necessidades térmicas do projeto e as restrições da obra antes de recomendar o material.",
   },
   {
     number: "02",
     title: "Orçamento",
     icon: "/icons/engenharia.svg",
     description:
-      "Selecionamos equipamentos, acessórios e soluções com compatibilização para cada contexto de uso.",
+      "Especificamos os equipamentos e acessórios compatíveis com cada contexto de uso.",
   },
   {
     number: "03",
-    title: "Proposta justa e detalhada",
+    title: "Proposta detalhada",
     icon: "/icons/proposta.svg",
     description:
-      "Coordenamos o envio com previsibilidade, suporte comercial e atenção às etapas do cronograma.",
+      "Coordenamos o fornecimento com suporte comercial e atenção ao cronograma do projeto.",
   },
   {
     number: "04",
     title: "Entrega assistida",
     icon: "/icons/obra.svg",
     description:
-      "Seguimos presentes no pós-venda com orientação, garantia e atendimento técnico especializado.",
+      "Acompanhamos a entrega do material e seguimos presentes no pós-venda, com garantia e suporte técnico.",
   },
   {
     number: "05",
     title: "Serviços Autorizados",
     icon: "/icons/acessorios.svg",
     description:
-      "Ativações, start-up e manutenções realizadas por técnicos credenciados diretamente pelos principais fabricantes.",
+      "Intermediamos start-up e manutenção com técnicos credenciados pelos próprios fabricantes",
   },
   {
     number: "06",
     title: "Partes & Peças",
     icon: "/icons/pecas.svg",
     description:
-      "Fornecimento de peças de reposição originais e componentes homologados para garantir a longevidade dos equipamentos.",
+      "Fornecemos peças de reposição originais e componentes homologados para prolongar a vida útil dos equipamentos.",
   },
 ];
 
@@ -84,28 +84,28 @@ const highlightCards = [
     title: "Comércio e Varejo",
     icon: "/icons/comercio.svg",
     description:
-      "Ambientes que precisam respirar com eficiência e conforto constante.",
+      "Ambientes que precisam de ar renovado e conforto constante",
   },
   {
     label: "Saúde",
     title: "Hospitais e Farmacêuticos",
     icon: "/icons/hospital.svg",
     description:
-      "Onde a temperatura certa não é detalhe, é condição essencial.",
+      "Ambientes em que a temperatura correta é condição de operação.",
   },
   {
     label: "Industrias",
     title: "Industrias",
     icon: "/icons/industria.svg",
     description:
-      "Operações que não podem parar, sistemas que não podem falhar.",
+      "Operações contínuas que dependem de sistemas sem falha.",
   },
   {
     label: "Infraestrutura",
     title: "Data Centers",
     icon: "/icons/data_center.svg",
     description:
-      "Infraestrutura crítica que depende de controle térmico absoluto.",
+      "Infraestrutura crítica que depende de controle térmico preciso.",
   },
 ];
 
@@ -142,7 +142,7 @@ const faqs = [
   {
     question: "Vocês fazem apenas fornecimento ou também apoio técnico?",
     answer:
-      "O fornecimento vem acompanhado de leitura consultiva, apoio comercial e orientação técnica para ajudar na decisão e na compatibilização da solução.",
+      "O fornecimento vem com leitura consultiva e orientação técnica que ajudam na decisão e na compatibilização da solução.",
   },
   {
     question: "A RETEC trabalha com obras fora de Brasília?",
@@ -162,12 +162,12 @@ const faqs = [
   {
     question: "Como funciona o pós-venda?",
     answer:
-      "Nosso time segue disponível para suporte, garantia e acompanhamento conforme a solução fornecida e o contexto do projeto.",
+      "Nosso time segue disponível para suporte e garantia, conforme a solução fornecida e o contexto do projeto.",
   },
   {
     question: "A RETEC trabalha com distribuição?",
     answer:
-      "Sim, trabalhamos com atacado e varejo. Nossa equipe está sempre preparada para encontrar a solução para o seu problema!",
+      "Sim, trabalhamos com atacado e varejo, e a equipe ajuda a encontrar a solução para cada demanda.",
   },
   {
     question: "Consigo comprar online Grupo RETEC?",
@@ -179,7 +179,7 @@ const faqs = [
 const locations = [
   {
     city: "Brasília",
-    subtitle: "Showroom e matriz no coração do Brasil",
+    subtitle: "Showroom e matriz em Brasília",
     image: "/home/new-facade.webp",
     alt: "Fachada da unidade Brasília",
     href: "https://www.google.com/maps/search/?api=1&query=SIA+Trecho+17+Rua+17+N%C2%BA+1380+Bras%C3%ADlia",
@@ -240,10 +240,9 @@ export default function Home() {
           <div className={styles.container}>
             <div className={`${styles.sectionIntro} ${styles.sectionIntroCentered} ${styles.onDark}`}>
               <p className={styles.eyebrow}>Método</p>
-              <h2 className={styles.sectionTitle}>Do projeto à entrega</h2>
+              <h2 className={styles.sectionTitle}>Como fornecemos para cada projeto.</h2>
               <p className={styles.sectionText}>
-                Um fluxo de atendimento pensado para reduzir atrito e aumentar previsibilidade
-                em cada etapa da obra.
+                Um fluxo de atendimento que dá previsibilidade a cada etapa do fornecimento.
               </p>
             </div>
 
@@ -271,8 +270,8 @@ export default function Home() {
                 <p className={styles.eyebrow}>Atuação</p>
                 <h2 className={styles.sectionTitle}>Onde o Grupo RETEC gera valor</h2>
                 <p className={styles.sectionText}>
-                  Combinamos portfólio técnico, leitura consultiva e suporte comercial para
-                  projetos que exigem desempenho, prazo e segurança operacional.
+                  Portfólio técnico e leitura consultiva <br />
+                  para projetos que exigem desempenho e prazo confiável.
                 </p>
               </div>
 

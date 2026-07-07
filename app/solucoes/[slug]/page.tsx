@@ -21,8 +21,8 @@ const solutionsData: Record<string, {
   ctaText?: string;
   ctaWhatsAppText?: string;
 }> = {
-  "climatizacao-e-equipamentos": {
-    title: "Climatização e Equipamentos",
+  "expansao-direta": {
+    title: "Expansão Direta",
     description: "Máquinas, evaporadoras, condensadoras, fancoletes e sistemas VRV/VRF para projetos comerciais e técnicos.",
     tags: ["Evaporadoras", "Condensadoras", "Fancoletes", "VRV/VRF", "Daikin"],
     details: "Oferecemos uma linha completa de soluções para climatização e controle de temperatura. Nossos equipamentos atendem desde escritórios comerciais até indústrias e hospitais, garantindo eficiência energética, controle de umidade e alta vazão. Trabalhamos em parceria com marcas líderes de mercado como Daikin, Trox, Midea e outras referências em sistemas VRV/VRF e Fancoils.",
@@ -37,8 +37,8 @@ const solutionsData: Record<string, {
     ctaText: "Evite erros de dimensionamento e gastos excessivos com energia. Fale com nossos engenheiros para definir os equipamentos ideais (VRV/Fancoils) para o seu projeto.",
     ctaWhatsAppText: "Olá! Preciso de ajuda para dimensionar equipamentos de climatização (VRV/Fancoils) para o meu projeto."
   },
-  "refrigeracao-de-alta-performance": {
-    title: "Refrigeração de Alta Performance",
+  "agua-gelada-e-rejeicao-de-calor": {
+    title: "Água Gelada e Rejeição de Calor",
     description: "Chillers, mini chillers, torres de resfriamento e sistemas hidrônicos para aplicações críticas.",
     tags: ["Refrigeração", "Chillers", "Mini Chilers", "Trox"],
     details: "Sistemas de refrigeração industrial e comercial projetados para operar continuamente em condições críticas de temperatura. Nossas soluções de expansão indireta (Chillers e Fancoils) garantem alta performance térmica e economia operacional para shoppings, indústrias farmacêuticas e hospitais.",

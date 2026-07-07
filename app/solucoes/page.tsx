@@ -27,8 +27,8 @@ const suppliedCompanies = [
 
 const categories = [
   {
-    title: "Climatização e Equipamentos",
-    slug: "climatizacao-e-equipamentos",
+    title: "Expansão Direta",
+    slug: "expansao-direta",
     description: "Máquinas, evaporadoras, condensadoras, fancoletes e sistemas VRV/VRF para projetos comerciais e técnicos.",
     tag: ["Evaporadoras", "Condensadoras", "Fancoletes", "VRV/VRF", "Daikin"],
     icon: (
@@ -36,8 +36,8 @@ const categories = [
     )
   },
   {
-    title: "Refrigeração de Alta Performance",
-    slug: "refrigeracao-de-alta-performance",
+    title: "Água Gelada e Rejeição de Calor",
+    slug: "agua-gelada-e-rejeicao-de-calor",
     description: "Chillers, mini chillers, torres de resfriamento e sistemas hidrônicos para aplicações críticas.",
     tag: ["Refrigeração", "Chillers", "Mini Chilers", "Trox"],
     icon: (
@@ -47,7 +47,7 @@ const categories = [
   {
     title: "Exaustão e Ventilação",
     slug: "exaustao-e-ventilacao",
-    description: "Exaustores, ventiladores e gabinetes para renovação, insuflamento e extração de ar.",
+    description: "Exaustores, ventiladores e gabinetes para renovação e extração de ar.",
     tag: ["Exaustão", "Ventilação", "Exaustores", "Ventiladores", "Gabinetes", "Trox"],
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.cardIcon}><path d="M10.827 16.379a6.082 6.082 0 0 1-8.618-7.002l5.412 1.45a6.082 6.082 0 0 1 7.002-8.618l-1.45 5.412a6.082 6.082 0 0 1 8.618 7.002l-5.412-1.45a6.082 6.082 0 0 1-7.002 8.618l1.45-5.412Z" /><path d="M12 12v.01" /></svg>
@@ -74,7 +74,7 @@ const categories = [
   {
     title: "Isolamento e Vedação",
     slug: "isolamento-e-vedacao",
-    description: "Mantas, tubos, fitas e adesivos para eficiência térmica, acabamento e controle de condensação.",
+    description: "Mantas, tubos, fitas e adesivos para eficiência térmica e controle de condensação.",
     tag: ["Isolamento", "Vedação", "Térmica", "Armacell"],
     icon: (
       <img src="../../icons/fita.svg" alt="Fita" width={30} height={30} />
@@ -122,10 +122,10 @@ export default function SolucoesPage() {
               <div className={styles.heroCopy}>
                 <p className={styles.eyebrow}>Produtos HVAC</p>
                 <h1 className={styles.heroTitle}>
-                  Produtos HVAC para obras que exigem desempenho, prazo e suporte técnico
+                  Produtos HVAC para obras que exigem desempenho e prazo confiável.
                 </h1>
                 <p className={styles.heroText}>
-                  Da climatização à difusão de ar, a RETEC fornece equipamentos, componentes e acessórios para sistemas HVAC comerciais, industriais, hospitalares e corporativos.
+                  A RETEC fornece equipamentos e acessórios de climatização e difusão de ar para sistemas HVAC comerciais, industriais, hospitalares e corporativos.
                 </p>
               </div>
 
@@ -200,7 +200,7 @@ export default function SolucoesPage() {
           </div>
         </section>
 
-        {/* Seção de soluções por segmento */}
+        {/* Seção de soluções por nicho do mercado */}
         <SegmentoCardsCarousel />
 
         {/* Seção das Categorias de Produtos */}

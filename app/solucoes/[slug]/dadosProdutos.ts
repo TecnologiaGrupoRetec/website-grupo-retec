@@ -82,7 +82,7 @@ export interface CategoryProductsData {
 }
 
 export const produtosPorCategoria: Record<string, CategoryProductsData> = {
-  "climatizacao-e-equipamentos": {
+  "expansao-direta": {
     tabs: [
       {
         nome: "VRV",
@@ -178,7 +178,7 @@ export const produtosPorCategoria: Record<string, CategoryProductsData> = {
       }
     ]
   },
-  "refrigeracao-de-alta-performance": {
+  "agua-gelada-e-rejeicao-de-calor": {
     produtos: [
       {
         titulo: "Chiller Parafuso Daikin",
