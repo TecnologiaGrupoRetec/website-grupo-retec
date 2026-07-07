@@ -147,15 +147,15 @@ export default function SolucoesPage() {
               <div className={styles.statsRow}>
                 <div className={styles.statCard}>
                   <span className={styles.statNumber}>+40</span>
-                  <p className={styles.statLabel}>anos de mercado</p>
+                  <p className={styles.statLabel}>Anos de mercado</p>
                 </div>
                 <div className={styles.statCard}>
-                  <span className={styles.statNumber}>8</span>
-                  <p className={styles.statLabel}>categorias de fornecimento</p>
+                  <span className={styles.statNumber}>12</span>
+                  <p className={styles.statLabel}>Setores atendidos</p>
                 </div>
                 <div className={styles.statCard}>
                   <span className={styles.statNumber}>B2B</span>
-                  <p className={styles.statLabel}>suporte para obras HVAC</p>
+                  <p className={styles.statLabel}>Suporte para obras HVAC</p>
                 </div>
               </div>
             </div>
@@ -225,13 +225,6 @@ export default function SolucoesPage() {
                   </div>
 
                   <div className={styles.cardFooter}>
-                    <div className={styles.tagsList}>
-                      {cat.tag?.map((t, idx) => (
-                        <span key={idx} className={styles.tagBadge}>
-                          {t}
-                        </span>
-                      ))}
-                    </div>
                     <Link
                       href={`/solucoes/${cat.slug}`}
                       className={styles.cardQuoteButton}
