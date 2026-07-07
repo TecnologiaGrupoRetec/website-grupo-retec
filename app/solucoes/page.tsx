@@ -63,8 +63,8 @@ const categories = [
     )
   },
   {
-    title: "Dutos e Conexões",
-    slug: "dutos-e-conexoes",
+    title: "Dutos e Rede de Ar",
+    slug: "dutos-e-rede-de-ar",
     description: "Dutos flexíveis, semi-rígidos, isolados e adaptadores para condução de ar em sistemas HVAC.",
     tag: ["Dutos", "Conexões", "Flexíveis", "Semi-rígidos", "Isolados", "Adaptadores", "Sicflux"],
     icon: (
@@ -72,8 +72,8 @@ const categories = [
     )
   },
   {
-    title: "Isolamento e Vedação",
-    slug: "isolamento-e-vedacao",
+    title: "Isolamento Térmico e Acústico",
+    slug: "isolamento-termico-e-acustico",
     description: "Mantas, tubos, fitas e adesivos para eficiência térmica e controle de condensação.",
     tag: ["Isolamento", "Vedação", "Térmica", "Armacell"],
     icon: (
@@ -90,8 +90,8 @@ const categories = [
     )
   },
   {
-    title: "Acessórios e Fixação",
-    slug: "acessorios-e-fixacao",
+    title: "Suportes, Fixação e Instalação",
+    slug: "suporte-fixacao-e-instalacao",
     description: "Fitas, adesivos, vedantes e componentes auxiliares para montagem e manutenção HVAC.",
     tag: ["Instalação", "Vedação", "Fixação", "Armaflex", "Retec"],
     icon: (

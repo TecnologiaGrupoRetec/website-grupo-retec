@@ -7,7 +7,7 @@ import styles from "../index.module.scss";
 
 const slides = [
   {
-    image: "/home/new-facade.webp",
+    image: "/home/showroom.webp",
     alt: "Showroom Grupo RETEC",
     title: "Qualidade do ar e conforto térmico para obras que dependem de HVAC bem dimensionado.",
     subtitle: "Climatização projetada para o desempenho real de cada ambiente.",

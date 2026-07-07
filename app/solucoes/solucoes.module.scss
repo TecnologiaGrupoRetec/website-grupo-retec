@@ -169,8 +169,8 @@
   margin-top: 48px;
 
   @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 16px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
     margin-top: 36px;
   }
 }
@@ -191,6 +191,20 @@
     background: rgba(255, 255, 255, 0.08);
     border-color: rgba(255, 255, 255, 0.15);
     transform: translateY(-4px);
+  }
+
+  @media (max-width: 768px) {
+    padding: 16px 12px;
+    align-items: center;
+    text-align: center;
+
+    .statNumber {
+      font-size: 26px;
+    }
+
+    .statLabel {
+      font-size: 12px;
+    }
   }
 }
 

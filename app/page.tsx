@@ -180,14 +180,14 @@ const locations = [
   {
     city: "Brasília",
     subtitle: "Showroom e matriz em Brasília",
-    image: "/home/new-facade.webp",
+    image: "/home/showroom.webp",
     alt: "Fachada da unidade Brasília",
     href: "https://www.google.com/maps/search/?api=1&query=SIA+Trecho+17+Rua+17+N%C2%BA+1380+Bras%C3%ADlia",
   },
   {
     city: "Goiânia",
     subtitle: "Filial estratégica para atender o Centro-Oeste",
-    image: "/about/about1.jpeg",
+    image: "/home/goiania_retec.webp",
     alt: "Unidade de Goiânia",
     href: "https://www.google.com/maps/search/?api=1&query=Av.+Caiap%C3%B3,+452+-+St.+Genoveva+Goi%C3%A2nia",
   },

@@ -85,8 +85,8 @@ const solutionsData: Record<string, {
     ctaText: "Obtenha um fluxo de ar uniforme, silencioso e balanceado. Encontre as grelhas, difusores e dampers reguladores ideais para sua obra comercial ou residencial.",
     ctaWhatsAppText: "Olá! Gostaria de solicitar cotação e especificações para grelhas, difusores ou dampers."
   },
-  "dutos-e-conexoes": {
-    title: "Dutos e Conexões",
+  "dutos-e-rede-de-ar": {
+    title: "Dutos e Rede de Ar",
     description: "Dutos flexíveis, semi-rígidos, isolados e adaptadores para condução de ar em sistemas HVAC.",
     tags: ["Dutos", "Conexões", "Flexíveis", "Semi-rígidos", "Isolados", "Adaptadores", "Sicflux"],
     details: "Fornecimento de dutos e conexões técnicas para a condução do fluxo de ar com mínima perda de carga e máxima estanqueidade. Trabalhamos com soluções em chapa galvanizada, painéis pré-isolados e linhas completas de dutos flexíveis.",
@@ -101,8 +101,8 @@ const solutionsData: Record<string, {
     ctaText: "Evite desperdício de energia e quedas de pressão na sua rede. Fornecemos dutos flexíveis, semi-rígidos e conexões com encaixe perfeito para montagem rápida.",
     ctaWhatsAppText: "Olá! Gostaria de orçar dutos e conexões para a minha rede de distribuição de ar."
   },
-  "isolamento-e-vedacao": {
-    title: "Isolamento e Vedação",
+  "isolamento-termico-e-acustico": {
+    title: "Isolamento Térmico e Acústico",
     description: "Mantas, tubos, fitas e adesivos para eficiência térmica, acabamento e controle de condensação.",
     tags: ["Isolamento", "Vedação", "Térmica", "Armacell"],
     details: "Mantas e tubos isolantes de borracha elastomérica e lãs térmicas de alta qualidade. Essenciais para evitar a condensação em linhas de água gelada ou fluido refrigerante e para reduzir perdas de calor, garantindo a eficiência do sistema HVAC.",
@@ -133,8 +133,8 @@ const solutionsData: Record<string, {
     ctaText: "Garanta ar purificado e livre de contaminantes de acordo com a ANVISA. Fornecemos filtros plissados, absolutos HEPA e caixas de filtragem estanques.",
     ctaWhatsAppText: "Olá! Gostaria de orçar filtros e caixas de filtragem para melhorar a qualidade do ar interno."
   },
-  "acessorios-e-fixacao": {
-    title: "Acessórios e Fixação",
+  "suporte-fixacao-e-instalacao": {
+    title: "Suportes, Fixação e Instalação",
     description: "Fitas, adesivos, vedantes e componentes auxiliares para montagem e manutenção HVAC.",
     tags: ["Instalação", "Vedação", "Fixação", "Armaflex", "Retec"],
     details: "Componentes e acessórios indispensáveis para a fixação mecânica, vedação de juntas e acabamento de instalações de ar condicionado e ventilação. Garantem a durabilidade e a segurança física do sistema montado.",
@@ -152,9 +152,6 @@ const solutionsData: Record<string, {
 };
 
 export default function SolucaoDetalhePage({ params }: { params: { slug: string } }) {
-  const data = solutionsData[params.slug];
-  const catData = produtosPorCategoria[params.slug];
-
   const [selectedCategory, setSelectedCategory] = useState<string>(() => {
     if (params.slug === "exaustao-e-ventilacao") {
       return "Exaustor";
@@ -162,11 +159,73 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
     if (params.slug === "difusao-e-controle-de-ar") {
       return "Grelhas Trox";
     }
-    if (params.slug === "isolamento-e-vedacao") {
-      return "Isolamento Térmico";
+    if (params.slug === "isolamento-termico-e-acustico") {
+      return "Isolamento Térmico e Acústico";
+    }
+    if (params.slug === "suporte-fixacao-e-instalacao") {
+      return "Suportes e Fixação";
     }
     return "VRV";
   });
+
+  const segmentTitles: Record<string, string> = {
+    "industrias-farmaceuticas-e-processos": "Indústrias Farmacêuticas e Processos",
+    "hospitais-e-clinicas": "Hospitais, Centros Clínicos e Clínicas",
+    "data-centers-e-missao-critica": "Data Centers e Missão Crítica",
+    "shopping-centers": "Shopping Centers",
+    "hoteis-e-resort-complexes": "Hotéis e Resort Complexes",
+    "predios-comerciais-e-offices": "Prédios Comerciais e Offices",
+    "governamental-e-institucional": "Governamental e Institucional",
+    "instaladoras-e-construtoras": "Instaladoras e Construtoras",
+    "escolas-e-centros-de-ensino": "Escolas e Centros de Ensino",
+    "academias-e-centros-fitness": "Academias e Centros Fitness",
+    "residencial-de-alto-padrao": "Residencial de Alto Padrão",
+    "restaurantes-e-alimentacao": "Restaurantes e Alimentação"
+  };
+
+  if (segmentTitles[params.slug]) {
+    const title = segmentTitles[params.slug];
+    return (
+      <div className={styles.page}>
+        <Navbar activeTab="solucoes" />
+        <main style={{ minHeight: '65vh', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#0f2854', color: '#fff', padding: '120px 24px' }}>
+          <div style={{ textAlign: 'center', maxWidth: '640px', margin: '0 auto' }}>
+            <span style={{ fontSize: '14px', fontWeight: '600', color: '#3AA0DB', textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: '12px' }}>
+              Segmento de Atuação
+            </span>
+            <h1 style={{ fontSize: 'clamp(2.1rem, 5vw, 3.25rem)', fontWeight: '700', color: '#fff', marginBottom: '24px', letterSpacing: '-0.02em', lineHeight: '1.2' }}>
+              {title}
+            </h1>
+            <p style={{ color: 'rgba(255, 255, 255, 0.75)', fontSize: '18px', lineHeight: '1.6', marginBottom: '40px' }}>
+              Estamos preparando conteúdos detalhados, especificações técnicas e cases de sucesso do Grupo RETEC para este setor. Em breve, esta página estará repleta de informações completas!
+            </p>
+            <Link 
+              href="/solucoes" 
+              style={{ 
+                display: 'inline-flex', 
+                alignItems: 'center', 
+                backgroundColor: '#3AA0DB', 
+                color: '#fff', 
+                padding: '14px 32px', 
+                borderRadius: '30px', 
+                fontWeight: '600', 
+                fontSize: '16px',
+                textDecoration: 'none',
+                boxShadow: '0 4px 14px rgba(58, 160, 219, 0.3)',
+                transition: 'all 200ms ease'
+              }}
+            >
+              Voltar para Soluções
+            </Link>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  const data = solutionsData[params.slug];
+  const catData = produtosPorCategoria[params.slug];
 
   if (!data) {
     notFound();
