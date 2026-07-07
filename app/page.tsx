@@ -4,6 +4,7 @@ import Navbar from "./components/navbar";
 import HeroCarousel from "./components/heroCarousel";
 import styles from "./index.module.scss";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const representativeBrands = [
   { src: "/home/empresas_representantes/armacell.png", alt: "Armacell" },
@@ -424,6 +425,7 @@ export default function Home() {
       </main>
       <Footer />
       <Analytics />
+      <SpeedInsights />
     </div>
   );
 }
