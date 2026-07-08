@@ -451,14 +451,17 @@
 .brandMarquee {
   mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
-  overflow: hidden;
+  overflow-x: auto;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   position: relative;
   width: 100%;
 }
 
 // Esteira de rolagem contínua (comportamento de animação infinita)
 .brandTrack {
-  animation: representative-scroll 28s linear infinite;
   display: flex;
   width: max-content;
   will-change: transform;

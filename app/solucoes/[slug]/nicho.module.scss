@@ -201,36 +201,68 @@
   }
 }
 
+.sectionDores {
+  padding: 80px 0;
+  background-color: #0f2854;
+  color: $white;
+
+  @media (max-width: 768px) {
+    padding: 64px 0;
+  }
+
+  // Target local classes nested under sectionDores
+  :global(.sectionTitle) {
+    color: $white;
+  }
+  
+  // Also target local SCSS module classes
+  div[class*="sectionHeader"] h2 {
+    color: $white !important;
+  }
+
+  div[class*="sectionHeader"] p {
+    color: $secondary !important;
+  }
+}
+
 .dorCard {
-  background: $white;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
   padding: 24px 28px;
   display: flex;
   align-items: flex-start;
   gap: 16px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
   transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
 
   &:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(58, 160, 219, 0.5);
     transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(15, 40, 84, 0.06);
-    border-color: rgba(58, 160, 219, 0.3);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
   }
 }
 
 .dorIcon {
   width: 24px;
   height: 24px;
-  color: #e05c5c; // Red warning icon color
+  color: $white;
   flex-shrink: 0;
   margin-top: 2px;
+  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  .dorCard:hover & {
+    transform: scale(1.1);
+  }
 }
 
 .dorText {
   font-size: 16px;
   font-weight: 600;
-  color: #0f2854;
+  color: $white;
   line-height: 1.4;
   margin: 0;
 }

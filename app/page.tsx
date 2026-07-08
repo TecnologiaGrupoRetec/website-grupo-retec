@@ -82,28 +82,28 @@ const processSteps = [
 const highlightCards = [
   {
     label: "Empresarial",
-    title: "Comércio e Varejo",
+    title: "Prédios comerciais, Shoppings e Hotéis",
     icon: "/icons/comercio.svg",
     description:
       "Ambientes que precisam de ar renovado e conforto constante",
   },
   {
     label: "Saúde",
-    title: "Hospitais e Farmacêuticos",
+    title: "Hospitais, centros clínicos e clínicas",
     icon: "/icons/hospital.svg",
     description:
       "Ambientes em que a temperatura correta é condição de operação.",
   },
   {
     label: "Industrias",
-    title: "Industrias",
+    title: "Indústrias farmacêuticas e processos industriais",
     icon: "/icons/industria.svg",
     description:
       "Operações contínuas que dependem de sistemas sem falha.",
   },
   {
     label: "Infraestrutura",
-    title: "Data Centers",
+    title: "Data centers e ambientes de missão crítica",
     icon: "/icons/data_center.svg",
     description:
       "Infraestrutura crítica que depende de controle térmico preciso.",
