@@ -10,6 +10,7 @@ import { produtosPorCategoria } from "./dadosProdutos";
 import { solucoesPorNicho } from "./dadosNichos";
 import styles from "./detalhe.module.scss";
 import nichoStyles from "./nicho.module.scss";
+import BrandMarquee from "../../components/brandMarquee";
 
 // Informações detalhadas para cada linha de fornecimento
 const solutionsData: Record<string, {
@@ -339,11 +340,10 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
               <p className={nichoStyles.eyebrow}>Fabricantes</p>
               <h2 className={nichoStyles.sectionTitle}>Marcas com maior aderência para este nicho</h2>
             </div>
-            <div className={nichoStyles.marcasGrid}>
-              {nichoData.marcas.map((marca, idx) => (
-                <span key={idx} className={nichoStyles.marcaChip}>{marca}</span>
-              ))}
-            </div>
+            <BrandMarquee 
+              items={nichoData.marcas.map(m => ({ name: m }))}
+              theme="light"
+            />
           </div>
         </section>
 

@@ -1,12 +1,11 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
-import Image from "next/image";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import Link from "next/link";
 import styles from "./solucoes.module.scss";
 import SegmentoCardsCarousel from "../components/segmentoCardsCarousel";
+import BrandMarquee from "../components/brandMarquee";
 
 const suppliedCompanies = [
   { src: "/home/empresas_fornecidas/logo_ache.webp", alt: "Aché", link: "https://www.ache.com.br/" },
@@ -102,61 +101,6 @@ const categories = [
 ];
 
 export default function SolucoesPage() {
-  const marqueeRef = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
-  const [isDragging, setIsDragging] = useState(false);
-  const startXRef = useRef(0);
-  const scrollLeftRef = useRef(0);
-
-  useEffect(() => {
-    const marquee = marqueeRef.current;
-    if (!marquee) return;
-
-    let animationFrameId: number;
-
-    const scroll = () => {
-      if (!isHovered && !isDragging) {
-        marquee.scrollLeft += 0.8; // scroll speed
-        if (marquee.scrollLeft >= marquee.scrollWidth / 2) {
-          marquee.scrollLeft = 0;
-        }
-      }
-      animationFrameId = requestAnimationFrame(scroll);
-    };
-
-    animationFrameId = requestAnimationFrame(scroll);
-    return () => cancelAnimationFrame(animationFrameId);
-  }, [isHovered, isDragging]);
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    const marquee = marqueeRef.current;
-    if (!marquee) return;
-    setIsDragging(true);
-    startXRef.current = e.pageX - marquee.offsetLeft;
-    scrollLeftRef.current = marquee.scrollLeft;
-  };
-
-  const handleMouseLeaveOrUp = () => {
-    setIsDragging(false);
-    setIsHovered(false);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const marquee = marqueeRef.current;
-    if (!marquee) return;
-    const x = e.pageX - marquee.offsetLeft;
-    const walk = (x - startXRef.current) * 1.5; // multiplier for drag speed
-    marquee.scrollLeft = scrollLeftRef.current - walk;
-
-    // Wrap around for drag scroll as well
-    if (marquee.scrollLeft >= marquee.scrollWidth / 2) {
-      marquee.scrollLeft = 0;
-    } else if (marquee.scrollLeft <= 0) {
-      marquee.scrollLeft = marquee.scrollWidth / 2;
-    }
-  };
 
   return (
     <div className={styles.page}>
@@ -228,39 +172,10 @@ export default function SolucoesPage() {
                 </h3>
               </div>
 
-              <div
-                ref={marqueeRef}
-                className={styles.brandMarquee}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={handleMouseLeaveOrUp}
-                onMouseDown={handleMouseDown}
-                onMouseUp={handleMouseLeaveOrUp}
-                onMouseMove={handleMouseMove}
-                style={{ cursor: isDragging ? "grabbing" : "grab", userSelect: "none" }}
-              >
-                <div className={styles.brandTrack}>
-                  {[0, 1].map((groupIndex) => (
-                    <div
-                      key={groupIndex}
-                      className={styles.brandRow}
-                      aria-hidden={groupIndex === 1}
-                    >
-                      {suppliedCompanies.map((company) => (
-                        <div className={styles.brandCard} key={`${groupIndex}-${company.alt}`}>
-                          <Image
-                            className={styles.brandLogo}
-                            src={company.src}
-                            alt={company.alt}
-                            width={220}
-                            height={88}
-                            draggable={false}
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <BrandMarquee 
+                items={suppliedCompanies.map(c => ({ name: c.alt, logoUrl: c.src, link: c.link }))} 
+                theme="dark"
+              />
             </div>
           </div>
         </section>

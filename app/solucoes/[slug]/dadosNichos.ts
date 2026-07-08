@@ -73,7 +73,7 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
       "Lã de rocha",
       "Fibra cerâmica"
     ],
-    marcas: ["TROX", "EVAPCO", "Daikin", "Armstrong", "IMI Hydronic", "Rocktec", "Armacell", "Projelmec"],
+    marcas: ["TROX", "EVAPCO", "Daikin", "Armstrong", "Rocktec", "Armacell", "Projelmec"],
     cta: "Solicitar orçamento para indústrias farmacêuticas e processos industriais",
     whatsappMessage: "Olá! Gostaria de falar com um especialista sobre soluções de HVAC para Indústrias Farmacêuticas e Processos Industriais."
   },
@@ -135,7 +135,7 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
       "Lã de vidro",
       "Lã de rocha"
     ],
-    marcas: ["TROX", "Daikin", "EVAPCO", "Armstrong", "IMI Hydronic", "Rocktec", "Armacell"],
+    marcas: ["TROX", "Daikin", "EVAPCO", "Armstrong", "Rocktec", "Armacell"],
     cta: "Solicitar orçamento para hospitais, centros clínicos e clínicas",
     whatsappMessage: "Olá! Gostaria de falar com um especialista sobre soluções de HVAC para Hospitais e Clínicas."
   },
@@ -194,7 +194,7 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
       "Válvulas de balanceamento",
       "Isolamento para água gelada e dutos"
     ],
-    marcas: ["Daikin", "EVAPCO", "TROX", "Armstrong", "IMI Hydronic", "Rocktec", "Armacell", "Sicflux", "Projelmec"],
+    marcas: ["Daikin", "EVAPCO", "TROX", "Armstrong", "Rocktec", "Armacell", "Sicflux", "Projelmec"],
     cta: "Solicitar orçamento para shopping centers",
     whatsappMessage: "Olá! Gostaria de falar com um especialista sobre soluções de HVAC para Shopping Centers."
   },
@@ -254,7 +254,7 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
       "Bombas de dreno",
       "Controles"
     ],
-    marcas: ["Daikin", "TROX", "Sicflux", "Rocktec", "Armacell", "Armstrong", "IMI Hydronic"],
+    marcas: ["Daikin", "TROX", "Sicflux", "Rocktec", "Armacell", "Armstrong"],
     cta: "Solicitar orçamento para hotéis",
     whatsappMessage: "Olá! Gostaria de falar com um especialista sobre soluções de HVAC para Hotéis."
   },
@@ -315,7 +315,7 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
       "Espuma elastomérica",
       "Suportes e acessórios"
     ],
-    marcas: ["Daikin", "TROX", "Armstrong", "IMI Hydronic", "Rocktec", "Armacell", "Sicflux"],
+    marcas: ["Daikin", "TROX", "Armstrong", "Rocktec", "Armacell", "Sicflux"],
     cta: "Solicitar orçamento para prédios comerciais",
     whatsappMessage: "Olá! Gostaria de falar com um especialista sobre soluções de HVAC para Prédios Comerciais."
   },
@@ -370,7 +370,7 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
       "Suportes e fitas",
       "Adesivos, selantes e consumíveis"
     ],
-    marcas: ["Daikin", "Rocktec", "Armacell", "TROX", "Armstrong", "IMI Hydronic", "Sicflux", "Projelmec"],
+    marcas: ["Daikin", "Rocktec", "Armacell", "TROX", "Armstrong", "Sicflux", "Projelmec"],
     cta: "Solicitar orçamento para instaladoras e construtoras",
     whatsappMessage: "Olá! Gostaria de falar com um especialista sobre soluções de HVAC para Instaladoras e Construtoras."
   },
@@ -426,7 +426,7 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
       "Isolamento térmico",
       "Suportes e acessórios de instalação"
     ],
-    marcas: ["Daikin", "EVAPCO", "TROX", "Armstrong", "IMI Hydronic", "Sicflux", "Projelmec", "Rocktec", "Armacell"],
+    marcas: ["Daikin", "EVAPCO", "TROX", "Armstrong", "Sicflux", "Projelmec", "Rocktec", "Armacell"],
     cta: "Solicitar orçamento para governamental e institucional",
     whatsappMessage: "Olá! Gostaria de falar com um especialista sobre soluções de HVAC para Ambientes Governamentais e Institucionais."
   },
@@ -772,7 +772,7 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
         ]
       }
     ],
-    marcas: ["Daikin", "EVAPCO", "TROX", "Armstrong", "IMI Hydronic", "AAF", "Rocktec", "Armacell", "Projelmec", "Sicflux"],
+    marcas: ["Daikin", "EVAPCO", "TROX", "Armstrong", "AAF", "Rocktec", "Armacell", "Projelmec", "Sicflux"],
     cta: "Solicitar orçamento para data centers e ambientes de missão crítica",
     whatsappMessage: "Olá! Gostaria de falar com um especialista sobre soluções de HVAC para Data Centers e Ambientes de Missão Crítica."
   }
