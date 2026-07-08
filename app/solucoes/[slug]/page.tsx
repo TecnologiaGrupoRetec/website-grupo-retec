@@ -7,7 +7,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { produtosPorCategoria } from "./dadosProdutos";
+import { solucoesPorNicho } from "./dadosNichos";
 import styles from "./detalhe.module.scss";
+import nichoStyles from "./nicho.module.scss";
 
 // Informações detalhadas para cada linha de fornecimento
 const solutionsData: Record<string, {
@@ -168,57 +170,196 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
     return "VRV";
   });
 
-  const segmentTitles: Record<string, string> = {
-    "industrias-farmaceuticas-e-processos": "Indústrias Farmacêuticas e Processos",
-    "hospitais-e-clinicas": "Hospitais, Centros Clínicos e Clínicas",
-    "data-centers-e-missao-critica": "Data Centers e Missão Crítica",
-    "shopping-centers": "Shopping Centers",
-    "hoteis-e-resort-complexes": "Hotéis e Resort Complexes",
-    "predios-comerciais-e-offices": "Prédios Comerciais e Offices",
-    "governamental-e-institucional": "Governamental e Institucional",
-    "instaladoras-e-construtoras": "Instaladoras e Construtoras",
-    "escolas-e-centros-de-ensino": "Escolas e Centros de Ensino",
-    "academias-e-centros-fitness": "Academias e Centros Fitness",
-    "residencial-de-alto-padrao": "Residencial de Alto Padrão",
-    "restaurantes-e-alimentacao": "Restaurantes e Alimentação"
+  const [openAccordion, setOpenAccordion] = useState<Record<number, boolean>>({ 0: true });
+
+  const toggleAccordion = (idx: number) => {
+    setOpenAccordion(prev => ({
+      ...prev,
+      [idx]: !prev[idx]
+    }));
   };
 
-  if (segmentTitles[params.slug]) {
-    const title = segmentTitles[params.slug];
+  const nichoData = solucoesPorNicho[params.slug];
+
+  if (nichoData) {
     return (
-      <div className={styles.page}>
+      <div className={nichoStyles.page}>
         <Navbar activeTab="solucoes" />
-        <main style={{ minHeight: '65vh', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#0f2854', color: '#fff', padding: '120px 24px' }}>
-          <div style={{ textAlign: 'center', maxWidth: '640px', margin: '0 auto' }}>
-            <span style={{ fontSize: '14px', fontWeight: '600', color: '#3AA0DB', textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: '12px' }}>
-              Segmento de Atuação
-            </span>
-            <h1 style={{ fontSize: 'clamp(2.1rem, 5vw, 3.25rem)', fontWeight: '700', color: '#fff', marginBottom: '24px', letterSpacing: '-0.02em', lineHeight: '1.2' }}>
-              {title}
-            </h1>
-            <p style={{ color: 'rgba(255, 255, 255, 0.75)', fontSize: '18px', lineHeight: '1.6', marginBottom: '40px' }}>
-              Estamos preparando conteúdos detalhados, especificações técnicas e cases de sucesso do Grupo RETEC para este setor. Em breve, esta página estará repleta de informações completas!
-            </p>
-            <Link 
-              href="/solucoes" 
-              style={{ 
-                display: 'inline-flex', 
-                alignItems: 'center', 
-                backgroundColor: '#3AA0DB', 
-                color: '#fff', 
-                padding: '14px 32px', 
-                borderRadius: '30px', 
-                fontWeight: '600', 
-                fontSize: '16px',
-                textDecoration: 'none',
-                boxShadow: '0 4px 14px rgba(58, 160, 219, 0.3)',
-                transition: 'all 200ms ease'
-              }}
-            >
-              Voltar para Soluções
-            </Link>
+
+        {/* Hero Section */}
+        <section className={nichoStyles.hero}>
+          <div className={nichoStyles.container}>
+            <div className={nichoStyles.heroGrid}>
+              <div className={nichoStyles.heroLeft}>
+                <Link href="/solucoes" className={nichoStyles.backLink}>
+                  <svg className={nichoStyles.backIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                  </svg>
+                  Voltar para Soluções
+                </Link>
+                <p className={nichoStyles.heroGroup}>{nichoData.grupo}</p>
+                <h1 className={nichoStyles.heroTitle}>{nichoData.hero.titulo}</h1>
+                <p className={nichoStyles.heroText}>{nichoData.hero.textoCurto}</p>
+                {nichoData.hero.textoApoio?.map((text, idx) => (
+                  <p key={idx} className={nichoStyles.heroSupportText}>{text}</p>
+                ))}
+                <a
+                  href={`https://wa.me/5561991311283?text=${encodeURIComponent(nichoData.whatsappMessage)}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={nichoStyles.heroBtn}
+                >
+                  <span>Solicitar orçamento</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ width: '16px', height: '16px' }}>
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+              <div className={nichoStyles.heroRight}>
+                <Image
+                  className={nichoStyles.heroImage}
+                  src={nichoData.imageUrl}
+                  alt={nichoData.segmento}
+                  fill
+                  priority
+                  sizes="(max-width: 900px) 100vw, 500px"
+                />
+              </div>
+            </div>
           </div>
-        </main>
+        </section>
+
+        {/* Principais Dores Section */}
+        <section className={nichoStyles.section}>
+          <div className={nichoStyles.container}>
+            <div className={nichoStyles.sectionHeader}>
+              <p className={nichoStyles.eyebrow}>Desafios</p>
+              <h2 className={nichoStyles.sectionTitle}>Principais desafios desse tipo de ambiente</h2>
+            </div>
+            <div className={nichoStyles.doresGrid}>
+              {nichoData.principaisDores.map((dor, idx) => (
+                <div key={idx} className={nichoStyles.dorCard}>
+                  <svg className={nichoStyles.dorIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3Z" />
+                  </svg>
+                  <p className={nichoStyles.dorText}>{dor}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Soluções Indicadas Section */}
+        <section className={nichoStyles.sectionAlt}>
+          <div className={nichoStyles.container}>
+            <div className={nichoStyles.sectionHeader}>
+              <p className={nichoStyles.eyebrow}>Engenharia</p>
+              <h2 className={nichoStyles.sectionTitle}>Soluções HVAC indicadas</h2>
+            </div>
+            <div className={nichoStyles.solucoesGrid}>
+              {nichoData.solucoesIndicadas.map((sol, idx) => (
+                <div key={idx} className={nichoStyles.solucaoCard}>
+                  <svg className={nichoStyles.solucaoIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <p className={nichoStyles.solucaoText}>{sol}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Produtos Aplicáveis Section */}
+        <section className={nichoStyles.section}>
+          <div className={nichoStyles.container}>
+            <div className={nichoStyles.sectionHeader}>
+              <p className={nichoStyles.eyebrow}>Materiais</p>
+              <h2 className={nichoStyles.sectionTitle}>Produtos do portfólio aplicáveis</h2>
+            </div>
+
+            {/* Check if products list is grouped (Array of objects) */}
+            {Array.isArray(nichoData.produtosAplicaveis) && typeof nichoData.produtosAplicaveis[0] === 'object' ? (
+              <div className={nichoStyles.accordionContainer}>
+                {(nichoData.produtosAplicaveis as { grupo: string; produtos: string[] }[]).map((group, idx) => {
+                  const isOpen = !!openAccordion[idx];
+                  return (
+                    <div key={idx} className={`${nichoStyles.accordionItem} ${isOpen ? nichoStyles.open : ''}`}>
+                      <button
+                        className={nichoStyles.accordionHeader}
+                        onClick={() => toggleAccordion(idx)}
+                      >
+                        <h4 className={nichoStyles.accordionTitle}>{group.grupo}</h4>
+                        <svg
+                          className={`${nichoStyles.accordionArrow} ${isOpen ? nichoStyles.rotated : ''}`}
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                        >
+                          <path d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </button>
+                      {isOpen && (
+                        <div className={nichoStyles.accordionContent}>
+                          <div className={nichoStyles.produtosGrid}>
+                            {group.produtos.map((prod, pIdx) => (
+                              <span key={pIdx} className={nichoStyles.produtoTag}>{prod}</span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
+              <div className={nichoStyles.produtosGrid}>
+                {(nichoData.produtosAplicaveis as string[]).map((prod, idx) => (
+                  <span key={idx} className={nichoStyles.produtoTag}>{prod}</span>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* Marcas Section */}
+        <section className={nichoStyles.sectionAlt}>
+          <div className={nichoStyles.container}>
+            <div className={nichoStyles.sectionHeader}>
+              <p className={nichoStyles.eyebrow}>Fabricantes</p>
+              <h2 className={nichoStyles.sectionTitle}>Marcas com maior aderência para este nicho</h2>
+            </div>
+            <div className={nichoStyles.marcasGrid}>
+              {nichoData.marcas.map((marca, idx) => (
+                <span key={idx} className={nichoStyles.marcaChip}>{marca}</span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Final Section */}
+        <section className={nichoStyles.ctaSection}>
+          <div className={nichoStyles.container}>
+            <div className={nichoStyles.ctaBox}>
+              <h2 className={nichoStyles.ctaTitle}>Precisa especificar equipamentos para este tipo de ambiente?</h2>
+              <p className={nichoStyles.ctaText}>
+                A RETEC apoia sua obra com portfólio HVAC completo, suporte comercial e fornecimento técnico especializado. Envie sua lista de materiais, memorial descritivo ou necessidade técnica para receber apoio especializado.
+              </p>
+              <a
+                href={`https://wa.me/5561991311283?text=${encodeURIComponent(nichoData.whatsappMessage)}`}
+                target="_blank"
+                rel="noreferrer"
+                className={nichoStyles.ctaBtn}
+              >
+                <svg className={nichoStyles.btnIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />
+                </svg>
+                <span>{nichoData.cta}</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
         <Footer />
       </div>
     );

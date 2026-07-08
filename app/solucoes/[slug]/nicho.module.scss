@@ -1,0 +1,475 @@
+@import "../../variables.scss";
+
+.page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f9fc;
+}
+
+.container {
+  width: min(calc(100% - 48px), 1200px);
+  margin: 0 auto;
+  position: relative;
+}
+
+// ==========================================
+// HERO SECTION (TWO COLUMNS)
+// ==========================================
+.hero {
+  background-color: #071226; // Dark premium background
+  padding: 160px 0 96px;
+  color: $white;
+  overflow: hidden;
+
+  @media (max-width: 900px) {
+    padding: 120px 0 64px;
+  }
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 64px;
+  align-items: center;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: $secondary;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: opacity 250ms ease;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+.backIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.heroGroup {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $secondary;
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+
+.heroTitle {
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.heroText {
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+.heroSupportText {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.65);
+  border-left: 3px solid $secondary;
+  padding-left: 16px;
+  margin: 8px 0 16px 0;
+}
+
+.heroBtn {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background-color: $secondary;
+  color: $white;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(58, 160, 219, 0.3);
+  transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    background-color: darken(#3AA0DB, 8%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(58, 160, 219, 0.4);
+  }
+}
+
+.heroRight {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  @media (max-width: 900px) {
+    height: 280px;
+  }
+}
+
+.heroImage {
+  object-fit: cover;
+}
+
+// ==========================================
+// SEÇÕES GENÉRICAS
+// ==========================================
+.section {
+  padding: 80px 0;
+  background-color: $white;
+
+  @media (max-width: 768px) {
+    padding: 64px 0;
+  }
+}
+
+.sectionAlt {
+  padding: 80px 0;
+  background-color: #f0f4fa;
+
+  @media (max-width: 768px) {
+    padding: 64px 0;
+  }
+}
+
+.sectionHeader {
+  margin-bottom: 48px;
+  max-width: 720px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 32px;
+  }
+}
+
+.eyebrow {
+  color: $secondary;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: #0f2854;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+// ==========================================
+// DORES SECTION
+// ==========================================
+.doresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.dorCard {
+  background: $white;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+  transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(15, 40, 84, 0.06);
+    border-color: rgba(58, 160, 219, 0.3);
+  }
+}
+
+.dorIcon {
+  width: 24px;
+  height: 24px;
+  color: #e05c5c; // Red warning icon color
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.dorText {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f2854;
+  line-height: 1.4;
+  margin: 0;
+}
+
+// ==========================================
+// SOLUÇÕES INDICADAS SECTION
+// ==========================================
+.solucoesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.solucaoCard {
+  background: $white;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 20px;
+  padding: 28px 32px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(15, 40, 84, 0.08);
+    border-color: rgba(58, 160, 219, 0.4);
+  }
+}
+
+.solucaoIcon {
+  width: 24px;
+  height: 24px;
+  color: $secondary;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.solucaoText {
+  font-size: 17px;
+  font-weight: 600;
+  color: #0f2854;
+  line-height: 1.4;
+  margin: 0;
+}
+
+// ==========================================
+// PRODUTOS APLICÁVEIS SECTION
+// ==========================================
+.produtosGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.produtoTag {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1c4d8d;
+  background: rgba(58, 160, 219, 0.08);
+  border: 1px solid rgba(58, 160, 219, 0.15);
+  padding: 10px 20px;
+  border-radius: 30px;
+  transition: all 200ms ease;
+
+  &:hover {
+    background: $secondary;
+    color: $white;
+    border-color: $secondary;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(58, 160, 219, 0.2);
+  }
+}
+
+// ==========================================
+// ACORDEÃO DE PRODUTOS (PARA DATA CENTERS)
+// ==========================================
+.accordionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.accordionItem {
+  background: $white;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  transition: border-color 250ms ease;
+
+  &.open {
+    border-color: rgba(58, 160, 219, 0.4);
+  }
+}
+
+.accordionHeader {
+  width: 100%;
+  padding: 20px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  outline: none;
+}
+
+.accordionTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f2854;
+  margin: 0;
+}
+
+.accordionArrow {
+  width: 20px;
+  height: 20px;
+  color: $secondary;
+  transition: transform 250ms ease;
+
+  &.rotated {
+    transform: rotate(180deg);
+  }
+}
+
+.accordionContent {
+  padding: 0 28px 24px 28px;
+  animation: slideDown 300ms ease-out forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ==========================================
+// MARCAS SECTION
+// ==========================================
+.marcasGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.marcaChip {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f2854;
+  background: #f0f4fa;
+  border: 1px solid rgba(15, 40, 84, 0.08);
+  padding: 10px 24px;
+  border-radius: 30px;
+  letter-spacing: 0.02em;
+  transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    border-color: #0f2854;
+    background-color: #0f2854;
+    color: $white;
+    transform: scale(1.03);
+  }
+}
+
+// ==========================================
+// CTA FINAL SECTION
+// ==========================================
+.ctaSection {
+  background-color: #0f2854;
+  padding: 80px 0;
+  color: $white;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  @media (max-width: 768px) {
+    padding: 64px 0;
+  }
+}
+
+.ctaBox {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.ctaTitle {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.ctaText {
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 36px;
+  background-color: $secondary;
+  color: $white;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(58, 160, 219, 0.3);
+  transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    background-color: darken(#3AA0DB, 8%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(58, 160, 219, 0.45);
+  }
+}
+
+.btnIcon {
+  width: 20px;
+  height: 20px;
+}

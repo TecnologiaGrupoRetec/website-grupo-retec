@@ -25,7 +25,7 @@ const segments: Segment[] = [
       "O Grupo RETEC fornece filtros HEPA absolutos, difusores de fluxo laminar, dampers de controle estanque de vazão, além de dutos e isolamentos térmicos específicos para salas limpas, áreas limpas e laboratórios de alta classificação.",
       "Nossas soluções de climatização garantem a manutenção constante da pressão diferencial, controle de umidade relativa e filtragem do ar nos níveis mais exigentes do mercado industrial."
     ],
-    slug: "industrias-farmaceuticas-e-processos"
+    slug: "industrias-farmaceuticas-processos-industriais"
   },
   {
     title: "Hospitais, Centros Clínicos e Clínicas",
@@ -37,7 +37,7 @@ const segments: Segment[] = [
       "Trabalhamos com marcas de referência mundial para fornecer centrais de tratamento de ar (AHUs), fancoletes hospitalares, grelhas de exaustão e filtros absolutos em conformidade estrita com a norma ABNT NBR 7256.",
       "Garantimos a estanqueidade dos dutos, isolamento térmico eficiente e sistemas de renovação de ar projetados para diluir e remover contaminantes aéreos de forma segura e ininterrupta."
     ],
-    slug: "hospitais-e-clinicas"
+    slug: "hospitais-clinicas"
   },
   {
     title: "Data Centers e Missão Crítica",
@@ -49,7 +49,7 @@ const segments: Segment[] = [
       "O Grupo RETEC fornece soluções de climatização de precisão, chillers robustos e sistemas de distribuição de ar otimizados que garantem a dissipação do calor de forma homogênea e com baixo consumo elétrico.",
       "Trabalhamos com equipamentos de alta tecnologia e controle automatizado de umidade e temperatura para garantir a segurança operacional de bancos de dados e salas elétricas críticas."
     ],
-    slug: "data-centers-e-missao-critica"
+    slug: "data-centers-missao-critica"
   },
   {
     title: "Shopping Centers",
@@ -73,7 +73,7 @@ const segments: Segment[] = [
       "Fornecemos sistemas do tipo VRV/VRF silenciosos, fancoletes individuais com baixo nível de ruído, isolamento termoacústico Armacell e sistemas de renovação de ar dedicados para manter a qualidade do ar em ambientes internos.",
       "Ajudamos hotéis a reduzirem seus custos de energia através de sistemas inteligentes de recuperação de calor e automação integrada, garantindo climatização apenas quando os quartos estiverem ocupados."
     ],
-    slug: "hoteis-e-resort-complexes"
+    slug: "hoteis"
   },
   {
     title: "Prédios Comerciais e Offices",
@@ -85,7 +85,7 @@ const segments: Segment[] = [
       "Oferecemos soluções em VRF Daikin de última geração, dutos pré-isolados de fácil instalação e grelhas de difusão que evitam correntes de ar incômodas (drafts) sobre os postos de trabalho.",
       "Nossos sistemas auxiliam na obtenção de certificações ambientais (como LEED e AQUA) através da redução do consumo energético dos prédios comerciais e monitoramento de ar de renovação."
     ],
-    slug: "predios-comerciais-e-offices"
+    slug: "predios-comerciais"
   },
   {
     title: "Governamental e Institucional",
@@ -97,7 +97,7 @@ const segments: Segment[] = [
       "Fornecemos fancoils, chillers e componentes homologados com facilidade de manutenção preventiva, excelente acabamento e alta resistência operacional.",
       "Nossas soluções de ventilação mecânica e renovação de ar garantem a conformidade regulatória exigida pelos órgãos de fiscalização sanitária, além da longa vida útil do portfólio."
     ],
-    slug: "governamental-e-institucional"
+    slug: "governamental-institucional"
   },
   {
     title: "Instaladoras e Construtoras",
@@ -105,11 +105,11 @@ const segments: Segment[] = [
     img: "/about/about1.jpeg",
     description: "Suporte logístico, agilidade comercial e leitura consultiva de projetos de engenharia.",
     paragraphs: [
-      "Para instaladoras e construtoras de sistemas de HVAC-R, a RETEC atua como um parceiro de fornecimento estratégico, garantindo preços competitivos, agilidade comercial e precisão técnica.",
+      "Para instaladoras e construtoras de sistemas de HVAC-R, a RETEC atua como um parceiro de fornecimento strategic, garantindo preços competitivos, agilidade comercial e precisão técnica.",
       "Oferecemos suporte na compatibilização de projetos, seleção de equipamentos alternativos equivalentes de alta performance e fornecimento ágil de dutos, isolantes térmicos, dampers, grelhas e acessórios.",
       "Nosso compromisso é com o cronograma da obra física, fornecendo atendimento pós-venda direto e entrega assistida para assegurar o start-up tranquilo dos sistemas."
     ],
-    slug: "instaladoras-e-construtoras"
+    slug: "instaladoras-construtoras"
   },
   {
     title: "Escolas e Centros de Ensino",
@@ -121,7 +121,7 @@ const segments: Segment[] = [
       "Fornecemos exaustores silenciosos de renovação de ar, ventiladores de gabinete, isolantes acústicos e difusores que garantem a correta circulação de ar sem poluição sonora.",
       "Nossas soluções de climatização e ventilação atendem às exigências de renovação de ar por aluno (NBR 16401) minimizando a proliferação de vírus e bactérias nas escolas."
     ],
-    slug: "escolas-e-centros-de-ensino"
+    slug: "escolas-centros-ensino"
   },
   {
     title: "Academias e Centros Fitness",
@@ -133,7 +133,7 @@ const segments: Segment[] = [
       "O Grupo RETEC fornece exaustores axiais e centrífugos robustos, caixas de filtragem e dutos de distribuição de ar de alta velocidade para manter o ambiente fresco e livre de odores.",
       "Projetamos a circulação de ar para evitar bolsões de ar úmido e quente, garantindo o conforto necessário para a alta performance física dos frequentadores."
     ],
-    slug: "academias-e-centros-fitness"
+    slug: "academias-centros-fitness"
   },
   {
     title: "Residencial de Alto Padrão",
@@ -145,7 +145,7 @@ const segments: Segment[] = [
       "Trabalhamos com sistemas VRF residenciais (Daikin Multi-Split e VRV Fit), que operam com altíssimo silêncio e oferecem controle independente para cada suíte e ambiente social.",
       "Garantimos o isolamento térmico perfeito das tubulações com produtos de alta gama da Armacell, evitando condensação indesejada e preservando o gesso e a decoração de luxo."
     ],
-    slug: "residencial-de-alto-padrao"
+    slug: "residencial-alto-padrao"
   },
   {
     title: "Restaurantes e Alimentação",
@@ -157,7 +157,7 @@ const segments: Segment[] = [
       "O Grupo RETEC fornece exaustores industriais, filtros metálicos laváveis para coifas, dampers de segurança corta-fogo, além de fancoletes e cassetes lineares silenciosos para a área dos clientes.",
       "Nossos sistemas evitam que a fumaça e o cheiro da cozinha migrem para o salão, mantendo a pressurização adequada em cada setor do restaurante."
     ],
-    slug: "restaurantes-e-alimentacao"
+    slug: "restaurantes"
   }
 ];
 
