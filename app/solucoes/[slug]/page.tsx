@@ -153,6 +153,41 @@ const solutionsData: Record<string, {
   }
 };
 
+function categorizarProdutos(produtos: string[]): { categoria: string; produtos: string[] }[] {
+  const grupos: Record<string, string[]> = {
+    "Geração e Rejeição de Calor": [],
+    "Tratamento e Renovação de Ar": [],
+    "Distribuição e Controle de Fluxo": [],
+    "Válvulas e Controle Hidráulico": [],
+    "Isolamento e Acabamento": [],
+    "Acessórios e Instalação": []
+  };
+
+  produtos.forEach(prod => {
+    const p = prod.toLowerCase();
+    if (p.includes("chiller") || p.includes("torre") || p.includes("condensador") || p.includes("rejeição")) {
+      grupos["Geração e Rejeição de Calor"].push(prod);
+    } else if (p.includes("fan coil") || p.includes("uta") || p.includes("fancolete") || p.includes("vrv") || p.includes("vrf") || p.includes("split") || p.includes("ventilador") || p.includes("exaustor") || p.includes("renovação") || p.includes("gabinete") || p.includes("filtragem") || p.includes("módulo hepa") || p.includes("purificador") || p.includes("filtro")) {
+      grupos["Tratamento e Renovação de Ar"].push(prod);
+    } else if (p.includes("duto") || p.includes("difusor") || p.includes("grelha") || p.includes("veneziana") || p.includes("damper") || p.includes("vav") || p.includes("cav") || p.includes("plenum") || p.includes("insuflamento") || p.includes("retorno")) {
+      grupos["Distribuição e Controle de Fluxo"].push(prod);
+    } else if (p.includes("bomba") || p.includes("válvula") || p.includes("filtro y") || p.includes("manômetro") || p.includes("termômetro") || p.includes("medidor") || p.includes("sensor")) {
+      grupos["Válvulas e Controle Hidráulico"].push(prod);
+    } else if (p.includes("isolamento") || p.includes("espuma") || p.includes("lã") || p.includes("alumínio") || p.includes("fibra") || p.includes("elastomérica") || p.includes("barreira") || p.includes("revestimento")) {
+      grupos["Isolamento e Acabamento"].push(prod);
+    } else {
+      grupos["Acessórios e Instalação"].push(prod);
+    }
+  });
+
+  return Object.keys(grupos)
+    .filter(key => grupos[key].length > 0)
+    .map(key => ({
+      categoria: key,
+      produtos: grupos[key]
+    }));
+}
+
 export default function SolucaoDetalhePage({ params }: { params: { slug: string } }) {
   const [selectedCategory, setSelectedCategory] = useState<string>(() => {
     if (params.slug === "exaustao-e-ventilacao") {
@@ -169,15 +204,6 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
     }
     return "VRV";
   });
-
-  const [openAccordion, setOpenAccordion] = useState<Record<number, boolean>>({ 0: true });
-
-  const toggleAccordion = (idx: number) => {
-    setOpenAccordion(prev => ({
-      ...prev,
-      [idx]: !prev[idx]
-    }));
-  };
 
   const nichoData = solucoesPorNicho[params.slug];
 
@@ -279,48 +305,30 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
               <h2 className={nichoStyles.sectionTitle}>Produtos do portfólio aplicáveis</h2>
             </div>
 
-            {/* Check if products list is grouped (Array of objects) */}
-            {Array.isArray(nichoData.produtosAplicaveis) && typeof nichoData.produtosAplicaveis[0] === 'object' ? (
-              <div className={nichoStyles.accordionContainer}>
-                {(nichoData.produtosAplicaveis as { grupo: string; produtos: string[] }[]).map((group, idx) => {
-                  const isOpen = !!openAccordion[idx];
-                  return (
-                    <div key={idx} className={`${nichoStyles.accordionItem} ${isOpen ? nichoStyles.open : ''}`}>
-                      <button
-                        className={nichoStyles.accordionHeader}
-                        onClick={() => toggleAccordion(idx)}
-                      >
-                        <h4 className={nichoStyles.accordionTitle}>{group.grupo}</h4>
-                        <svg
-                          className={`${nichoStyles.accordionArrow} ${isOpen ? nichoStyles.rotated : ''}`}
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2.5"
-                        >
-                          <path d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </button>
-                      {isOpen && (
-                        <div className={nichoStyles.accordionContent}>
-                          <div className={nichoStyles.produtosGrid}>
-                            {group.produtos.map((prod, pIdx) => (
-                              <span key={pIdx} className={nichoStyles.produtoTag}>{prod}</span>
-                            ))}
-                          </div>
-                        </div>
-                      )}
+            <div className={nichoStyles.produtosDashboard}>
+              {(() => {
+                const groupedProducts = Array.isArray(nichoData.produtosAplicaveis) && typeof nichoData.produtosAplicaveis[0] === 'object'
+                  ? (nichoData.produtosAplicaveis as { grupo: string; produtos: string[] }[]).map(g => ({ categoria: g.grupo, produtos: g.produtos }))
+                  : categorizarProdutos(nichoData.produtosAplicaveis as string[]);
+
+                return groupedProducts.map((group, idx) => (
+                  <div key={idx} className={nichoStyles.productCategoryPanel}>
+                    <div className={nichoStyles.panelHeader}>
+                      <div className={nichoStyles.panelIndicator} />
+                      <h3 className={nichoStyles.panelTitle}>{group.categoria}</h3>
                     </div>
-                  );
-                })}
-              </div>
-            ) : (
-              <div className={nichoStyles.produtosGrid}>
-                {(nichoData.produtosAplicaveis as string[]).map((prod, idx) => (
-                  <span key={idx} className={nichoStyles.produtoTag}>{prod}</span>
-                ))}
-              </div>
-            )}
+                    <div className={nichoStyles.panelList}>
+                      {group.produtos.map((prod, pIdx) => (
+                        <div key={pIdx} className={nichoStyles.panelItem}>
+                          <div className={nichoStyles.panelDot} />
+                          <span>{prod}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ));
+              })()}
+            </div>
           </div>
         </section>
 

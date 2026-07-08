@@ -149,7 +149,7 @@ export default function SolucoesPage() {
     const x = e.pageX - marquee.offsetLeft;
     const walk = (x - startXRef.current) * 1.5; // multiplier for drag speed
     marquee.scrollLeft = scrollLeftRef.current - walk;
-    
+
     // Wrap around for drag scroll as well
     if (marquee.scrollLeft >= marquee.scrollWidth / 2) {
       marquee.scrollLeft = 0;
@@ -191,12 +191,10 @@ export default function SolucoesPage() {
                   Ver categorias
                 </a>
                 <a
-                  href="https://wa.me/5561991311283"
-                  target="_blank"
-                  rel="noreferrer"
+                  href="#clientes"
                   className={styles.secondaryButton}
                 >
-                  Solicitar orçamento técnico
+                  Ver nichos atendidos
                 </a>
               </div>
 
@@ -230,7 +228,7 @@ export default function SolucoesPage() {
                 </h3>
               </div>
 
-              <div 
+              <div
                 ref={marqueeRef}
                 className={styles.brandMarquee}
                 onMouseEnter={() => setIsHovered(true)}
