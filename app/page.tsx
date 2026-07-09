@@ -7,6 +7,7 @@ import styles from "./index.module.scss";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import BrandMarquee from "./components/brandMarquee";
+import ScrollReveal from "./components/scrollReveal";
 
 const representativeBrands = [
   { src: "/home/empresas_representantes/armacell.png", alt: "Armacell" },
@@ -226,26 +227,30 @@ export default function Home() {
 
         <section className={`${styles.section} ${styles.sectionDark}`} id="processo">
           <div className={styles.container}>
-            <div className={`${styles.sectionIntro} ${styles.sectionIntroCentered} ${styles.onDark}`}>
-              <p className={styles.eyebrow}>Método</p>
-              <h2 className={styles.sectionTitle}>Como fornecemos para cada projeto.</h2>
-              <p className={styles.sectionText}>
-                Um fluxo de atendimento que dá previsibilidade a cada etapa do fornecimento.
-              </p>
-            </div>
+            <ScrollReveal direction="up">
+              <div className={`${styles.sectionIntro} ${styles.sectionIntroCentered} ${styles.onDark}`}>
+                <p className={styles.eyebrow}>Método</p>
+                <h2 className={styles.sectionTitle}>Como fornecemos para cada projeto.</h2>
+                <p className={styles.sectionText}>
+                  Um fluxo de atendimento que dá previsibilidade a cada etapa do fornecimento.
+                </p>
+              </div>
+            </ScrollReveal>
 
             <div className={styles.processGrid}>
-              {processSteps.map((step) => (
-                <article className={styles.processCard} key={step.number}>
-                  <div className={styles.processCardHead}>
-                    <div className={styles.processIcon}>
-                      <Image src={step.icon} alt="" width={28} height={28} aria-hidden="true" />
+              {processSteps.map((step, idx) => (
+                <ScrollReveal key={step.number} delay={idx * 100} direction="up">
+                  <article className={styles.processCard}>
+                    <div className={styles.processCardHead}>
+                      <div className={styles.processIcon}>
+                        <Image src={step.icon} alt="" width={28} height={28} aria-hidden="true" />
+                      </div>
+                      <span className={styles.processNumber}>{step.number}</span>
                     </div>
-                    <span className={styles.processNumber}>{step.number}</span>
-                  </div>
-                  <h3 className={styles.processTitle}>{step.title}</h3>
-                  <p className={styles.processText}>{step.description}</p>
-                </article>
+                    <h3 className={styles.processTitle}>{step.title}</h3>
+                    <p className={styles.processText}>{step.description}</p>
+                  </article>
+                </ScrollReveal>
               ))}
             </div>
           </div>
@@ -255,17 +260,19 @@ export default function Home() {
         <section className={styles.section}>
           <div className={styles.container}>
             <div className={styles.highlightsLayout}>
-              <div className={styles.sectionIntro}>
-                <p className={styles.eyebrow}>Atuação</p>
-                <h2 className={styles.sectionTitle}>Onde o Grupo RETEC gera valor</h2>
-                <p className={styles.sectionText}>
-                  Portfólio técnico e leitura consultiva <br />
-                  para projetos que exigem desempenho e prazo confiável.
-                </p>
-              </div>
+              <ScrollReveal direction="up">
+                <div className={styles.sectionIntro}>
+                  <p className={styles.eyebrow}>Atuação</p>
+                  <h2 className={styles.sectionTitle}>Onde o Grupo RETEC gera valor</h2>
+                  <p className={styles.sectionText}>
+                    Portfólio técnico e leitura consultiva <br />
+                    para projetos que exigem desempenho e prazo confiável.
+                  </p>
+                </div>
+              </ScrollReveal>
 
               <div className={styles.highlightGrid}>
-                {highlightCards.map((card) => {
+                {highlightCards.map((card, idx) => {
                   const cardElement = (
                     <article className={styles.highlightCard}>
                       <div className={styles.highlightCardHead}>
@@ -279,29 +286,36 @@ export default function Home() {
                     </article>
                   );
 
-                  return card.urlLink ? (
-                    <Link href={card.urlLink} key={card.title} className={styles.highlightLink}>
-                      {cardElement}
-                    </Link>
-                  ) : (
-                    <div key={card.title}>
-                      {cardElement}
-                    </div>
+                  return (
+                    <ScrollReveal key={card.title} delay={idx * 150} direction="up">
+                      {card.urlLink ? (
+                        <Link href={card.urlLink} className={styles.highlightLink}>
+                          {cardElement}
+                        </Link>
+                      ) : (
+                        <div>
+                          {cardElement}
+                        </div>
+                      )}
+                    </ScrollReveal>
                   );
                 })}
               </div>
             </div>
           </div>
         </section>
+
         <section className={styles.section} id="clientes">
           <div className={styles.container}>
             <div className={styles.brandSliderSection} style={{ marginTop: 0 }}>
-              <div className={styles.brandSliderIntro}>
-                <p className={styles.eyebrow}>Clientes</p>
-                <h3 className={styles.brandSliderTitle}>
-                  Empresas para as quais a RETEC forneceu soluções de climatização
-                </h3>
-              </div>
+              <ScrollReveal direction="up">
+                <div className={styles.brandSliderIntro}>
+                  <p className={styles.eyebrow}>Clientes</p>
+                  <h3 className={styles.brandSliderTitle}>
+                    Empresas para as quais a RETEC forneceu soluções de climatização
+                  </h3>
+                </div>
+              </ScrollReveal>
 
               <BrandMarquee
                 items={suppliedCompanies.map((company) => ({ name: company.alt, logoUrl: company.src }))}
@@ -311,31 +325,34 @@ export default function Home() {
           </div>
         </section>
 
-
         <section className={`${styles.section} ${styles.sectionDark}`}>
           <div className={styles.container}>
-            <div className={`${styles.sectionIntro} ${styles.onDark}`}>
-              <p className={styles.eyebrow}>Clientes satisfeitos</p>
-              <h2 className={styles.sectionTitle}>Confiança construída em campo</h2>
-              <p className={styles.sectionText}>
-                Relações duradouras nascem quando a entrega técnica acompanha a expectativa
-                comercial.
-              </p>
-            </div>
+            <ScrollReveal direction="up">
+              <div className={`${styles.sectionIntro} ${styles.onDark}`}>
+                <p className={styles.eyebrow}>Clientes satisfeitos</p>
+                <h2 className={styles.sectionTitle}>Confiança construída em campo</h2>
+                <p className={styles.sectionText}>
+                  Relações duradouras nascem quando a entrega técnica acompanha a expectativa
+                  comercial.
+                </p>
+              </div>
+            </ScrollReveal>
 
             <div className={styles.testimonialGrid}>
-              {testimonials.map((testimonial) => (
-                <article className={styles.testimonialCard} key={testimonial.name}>
-                  <div className={styles.testimonialStars}>★★★★★</div>
-                  <p className={styles.testimonialQuote}>{testimonial.quote}</p>
-                  <div className={styles.testimonialAuthor}>
-                    <span className={styles.testimonialAvatar}>{testimonial.initials}</span>
-                    <div>
-                      <p className={styles.testimonialName}>{testimonial.name}</p>
-                      <p className={styles.testimonialRole}>{testimonial.role}</p>
+              {testimonials.map((testimonial, idx) => (
+                <ScrollReveal key={testimonial.name} delay={idx * 150} direction="up">
+                  <article className={styles.testimonialCard}>
+                    <div className={styles.testimonialStars}>★★★★★</div>
+                    <p className={styles.testimonialQuote}>{testimonial.quote}</p>
+                    <div className={styles.testimonialAuthor}>
+                      <span className={styles.testimonialAvatar}>{testimonial.initials}</span>
+                      <div>
+                        <p className={styles.testimonialName}>{testimonial.name}</p>
+                        <p className={styles.testimonialRole}>{testimonial.role}</p>
+                      </div>
                     </div>
-                  </div>
-                </article>
+                  </article>
+                </ScrollReveal>
               ))}
             </div>
           </div>
@@ -343,21 +360,25 @@ export default function Home() {
 
         <section className={styles.section} id="faq">
           <div className={styles.container}>
-            <div className={styles.sectionIntro}>
-              <p className={styles.eyebrow}>Dúvidas</p>
-              <h2 className={styles.sectionTitle}>Perguntas frequentes</h2>
-              <p className={styles.sectionText}>
-                Um resumo rápido para quem está avaliando a RETEC como parceira técnica e
-                comercial.
-              </p>
-            </div>
+            <ScrollReveal direction="up">
+              <div className={styles.sectionIntro}>
+                <p className={styles.eyebrow}>Dúvidas</p>
+                <h2 className={styles.sectionTitle}>Perguntas frequentes</h2>
+                <p className={styles.sectionText}>
+                  Um resumo rápido para quem está avaliando a RETEC como parceira técnica e
+                  comercial.
+                </p>
+              </div>
+            </ScrollReveal>
 
             <div className={styles.faqGrid}>
-              {faqs.map((faq) => (
-                <details className={styles.faqItem} key={faq.question}>
-                  <summary className={styles.faqQuestion}>{faq.question}</summary>
-                  <p className={styles.faqAnswer}>{faq.answer}</p>
-                </details>
+              {faqs.map((faq, idx) => (
+                <ScrollReveal key={faq.question} delay={(idx % 3) * 100} direction="up">
+                  <details className={styles.faqItem}>
+                    <summary className={styles.faqQuestion}>{faq.question}</summary>
+                    <p className={styles.faqAnswer}>{faq.answer}</p>
+                  </details>
+                </ScrollReveal>
               ))}
             </div>
           </div>
@@ -365,40 +386,44 @@ export default function Home() {
 
         <section className={`${styles.section} ${styles.sectionDark}`} id="contato">
           <div className={styles.container}>
-            <div className={`${styles.sectionIntro} ${styles.onDark}`}>
-              <p className={styles.eyebrow}>Presença</p>
-              <h2 className={styles.sectionTitle}>Onde estamos</h2>
-              <p className={styles.sectionText}>Dois pontos de operação, mesma qualidade.</p>
-            </div>
+            <ScrollReveal direction="up">
+              <div className={`${styles.sectionIntro} ${styles.onDark}`}>
+                <p className={styles.eyebrow}>Presença</p>
+                <h2 className={styles.sectionTitle}>Onde estamos</h2>
+                <p className={styles.sectionText}>Dois pontos de operação, mesma qualidade.</p>
+              </div>
+            </ScrollReveal>
 
             <div className={styles.locationGrid}>
-              {locations.map((location) => (
-                <article className={styles.locationCard} key={location.city}>
-                  <div className={styles.locationImage}>
-                    <Image
-                      src={location.image}
-                      alt={location.alt}
-                      fill
-                      sizes="(max-width: 900px) 100vw, 50vw"
-                    />
-                  </div>
-
-                  <div className={styles.locationContent}>
-                    <div>
-                      <h3 className={styles.locationTitle}>{location.city}</h3>
-                      <p className={styles.locationSubtitle}>{location.subtitle}</p>
+              {locations.map((location, idx) => (
+                <ScrollReveal key={location.city} delay={idx * 200} direction={idx === 0 ? "right" : "left"}>
+                  <article className={styles.locationCard}>
+                    <div className={styles.locationImage}>
+                      <Image
+                        src={location.image}
+                        alt={location.alt}
+                        fill
+                        sizes="(max-width: 900px) 100vw, 50vw"
+                      />
                     </div>
 
-                    <a
-                      className={styles.locationLink}
-                      href={location.href}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Ver localização <span aria-hidden="true">→</span>
-                    </a>
-                  </div>
-                </article>
+                    <div className={styles.locationContent}>
+                      <div>
+                        <h3 className={styles.locationTitle}>{location.city}</h3>
+                        <p className={styles.locationSubtitle}>{location.subtitle}</p>
+                      </div>
+
+                      <a
+                        className={styles.locationLink}
+                        href={location.href}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Ver localização <span aria-hidden="true">→</span>
+                      </a>
+                    </div>
+                  </article>
+                </ScrollReveal>
               ))}
             </div>
           </div>

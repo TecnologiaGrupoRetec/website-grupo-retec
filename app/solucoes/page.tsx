@@ -6,6 +6,7 @@ import Link from "next/link";
 import styles from "./solucoes.module.scss";
 import SegmentoCardsCarousel from "../components/segmentoCardsCarousel";
 import BrandMarquee from "../components/brandMarquee";
+import ScrollReveal from "../components/scrollReveal";
 
 const suppliedCompanies = [
   { src: "/home/empresas_fornecidas/logo_ache.webp", alt: "Aché", link: "https://www.ache.com.br/" },
@@ -196,16 +197,18 @@ export default function SolucoesPage() {
         {/* Seção das Categorias de Produtos */}
         <section className={styles.categoriesSection} id="categorias">
           <div className={styles.container}>
-            <div className={`${styles.sectionIntro} ${styles.sectionIntroCentered}`}>
-              <h2 className={styles.sectionTitleDark}>Linha Completa de Fornecimento</h2>
-              <p className={styles.sectionTextDark}>
-                Trabalhamos em parceria com os fabricantes mais consolidados do mercado para garantir a alta performance térmica da sua obra.
-              </p>
-            </div>
+            <ScrollReveal direction="up">
+              <div className={`${styles.sectionIntro} ${styles.sectionIntroCentered}`}>
+                <h2 className={styles.sectionTitleDark}>Linha Completa de Fornecimento</h2>
+                <p className={styles.sectionTextDark}>
+                  Trabalhamos em parceria com os fabricantes mais consolidados do mercado para garantir a alta performance térmica da sua obra.
+                </p>
+              </div>
+            </ScrollReveal>
 
             <div className={styles.categoriesGrid}>
               {categories.map((cat, index) => (
-                <div key={index} className={styles.categoryCard}>
+                <ScrollReveal key={index} delay={index * 100} direction="up" className={styles.categoryCard}>
                   <div className={styles.cardHeader}>
                     <div className={styles.cardIconWrapper}>
                       {cat.icon}
@@ -226,7 +229,7 @@ export default function SolucoesPage() {
                       </svg>
                     </Link>
                   </div>
-                </div>
+                </ScrollReveal>
               ))}
             </div>
           </div>

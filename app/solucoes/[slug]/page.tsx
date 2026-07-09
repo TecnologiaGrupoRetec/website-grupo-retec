@@ -11,6 +11,7 @@ import { solucoesPorNicho } from "./dadosNichos";
 import styles from "./detalhe.module.scss";
 import nichoStyles from "./nicho.module.scss";
 import BrandMarquee from "../../components/brandMarquee";
+import ScrollReveal from "../../components/scrollReveal";
 
 // Informações detalhadas para cada linha de fornecimento
 const solutionsData: Record<string, {
@@ -217,7 +218,7 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
         <section className={nichoStyles.hero}>
           <div className={nichoStyles.container}>
             <div className={nichoStyles.heroGrid}>
-              <div className={nichoStyles.heroLeft}>
+              <ScrollReveal direction="right" className={nichoStyles.heroLeft}>
                 <Link href="/solucoes" className={nichoStyles.backLink}>
                   <svg className={nichoStyles.backIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <path d="M19 12H5M12 19l-7-7 7-7" />
@@ -241,8 +242,8 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
                 </a>
-              </div>
-              <div className={nichoStyles.heroRight}>
+              </ScrollReveal>
+              <ScrollReveal direction="left" className={nichoStyles.heroRight}>
                 <Image
                   className={nichoStyles.heroImage}
                   src={nichoData.imageUrl}
@@ -251,7 +252,7 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
                   priority
                   sizes="(max-width: 900px) 100vw, 500px"
                 />
-              </div>
+              </ScrollReveal>
             </div>
           </div>
         </section>
@@ -259,20 +260,22 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
         {/* Principais Dores Section */}
         <section className={nichoStyles.sectionDores}>
           <div className={nichoStyles.container}>
-            <div className={nichoStyles.sectionHeader}>
-              <p className={nichoStyles.eyebrow}>Desafios</p>
-              <h2 className={nichoStyles.sectionTitle}>Principais desafios desse tipo de ambiente</h2>
-            </div>
+            <ScrollReveal direction="up">
+              <div className={nichoStyles.sectionHeader}>
+                <p className={nichoStyles.eyebrow}>Desafios</p>
+                <h2 className={nichoStyles.sectionTitle}>Principais desafios desse tipo de ambiente</h2>
+              </div>
+            </ScrollReveal>
             <div className={nichoStyles.doresGrid}>
               {nichoData.principaisDores.map((dor, idx) => (
-                <div key={idx} className={nichoStyles.dorCard}>
+                <ScrollReveal key={idx} delay={idx * 100} direction="up" className={nichoStyles.dorCard}>
                   <svg className={nichoStyles.dorIcon} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M21.7299 18.0002L13.7299 4.00022C13.5555 3.69243 13.3025 3.43641 12.9969 3.25829C12.6912 3.08017 12.3437 2.98633 11.9899 2.98633C11.6361 2.98633 11.2887 3.08017 10.983 3.25829C10.6773 3.43641 10.4244 3.69243 10.2499 4.00022L2.24993 18.0002C2.07361 18.3056 1.98116 18.6521 1.98194 19.0047C1.98272 19.3573 2.07671 19.7035 2.25438 20.008C2.43204 20.3126 2.68708 20.5648 2.99362 20.7391C3.30017 20.9133 3.64734 21.0034 3.99993 21.0002H19.9999C20.3508 20.9999 20.6955 20.9072 20.9992 20.7315C21.303 20.5558 21.5551 20.3033 21.7304 19.9993C21.9057 19.6954 21.998 19.3506 21.9979 18.9997C21.9978 18.6488 21.9054 18.3041 21.7299 18.0002Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     <path d="M12 9V13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     <path d="M12 17H12.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                   <p className={nichoStyles.dorText}>{dor}</p>
-                </div>
+                </ScrollReveal>
               ))}
             </div>
           </div>
@@ -281,18 +284,20 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
         {/* Soluções Indicadas Section */}
         <section className={nichoStyles.sectionAlt}>
           <div className={nichoStyles.container}>
-            <div className={nichoStyles.sectionHeader}>
-              <p className={nichoStyles.eyebrow}>Engenharia</p>
-              <h2 className={nichoStyles.sectionTitle}>Soluções HVAC indicadas</h2>
-            </div>
+            <ScrollReveal direction="up">
+              <div className={nichoStyles.sectionHeader}>
+                <p className={nichoStyles.eyebrow}>Engenharia</p>
+                <h2 className={nichoStyles.sectionTitle}>Soluções HVAC indicadas</h2>
+              </div>
+            </ScrollReveal>
             <div className={nichoStyles.solucoesGrid}>
               {nichoData.solucoesIndicadas.map((sol, idx) => (
-                <div key={idx} className={nichoStyles.solucaoCard}>
+                <ScrollReveal key={idx} delay={idx * 100} direction="up" className={nichoStyles.solucaoCard}>
                   <svg className={nichoStyles.solucaoIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                   </svg>
                   <p className={nichoStyles.solucaoText}>{sol}</p>
-                </div>
+                </ScrollReveal>
               ))}
             </div>
           </div>
@@ -301,10 +306,12 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
         {/* Produtos Aplicáveis Section */}
         <section className={nichoStyles.section}>
           <div className={nichoStyles.container}>
-            <div className={nichoStyles.sectionHeader}>
-              <p className={nichoStyles.eyebrow}>Materiais</p>
-              <h2 className={nichoStyles.sectionTitle}>Produtos do portfólio aplicáveis</h2>
-            </div>
+            <ScrollReveal direction="up">
+              <div className={nichoStyles.sectionHeader}>
+                <p className={nichoStyles.eyebrow}>Materiais</p>
+                <h2 className={nichoStyles.sectionTitle}>Produtos do portfólio aplicáveis</h2>
+              </div>
+            </ScrollReveal>
 
             <div className={nichoStyles.produtosDashboard}>
               {(() => {
@@ -313,7 +320,7 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
                   : categorizarProdutos(nichoData.produtosAplicaveis as string[]);
 
                 return groupedProducts.map((group, idx) => (
-                  <div key={idx} className={nichoStyles.productCategoryPanel}>
+                  <ScrollReveal key={idx} delay={idx * 100} direction="up" className={nichoStyles.productCategoryPanel}>
                     <div className={nichoStyles.panelHeader}>
                       <div className={nichoStyles.panelIndicator} />
                       <h3 className={nichoStyles.panelTitle}>{group.categoria}</h3>
@@ -326,7 +333,7 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
                         </div>
                       ))}
                     </div>
-                  </div>
+                  </ScrollReveal>
                 ));
               })()}
             </div>
@@ -336,10 +343,12 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
         {/* Marcas Section */}
         <section className={nichoStyles.sectionAlt}>
           <div className={nichoStyles.container}>
-            <div className={nichoStyles.sectionHeader}>
-              <p className={nichoStyles.eyebrow}>Fabricantes</p>
-              <h2 className={nichoStyles.sectionTitle}>Marcas com maior aderência para este nicho</h2>
-            </div>
+            <ScrollReveal direction="up">
+              <div className={nichoStyles.sectionHeader}>
+                <p className={nichoStyles.eyebrow}>Fabricantes</p>
+                <h2 className={nichoStyles.sectionTitle}>Marcas com maior aderência para este nicho</h2>
+              </div>
+            </ScrollReveal>
             <BrandMarquee
               items={nichoData.marcas.map(m => ({ name: m }))}
               theme="light"
@@ -350,7 +359,7 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
         {/* CTA Final Section */}
         <section className={nichoStyles.ctaSection}>
           <div className={nichoStyles.container}>
-            <div className={nichoStyles.ctaCard}>
+            <ScrollReveal direction="up" className={nichoStyles.ctaCard}>
               <div className={nichoStyles.ctaImageWrapper}>
                 <Image
                   className={nichoStyles.ctaImage}
@@ -377,7 +386,7 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
                   </svg>
                 </a>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </section>
 
@@ -477,10 +486,11 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
                   {/* Listagem dos Cards dos Produtos com Layout Alternado */}
                   <div className={styles.productFadeIn}>
                     {produtosExibidos.map((produto, index) => (
-                      <div
+                      <ScrollReveal
                         key={produto.titulo}
-                        className={`${styles.vrvFitSection} ${index % 2 === 1 ? styles.reversed : ""
-                          }`}
+                        delay={index * 100}
+                        direction="up"
+                        className={`${styles.vrvFitSection} ${index % 2 === 1 ? styles.reversed : ""}`}
                       >
                         <div className={styles.vrvFitContent}>
                           <h3 className={styles.vrvFitTitle}>{produto.descricao}</h3>
@@ -497,9 +507,12 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
                             alt={produto.titulo}
                             className={styles.vrvFitImage}
                             placeholder="blur"
+                            blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNlMmU4ZjAiLz48L3N2Zz4="
+                            fill
+                            sizes="(max-width: 900px) 100vw, 450px"
                           />
                         </div>
-                      </div>
+                      </ScrollReveal>
                     ))}
                   </div>
                 </>
