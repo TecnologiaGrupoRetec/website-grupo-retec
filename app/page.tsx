@@ -6,6 +6,7 @@ import Link from "next/link";
 import styles from "./index.module.scss";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import BrandMarquee from "./components/brandMarquee";
 
 const representativeBrands = [
   { src: "/home/empresas_representantes/armacell.png", alt: "Armacell" },
@@ -163,7 +164,7 @@ const faqs = [
   {
     question: "Quais marcas fazem parte do portfólio?",
     answer:
-      "Trabalhamos com fabricantes reconhecidos do mercado HVAC-R, com curadoria para diferentes necessidades técnicas e operacionais. Somos representantes da Daikin, Trox, Armacell e Sicflux.",
+      "Trabalhamos com fabricantes reconhecidos do mercado HVAC-R, com curadoria para diferentes necessidades técnicas e operacionais. Somos representantes e temos como parceiros a Daikin, Trox, Armacell, Sicflux, Armstrong, Evapco, Projelmec, IMI Hydronic e Rocktec.",
   },
   {
     question: "Como funciona o pós-venda?",
@@ -215,29 +216,10 @@ export default function Home() {
                 <h3 className={styles.brandSliderTitle}>Marcas das quais a RETEC é representante & parceiras</h3>
               </div>
 
-              <div className={styles.brandMarquee}>
-                <div className={styles.brandTrack}>
-                  {[0, 1].map((groupIndex) => (
-                    <div
-                      key={groupIndex}
-                      className={styles.brandRow}
-                      aria-hidden={groupIndex === 1}
-                    >
-                      {representativeBrands.map((brand) => (
-                        <div className={styles.brandCard} key={`${groupIndex}-${brand.alt}`}>
-                          <Image
-                            className={styles.brandLogo}
-                            src={brand.src}
-                            alt={brand.alt}
-                            width={220}
-                            height={88}
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <BrandMarquee
+                items={representativeBrands.map((brand) => ({ name: brand.alt, logoUrl: brand.src }))}
+                theme="light"
+              />
             </div>
           </div>
         </section>
@@ -321,29 +303,10 @@ export default function Home() {
                 </h3>
               </div>
 
-              <div className={styles.brandMarquee}>
-                <div className={styles.brandTrack} style={{ animationDuration: "60s" }}>
-                  {[0, 1].map((groupIndex) => (
-                    <div
-                      key={groupIndex}
-                      className={styles.brandRow}
-                      aria-hidden={groupIndex === 1}
-                    >
-                      {suppliedCompanies.map((company) => (
-                        <div className={styles.brandCard} key={`${groupIndex}-${company.alt}`}>
-                          <Image
-                            className={styles.brandLogo}
-                            src={company.src}
-                            alt={company.alt}
-                            width={220}
-                            height={88}
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <BrandMarquee
+                items={suppliedCompanies.map((company) => ({ name: company.alt, logoUrl: company.src }))}
+                theme="dark"
+              />
             </div>
           </div>
         </section>
