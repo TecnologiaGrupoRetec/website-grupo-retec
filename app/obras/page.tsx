@@ -5,7 +5,6 @@ import styles from "./projetos.module.scss";
 import Navbar from "../components/navbar";
 import Image from "next/image";
 import Footer from '../components/footer';
-import Cta from "../components/cta";
 import { projects, tags } from "./projetos";
 
 export default function Projects() {
@@ -33,9 +32,9 @@ export default function Projects() {
             <div className={styles.heroContent}>
               <div className={styles.heroCopy}>
                 <h1 className={styles.heroTitle}>Explore Nossas Obras</h1>
-                  <p className={styles.heroText}>
-                    Fornecemos produtos de alto desempenho e desenvolvemos soluções sob medida para obras de diferentes portes.
-                  </p>
+                <p className={styles.heroText}>
+                  Fornecemos produtos de alto desempenho e desenvolvemos soluções sob medida para obras de diferentes portes.
+                </p>
               </div>
             </div>
           </div>
@@ -47,9 +46,9 @@ export default function Projects() {
             <div className={`${styles.sectionIntro} ${styles.sectionIntroCentered}`}>
               <p className={styles.eyebrow}>Portfólio</p>
               <h2 className={styles.sectionTitle}>Nossos Cases</h2>
-                <p className={styles.sectionText}>
-                  Conheça alguns dos principais projetos executados com produtos do Grupo RETEC.
-                </p>
+              <p className={styles.sectionText}>
+                Conheça alguns dos principais projetos executados com produtos do Grupo RETEC.
+              </p>
             </div>
 
             <div className={styles.categories}>
@@ -101,8 +100,6 @@ export default function Projects() {
           </div>
         </section>
       </main>
-
-      <Cta />
       <Footer />
     </div>
   );
