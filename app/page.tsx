@@ -41,49 +41,49 @@ const processSteps = [
     title: "Diagnóstico",
     icon: "/icons/diagnostico.svg",
     description:
-      "Analisamos as necessidades térmicas do projeto e as restrições da obra antes de recomendar o material.",
+      "Entendemos as necessidades térmicas do projeto, as restrições da obra e os objetivos da operação.",
   },
   {
     number: "02",
     title: "Orçamento",
     icon: "/icons/engenharia.svg",
     description:
-      "Especificamos os equipamentos e acessórios compatíveis com cada contexto de uso.",
+      "Selecionamos equipamentos, acessórios e soluções com compatibilização para cada contexto de uso.",
   },
   {
     number: "03",
-    title: "Proposta detalhada",
+    title: "Proposta justa e detalhada",
     icon: "/icons/proposta.svg",
     description:
-      "Coordenamos o fornecimento com suporte comercial e atenção ao cronograma do projeto.",
+      "Coordenamos o envio com previsibilidade, suporte comercial e atenção às etapas do cronograma.",
   },
   {
     number: "04",
     title: "Entrega assistida",
     icon: "/icons/obra.svg",
     description:
-      "Acompanhamos a entrega do material e seguimos presentes no pós-venda, com garantia e suporte técnico.",
+      "Seguimos presentes no pós-venda com orientação, garantia e atendimento técnico especializado.",
   },
   {
     number: "05",
     title: "Serviços Autorizados",
     icon: "/icons/acessorios.svg",
     description:
-      "Intermediamos start-up e manutenção com técnicos credenciados pelos próprios fabricantes",
+      "Ativações, start-up e manutenções realizadas por técnicos credenciados diretamente pelos principais fabricantes.",
   },
   {
     number: "06",
     title: "Partes & Peças",
     icon: "/icons/pecas.svg",
     description:
-      "Fornecemos peças de reposição originais e componentes homologados para prolongar a vida útil dos equipamentos.",
+      "Fornecimento de peças de reposição originais e componentes homologados para garantir a longevidade dos equipamentos.",
   },
 ];
 
 const highlightCards = [
   {
     label: "Empresarial",
-    title: "Prédios comerciais, Shoppings e Hotéis",
+    title: "Comércio e Varejo",
     icon: "/icons/comercio.svg",
     urlLink: "/solucoes/predios-comerciais",
     description:

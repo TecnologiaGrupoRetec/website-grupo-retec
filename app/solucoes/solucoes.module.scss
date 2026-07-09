@@ -266,7 +266,7 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 400px) {
     grid-template-columns: 1fr;
   }
 }
@@ -319,6 +319,10 @@
   font-weight: 700;
   color: $primary;
   margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 }
 
 .categoryDescription {
@@ -326,6 +330,10 @@
   line-height: 1.5;
   color: $text-neutral;
   margin: 0;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .cardHeader {
@@ -453,9 +461,11 @@
   -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
   overflow-x: auto;
   scrollbar-width: none;
+
   &::-webkit-scrollbar {
     display: none;
   }
+
   position: relative;
   width: 100%;
 }
