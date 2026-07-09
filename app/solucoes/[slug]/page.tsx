@@ -267,9 +267,9 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
               {nichoData.principaisDores.map((dor, idx) => (
                 <div key={idx} className={nichoStyles.dorCard}>
                   <svg className={nichoStyles.dorIcon} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M21.7299 18.0002L13.7299 4.00022C13.5555 3.69243 13.3025 3.43641 12.9969 3.25829C12.6912 3.08017 12.3437 2.98633 11.9899 2.98633C11.6361 2.98633 11.2887 3.08017 10.983 3.25829C10.6773 3.43641 10.4244 3.69243 10.2499 4.00022L2.24993 18.0002C2.07361 18.3056 1.98116 18.6521 1.98194 19.0047C1.98272 19.3573 2.07671 19.7035 2.25438 20.008C2.43204 20.3126 2.68708 20.5648 2.99362 20.7391C3.30017 20.9133 3.64734 21.0034 3.99993 21.0002H19.9999C20.3508 20.9999 20.6955 20.9072 20.9992 20.7315C21.303 20.5558 21.5551 20.3033 21.7304 19.9993C21.9057 19.6954 21.998 19.3506 21.9979 18.9997C21.9978 18.6488 21.9054 18.3041 21.7299 18.0002Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M12 9V13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M12 17H12.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M21.7299 18.0002L13.7299 4.00022C13.5555 3.69243 13.3025 3.43641 12.9969 3.25829C12.6912 3.08017 12.3437 2.98633 11.9899 2.98633C11.6361 2.98633 11.2887 3.08017 10.983 3.25829C10.6773 3.43641 10.4244 3.69243 10.2499 4.00022L2.24993 18.0002C2.07361 18.3056 1.98116 18.6521 1.98194 19.0047C1.98272 19.3573 2.07671 19.7035 2.25438 20.008C2.43204 20.3126 2.68708 20.5648 2.99362 20.7391C3.30017 20.9133 3.64734 21.0034 3.99993 21.0002H19.9999C20.3508 20.9999 20.6955 20.9072 20.9992 20.7315C21.303 20.5558 21.5551 20.3033 21.7304 19.9993C21.9057 19.6954 21.998 19.3506 21.9979 18.9997C21.9978 18.6488 21.9054 18.3041 21.7299 18.0002Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M12 9V13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M12 17H12.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                   <p className={nichoStyles.dorText}>{dor}</p>
                 </div>
@@ -340,7 +340,7 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
               <p className={nichoStyles.eyebrow}>Fabricantes</p>
               <h2 className={nichoStyles.sectionTitle}>Marcas com maior aderência para este nicho</h2>
             </div>
-            <BrandMarquee 
+            <BrandMarquee
               items={nichoData.marcas.map(m => ({ name: m }))}
               theme="light"
             />
@@ -350,22 +350,33 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
         {/* CTA Final Section */}
         <section className={nichoStyles.ctaSection}>
           <div className={nichoStyles.container}>
-            <div className={nichoStyles.ctaBox}>
-              <h2 className={nichoStyles.ctaTitle}>Precisa especificar equipamentos para este tipo de ambiente?</h2>
-              <p className={nichoStyles.ctaText}>
-                A RETEC apoia sua obra com portfólio HVAC completo, suporte comercial e fornecimento técnico especializado. Envie sua lista de materiais, memorial descritivo ou necessidade técnica para receber apoio especializado.
-              </p>
-              <a
-                href={`https://wa.me/5561991311283?text=${encodeURIComponent(nichoData.whatsappMessage)}`}
-                target="_blank"
-                rel="noreferrer"
-                className={nichoStyles.ctaBtn}
-              >
-                <svg className={nichoStyles.btnIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />
-                </svg>
-                <span>{nichoData.cta}</span>
-              </a>
+            <div className={nichoStyles.ctaCard}>
+              <div className={nichoStyles.ctaImageWrapper}>
+                <Image
+                  className={nichoStyles.ctaImage}
+                  src={nichoData.ctaImageUrl || nichoData.imageUrl}
+                  alt="Solicitar Orçamento"
+                  fill
+                  sizes="(max-width: 900px) 100vw, 450px"
+                />
+              </div>
+              <div className={nichoStyles.ctaContent}>
+                <h2 className={nichoStyles.ctaTitle}>Precisa especificar equipamentos para este tipo de ambiente?</h2>
+                <p className={nichoStyles.ctaText}>
+                  A RETEC apoia sua obra com portfólio HVAC completo, suporte comercial e fornecimento técnico especializado. Envie sua lista de materiais, memorial descritivo ou necessidade técnica para receber apoio especializado.
+                </p>
+                <a
+                  href={`https://wa.me/5561991311283?text=${encodeURIComponent(nichoData.whatsappMessage)}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={nichoStyles.ctaBtn}
+                >
+                  <span>{nichoData.cta}</span>
+                  <svg className={nichoStyles.btnIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
         </section>

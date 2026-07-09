@@ -3,6 +3,7 @@ export type SolucaoPorNicho = {
   segmento: string;
   grupo: string;
   imageUrl: string;
+  ctaImageUrl?: string;
   hero: {
     titulo: string;
     textoCurto: string;
@@ -22,6 +23,7 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
     segmento: "Indústrias farmacêuticas e processos industriais",
     grupo: "Ambientes Críticos e Técnicos",
     imageUrl: "/projects/brainfarma.jpg",
+    ctaImageUrl: "/produtos/unidade-tratamento-ar/uta_tkz.webp",
     hero: {
       titulo: "Soluções HVAC para indústrias farmacêuticas e processos industriais",
       textoCurto: "Soluções para ambientes críticos, salas limpas, processos produtivos e controle rigoroso de temperatura, umidade, pressão e qualidade do ar.",
@@ -82,6 +84,7 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
     segmento: "Hospitais, centros clínicos e clínicas",
     grupo: "Ambientes Críticos e Técnicos",
     imageUrl: "/projects/df-star.jpg",
+    ctaImageUrl: "/produtos/torre_de_resfriamento.webp",
     hero: {
       titulo: "Soluções HVAC para hospitais, centros clínicos e clínicas",
       textoCurto: "Soluções para climatização hospitalar, conforto de pacientes, controle de qualidade do ar e ambientes de saúde com exigência técnica elevada.",
@@ -144,6 +147,7 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
     segmento: "Shopping Centers",
     grupo: "Grandes Edificações Comerciais",
     imageUrl: "/projects/orion-complex.jpg",
+    ctaImageUrl: "/produtos/climatizacao-equipamentos/vrv-inova.webp",
     hero: {
       titulo: "Soluções HVAC para shopping centers",
       textoCurto: "Soluções para grandes áreas comerciais com alta circulação de pessoas, consumo energético elevado e necessidade de operação contínua.",
@@ -203,6 +207,7 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
     segmento: "Hotéis",
     grupo: "Grandes Edificações Comerciais",
     imageUrl: "/projects/castros-hotel.jpg",
+    ctaImageUrl: "/produtos/climatizacao-equipamentos/cassete.webp",
     hero: {
       titulo: "Soluções HVAC para hotéis",
       textoCurto: "Soluções para conforto térmico, baixo ruído, eficiência energética e controle individual por ambiente.",
@@ -263,6 +268,7 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
     segmento: "Prédios comerciais",
     grupo: "Grandes Edificações Comerciais",
     imageUrl: "/projects/po-700.jpg",
+    ctaImageUrl: "/produtos/climatizacao-equipamentos/vrv6_1.webp",
     hero: {
       titulo: "Soluções HVAC para prédios comerciais",
       textoCurto: "Soluções para edifícios corporativos, lajes comerciais, escritórios, sedes administrativas e retrofit de sistemas existentes.",
@@ -324,6 +330,7 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
     segmento: "Instaladoras e construtoras",
     grupo: "Obras, Instalações e Construção",
     imageUrl: "/about/about1.jpeg",
+    ctaImageUrl: "/produtos/climatizacao-equipamentos/hi-wall.webp",
     hero: {
       titulo: "Soluções HVAC para instaladoras e construtoras",
       textoCurto: "Fornecimento técnico e comercial para empresas de instalação, obras e construtoras que precisam de equipamentos, materiais e acessórios confiáveis para execução HVAC.",
@@ -379,6 +386,7 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
     segmento: "Governamental e institucional",
     grupo: "Grandes Edificações Comerciais",
     imageUrl: "/projects/senado.jpg",
+    ctaImageUrl: "/produtos/climatizacao-equipamentos/vrv-fit.webp",
     hero: {
       titulo: "Soluções HVAC para ambientes governamentais e institucionais",
       textoCurto: "Soluções robustas para prédios públicos, autarquias, universidades, centros administrativos, tribunais, escolas técnicas e instituições.",
@@ -435,6 +443,7 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
     segmento: "Residencial de alto padrão",
     grupo: "Ambientes de Conforto e Experiência",
     imageUrl: "/about/about2.jpg",
+    ctaImageUrl: "/produtos/climatizacao-equipamentos/vrv-s.webp",
     hero: {
       titulo: "Soluções HVAC para residências de alto padrão",
       textoCurto: "Soluções premium de climatização, conforto térmico, renovação de ar e integração arquitetônica para residências de alto padrão.",
@@ -493,6 +502,7 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
     segmento: "Escolas e centros de ensino",
     grupo: "Ambientes de Conforto e Experiência",
     imageUrl: "/projects/academia-pf.jpg",
+    ctaImageUrl: "/produtos/climatizacao-equipamentos/cassete-round-flow.webp",
     hero: {
       titulo: "Soluções HVAC para escolas e centros de ensino",
       textoCurto: "Soluções para conforto térmico, renovação de ar, qualidade do ar e eficiência operacional em ambientes educacionais.",
@@ -543,6 +553,7 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
     segmento: "Academias e centros fitness",
     grupo: "Ambientes de Conforto e Experiência",
     imageUrl: "/projects/canpack.jpg",
+    ctaImageUrl: "/produtos/split-inverter.webp",
     hero: {
       titulo: "Soluções HVAC para academias e centros fitness",
       textoCurto: "Soluções para ambientes com alta carga térmica, grande ocupação, odor, umidade e necessidade intensa de renovação de ar.",
@@ -597,6 +608,7 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
     segmento: "Restaurantes",
     grupo: "Ambientes de Conforto e Experiência",
     imageUrl: "/about/office-inside.webp",
+    ctaImageUrl: "/produtos/climatizacao-equipamentos/vrv-w.webp",
     hero: {
       titulo: "Soluções HVAC para restaurantes",
       textoCurto: "Soluções para climatização de salões, exaustão de cozinhas, renovação de ar e conforto dos clientes.",
@@ -652,6 +664,7 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
     segmento: "Data Centers e Ambientes de Missão Crítica",
     grupo: "Ambientes Críticos e Técnicos",
     imageUrl: "/projects/multibrasil.jpg",
+    ctaImageUrl: "/produtos/refrigeracao-alta-perfomace/chiller-ual.webp",
     hero: {
       titulo: "Soluções HVAC para data centers e ambientes de missão crítica",
       textoCurto: "Soluções para climatização de precisão, continuidade operacional, eficiência energética e controle térmico em data centers, salas de TI, edge data centers, NOC e salas de servidores.",
