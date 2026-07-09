@@ -93,9 +93,6 @@ export default function Footer() {
           <div className={styles.footerBottom}>
             <div className={styles.footerCredits}>
               <p>© 2026 Grupo RETEC. Todos os direitos reservados.</p>
-              <a href="/#faq">Política de privacidade</a>
-              <a href="/#faq">Termos de serviço</a>
-              <a href="/#faq">Configurações de cookies</a>
             </div>
 
             <div className={styles.socialRow}>
