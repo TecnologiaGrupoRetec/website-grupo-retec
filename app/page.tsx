@@ -2,9 +2,10 @@ import Image from "next/image";
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
 import HeroCarousel from "./components/heroCarousel";
+import Link from "next/link";
 import styles from "./index.module.scss";
 import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const representativeBrands = [
   { src: "/home/empresas_representantes/armacell.png", alt: "Armacell" },
@@ -84,6 +85,7 @@ const highlightCards = [
     label: "Empresarial",
     title: "Prédios comerciais, Shoppings e Hotéis",
     icon: "/icons/comercio.svg",
+    urlLink: "/solucoes/predios-comerciais",
     description:
       "Ambientes que precisam de ar renovado e conforto constante",
   },
@@ -91,6 +93,7 @@ const highlightCards = [
     label: "Saúde",
     title: "Hospitais, centros clínicos e clínicas",
     icon: "/icons/hospital.svg",
+    urlLink: "/solucoes/hospitais-clinicas",
     description:
       "Ambientes em que a temperatura correta é condição de operação.",
   },
@@ -98,6 +101,7 @@ const highlightCards = [
     label: "Industrias",
     title: "Indústrias farmacêuticas e processos industriais",
     icon: "/icons/industria.svg",
+    urlLink: "/solucoes/industrias-farmaceuticas-processos-industriais",
     description:
       "Operações contínuas que dependem de sistemas sem falha.",
   },
@@ -105,6 +109,7 @@ const highlightCards = [
     label: "Infraestrutura",
     title: "Data centers e ambientes de missão crítica",
     icon: "/icons/data_center.svg",
+    urlLink: "/solucoes/data-centers-missao-critica",
     description:
       "Infraestrutura crítica que depende de controle térmico preciso.",
   },
@@ -264,6 +269,7 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Atuação */}
         <section className={styles.section}>
           <div className={styles.container}>
             <div className={styles.highlightsLayout}>
@@ -277,22 +283,71 @@ export default function Home() {
               </div>
 
               <div className={styles.highlightGrid}>
-                {highlightCards.map((card) => (
-                  <article className={styles.highlightCard} key={card.title}>
-                    <div className={styles.highlightCardHead}>
-                      <p className={styles.highlightLabel}>{card.label}</p>
-                      <div className={styles.highlightIcon}>
-                        <Image src={card.icon} alt="" width={32} height={32} aria-hidden="true" />
+                {highlightCards.map((card) => {
+                  const cardElement = (
+                    <article className={styles.highlightCard}>
+                      <div className={styles.highlightCardHead}>
+                        <p className={styles.highlightLabel}>{card.label}</p>
+                        <div className={styles.highlightIcon}>
+                          <Image src={card.icon} alt="" width={32} height={32} aria-hidden="true" />
+                        </div>
                       </div>
+                      <h3 className={styles.highlightTitle}>{card.title}</h3>
+                      <p className={styles.highlightDescription}>{card.description}</p>
+                    </article>
+                  );
+
+                  return card.urlLink ? (
+                    <Link href={card.urlLink} key={card.title} className={styles.highlightLink}>
+                      {cardElement}
+                    </Link>
+                  ) : (
+                    <div key={card.title}>
+                      {cardElement}
                     </div>
-                    <h3 className={styles.highlightTitle}>{card.title}</h3>
-                    <p className={styles.highlightDescription}>{card.description}</p>
-                  </article>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </div>
         </section>
+        <section className={styles.section} id="clientes">
+          <div className={styles.container}>
+            <div className={styles.brandSliderSection} style={{ marginTop: 0 }}>
+              <div className={styles.brandSliderIntro}>
+                <p className={styles.eyebrow}>Clientes</p>
+                <h3 className={styles.brandSliderTitle}>
+                  Empresas para as quais a RETEC forneceu soluções de climatização
+                </h3>
+              </div>
+
+              <div className={styles.brandMarquee}>
+                <div className={styles.brandTrack} style={{ animationDuration: "60s" }}>
+                  {[0, 1].map((groupIndex) => (
+                    <div
+                      key={groupIndex}
+                      className={styles.brandRow}
+                      aria-hidden={groupIndex === 1}
+                    >
+                      {suppliedCompanies.map((company) => (
+                        <div className={styles.brandCard} key={`${groupIndex}-${company.alt}`}>
+                          <Image
+                            className={styles.brandLogo}
+                            src={company.src}
+                            alt={company.alt}
+                            width={220}
+                            height={88}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
 
         <section className={`${styles.section} ${styles.sectionDark}`}>
           <div className={styles.container}>
@@ -386,42 +441,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section className={styles.section} id="clientes">
-          <div className={styles.container}>
-            <div className={styles.brandSliderSection} style={{ marginTop: 0 }}>
-              <div className={styles.brandSliderIntro}>
-                <p className={styles.eyebrow}>Clientes</p>
-                <h3 className={styles.brandSliderTitle}>
-                  Empresas para as quais a RETEC forneceu soluções de climatização
-                </h3>
-              </div>
-
-              <div className={styles.brandMarquee}>
-                <div className={styles.brandTrack} style={{ animationDuration: "60s" }}>
-                  {[0, 1].map((groupIndex) => (
-                    <div
-                      key={groupIndex}
-                      className={styles.brandRow}
-                      aria-hidden={groupIndex === 1}
-                    >
-                      {suppliedCompanies.map((company) => (
-                        <div className={styles.brandCard} key={`${groupIndex}-${company.alt}`}>
-                          <Image
-                            className={styles.brandLogo}
-                            src={company.src}
-                            alt={company.alt}
-                            width={220}
-                            height={88}
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
       <Footer />
       <Analytics />

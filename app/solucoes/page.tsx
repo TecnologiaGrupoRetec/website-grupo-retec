@@ -25,6 +25,16 @@ const suppliedCompanies = [
   { src: "/home/empresas_fornecidas/logo_villela-carvalho.webp", alt: "Villela Carvalho", link: "https://www.villela.com.br/" },
 ];
 
+const representativeBrands = [
+  { src: "/home/empresas_representantes/armacell.png", alt: "Armacell" },
+  { src: "/home/empresas_representantes/armstrong.png", alt: "Armstrong" },
+  { src: "/home/empresas_representantes/daikin.png", alt: "Daikin" },
+  { src: "/home/empresas_representantes/evapco.png", alt: "Evapco" },
+  { src: "/home/empresas_representantes/projelmec.png", alt: "Projelmec" },
+  { src: "/home/empresas_representantes/sicflux.png", alt: "Sicflux" },
+  { src: "/home/empresas_representantes/trox.png", alt: "TROX" },
+];
+
 const categories = [
   {
     title: "Expansão Direta",
@@ -172,8 +182,8 @@ export default function SolucoesPage() {
                 </h3>
               </div>
 
-              <BrandMarquee 
-                items={suppliedCompanies.map(c => ({ name: c.alt, logoUrl: c.src, link: c.link }))} 
+              <BrandMarquee
+                items={suppliedCompanies.map(c => ({ name: c.alt, logoUrl: c.src, link: c.link }))}
                 theme="dark"
               />
             </div>
@@ -218,6 +228,25 @@ export default function SolucoesPage() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Marcas Representadas */}
+        <section className={styles.section} id="representantes" style={{ borderTop: "1px solid rgba(0, 0, 0, 0.06)", background: "#fcfdfe" }}>
+          <div className={styles.container}>
+            <div className={styles.brandSliderSection} style={{ marginTop: 0 }}>
+              <div className={styles.brandSliderIntro}>
+                <p className={styles.eyebrow}>Representações</p>
+                <h3 className={styles.brandSliderTitle}>
+                  Marcas das quais a RETEC é representante & parceiras
+                </h3>
+              </div>
+
+              <BrandMarquee
+                items={representativeBrands.map(brand => ({ name: brand.alt, logoUrl: brand.src }))}
+                theme="light"
+              />
             </div>
           </div>
         </section>

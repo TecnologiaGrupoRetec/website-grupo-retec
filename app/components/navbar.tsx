@@ -68,8 +68,6 @@ export default function Navbar(props: NavbarProps) {
             <div className={styles.navMenu}>
               <nav className={styles.navLinks} aria-label="Navegacao principal">
                 <Link href="/sobre">Sobre</Link>
-                <Link href="/obras">Obras</Link>
-                <Link href="/blog">Blog</Link>
                 <Link href="/solucoes">Soluções</Link>
                 <details className={styles.navDropdown}>
                   <summary className={styles.navDropdownTrigger}>
@@ -95,6 +93,8 @@ export default function Navbar(props: NavbarProps) {
                     </a>
                   </div>
                 </details>
+                <Link href="/obras">Obras</Link>
+                <Link href="/blog">Blog</Link>
               </nav>
 
               <a
