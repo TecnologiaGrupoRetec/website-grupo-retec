@@ -9,9 +9,9 @@ const slides = [
   {
     image: "/home/showroom.webp",
     alt: "Showroom Grupo RETEC",
-    title: "Qualidade do ar e conforto térmico para obras que dependem de HVAC bem dimensionado.",
-    subtitle: "Climatização projetada para o desempenho real de cada ambiente.",
-    hasTypewriter: true,
+    title: "Líder em HVAC para obras de pequeno, médio e grande porte.",
+    subtitle: "Um único fornecedor para tudo que a obra precisa, do acessório mais simples ao aparelho de maior capacidade.",
+    hasTypewriter: false,
   },
   {
     image: "/home/hall_entrada.webp",
