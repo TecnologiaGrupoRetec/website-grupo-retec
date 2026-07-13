@@ -11,14 +11,14 @@ const timelineItems = [
     year: "1982",
     description:
       "Fundada em 1982, a RETEC nasceu com o objetivo de ser referência em climatização para construções de médio e grande porte.",
-    image: "/about/about1.jpeg",
+    image: "/home/inicio_retec.webp",
     alt: "Primeira sede do Grupo RETEC",
   },
   {
     year: "2000",
     description:
       "Com o crescimento da empresa e a ampliação do portfólio de clientes, demos um passo importante com a mudança para o SAAN.",
-    image: "/about/about2.jpg",
+    image: "/home/saan_retec.webp",
     alt: "Momento de expansão da RETEC",
   },
   {
