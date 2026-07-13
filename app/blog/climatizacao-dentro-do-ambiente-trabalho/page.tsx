@@ -22,7 +22,7 @@ export default function Article() {
             </Link>
             <article className={styles.content}>
               <header className={styles.header}>
-                <Tag text="Saúde" />
+                <Tag text="Corporativo" />
                 <h1 className={styles.title}>
                   Como a Qualidade do Ar Influencia na Performance das Equipes e na Produtividade no Trabalho
                 </h1>

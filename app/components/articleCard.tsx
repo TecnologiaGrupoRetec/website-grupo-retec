@@ -18,6 +18,7 @@ export default function ArticleCard({
   author: string;
   path: string;
   data: string;
+  tag: string;
 }) {
   const avatarSrc = author === "Patrick Galletti" ? "/blog/patrick.png" : "/blog/patrick.png";
 
