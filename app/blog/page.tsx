@@ -55,32 +55,47 @@ export default async function Blog() {
   } catch (err) {
     console.error("Erro ao buscar posts do Supabase na página Blog:", err);
   }
-
+  // Se houver algum post dentro do banco de dados, retorna o mais recente para ser a capa da pagina.
+  const coverPost = dynamicPosts.length > 0 ? dynamicPosts[0] : null;
   return (
     <div className={styles.page}>
       <Navbar activeTab="blog" />
-      <Main bgImage="/blog/foto-periodo-queimadas.webp" className={styles.blogHero}>
-        <Link className={styles.emphasis} href="/blog/3">
-          Como as queimadas afetam a sua saúde, mesmo a quilômetros de distância.
+      <Main
+        bgImage={coverPost ? coverPost.imagem_principal : "/blog/foto-periodo-queimadas.webp"}
+        className={styles.blogHero}
+      >
+        <Link
+          className={styles.emphasis}
+          href={coverPost ? `/blog/${coverPost.slug}` : '/blog/queimadas-afetam-saude-a-distancia'}>
+          {coverPost ? coverPost.titulo : "Como as queimadas afetam a sua saúde, mesmo a quilômetros de distância."}
         </Link>
         <div className={styles.articleDetails}>
-          <Image className={styles.authorImg} src="/blog/patrick.png" alt="Patrick Galletti" width="36" height="36" />
+          <Image
+            className={styles.authorImg}
+            src="/blog/patrick.png"
+            alt={coverPost ? coverPost.autor : "Patrick Galletti"}
+            width="36"
+            height="36"
+          />
           <span className={styles.authorName}>
-            Patrick Galletti
+            {coverPost ? coverPost.autor : "Patrick Galletti"}
           </span>
           <span className={styles.date}>
-            26/09/2024
+            {coverPost ? coverPost.data : "20/06/2024"}
           </span>
         </div>
-        <a href="/blog/queimadas-afetam-saude-a-distancia" className={styles.cta}>
+        <a
+          href={coverPost ? `/blog/${coverPost.slug}` : "/blog/queimadas-afetam-saude-a-distancia"}
+          className={styles.cta}
+        >
           <Button>Leia mais</Button>
         </a>
       </Main>
 
       <section className={styles.articles}>
         <div className={styles.content}>
-          {/* Posts dinâmicos gerados no painel Admin */}
-          {dynamicPosts.map((post: Post) => (
+          {/* Posts dinâmicos gerados no painel Admin, pulando o primeiro (capa da pagina). */}
+          {dynamicPosts.slice(1).map((post: Post) => (
             <ArticleCard
               key={post.slug}
               imgSrc={post.imagem_principal}
