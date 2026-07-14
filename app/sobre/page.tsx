@@ -55,7 +55,7 @@ export default function Home() {
         className={styles.aboutHero}
       >
         <span className={styles.detail}>
-          Há mais de 40 anos o Grupo RETEC acompanha a climatização no Distrito Federal, conectando empresas e instaladores às principais soluções em ar-condicionado, ventilação, exaustão e refrigeração.
+          Há mais de 40 anos o Grupo RETEC acompanha a climatização no Distrito Federal e em Goiás, conectando empresas e instaladores às principais soluções em ar-condicionado, ventilação, exaustão, refrigeração e isolamentos térmicos.
         </span>
       </Main>
 

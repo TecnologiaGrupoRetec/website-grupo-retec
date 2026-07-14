@@ -230,7 +230,7 @@ export default function Home() {
             <ScrollReveal direction="up">
               <div className={`${styles.sectionIntro} ${styles.sectionIntroCentered} ${styles.onDark}`}>
                 <p className={styles.eyebrow}>Método</p>
-                <h2 className={styles.sectionTitle}>Como fornecemos para cada projeto.</h2>
+                <h2 className={styles.sectionTitle}>Como fornecemos para cada obra.</h2>
                 <p className={styles.sectionText}>
                   Um fluxo de atendimento que dá previsibilidade a cada etapa do fornecimento.
                 </p>
@@ -266,7 +266,7 @@ export default function Home() {
                   <h2 className={styles.sectionTitle}>Onde o Grupo RETEC gera valor</h2>
                   <p className={styles.sectionText}>
                     Portfólio técnico e leitura consultiva <br />
-                    para projetos que exigem desempenho e prazo confiável.
+                    para projetos que exigem eficiencia energetica, desempenho, qualidade e prazos confiaveis.
                   </p>
                 </div>
               </ScrollReveal>
