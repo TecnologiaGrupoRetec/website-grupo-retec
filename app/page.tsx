@@ -25,11 +25,11 @@ const suppliedCompanies = [
   { src: "/home/empresas_fornecidas/logo_brasal.webp", alt: "Brasal" },
   { src: "/home/empresas_fornecidas/logo_cifarma.webp", alt: "Cifarma" },
   { src: "/home/empresas_fornecidas/logo_cimed.webp", alt: "Cimed" },
-  { src: "/home/empresas_fornecidas/ecap-logo.webp", alt: "ECAP" },
+  { src: "/home/empresas_fornecidas/logo_ecap.webp", alt: "ECAP" },
   { src: "/home/empresas_fornecidas/logo_ebm.webp", alt: "EBM" },
   { src: "/home/empresas_fornecidas/logo_ems.webp", alt: "EMS" },
-  { src: "/home/empresas_fornecidas/logo_fio-cruz.webp", alt: "Fiocruz" },
-  { src: "/home/empresas_fornecidas/logo_grupo-acelerador.webp", alt: "Grupo Acelerador" },
+  { src: "/home/empresas_fornecidas/logo_fio-cruz.png", alt: "Fiocruz" },
+  { src: "/home/empresas_fornecidas/logo_grupo-acelerador.png", alt: "Grupo Acelerador" },
   { src: "/home/empresas_fornecidas/logo_hospital-albert-einsten.webp", alt: "Hospital Albert Einstein" },
   { src: "/home/empresas_fornecidas/logo_paulooctavio.webp", alt: "Paulo Octávio" },
   { src: "/home/empresas_fornecidas/logo_sabin.webp", alt: "Sabin" },
@@ -319,7 +319,7 @@ export default function Home() {
 
               <BrandMarquee
                 items={suppliedCompanies.map((company) => ({ name: company.alt, logoUrl: company.src }))}
-                theme="dark"
+                theme="light"
               />
             </div>
           </div>

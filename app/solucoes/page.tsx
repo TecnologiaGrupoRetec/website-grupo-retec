@@ -14,11 +14,11 @@ const suppliedCompanies = [
   { src: "/home/empresas_fornecidas/logo_brasal.webp", alt: "Brasal", link: "https://www.brasal.com.br/" },
   { src: "/home/empresas_fornecidas/logo_cifarma.webp", alt: "Cifarma", link: "https://www.cifarma.com.br/" },
   { src: "/home/empresas_fornecidas/logo_cimed.webp", alt: "Cimed", link: "https://www.cimed.com.br/" },
-  { src: "/home/empresas_fornecidas/ecap-logo.webp", alt: "ECAP", link: "https://www.ecap.com.br/" },
+  { src: "/home/empresas_fornecidas/logo_ecap.webp", alt: "ECAP", link: "https://www.ecap.com.br/" },
   { src: "/home/empresas_fornecidas/logo_ebm.webp", alt: "EBM", link: "https://www.ebm.com.br/" },
   { src: "/home/empresas_fornecidas/logo_ems.webp", alt: "EMS", link: "https://www.ems.com.br/" },
-  { src: "/home/empresas_fornecidas/logo_fio-cruz.webp", alt: "Fiocruz", link: "https://www.fio.cru.org.br/" },
-  { src: "/home/empresas_fornecidas/logo_grupo-acelerador.webp", alt: "Grupo Acelerador", link: "https://www.grupoacelerador.com.br/" },
+  { src: "/home/empresas_fornecidas/logo_fio-cruz.png", alt: "Fiocruz", link: "https://www.fio.cru.org.br/" },
+  { src: "/home/empresas_fornecidas/logo_grupo-acelerador.png", alt: "Grupo Acelerador", link: "https://www.grupoacelerador.com.br/" },
   { src: "/home/empresas_fornecidas/logo_hospital-albert-einsten.webp", alt: "Hospital Albert Einstein", link: "https://www.einstein.br/" },
   { src: "/home/empresas_fornecidas/logo_paulooctavio.webp", alt: "Paulo Octávio", link: "https://www.pauloctavio.com.br/" },
   { src: "/home/empresas_fornecidas/logo_sabin.webp", alt: "Sabin", link: "https://www.sabin.com.br/" },
@@ -171,29 +171,6 @@ export default function SolucoesPage() {
             </div>
           </div>
         </section>
-
-        {/* Carrosel de Empresas que Fornecemos Soluções de Climatização */}
-        <section className={styles.section} id="clientes">
-          <div className={styles.container}>
-            <div className={styles.brandSliderSection} style={{ marginTop: 0 }}>
-              <div className={styles.brandSliderIntro}>
-                <p className={styles.eyebrow}>Grandes empresas</p>
-                <h3 className={styles.brandSliderTitle}>
-                  Empresas que confiam em nossas soluções de climatização
-                </h3>
-              </div>
-
-              <BrandMarquee
-                items={suppliedCompanies.map(c => ({ name: c.alt, logoUrl: c.src, link: c.link }))}
-                theme="dark"
-              />
-            </div>
-          </div>
-        </section>
-
-        {/* Seção de soluções por nicho do mercado */}
-        <SegmentoCardsCarousel />
-
         {/* Seção das Categorias de Produtos */}
         <section className={styles.categoriesSection} id="categorias">
           <div className={styles.container}>
@@ -234,6 +211,28 @@ export default function SolucoesPage() {
             </div>
           </div>
         </section>
+
+        {/* Carrosel de Empresas que Fornecemos Soluções de Climatização */}
+        <section className={styles.section} id="clientes">
+          <div className={styles.container}>
+            <div className={styles.brandSliderSection} style={{ marginTop: 0 }}>
+              <div className={styles.brandSliderIntro}>
+                <p className={styles.eyebrow}>Grandes empresas</p>
+                <h3 className={styles.brandSliderTitle}>
+                  Empresas que confiam em nossas soluções de climatização
+                </h3>
+              </div>
+
+              <BrandMarquee
+                items={suppliedCompanies.map(c => ({ name: c.alt, logoUrl: c.src, link: c.link }))}
+                theme="dark"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Seção de soluções por nicho do mercado */}
+        <SegmentoCardsCarousel />
 
         {/* Marcas Representadas */}
         <section className={styles.section} id="representantes" style={{ borderTop: "1px solid rgba(0, 0, 0, 0.06)", background: "#fcfdfe" }}>

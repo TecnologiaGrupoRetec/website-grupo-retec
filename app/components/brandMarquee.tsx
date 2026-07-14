@@ -4,7 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./styles/brand-marquee.module.scss";
 
-// Dynamic map to resolve product manufacturer logos
+
 const brandLogos: Record<string, string> = {
   "daikin": "/home/empresas_representantes/daikin.png",
   "trox": "/home/empresas_representantes/trox.png",

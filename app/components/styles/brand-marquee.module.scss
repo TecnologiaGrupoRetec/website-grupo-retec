@@ -7,7 +7,7 @@
   scrollbar-width: none;
   position: relative;
   width: 100%;
-  
+
   &::-webkit-scrollbar {
     display: none;
   }
@@ -31,7 +31,7 @@
 .brandCard {
   align-items: center;
   justify-content: center;
-  background: $white;
+  background: #f5f5f5;
   border: 1px solid rgba(15, 40, 84, 0.08);
   border-radius: 16px;
   display: flex;
@@ -107,7 +107,7 @@
 
   .textLogo {
     color: rgba(255, 255, 255, 0.8);
-    
+
     .brandCard:hover & {
       color: $secondary;
     }
