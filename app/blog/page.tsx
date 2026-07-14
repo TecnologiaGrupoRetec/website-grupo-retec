@@ -209,10 +209,10 @@ export default async function Blog({
             width="36"
             height="36"
           />
-          <span className={styles.authorName}>
+          <span className={styles.authorNameInicial}>
             {coverPost ? coverPost.autor : "Patrick Galletti"}
           </span>
-          <span className={styles.date}>
+          <span className={styles.dataInicial}>
             {coverPost ? coverPost.data : "20/06/2024"}
           </span>
         </div>

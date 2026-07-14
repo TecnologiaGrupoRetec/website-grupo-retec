@@ -1,0 +1,26 @@
+.bannerWrapper {
+    width: 100%;
+    max-width: 800px; // Limita a largura para ficar alinhado com o texto do blog
+    margin: 48px auto; // Espaçamento superior e inferior
+    overflow: hidden;
+    border-radius: 12px; // Bordas arredondadas elegantes
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+
+    a {
+        display: block;
+        line-height: 0; // Remove espaços vazios abaixo da tag <a>
+    }
+
+    .bannerImage {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    // Efeito premium de elevação ao passar o mouse
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 36px rgba(15, 40, 84, 0.15);
+    }
+}

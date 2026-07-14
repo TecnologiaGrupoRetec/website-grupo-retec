@@ -9,6 +9,7 @@ import React from "react";
 import Image from "next/image";
 import Pannel from "@/app/components/pannel";
 import { supabase } from "../../../lib/supabase";
+import BlogBanner from "../../components/blogBanner";
 
 export const dynamic = "force-dynamic";
 
@@ -95,20 +96,55 @@ export default async function DynamicArticle({ params }: { params: { slug: strin
                 style={{ width: "100%", height: "462", maxWidth: "800px", borderRadius: "8px" }}
               />
 
-              {post.corpo_texto.map((block, index) => {
-                if (block.type === "subtitle") {
-                  return (
-                    <h3 key={index} className={styles.subtitle}>
-                      {block.text}
-                    </h3>
-                  );
-                }
-                return (
-                  <p key={index} className={styles.text}>
-                    {block.text}
-                  </p>
-                );
-              })}
+              <hr style={{ height: '3px', background: '#0f2854', border: 'none' }} />
+
+              {/* Layout de três colunas */}
+              <div className={styles.articleBodyRow}>
+                {/* Coluna Esquerda: Índice Dinâmico */}
+                {post.corpo_texto.filter(b => b.type === "subtitle").length > 0 && (
+                  <aside className={styles.tocSidebar}>
+                    <div className={styles.tableOfContents}>
+                      <h4>Confira neste artigo:</h4>
+                      <ul>
+                        {post.corpo_texto
+                          .filter(b => b.type === "subtitle")
+                          .map((sub, idx) => (
+                            <li key={idx}>
+                              <a href={`#subtitle-${idx}`}>{sub.text}</a>
+                            </li>
+                          ))}
+                      </ul>
+                    </div>
+                  </aside>
+                )}
+
+                {/* Coluna Central: Corpo do Artigo */}
+                <div className={styles.mainText}>
+                  {post.corpo_texto.map((block, index) => {
+                    if (block.type === "subtitle") {
+                      // Descobre o índice deste subtítulo para linkar com a âncora correspondente
+                      const subIndex = post.corpo_texto
+                        .filter(b => b.type === "subtitle")
+                        .findIndex(b => b.text === block.text);
+                      return (
+                        <h2 key={index} id={`subtitle-${subIndex}`} className={styles.subtitle}>
+                          {block.text}
+                        </h2>
+                      );
+                    }
+                    return (
+                      <p key={index} className={styles.text}>
+                        {block.text}
+                      </p>
+                    );
+                  })}
+                </div>
+
+                {/* Coluna Direita: Sidebar Banner */}
+                <aside className={styles.sidebar}>
+                  <BlogBanner />
+                </aside>
+              </div>
             </article>
             <Link className={styles.up} href="#">
               <Image src="/blog/arrow.png" alt="Voltar ao Topo" width={60} height={60} />

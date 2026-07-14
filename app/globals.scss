@@ -24,7 +24,8 @@ button {
   cursor: pointer;
 }
 
-ul, ol {
+ul,
+ol {
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -46,10 +47,9 @@ li {
 
 .pannel {
   height: 100px;
-  background-color: $detail;
+  background-color: #F2F3FA;
 
   @media (max-width: 1075px) {
     display: none;
   }
 }
-
