@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import Image from "next/image";
 import styles from "./styles/brand-marquee.module.scss";
 
@@ -31,10 +31,6 @@ interface BrandMarqueeProps {
 
 export default function BrandMarquee({ items, theme = "light" }: BrandMarqueeProps) {
   const marqueeRef = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
-  const [isDragging, setIsDragging] = useState(false);
-  const startXRef = useRef(0);
-  const scrollLeftRef = useRef(0);
 
   // If there are very few items, duplicate them multiple times so the infinite scroll resets smoothly
   const displayItems = items.length < 5
@@ -48,48 +44,16 @@ export default function BrandMarquee({ items, theme = "light" }: BrandMarqueePro
     let animationFrameId: number;
 
     const scroll = () => {
-      if (!isHovered && !isDragging) {
-        marquee.scrollLeft += 0.8; // scroll speed
-        if (marquee.scrollLeft >= marquee.scrollWidth / 2) {
-          marquee.scrollLeft = 0;
-        }
+      marquee.scrollLeft += 0.8; // scroll speed
+      if (marquee.scrollLeft >= marquee.scrollWidth / 2) {
+        marquee.scrollLeft = 0;
       }
       animationFrameId = requestAnimationFrame(scroll);
     };
 
     animationFrameId = requestAnimationFrame(scroll);
     return () => cancelAnimationFrame(animationFrameId);
-  }, [isHovered, isDragging, displayItems.length]);
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    const marquee = marqueeRef.current;
-    if (!marquee) return;
-    setIsDragging(true);
-    startXRef.current = e.pageX - marquee.offsetLeft;
-    scrollLeftRef.current = marquee.scrollLeft;
-  };
-
-  const handleMouseLeaveOrUp = () => {
-    setIsDragging(false);
-    setIsHovered(false);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const marquee = marqueeRef.current;
-    if (!marquee) return;
-    const x = e.pageX - marquee.offsetLeft;
-    const walk = (x - startXRef.current) * 1.5; // speed multiplier
-    marquee.scrollLeft = scrollLeftRef.current - walk;
-
-    // Wrap around borders
-    if (marquee.scrollLeft >= marquee.scrollWidth / 2) {
-      marquee.scrollLeft = 0;
-    } else if (marquee.scrollLeft <= 0) {
-      marquee.scrollLeft = marquee.scrollWidth / 2;
-    }
-  };
+  }, [displayItems.length]);
 
   if (items.length === 0) return null;
 
@@ -97,12 +61,6 @@ export default function BrandMarquee({ items, theme = "light" }: BrandMarqueePro
     <div
       ref={marqueeRef}
       className={`${styles.brandMarquee} ${theme === "dark" ? styles.darkTheme : ""}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={handleMouseLeaveOrUp}
-      onMouseDown={handleMouseDown}
-      onMouseUp={handleMouseLeaveOrUp}
-      onMouseMove={handleMouseMove}
-      style={{ cursor: isDragging ? "grabbing" : "grab", userSelect: "none" }}
     >
       <div className={styles.brandTrack}>
         {[0, 1].map((groupIndex) => (
@@ -135,7 +93,6 @@ export default function BrandMarquee({ items, theme = "light" }: BrandMarqueePro
                   rel="noreferrer"
                   key={`${groupIndex}-${idx}-${item.name}`}
                   className={styles.brandCard}
-                  onClick={(e) => isDragging && e.preventDefault()} // Prevent clicking while dragging
                 >
                   {CardContent}
                 </a>
