@@ -284,17 +284,22 @@ export default function Home() {
                       </div>
                       <h3 className={styles.highlightTitle}>{card.title}</h3>
                       <p className={styles.highlightDescription}>{card.description}</p>
+                      <div className={styles.highlightFooter}>
+                        <span className={styles.highlightActionBtn}>
+                          Conhecer Soluções <span className={styles.actionArrow}>→</span>
+                        </span>
+                      </div>
                     </article>
                   );
 
                   return (
-                    <ScrollReveal key={card.title} delay={idx * 150} direction="up">
+                    <ScrollReveal key={card.title} delay={idx * 150} direction="up" className={styles.highlightReveal}>
                       {card.urlLink ? (
                         <Link href={card.urlLink} className={styles.highlightLink}>
                           {cardElement}
                         </Link>
                       ) : (
-                        <div>
+                        <div className={styles.highlightLink}>
                           {cardElement}
                         </div>
                       )}

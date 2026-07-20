@@ -749,9 +749,12 @@
 .highlightCard {
   background: var(--soft);
   border-top: 4px solid var(--navy);
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 14px;
-  min-height: 190px;
+  height: 100%;
+  flex: 1;
+  min-height: 240px;
   padding: 24px;
   box-shadow: 0 4px 12px rgba(15, 40, 84, 0.04);
   transition:
@@ -768,12 +771,48 @@
       background: rgba(28, 77, 141, 0.15);
       transform: scale(1.08);
     }
+
+    .actionArrow {
+      transform: translateX(4px);
+    }
   }
+}
+
+.highlightFooter {
+  margin-top: auto;
+  padding-top: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.highlightActionBtn {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--blue);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.actionArrow {
+  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  font-size: 16px;
+}
+
+.highlightReveal {
+  height: 100%;
 }
 
 .highlightLink {
   text-decoration: none;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   color: inherit;
 }
 
