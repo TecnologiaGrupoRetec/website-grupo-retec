@@ -418,7 +418,7 @@ export default function Home() {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      <span>Matriz Brasília</span>
+                      <span>Showroom Brasília</span>
                       <span className={styles.unitArrow}>→</span>
                     </a>
                     <a
@@ -428,24 +428,6 @@ export default function Home() {
                       rel="noreferrer"
                     >
                       <span>Filial Goiânia</span>
-                      <span className={styles.unitArrow}>→</span>
-                    </a>
-                    <a
-                      className={styles.unitBtn}
-                      href="https://www.google.com/maps/search/?api=1&query=Mato+Grosso"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <span>Escritório Mato Grosso</span>
-                      <span className={styles.unitArrow}>→</span>
-                    </a>
-                    <a
-                      className={styles.unitBtn}
-                      href="https://www.google.com/maps/search/?api=1&query=São+Paulo"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <span>Filial São Paulo</span>
                       <span className={styles.unitArrow}>→</span>
                     </a>
                   </div>
