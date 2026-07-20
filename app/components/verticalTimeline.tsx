@@ -19,74 +19,96 @@ export default function VerticalTimeline({ items }: TimelineProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [lineLayout, setLineLayout] = useState({ top: 0, height: 0 });
   const [scrollHeight, setScrollHeight] = useState(0);
+  const [activeIndexes, setActiveIndexes] = useState<boolean[]>([]);
+
+  const firstDotTopRef = useRef(0);
+  const lastDotTopRef = useRef(0);
+  const totalLineHeightRef = useRef(0);
+  const containerTopRef = useRef(0);
+  const dotsPositionsRef = useRef<number[]>([]);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const calculateLayout = () => {
       const container = containerRef.current;
       if (!container) return;
 
       const rect = container.getBoundingClientRect();
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
       const absoluteContainerTop = rect.top + scrollTop;
-      
+      containerTopRef.current = absoluteContainerTop;
+
       const itemElements = container.querySelectorAll(`.${styles.timelineItem}`);
       if (itemElements.length === 0) return;
-      
-      // Encontra o primeiro e o último indicador circular (dot) na árvore DOM
+
       const firstDot = itemElements[0].querySelector(`.${styles.timelineDot}`);
       const lastDot = itemElements[itemElements.length - 1].querySelector(`.${styles.timelineDot}`);
-      
+
       if (!firstDot || !lastDot) return;
-      
+
       const firstDotRect = firstDot.getBoundingClientRect();
       const lastDotRect = lastDot.getBoundingClientRect();
-      
+
       const absoluteFirstDotTop = firstDotRect.top + scrollTop;
       const absoluteLastDotTop = lastDotRect.top + scrollTop;
-      
-      // Calcula onde a linha deve começar (centro do primeiro dot) relativo ao container
-      const lineTop = absoluteFirstDotTop - absoluteContainerTop + (firstDotRect.height / 2);
-      // Calcula a altura total da linha (entre o centro do primeiro e do último dot)
-      const totalLineHeight = absoluteLastDotTop - absoluteFirstDotTop;
-      
-      setLineLayout({ top: lineTop, height: totalLineHeight });
-      
-      const viewportHeight = window.innerHeight;
-      // Linha imaginária do meio da tela
-      const windowMiddle = scrollTop + (viewportHeight / 2);
-      
-      // Calcula o quanto da barra deve estar preenchida (em pixels)
-      let currentHeight = windowMiddle - absoluteFirstDotTop;
-      currentHeight = Math.max(0, Math.min(totalLineHeight, currentHeight));
-      
-      setScrollHeight(currentHeight);
 
-      // Adiciona/remove classes ativas nos items conforme a linha passa por eles
+      firstDotTopRef.current = absoluteFirstDotTop;
+      lastDotTopRef.current = absoluteLastDotTop;
+
+      const lineTop = absoluteFirstDotTop - absoluteContainerTop + (firstDotRect.height / 2);
+      const totalLineHeight = absoluteLastDotTop - absoluteFirstDotTop;
+      totalLineHeightRef.current = totalLineHeight;
+
+      setLineLayout({ top: lineTop, height: totalLineHeight });
+
+      // Cache all dots positions relative to page
+      const positions: number[] = [];
       itemElements.forEach((item) => {
         const dot = item.querySelector(`.${styles.timelineDot}`);
         if (dot) {
           const dotRect = dot.getBoundingClientRect();
-          const dotAbsoluteTop = dotRect.top + scrollTop;
-          
-          // O item fica ativo se o progresso passou do centro do dot (+ threshold de margem)
-          if (dotAbsoluteTop <= absoluteFirstDotTop + currentHeight + 2) {
-            item.classList.add(styles.active);
-          } else {
-            item.classList.remove(styles.active);
-          }
+          positions.push(dotRect.top + scrollTop);
         }
       });
+      dotsPositionsRef.current = positions;
     };
 
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", handleScroll);
-    
+    const handleScroll = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const absoluteFirstDotTop = firstDotTopRef.current;
+      const totalLineHeight = totalLineHeightRef.current;
+
+      if (!absoluteFirstDotTop || !totalLineHeight) return;
+
+      const viewportHeight = window.innerHeight;
+      const windowMiddle = scrollTop + (viewportHeight / 2);
+
+      let currentHeight = windowMiddle - absoluteFirstDotTop;
+      currentHeight = Math.max(0, Math.min(totalLineHeight, currentHeight));
+
+      setScrollHeight(currentHeight);
+
+      // Declarative active indices update
+      const newActiveIndexes = dotsPositionsRef.current.map((dotAbsoluteTop) => {
+        return dotAbsoluteTop <= absoluteFirstDotTop + currentHeight + 2;
+      });
+
+      setActiveIndexes(newActiveIndexes);
+    };
+
+    const handleInitAndResize = () => {
+      calculateLayout();
+      handleScroll();
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleInitAndResize);
+
     // Executa após um breve delay para garantir o correto posicionamento do layout
-    const timer = setTimeout(handleScroll, 100);
-    
+    const timer = setTimeout(handleInitAndResize, 150);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
+      window.removeEventListener("resize", handleInitAndResize);
       clearTimeout(timer);
     };
   }, []);
@@ -116,7 +138,7 @@ export default function VerticalTimeline({ items }: TimelineProps) {
             key={item.year}
             className={`${styles.timelineItem} ${
               index % 2 === 0 ? styles.left : styles.right
-            }`}
+            } ${activeIndexes[index] ? styles.active : ""}`}
           >
             <div className={styles.timelineCard}>
               <div className={styles.timelineCardImage}>

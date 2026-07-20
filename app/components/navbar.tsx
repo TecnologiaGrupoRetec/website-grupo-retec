@@ -13,6 +13,7 @@ type NavbarProps = {
 export default function Navbar(props: NavbarProps) {
   void props.activeTab;
   const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,7 +45,7 @@ export default function Navbar(props: NavbarProps) {
       <header className={`${styles.navbarSection} ${scrolled ? styles.scrolled : ""}`}>
         <div className={styles.container}>
           <div className={styles.navbarShell}>
-            <Link className={styles.logoLink} href="/">
+            <Link className={styles.logoLink} href="/" onClick={() => setIsOpen(false)}>
               <Image
                 src="/logo-since-white-no-bg.svg"
                 alt="Grupo RETEC"
@@ -58,6 +59,8 @@ export default function Navbar(props: NavbarProps) {
               className={styles.navToggle}
               id="site-nav-toggle"
               type="checkbox"
+              checked={isOpen}
+              onChange={(e) => setIsOpen(e.target.checked)}
             />
             <label className={styles.navToggleButton} htmlFor="site-nav-toggle">
               <span className={styles.navToggleBar} />
@@ -67,8 +70,8 @@ export default function Navbar(props: NavbarProps) {
 
             <div className={styles.navMenu}>
               <nav className={styles.navLinks} aria-label="Navegacao principal">
-                <Link href="/sobre">Sobre</Link>
-                <Link href="/solucoes">Soluções</Link>
+                <Link href="/sobre" onClick={() => setIsOpen(false)}>Sobre</Link>
+                <Link href="/solucoes" onClick={() => setIsOpen(false)}>Soluções</Link>
                 <details className={styles.navDropdown}>
                   <summary className={styles.navDropdownTrigger}>
                     Loja Virtual
@@ -80,6 +83,7 @@ export default function Navbar(props: NavbarProps) {
                       href="https://www.artmosferabrasil.com.br/"
                       target="_blank"
                       rel="noreferrer"
+                      onClick={() => setIsOpen(false)}
                     >
                       E-commerce
                     </a>
@@ -88,13 +92,14 @@ export default function Navbar(props: NavbarProps) {
                       href="https://www.mercadolivre.com.br/pagina/ra20250419195946#from=share_eshop"
                       target="_blank"
                       rel="noreferrer"
+                      onClick={() => setIsOpen(false)}
                     >
                       Mercado Livre
                     </a>
                   </div>
                 </details>
-                <Link href="/obras">Obras</Link>
-                <Link href="/blog">Blog</Link>
+                <Link href="/obras" onClick={() => setIsOpen(false)}>Obras</Link>
+                <Link href="/blog" onClick={() => setIsOpen(false)}>Blog</Link>
               </nav>
 
               <a
@@ -102,6 +107,7 @@ export default function Navbar(props: NavbarProps) {
                 href="https://wa.me/5561991311283"
                 target="_blank"
                 rel="noreferrer"
+                onClick={() => setIsOpen(false)}
               >
                 Solicitar Orçamento
               </a>

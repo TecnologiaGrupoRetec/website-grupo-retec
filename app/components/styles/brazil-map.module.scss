@@ -1,0 +1,123 @@
+.mapSvg {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+}
+
+.statePath {
+  fill: rgba(255, 255, 255, 0.03);
+  stroke: rgba(255, 255, 255, 0.22);
+  stroke-width: 1.04px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: all 250ms ease;
+
+  &:hover {
+    fill: rgba(58, 160, 219, 0.12);
+    stroke: rgba(58, 160, 219, 0.6);
+    cursor: pointer;
+  }
+}
+
+.retecState {
+  fill: rgba(58, 160, 219, 0.07);
+  stroke: rgba(255, 255, 255, 0.35);
+
+  &:hover {
+    fill: rgba(58, 160, 219, 0.2);
+    stroke: rgba(58, 160, 219, 0.9);
+  }
+}
+
+.pinGroup {
+  cursor: pointer;
+
+  &:hover {
+    .labelRect {
+      fill: rgba(58, 160, 219, 0.7); // Glow liquid glass
+      stroke: rgba(255, 255, 255, 0.95);
+      filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
+    }
+
+    .pinPoint {
+      fill: lighten(#10b981, 5%);
+    }
+  }
+}
+
+.pinPoint {
+  fill: #10b981; // Green/teal pin body
+  stroke: #ffffff;
+  stroke-width: 1;
+  transition: all 200ms ease;
+}
+
+.pinCenterCircle {
+  fill: #ffffff;
+  transition: all 200ms ease;
+}
+
+.pulseCircle {
+  fill: #10b981;
+  opacity: 0.5;
+  transform-origin: center;
+  animation: pulseAnimation 2s infinite ease-out;
+  transition: all 200ms ease;
+}
+
+.labelGroup {
+  transition: transform 200ms ease;
+  transform-origin: 0px 0px;
+}
+
+.labelRect {
+  fill: rgba(58, 160, 219, 0.45); // Semi-transparent blue (liquid glass base)
+  stroke: rgba(255, 255, 255, 0.65); // Bright frosty border
+  stroke-width: 1.25;
+  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.22));
+  backdrop-filter: blur(8px);
+  transition: all 200ms ease;
+}
+
+.labelText {
+  font-family: "Outfit", "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  fill: #ffffff;
+  pointer-events: none;
+  text-anchor: middle;
+}
+
+@media (max-width: 480px) {
+  .pinPoint {
+    transform: scale(1.15);
+    transform-origin: 0px -14.4px;
+  }
+
+  .pinCenterCircle {
+    transform: scale(1.15);
+    transform-origin: 0px -14.4px;
+  }
+
+  .pulseCircle {
+    transform: scale(1.15);
+    transform-origin: 0px -14.4px;
+  }
+
+  .labelGroup {
+    transform: scale(1.2); // Make text and pill 20% larger on mobile screens
+  }
+}
+
+@keyframes pulseAnimation {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}

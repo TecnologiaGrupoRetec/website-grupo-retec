@@ -382,3 +382,20 @@
     min-width: 0;
   }
 }
+
+@media (max-width: 768px) {
+  .topTicker {
+    display: none;
+  }
+
+  .navbarSection {
+    top: 0 !important;
+    padding-top: 16px;
+
+    &.scrolled {
+      padding-top: 10px;
+      top: 0 !important;
+    }
+  }
+}
+

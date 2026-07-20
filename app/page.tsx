@@ -8,6 +8,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import BrandMarquee from "./components/brandMarquee";
 import ScrollReveal from "./components/scrollReveal";
+import BrazilMap from "./components/brazilMap";
 
 const representativeBrands = [
   { src: "/home/empresas_representantes/armacell.png", alt: "Armacell" },
@@ -389,8 +390,66 @@ export default function Home() {
             <ScrollReveal direction="up">
               <div className={`${styles.sectionIntro} ${styles.onDark}`}>
                 <p className={styles.eyebrow}>Presença</p>
-                <h2 className={styles.sectionTitle}>Onde estamos</h2>
-                <p className={styles.sectionText}>Dois pontos de operação, mesma qualidade.</p>
+                <h2 className={styles.sectionTitle}>Nossa Presença</h2>
+                <p className={styles.sectionText}>Atendimento ágil e estrutura qualificada em pontos estratégicos do país.</p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal direction="up" delay={100}>
+              <div className={styles.presenceContainer}>
+                <div className={styles.mapWrapper}>
+                  <BrazilMap />
+                </div>
+                <div className={styles.presenceInfo}>
+                  <h3 className={styles.presenceTitle}>
+                    Estamos estrategicamente posicionados para atender com agilidade, eficiência e alto padrão técnico em todo o Brasil.
+                  </h3>
+                  <p className={styles.presenceText}>
+                    O Grupo RETEC une presença regional, expertise de fábrica e soluções especializadas para entregar qualidade, precisão e confiança em cada projeto.
+                  </p>
+                  <p className={styles.presenceText}>
+                    Mais do que fornecer produtos, somos parceiros na construção de soluções inteligentes em HVAC-R.
+                  </p>
+
+                  <div className={styles.presenceUnits}>
+                    <a
+                      className={styles.unitBtn}
+                      href="https://www.google.com/maps/search/?api=1&query=SIA+Trecho+17+Rua+17+N%C2%BA+1380+Bras%C3%ADlia"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span>Matriz Brasília</span>
+                      <span className={styles.unitArrow}>→</span>
+                    </a>
+                    <a
+                      className={styles.unitBtn}
+                      href="https://www.google.com/maps/search/?api=1&query=Av.+Caiap%C3%B3,+452+-+St.+Genoveva+Goi%C3%A2nia"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span>Filial Goiânia</span>
+                      <span className={styles.unitArrow}>→</span>
+                    </a>
+                    <a
+                      className={styles.unitBtn}
+                      href="https://www.google.com/maps/search/?api=1&query=Mato+Grosso"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span>Escritório Mato Grosso</span>
+                      <span className={styles.unitArrow}>→</span>
+                    </a>
+                    <a
+                      className={styles.unitBtn}
+                      href="https://www.google.com/maps/search/?api=1&query=São+Paulo"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span>Filial São Paulo</span>
+                      <span className={styles.unitArrow}>→</span>
+                    </a>
+                  </div>
+                </div>
               </div>
             </ScrollReveal>
 
@@ -398,14 +457,21 @@ export default function Home() {
               {locations.map((location, idx) => (
                 <ScrollReveal key={location.city} delay={idx * 200} direction={idx === 0 ? "right" : "left"}>
                   <article className={styles.locationCard}>
-                    <div className={styles.locationImage}>
-                      <Image
-                        src={location.image}
-                        alt={location.alt}
-                        fill
-                        sizes="(max-width: 900px) 100vw, 50vw"
-                      />
-                    </div>
+                    <a
+                      href={location.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={styles.locationImageLink}
+                    >
+                      <div className={styles.locationImage}>
+                        <Image
+                          src={location.image}
+                          alt={location.alt}
+                          fill
+                          sizes="(max-width: 900px) 100vw, 50vw"
+                        />
+                      </div>
+                    </a>
 
                     <div className={styles.locationContent}>
                       <div>
