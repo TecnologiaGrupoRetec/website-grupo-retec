@@ -9,6 +9,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import BrandMarquee from "./components/brandMarquee";
 import ScrollReveal from "./components/scrollReveal";
 import BrazilMap from "./components/brazilMap";
+import ProductSlider from "./components/productSlider";
 
 const representativeBrands = [
   { src: "/home/empresas_representantes/armacell.png", alt: "Armacell" },
@@ -209,6 +210,7 @@ export default function Home() {
 
       <main>
         <HeroCarousel />
+        <ProductSlider />
 
         <section className={styles.section} id="marcas">
           <div className={styles.container}>
