@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./styles/product-slider.module.scss";
@@ -60,10 +60,11 @@ export default function ProductSlider() {
 
   const changeSlide = useCallback((newIndex: number) => {
     setIsTransitioning(true);
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       setActiveIndex(newIndex);
       setIsTransitioning(false);
     }, 250);
+    return () => clearTimeout(timeout);
   }, []);
 
   const handleNext = useCallback(() => {
@@ -75,6 +76,13 @@ export default function ProductSlider() {
     const prevIdx = (activeIndex - 1 + productCategories.length) % productCategories.length;
     changeSlide(prevIdx);
   }, [activeIndex, changeSlide]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      handleNext();
+    }, 3500);
+    return () => clearInterval(timer);
+  }, [handleNext]);
 
   return (
     <section className={styles.section}>
