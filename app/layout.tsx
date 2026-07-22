@@ -3,7 +3,7 @@ import "./globals.scss";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Grupo RETEC",
+  title: "Grupo RETEC - Fornecimento de HVAC",
   description: "",
 };
 

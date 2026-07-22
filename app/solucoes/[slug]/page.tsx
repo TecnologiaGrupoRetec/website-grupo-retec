@@ -547,7 +547,7 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
                   rel="noopener noreferrer"
                   className={styles.ctaButton}
                 >
-                  <span>Falar com Especialista</span>
+                  <span>Fale com o consultor</span>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className={styles.buttonArrow}>
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>

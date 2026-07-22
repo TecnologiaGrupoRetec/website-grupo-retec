@@ -109,7 +109,7 @@ export default function Navbar(props: NavbarProps) {
                 rel="noreferrer"
                 onClick={() => setIsOpen(false)}
               >
-                Solicitar Orçamento
+                Falar com o consultor
               </a>
             </div>
           </div>
