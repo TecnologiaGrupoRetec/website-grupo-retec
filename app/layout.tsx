@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.scss";
 import Script from "next/script";
+import WhatsappButton from "./components/whatsappButton";
 
 export const metadata: Metadata = {
   title: "Grupo RETEC - Fornecimento de HVAC",
@@ -16,6 +17,7 @@ export default function RootLayout({
     <html lang="pt-br">
       <body>
         {children}
+        <WhatsappButton />
       </body>
       {/* Google tag (gtag.js) */}
       <Script

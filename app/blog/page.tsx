@@ -6,6 +6,7 @@ import Main from "../components/main";
 import Link from "next/link";
 import ArticleCard from "../components/articleCard";
 import Button from "../components/button";
+import ScrollReveal from "../components/scrollReveal";
 import { supabase } from "../../lib/supabase";
 
 export const dynamic = "force-dynamic";
@@ -268,6 +269,30 @@ export default async function Blog({
             ))}
         </div>
       </section>
+      <ScrollReveal direction="up" className={styles.representativesCta}>
+        <div className={styles.representativesCtaGlow} aria-hidden="true" />
+        <div className={styles.representativesCtaContent}>
+          <p className={styles.representativesCtaEyebrow}>Atendimento especializado</p>
+          <h2 className={styles.representativesCtaTitle}>
+            Encontre os equipamentos certos para sua obra
+          </h2>
+          <p className={styles.representativesCtaText}>
+            Fale com a RETEC e receba apoio especializado para escolher equipamentos, validar disponibilidade e agilizar o atendimento da sua obra.
+          </p>
+        </div>
+
+        <a
+          href={`https://wa.me/5561991311283`}
+          target="_blank"
+          rel="noreferrer"
+          className={styles.representativesCtaButton}
+        >
+          <span>Falar com um consultor</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+      </ScrollReveal>
       <Footer />
     </div>
   );

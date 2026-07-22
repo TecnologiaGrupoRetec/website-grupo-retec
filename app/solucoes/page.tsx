@@ -7,6 +7,7 @@ import styles from "./solucoes.module.scss";
 import SegmentoCardsCarousel from "../components/segmentoCardsCarousel";
 import BrandMarquee from "../components/brandMarquee";
 import ScrollReveal from "../components/scrollReveal";
+import CounterNumber from "../components/counterNumber";
 
 const suppliedCompanies = [
   { src: "/home/empresas_fornecidas/logo_ache.webp", alt: "Aché", link: "https://www.ache.com.br/" },
@@ -156,11 +157,11 @@ export default function SolucoesPage() {
               {/* Cards de estatísticas inferiores */}
               <div className={styles.statsRow}>
                 <div className={styles.statCard}>
-                  <span className={styles.statNumber}>+40</span>
+                  <CounterNumber value="+40" className={styles.statNumber} />
                   <p className={styles.statLabel}>Anos de mercado</p>
                 </div>
                 <div className={styles.statCard}>
-                  <span className={styles.statNumber}>12</span>
+                  <CounterNumber value="12" className={styles.statNumber} />
                   <p className={styles.statLabel}>Setores atendidos</p>
                 </div>
                 <div className={styles.statCard}>
@@ -250,6 +251,31 @@ export default function SolucoesPage() {
                 theme="light"
               />
             </div>
+
+            <ScrollReveal direction="up" className={styles.representativesCta}>
+              <div className={styles.representativesCtaGlow} aria-hidden="true" />
+              <div className={styles.representativesCtaContent}>
+                <p className={styles.representativesCtaEyebrow}>Atendimento especializado</p>
+                <h2 className={styles.representativesCtaTitle}>
+                  Seu projeto pede uma solução sob medida?
+                </h2>
+                <p className={styles.representativesCtaText}>
+                  Conte com a RETEC para especificar equipamentos, conferir disponibilidade e receber suporte comercial para a sua obra.
+                </p>
+              </div>
+
+              <a
+                href={`https://wa.me/5561991311283`}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.representativesCtaButton}
+              >
+                <span>Falar com um consultor</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </ScrollReveal>
           </div>
         </section>
       </main>

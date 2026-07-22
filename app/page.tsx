@@ -483,6 +483,31 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <ScrollReveal direction="up" className={styles.representativesCta}>
+          <div className={styles.representativesCtaGlow} aria-hidden="true" />
+          <div className={styles.representativesCtaContent}>
+            <p className={styles.representativesCtaEyebrow}>Atendimento especializado</p>
+            <h2 className={styles.representativesCtaTitle}>
+              Seu projeto precisa de experiência técnica em climatização?
+            </h2>
+            <p className={styles.representativesCtaText}>
+              Conte com quem há mais de 40 anos fornece equipamentos HVAC para obras, empresas e grandes empreendimentos.
+            </p>
+          </div>
+
+          <a
+            href={`https://wa.me/5561991311283`}
+            target="_blank"
+            rel="noreferrer"
+            className={styles.representativesCtaButton}
+          >
+            <span>Falar com um consultor</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+        </ScrollReveal>
+
 
       </main>
       <Footer />

@@ -623,3 +623,131 @@
     }
   }
 }
+
+.representativesCta {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 40px;
+  overflow: hidden;
+  padding: 44px 48px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  background: linear-gradient(118deg, #0f2854 0%, #123665 58%, #1c4d8d 100%);
+  box-shadow: 0 20px 40px rgba(15, 40, 84, 0.14);
+  max-width: 1172px;
+  width: 100%;
+  margin: 40px auto 64px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 32px 24px;
+    width: calc(100% - 32px);
+    margin: 32px auto 48px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 28px 20px;
+    width: calc(100% - 24px);
+    margin: 24px auto 40px;
+    border-radius: 20px;
+  }
+}
+
+.representativesCtaGlow {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  right: -128px;
+  top: -190px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 52px rgba(255, 255, 255, 0.035),
+    0 0 0 104px rgba(255, 255, 255, 0.02);
+  pointer-events: none;
+}
+
+.representativesCtaContent {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+}
+
+.representativesCtaEyebrow {
+  margin: 0 0 10px;
+  color: $secondary;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.representativesCtaTitle {
+  margin: 0;
+  color: $white;
+  font-size: clamp(1.7rem, 3vw, 2.35rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.16;
+}
+
+.representativesCtaText {
+  max-width: 630px;
+  margin: 14px 0 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.representativesCtaButton {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  background: $white;
+  color: var(--navy);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color 250ms cubic-bezier(0.16, 1, 0.3, 1),
+    color 250ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 250ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 250ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &:hover {
+    background: $secondary;
+    color: $white;
+    box-shadow: 0 10px 24px rgba(58, 160, 219, 0.35);
+    transform: translateY(-2px);
+
+    svg {
+      transform: translateX(3px);
+    }
+  }
+
+  &:focus-visible {
+    outline: 3px solid $white;
+    outline-offset: 4px;
+  }
+
+  @media (max-width: 768px) {
+    width: fit-content;
+  }
+}
