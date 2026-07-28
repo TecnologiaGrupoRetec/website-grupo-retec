@@ -153,6 +153,7 @@ export async function POST(request: Request) {
     revalidatePath("/blog");
     revalidatePath(`/blog/${slug}`);
 
+    revalidatePath("/sitemap.xml");
     return NextResponse.json({ success: true, post: newPost });
   } catch (error) {
     console.error("Erro ao criar post no Supabase:", error);
@@ -196,6 +197,7 @@ export async function DELETE(request: Request) {
     revalidatePath("/blog");
     revalidatePath(`/blog/${slug}`);
 
+    revalidatePath("/sitemap.xml");
     return NextResponse.json({ success: true, message: "Postagem excluída com sucesso." });
   } catch (error) {
     console.error("Erro ao deletar post no Supabase:", error);
