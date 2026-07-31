@@ -162,6 +162,21 @@
     .navDropdownArrow {
       transform: rotate(180deg);
     }
+
+    .navDropdownMenu {
+      animation: dropdownFadeIn 320ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  }
+}
+
+@keyframes dropdownFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -208,6 +223,15 @@
   right: 0;
   top: calc(100% + 14px);
   z-index: 30;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -16px;
+    left: 0;
+    right: 0;
+    height: 16px;
+  }
 }
 
 .navDropdownItem {

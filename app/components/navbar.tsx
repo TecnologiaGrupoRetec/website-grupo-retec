@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,6 +14,11 @@ export default function Navbar(props: NavbarProps) {
   void props.activeTab;
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [solucoesOpen, setSolucoesOpen] = useState(false);
+  const [lojaOpen, setLojaOpen] = useState(false);
+
+  const solucoesTimer = useRef<NodeJS.Timeout | null>(null);
+  const lojaTimer = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,12 +29,48 @@ export default function Navbar(props: NavbarProps) {
       }
     };
 
-    // Check on mount (in case the user starts page refreshed while scrolled)
+
     handleScroll();
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const closeAll = () => {
+    if (solucoesTimer.current) clearTimeout(solucoesTimer.current);
+    if (lojaTimer.current) clearTimeout(lojaTimer.current);
+    setIsOpen(false);
+    setSolucoesOpen(false);
+    setLojaOpen(false);
+  };
+
+  const handleSolucoesEnter = () => {
+    if (solucoesTimer.current) clearTimeout(solucoesTimer.current);
+    solucoesTimer.current = setTimeout(() => {
+      setSolucoesOpen(true);
+    }, 120);
+  };
+
+  const handleSolucoesLeave = () => {
+    if (solucoesTimer.current) clearTimeout(solucoesTimer.current);
+    solucoesTimer.current = setTimeout(() => {
+      setSolucoesOpen(false);
+    }, 150);
+  };
+
+  const handleLojaEnter = () => {
+    if (lojaTimer.current) clearTimeout(lojaTimer.current);
+    lojaTimer.current = setTimeout(() => {
+      setLojaOpen(true);
+    }, 120);
+  };
+
+  const handleLojaLeave = () => {
+    if (lojaTimer.current) clearTimeout(lojaTimer.current);
+    lojaTimer.current = setTimeout(() => {
+      setLojaOpen(false);
+    }, 150);
+  };
 
   return (
     <>
@@ -45,7 +86,7 @@ export default function Navbar(props: NavbarProps) {
       <header className={`${styles.navbarSection} ${scrolled ? styles.scrolled : ""}`}>
         <div className={styles.container}>
           <div className={styles.navbarShell}>
-            <Link className={styles.logoLink} href="/" onClick={() => setIsOpen(false)}>
+            <Link className={styles.logoLink} href="/" onClick={closeAll}>
               <Image
                 src="/logo-since-white-no-bg.svg"
                 alt="Grupo RETEC"
@@ -70,73 +111,85 @@ export default function Navbar(props: NavbarProps) {
 
             <div className={styles.navMenu}>
               <nav className={styles.navLinks} aria-label="Navegacao principal">
-                <Link href="/sobre" onClick={() => setIsOpen(false)}>Sobre</Link>
-                <details className={styles.navDropdown}>
+                <Link href="/sobre" onClick={closeAll}>Sobre</Link>
+                <details
+                  className={styles.navDropdown}
+                  open={solucoesOpen}
+                  onToggle={(e) => setSolucoesOpen(e.currentTarget.open)}
+                  onMouseEnter={handleSolucoesEnter}
+                  onMouseLeave={handleSolucoesLeave}
+                >
                   <summary className={styles.navDropdownTrigger}>
-                    <Link href="/solucoes">Soluções</Link>
+                    <Link href="/solucoes" onClick={closeAll}>Soluções</Link>
                     <span className={styles.navDropdownArrow} aria-hidden="true" />
                   </summary>
                   <div className={styles.navDropdownMenu}>
                     <Link
                       className={styles.navDropdownItem}
                       href="/solucoes/expansao-direta"
-                      onClick={() => setIsOpen(false)}
+                      onClick={closeAll}
                     >
                       Expansão Direta
                     </Link>
                     <Link
                       className={styles.navDropdownItem}
                       href="/solucoes/agua-gelada-e-rejeicao-de-calor"
-                      onClick={() => setIsOpen(false)}
+                      onClick={closeAll}
                     >
                       Água Gelada & Rejeição de Calor
                     </Link>
                     <Link
                       className={styles.navDropdownItem}
                       href="/solucoes/exaustao-e-ventilacao"
-                      onClick={() => setIsOpen(false)}
+                      onClick={closeAll}
                     >
                       Exaustão & Ventilação
                     </Link>
                     <Link
                       className={styles.navDropdownItem}
                       href="/solucoes/difusao-e-controle-de-ar"
-                      onClick={() => setIsOpen(false)}
+                      onClick={closeAll}
                     >
                       Difusão & Controle de Ar
                     </Link>
                     <Link
                       className={styles.navDropdownItem}
                       href="/solucoes/dutos-e-rede-de-ar"
-                      onClick={() => setIsOpen(false)}
+                      onClick={closeAll}
                     >
                       Dutos & Rede de Ar
                     </Link>
                     <Link
                       className={styles.navDropdownItem}
                       href="/solucoes/isolamento-termico-e-acustico"
-                      onClick={() => setIsOpen(false)}
+                      onClick={closeAll}
                     >
                       Isolamento Térmico & Acústico
                     </Link>
                     <Link
                       className={styles.navDropdownItem}
                       href="/solucoes/filtragem-e-qualidade-do-ar"
-                      onClick={() => setIsOpen(false)}
+                      onClick={closeAll}
                     >
                       Filtragem & Qualidade do Ar
                     </Link>
                     <Link
                       className={styles.navDropdownItem}
                       href="/solucoes/suporte-fixacao-e-instalacao"
-                      onClick={() => setIsOpen(false)}
+                      onClick={closeAll}
                     >
                       Suporte, Fixação e Instalação
                     </Link>
                   </div>
                 </details>
 
-                <details className={styles.navDropdown}>
+                <details
+                  className={styles.navDropdown}
+                  open={lojaOpen}
+                  onToggle={(e) => setLojaOpen(e.currentTarget.open)}
+                  onMouseEnter={handleLojaEnter}
+                  onMouseLeave={handleLojaLeave}
+                >
                   <summary className={styles.navDropdownTrigger}>
                     Loja Virtual
                     <span className={styles.navDropdownArrow} aria-hidden="true" />
@@ -147,7 +200,7 @@ export default function Navbar(props: NavbarProps) {
                       href="https://www.artmosferabrasil.com.br/"
                       target="_blank"
                       rel="noreferrer"
-                      onClick={() => setIsOpen(false)}
+                      onClick={closeAll}
                     >
                       E-commerce
                     </a>
@@ -156,14 +209,14 @@ export default function Navbar(props: NavbarProps) {
                       href="https://www.mercadolivre.com.br/pagina/ra20250419195946#from=share_eshop"
                       target="_blank"
                       rel="noreferrer"
-                      onClick={() => setIsOpen(false)}
+                      onClick={closeAll}
                     >
                       Mercado Livre
                     </a>
                   </div>
                 </details>
-                <Link href="/obras" onClick={() => setIsOpen(false)}>Obras</Link>
-                <Link href="/blog" onClick={() => setIsOpen(false)}>Blog</Link>
+                <Link href="/obras" onClick={closeAll}>Obras</Link>
+                <Link href="/blog" onClick={closeAll}>Blog</Link>
               </nav>
 
               <a
@@ -171,7 +224,7 @@ export default function Navbar(props: NavbarProps) {
                 href="https://wa.me/5561991311283"
                 target="_blank"
                 rel="noreferrer"
-                onClick={() => setIsOpen(false)}
+                onClick={closeAll}
               >
                 Falar com o consultor
               </a>
