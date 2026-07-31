@@ -71,7 +71,71 @@ export default function Navbar(props: NavbarProps) {
             <div className={styles.navMenu}>
               <nav className={styles.navLinks} aria-label="Navegacao principal">
                 <Link href="/sobre" onClick={() => setIsOpen(false)}>Sobre</Link>
-                <Link href="/solucoes" onClick={() => setIsOpen(false)}>Soluções</Link>
+                <details className={styles.navDropdown}>
+                  <summary className={styles.navDropdownTrigger}>
+                    <Link href="/solucoes">Soluções</Link>
+                    <span className={styles.navDropdownArrow} aria-hidden="true" />
+                  </summary>
+                  <div className={styles.navDropdownMenu}>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/expansao-direta"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Expansão Direta
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/agua-gelada-e-rejeicao-de-calor"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Água Gelada & Rejeição de Calor
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/exaustao-e-ventilacao"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Exaustão & Ventilação
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/difusao-e-controle-de-ar"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Difusão & Controle de Ar
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/dutos-e-rede-de-ar"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Dutos & Rede de Ar
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/isolamento-termico-e-acustico"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Isolamento Térmico & Acústico
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/filtragem-e-qualidade-do-ar"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Filtragem & Qualidade do Ar
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/suporte-fixacao-e-instalacao"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Suporte, Fixação e Instalação
+                    </Link>
+                  </div>
+                </details>
+
                 <details className={styles.navDropdown}>
                   <summary className={styles.navDropdownTrigger}>
                     Loja Virtual
