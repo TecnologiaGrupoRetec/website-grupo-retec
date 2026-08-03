@@ -192,14 +192,14 @@ const locations = [
     subtitle: "Showroom e matriz em Brasília",
     image: "/home/showroom.webp",
     alt: "Fachada da unidade Brasília",
-    href: "https://www.google.com/maps/search/?api=1&query=SIA+Trecho+17+Rua+17+N%C2%BA+1380+Bras%C3%ADlia",
+    href: "https://www.google.com/maps/search/?api=1&query=Grupo+Retec+SIA+Trecho+17+Rua+17+N%C2%BA+1380+Bras%C3%ADlia",
   },
   {
     city: "Goiânia",
     subtitle: "Filial estratégica para atender o Centro-Oeste",
     image: "/home/goiania_retec.webp",
     alt: "Unidade de Goiânia",
-    href: "https://www.google.com/maps/search/?api=1&query=Av.+Caiap%C3%B3,+452+-+St.+Genoveva+Goi%C3%A2nia",
+    href: "https://www.google.com/maps/search/?api=1&query=Grupo+Retec+Av.+Caiap%C3%B3,+452+-+St.+Genoveva+Goi%C3%A2nia",
   },
 ];
 
@@ -421,7 +421,7 @@ export default function Home() {
                   <div className={styles.presenceUnits}>
                     <a
                       className={styles.unitBtn}
-                      href="https://www.google.com/maps/search/?api=1&query=SIA+Trecho+17+Rua+17+N%C2%BA+1380+Bras%C3%ADlia"
+                      href={locations[0].href}
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -430,7 +430,7 @@ export default function Home() {
                     </a>
                     <a
                       className={styles.unitBtn}
-                      href="https://www.google.com/maps/search/?api=1&query=Av.+Caiap%C3%B3,+452+-+St.+Genoveva+Goi%C3%A2nia"
+                      href={locations[1].href}
                       target="_blank"
                       rel="noreferrer"
                     >
