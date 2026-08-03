@@ -232,7 +232,7 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
                   <p key={idx} className={nichoStyles.heroSupportText}>{text}</p>
                 ))}
                 <a
-                  href={`https://wa.me/5561991311283?text=${encodeURIComponent(nichoData.whatsappMessage)}`}
+                  href={`https://wa.me/5561998904494?text=${encodeURIComponent(nichoData.whatsappMessage)}`}
                   target="_blank"
                   rel="noreferrer"
                   className={nichoStyles.heroBtn}
@@ -375,7 +375,7 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
                   A RETEC apoia sua obra com portfólio HVAC completo, suporte comercial e fornecimento técnico especializado. Envie sua lista de materiais, memorial descritivo ou necessidade técnica para receber apoio especializado.
                 </p>
                 <a
-                  href={`https://wa.me/5561991311283?text=${encodeURIComponent(nichoData.whatsappMessage)}`}
+                  href={`https://wa.me/5561998904494?text=${encodeURIComponent(nichoData.whatsappMessage)}`}
                   target="_blank"
                   rel="noreferrer"
                   className={nichoStyles.ctaBtn}
@@ -540,7 +540,7 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
                   {data.ctaText || "Precisa de suporte no dimensionamento ou fornecimento de materiais para esta linha em sua obra? Fale diretamente com nossa equipe."}
                 </p>
                 <a
-                  href={`https://wa.me/5561991311283?text=${encodeURIComponent(
+                  href={`https://wa.me/5561998904494?text=${encodeURIComponent(
                     data.ctaWhatsAppText || `Olá! Gostaria de solicitar um orçamento e saber mais informações sobre a linha de fornecimento: ${data.title}.`
                   )}`}
                   target="_blank"
