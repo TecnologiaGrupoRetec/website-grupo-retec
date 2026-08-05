@@ -6,28 +6,49 @@ Este documento define o padrão de design, tipografia, cores, tamanhos e estrutu
 
 ## 1. Cores e Variáveis de Estilo
 
-Os estilos utilizam tanto variáveis Sass (`variables.scss`) quanto variáveis CSS nativas (`index.module.scss`). A tabela abaixo descreve o papel de cada cor:
+Os estilos do site utilizam variáveis Sass (`variables.scss`), variáveis CSS nativas (definidas nos módulos `.module.scss` sob a classe `.page`) e cores utilitárias/funcionais específicas para manter a identidade visual do Grupo RETEC de forma consistente.
 
-### Paleta Principal (Sass Variables)
-| Variável | Valor Hex | Uso Recomendado |
+### 1.1. Paleta Principal (Sass Variables - `variables.scss`)
+| Variável | Valor Hex | Nome Visual | Uso Recomendado |
+| :--- | :--- | :--- | :--- |
+| `$primary` | `#002D5D` | Azul Institucional RETEC | Azul escuro principal da marca (títulos e elementos em páginas claras) |
+| `$secondary` | `#3AA0DB` | Azul Sky / Cyan Destaque | Azul claro de destaque (eyebrows, links, números em cards escuros, botões) |
+| `$detail` | `#74B88E` | Verde Detalhe | Verde suave para badges, checkmarks e destaques secundários |
+| `$neutral` | `#999999` | Cinza Neutro | Cinza intermediário para elementos secundários e placeholders |
+| `$neutral-light` | `#D9D9D9` | Cinza Claro | Linhas de divisão, bordas suaves e separadores |
+| `$surface` | `#F2F3FA` | Superfície Cinza-Azulada | Fundo suave para seções secundárias, cards e contêineres |
+| `$text-neutral` | `#6F6F6F` | Cinza Texto Legibilidade | Cinza focado em legibilidade para descrições e subtextos |
+| `$white` | `#FFFFFF` | Branco Puro | Fundos claros de páginas, cards e textos sobre fundos escuros |
+| `$black` | `#000000` | Sombras / Contrastes | Sombras, sobreposições (overlays) e contrastes máximos |
+
+### 1.2. Variáveis CSS Globais Nativas (Definidas em `.page`)
+| Variável | Valor / Código | Nome Visual / Papel | Uso no Layout |
+| :--- | :--- | :--- | :--- |
+| `--navy` | `#0f2854` | RETEC Dark Navy | Fundo de seções escuras (`.sectionDark`), Navbar, Hero e botões primários |
+| `--blue` | `#1c4d8d` | RETEC Royal Blue | Cor de realce azul royal para botões de CTA, links e estados hover |
+| `--soft` | `#f3f6fb` | Soft Background | Cor de fundo suave de cards claros e seções alternadas |
+| `--text` | `#1f2937` | Dark Charcoal / Slate | Cor padrão do texto principal do corpo da página |
+| `--muted` | `#5d6677` | Muted Gray-Blue | Textos secundários, subtítulos e descrições em cards |
+| `--border` | `rgba(0, 0, 0, 0.18)` | Dark Border Subtle | Borda sutil para contêineres e shells navegáveis |
+| `--page-max` | `1280px` | Page Max Width | Largura máxima do contêiner de conteúdo principal |
+
+### 1.3. Cores Específicas, Funcionais e Gradientes
+Além das variáveis de sistema, o site utiliza cores específicas para contextos operacionais, gradientes corporativos e componentes interativos:
+
+| Categoria | Código / Valor | Descrição e Aplicação no Site |
 | :--- | :--- | :--- |
-| `$primary` | `#002D5D` | Azul escuro principal da marca (títulos em páginas claras) |
-| `$secondary` | `#3AA0DB` | Azul claro de destaque (eyebrows, links, botões) |
-| `$detail` | `#74B88E` | Verde detalhe (badges, checkmarks, destaques secundários) |
-| `$neutral` | `#999999` | Cinza neutro padrão |
-| `$neutral-light` | `#D9D9D9` | Cinza claro para linhas de divisão e bordas suaves |
-| `$surface` | `#F2F3FA` | Fundo cinza-azulado suave para seções secundárias |
-| `$text-neutral` | `#6F6F6F` | Cinza focado em legibilidade de textos secundários |
-| `$white` | `#FFFFFF` | Fundos claros de páginas e textos em seções escuras |
-| `$black` | `#000000` | Sombras, sobreposições e contrastes máximos |
+| **Dark Hero Background** | `#071226` / `#0c1a30` | Fundo ultra-escuro para banners Hero com carrossel e seções de alta profundidade visual |
+| **Hero Overlay** | `linear-gradient(90deg, rgba(7, 18, 38, 0.82) 0%, rgba(7, 18, 38, 0.52) 38%, rgba(7, 18, 38, 0.14) 100%)` | Overlay gradiente para garantir leitura e contraste ideal sobre as fotos do carrossel Hero |
+| **Gradiente Corporativo CTA** | `linear-gradient(118deg, #0f2854 0%, #123665 58%, #1c4d8d 100%)` | Gradiente azul institucional utilizado nas seções de CTA final (Blog, Obras, Soluções) |
+| **Verde WhatsApp** | `#25d366` / `#67C15E` | Cor oficial para botões flutuantes, ícones e CTAs do WhatsApp comercial |
+| **Verde Presença (Mapa)** | `#10b981` | Verde esmeralda para pins de localização no componente do Mapa do Brasil |
+| **Bordas & Divisores Suaves** | `#dce2ec` / `#d8deea` | Bordas finas para timelines, cards de marcas representadas e divisores do rodapé |
+| **Fundo Nichos & Specs** | `#f7f9fc` / `#f0f4fa` | Fundo suave com tom levemente azulado para tabelas técnicas e especificações em nichos |
+| **Badge Subcategoria (Pílula)** | `rgba(58, 160, 219, 0.08)` (fundo) / `#1c4d8d` (texto) | Pílulas de tags discretas no rodapé de cards com texto azul de realce |
 
-### Variáveis CSS Globais (Definidas em `.page`)
-*   `--navy`: `#0f2854` (Fundo de seções escuras `.sectionDark` e Navbar)
-*   `--blue`: `#1c4d8d` (Cor de realce azul royal)
-*   `--soft`: `#f3f6fb` (Cor de fundo suave de cards e seções)
-*   `--text`: `#1f2937` (Cor padrão do texto principal do corpo da página)
-*   `--muted`: `#5d6677` (Cor para textos secundários e descrições)
-*   `--page-max`: `1280px` (Largura máxima do container de conteúdo)
+### 1.4. Diretrizes de Aplicação de Temas (Light vs Dark)
+*   **Seções Claras (Light Mode)**: Fundos `$white` e `--soft` (`#f3f6fb`), texto do corpo em `--text` (`#1f2937`), títulos em `$primary` (`#002D5D`) ou `--navy` (`#0f2854`).
+*   **Seções Escuras (Dark Mode - `.sectionDark` / Hero)**: Fundos `--navy` (`#0f2854`) ou `#071226`, textos em `$white` (`#ffffff`) com descrições em opacidade `0.9` ou `rgba(255, 255, 255, 0.7)`, eyebrows e números em `$secondary` (`#3AA0DB`).
 
 ---
 

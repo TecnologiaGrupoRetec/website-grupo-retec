@@ -221,7 +221,7 @@ export default function Navbar(props: NavbarProps) {
 
               <a
                 className={styles.navCta}
-                href="https://wa.me/5561991311283"
+                href="https://wa.me/5561998904494"
                 target="_blank"
                 rel="noreferrer"
                 onClick={closeAll}

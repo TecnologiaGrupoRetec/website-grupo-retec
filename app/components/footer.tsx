@@ -18,7 +18,7 @@ const footerGroups = [
     links: [
       { label: "História", href: "/#historia" },
       { label: "Equipe", href: "/sobre" },
-      { label: "Contato", href: "https://wa.me/5561991311283" },
+      { label: "Contato", href: "https://wa.me/5561998904494" },
       { label: "Blog", href: "/blog" },
     ],
   },
@@ -27,7 +27,7 @@ const footerGroups = [
     links: [
       { label: "Artigos", href: "/blog" },
       { label: "Recursos", href: "/blog" },
-      { label: "Catálogos", href: "https://wa.me/5561991311283" },
+      { label: "Catálogos", href: "https://wa.me/5561998904494" },
     ],
   },
 ];

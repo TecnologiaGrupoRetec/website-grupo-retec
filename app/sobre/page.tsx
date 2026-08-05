@@ -73,7 +73,7 @@ export default function Home() {
               <br /><br />
               Hoje, com mais de 40 anos de mercado, mantém a liderança na distribuição de HVAC no Distrito Federal e em todo o estado de Goiás, com produtos para ar-condicionado, difusão de ar, dutos, filtros, isolamentos, ventilação e exaustão.
             </p>
-            <a className={styles.contact} href="https://wa.me/5561991311283">
+            <a className={styles.contact} href="https://wa.me/5561998904494">
               Fale com a gente
             </a>
           </div>
