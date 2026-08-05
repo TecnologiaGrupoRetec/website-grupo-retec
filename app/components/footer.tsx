@@ -6,9 +6,8 @@ const footerGroups = [
   {
     title: "Serviços",
     links: [
-      { label: "Obras", href: "/obras" },
-      { label: "Projetos", href: "/obras" },
-      { label: "Consultoria", href: "/#processo" },
+      { label: "Produtos", href: "/solucoes" },
+      { label: "Obras Fornecidas", href: "/obras" },
       { label: "Suporte", href: "/#faq" },
       { label: "Sobre", href: "/sobre" },
     ],
@@ -75,6 +74,7 @@ export default function Footer() {
                 <p>Av. Caiapó, 452 - St. Genoveva</p>
                 <p>CEP: 74672-400</p>
                 <p>(62) 3204-6782</p>
+                <p>Segunda a Sexta</p>
                 <p>8h às 18h</p>
               </div>
             </div>
@@ -85,6 +85,7 @@ export default function Footer() {
                 <p>SIA Trecho 17 Rua 17 Nº 1380</p>
                 <p>CEP: 71.200-249</p>
                 <p>(61) 3363-7310</p>
+                <p>Segunda a Sexta</p>
                 <p>8h às 18h</p>
               </div>
             </div>

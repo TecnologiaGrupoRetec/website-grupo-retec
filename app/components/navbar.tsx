@@ -120,7 +120,7 @@ export default function Navbar(props: NavbarProps) {
                   onMouseLeave={handleSolucoesLeave}
                 >
                   <summary className={styles.navDropdownTrigger}>
-                    <Link href="/solucoes" onClick={closeAll}>Soluções</Link>
+                    <Link href="/solucoes" onClick={closeAll}>Produtos</Link>
                     <span className={styles.navDropdownArrow} aria-hidden="true" />
                   </summary>
                   <div className={styles.navDropdownMenu}>
@@ -182,39 +182,7 @@ export default function Navbar(props: NavbarProps) {
                     </Link>
                   </div>
                 </details>
-
-                <details
-                  className={styles.navDropdown}
-                  open={lojaOpen}
-                  onToggle={(e) => setLojaOpen(e.currentTarget.open)}
-                  onMouseEnter={handleLojaEnter}
-                  onMouseLeave={handleLojaLeave}
-                >
-                  <summary className={styles.navDropdownTrigger}>
-                    Loja Virtual
-                    <span className={styles.navDropdownArrow} aria-hidden="true" />
-                  </summary>
-                  <div className={styles.navDropdownMenu}>
-                    <a
-                      className={styles.navDropdownItem}
-                      href="https://www.artmosferabrasil.com.br/"
-                      target="_blank"
-                      rel="noreferrer"
-                      onClick={closeAll}
-                    >
-                      E-commerce
-                    </a>
-                    <a
-                      className={styles.navDropdownItem}
-                      href="https://www.mercadolivre.com.br/pagina/ra20250419195946#from=share_eshop"
-                      target="_blank"
-                      rel="noreferrer"
-                      onClick={closeAll}
-                    >
-                      Mercado Livre
-                    </a>
-                  </div>
-                </details>
+                <Link href="https://www.loja.gruporetec.com.br/" onClick={closeAll}>Loja Virtual</Link>
                 <Link href="/obras" onClick={closeAll}>Obras</Link>
                 <Link href="/blog" onClick={closeAll}>Blog</Link>
               </nav>

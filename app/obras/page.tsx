@@ -32,9 +32,9 @@ export default function Projects() {
           <div className={styles.container}>
             <div className={styles.heroContent}>
               <div className={styles.heroCopy}>
-                <h1 className={styles.heroTitle}>Explore Nossas Obras</h1>
+                <h1 className={styles.heroTitle}>Obras Fornecidas</h1>
                 <p className={styles.heroText}>
-                  Fornecemos produtos de alto desempenho e desenvolvemos soluções sob medida para obras de diferentes portes.
+                  Fornecemos produtos de alta qualidade e eficiência para obras de diferentes portes.
                 </p>
               </div>
             </div>
@@ -46,9 +46,9 @@ export default function Projects() {
           <div className={styles.container}>
             <div className={`${styles.sectionIntro} ${styles.sectionIntroCentered}`}>
               <p className={styles.eyebrow}>Portfólio</p>
-              <h2 className={styles.sectionTitle}>Nossos Cases</h2>
+              <h2 className={styles.sectionTitle}>Cases de Sucesso Retec</h2>
               <p className={styles.sectionText}>
-                Conheça alguns dos principais projetos executados com produtos do Grupo RETEC.
+                Conheça alguns dos clientes que contém produtos fornecidos pelo Grupo Retec.
               </p>
             </div>
 
