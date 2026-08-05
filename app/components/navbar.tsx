@@ -15,10 +15,8 @@ export default function Navbar(props: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [solucoesOpen, setSolucoesOpen] = useState(false);
-  const [lojaOpen, setLojaOpen] = useState(false);
 
   const solucoesTimer = useRef<NodeJS.Timeout | null>(null);
-  const lojaTimer = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,10 +36,8 @@ export default function Navbar(props: NavbarProps) {
 
   const closeAll = () => {
     if (solucoesTimer.current) clearTimeout(solucoesTimer.current);
-    if (lojaTimer.current) clearTimeout(lojaTimer.current);
     setIsOpen(false);
     setSolucoesOpen(false);
-    setLojaOpen(false);
   };
 
   const handleSolucoesEnter = () => {
@@ -55,20 +51,6 @@ export default function Navbar(props: NavbarProps) {
     if (solucoesTimer.current) clearTimeout(solucoesTimer.current);
     solucoesTimer.current = setTimeout(() => {
       setSolucoesOpen(false);
-    }, 150);
-  };
-
-  const handleLojaEnter = () => {
-    if (lojaTimer.current) clearTimeout(lojaTimer.current);
-    lojaTimer.current = setTimeout(() => {
-      setLojaOpen(true);
-    }, 120);
-  };
-
-  const handleLojaLeave = () => {
-    if (lojaTimer.current) clearTimeout(lojaTimer.current);
-    lojaTimer.current = setTimeout(() => {
-      setLojaOpen(false);
     }, 150);
   };
 
