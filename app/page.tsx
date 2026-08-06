@@ -486,12 +486,12 @@ export default function Home() {
         <ScrollReveal direction="up" className={styles.representativesCta}>
           <div className={styles.representativesCtaGlow} aria-hidden="true" />
           <div className={styles.representativesCtaContent}>
-            <p className={styles.representativesCtaEyebrow}>Atendimento especializado</p>
+            <p className={styles.representativesCtaEyebrow}>Consultores Especializados</p>
             <h2 className={styles.representativesCtaTitle}>
-              Seu projeto precisa de experiência técnica em climatização?
+              Você precisa de atendimento rápido, produtos de referência e alta qualidade em climatizacao?
             </h2>
             <p className={styles.representativesCtaText}>
-              Conte com quem há mais de 40 anos fornece equipamentos HVAC para obras, empresas e grandes empreendimentos.
+              Conte com quem há mais de 40 anos fornece equipamentos de HVAC e centrais de água gelada para obras, empresas, grandes empreendimentos e residenciais de luxo.
             </p>
           </div>
 
