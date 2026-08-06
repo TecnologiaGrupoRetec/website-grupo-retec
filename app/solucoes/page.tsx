@@ -25,6 +25,7 @@ const suppliedCompanies = [
   { src: "/home/empresas_fornecidas/logo_sabin.webp", alt: "Sabin", link: "https://www.sabin.com.br/" },
   { src: "/home/empresas_fornecidas/logo_terral.webp", alt: "Terral", link: "https://www.terral.com.br/" },
   { src: "/home/empresas_fornecidas/logo_villela-carvalho.webp", alt: "Villela Carvalho", link: "https://www.villela.com.br/" },
+  { src: "/home/empresas_fornecidas/logo_saint-gobain.webp", alt: "Saint-Gobain", link: "https://www.saint-gobain.com.br/" },
 ];
 
 const representativeBrands = [

@@ -37,6 +37,7 @@ const suppliedCompanies = [
   { src: "/home/empresas_fornecidas/logo_sabin.webp", alt: "Sabin" },
   { src: "/home/empresas_fornecidas/logo_terral.webp", alt: "Terral" },
   { src: "/home/empresas_fornecidas/logo_villela-carvalho.webp", alt: "Villela Carvalho" },
+  { src: "/home/empresas_fornecidas/logo_saint-gobain.webp", alt: "Saint-Gobain" },
 ];
 
 const processSteps = [
