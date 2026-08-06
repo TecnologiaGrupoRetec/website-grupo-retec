@@ -146,9 +146,9 @@ const testimonials = [
 
 const faqs = [
   {
-    question: "Quais tipos de solução a RETEC atende?",
+    question: "Quais tipos de soluções a RETEC fornece?",
     answer:
-      "Atendemos sistemas HVAC para aplicações comerciais, hospitalares, laboratoriais e industriais, com foco em climatização, ventilação, exaustão e componentes especializados.",
+      "Atendemos sistemas HVAC para aplicações comerciais, residencias de alto padrão, hospitalares, laboratoriais e industriais, com foco em climatização, ventilação, exaustão, isolamento térmicos e componentes especializados.",
   },
   {
     question: "Vocês fazem apenas fornecimento ou também apoio técnico?",
