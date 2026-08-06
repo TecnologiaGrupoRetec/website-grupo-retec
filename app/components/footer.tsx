@@ -4,7 +4,7 @@ import styles from "./styles/footer.module.scss";
 
 const footerGroups = [
   {
-    title: "Serviços",
+    title: "Portfólio",
     links: [
       { label: "Produtos", href: "/solucoes" },
       { label: "Obras Fornecidas", href: "/obras" },
