@@ -126,7 +126,7 @@ const segments: Segment[] = [
   {
     title: "Academias e Centros Fitness",
     category: "Bem-estar & Esportes",
-    img: "/projects/canpack.jpg",
+    img: "/projects/academias-fitness.png",
     description: "Alta renovação de ar e controle de umidade para ambientes com alta taxa de transpiração.",
     paragraphs: [
       "Academias de ginástica e centros fitness possuem carga térmica elevada devido à atividade física intensa dos alunos. A umidade elevada e o odor corporal exigem alta taxa de renovação e exaustão de ar.",
@@ -138,7 +138,7 @@ const segments: Segment[] = [
   {
     title: "Residencial de Alto Padrão",
     category: "Residencial Premium",
-    img: "/about/about2.jpg",
+    img: "/projects/casa-alto-padrao.jpg",
     description: "Design integrado à decoração, operation silenciosa e máxima eficiência energética.",
     paragraphs: [
       "Residências de luxo e alto padrão exigem climatização invisível: equipamentos ocultos em sancas de gesso, dutos embutidos e grelhas lineares de design minimalista que complementam o projeto de arquitetura de interiores.",
@@ -150,7 +150,7 @@ const segments: Segment[] = [
   {
     title: "Restaurantes e Alimentação",
     category: "Alimentação & Lazer",
-    img: "/about/office-inside.webp",
+    img: "/projects/restaurantes-alimentacao.png",
     description: "Exaustão profissional de cozinhas e climatização confortável para salão de clientes.",
     paragraphs: [
       "Restaurantes exigem um balanço térmico preciso: o salão de clientes precisa de climatização confortável e silenciosa, enquanto a cozinha necessita de sistemas de exaustão e captação de gordura extremamente potentes.",

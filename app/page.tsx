@@ -118,6 +118,22 @@ const highlightCards = [
     description:
       "Infraestrutura crítica que depende de controle térmico preciso.",
   },
+  {
+    label: "Residencial",
+    title: "Casas e condomínios de alto padrão",
+    icon: "/icons/casa.svg",
+    urlLink: "/solucoes/residencia-alto-padrao",
+    description:
+      "Conforto térmico com inteligência e design.",
+  },
+  {
+    label: "Governamental",
+    title: "Órgãos públicos e espaços de convivência",
+    icon: "/icons/governo.svg",
+    urlLink: "/solucoes/governamental-institucional",
+    description:
+      "Controle de climatização, ventilação e exaustão para órgãos públicos, templos, escolas e instituições.",
+  }
 ];
 
 const testimonials = [
