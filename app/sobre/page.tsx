@@ -26,14 +26,14 @@ const timelineItems = [
     year: "2021 a 2024",
     description:
       "Em busca de melhores condições de atendimento técnico e comercial, iniciamos a transição estratégica para o SIA.",
-    image: "/home/new-facade.webp",
+    image: "/home/showroom.webp",
     alt: "Fachada da RETEC no SIA",
   },
   {
     year: "2024",
     description:
       "Inauguramos o showroom no SIA para proporcionar uma experiência mais completa aos nossos clientes e parceiros.",
-    image: "/about/empty-office.webp",
+    image: "/home/hall_entrada.webp",
     alt: "Showroom da RETEC",
   },
   {
