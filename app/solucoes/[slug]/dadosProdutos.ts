@@ -18,6 +18,7 @@ import hiWallImg from "../../produtos/climatizacao-equipamentos/hi-wall.webp";
 import chillerParafusoImg from "../../produtos/refrigeracao-alta-perfomace/chiller-parafuso.webp";
 import chillerUalImg from "../../produtos/refrigeracao-alta-perfomace/chiller-ual.webp";
 import miniChillerDaikinImg from "../../produtos/refrigeracao-alta-perfomace/mini-chiller-daikin.webp";
+import torreEvapcoImg from "../../produtos/refrigeracao-alta-perfomace/torre-de-resfriamento.webp";
 
 // 3. Exaustão e Ventilação
 import exaustorAci250Img from "../../produtos/exaustao-e-ventilacao/exaustor_aci_250_sicflux.webp";
@@ -197,6 +198,12 @@ export const produtosPorCategoria: Record<string, CategoryProductsData> = {
         descricao: "O Mini Chiller Inverter Daikin oferece alto desempenho e eficiência térmica em um design extremamente compacto. Ideal para residências e comércios de pequeno a médio porte, utiliza tecnologia inverter para otimizar o consumo de energia de forma silenciosa.",
         excelentePara: "Residências de alto padrão, clínicas, escritórios, consultórios e projetos com restrição de espaço externo.",
         imagem: miniChillerDaikinImg
+      },
+      {
+        titulo: "Torre de Resfriamento Evapco",
+        descricao: "A Torre de Resfriamento da Evapco possui design moderno e compacto, conta com sistema de distribuição de água por bicos EvapJet™, que garantem distribuição uniforme de água e excelente transferência de calor. O sistema de ventilação é composto por ventilador axial de alta eficiência, que proporciona baixo nível de ruído e alta vazão de ar.",
+        excelentePara: "Hotéis, hospitais, prédios comerciais de médio e grande porte, indústrias e projetos com necessidade de restrições de ruído.",
+        imagem: torreEvapcoImg
       }
     ]
   },
