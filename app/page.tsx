@@ -280,16 +280,37 @@ export default function Home() {
         <section className={styles.section}>
           <div className={styles.container}>
             <div className={styles.highlightsLayout}>
-              <ScrollReveal direction="up">
-                <div className={styles.sectionIntro}>
-                  <p className={styles.eyebrow}>Atuação</p>
-                  <h2 className={styles.sectionTitle}>Onde o Grupo RETEC gera valor</h2>
-                  <p className={styles.sectionText}>
-                    Portfólio técnico e leitura consultiva <br />
-                    para projetos que exigem eficiencia energetica, desempenho, qualidade e prazos confiaveis.
-                  </p>
-                </div>
-              </ScrollReveal>
+              <div className={styles.highlightsLeftColumn}>
+                <ScrollReveal direction="up">
+                  <div className={styles.sectionIntro}>
+                    <p className={styles.eyebrow}>Atuação</p>
+                    <h2 className={styles.sectionTitle}>Onde o Grupo RETEC gera valor</h2>
+                    <p className={styles.sectionText}>
+                      Portfólio técnico e leitura consultiva <br />
+                      para projetos que exigem eficiência energética, desempenho, qualidade e prazos confiáveis.
+                    </p>
+                  </div>
+                </ScrollReveal>
+
+                <ScrollReveal direction="up" delay={200} className={styles.atuacaoBannerReveal}>
+                  <div className={styles.atuacaoBannerCard}>
+                    <Image
+                      src="/home/atuacao-banner.png"
+                      alt="Engenharia e Distribuição HVAC Grupo RETEC"
+                      width={540}
+                      height={320}
+                      className={styles.atuacaoBannerImg}
+                    />
+                    <div className={styles.atuacaoBannerOverlay}>
+                      <span className={styles.atuacaoBannerTag}>Atendimento Especializado</span>
+                      <h3 className={styles.atuacaoBannerTitle}>Distribuição de produtos HVAC</h3>
+                      <p className={styles.atuacaoBannerSub}>
+                        Soluções de alta performance e suporte técnico especializado para todos os segmentos de mercado.
+                      </p>
+                    </div>
+                  </div>
+                </ScrollReveal>
+              </div>
 
               <div className={styles.highlightGrid}>
                 {highlightCards.map((card, idx) => {
