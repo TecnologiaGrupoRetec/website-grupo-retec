@@ -165,6 +165,7 @@ export default function Navbar(props: NavbarProps) {
                   </div>
                 </details>
                 <Link href="https://www.loja.gruporetec.com.br/" onClick={closeAll}>Loja Virtual</Link>
+                <Link href="/solucoes" onClick={closeAll}>Soluções</Link>
                 <Link href="/obras" onClick={closeAll}>Obras</Link>
                 <Link href="/blog" onClick={closeAll}>Blog</Link>
               </nav>
