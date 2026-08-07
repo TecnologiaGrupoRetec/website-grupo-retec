@@ -138,25 +138,22 @@ const highlightCards = [
 
 const testimonials = [
   {
-    initials: "DF",
-    name: "Equipe de obra em Brasília",
-    role: "Cliente corporativo",
+    image: "/home/avaliacao.png",
+    name: "Messias Fernandes",
     quote:
-      "A RETEC entrou no projeto com leitura técnica e agilidade. O atendimento trouxe segurança para toda a execução.",
+      "Empresa referência em produtos HVAC, conta com os melhores produtos e uma equipe qualificada e sempre disposta a solucionar o problema do cliente na área de climatização.",
   },
   {
-    initials: "GO",
-    name: "Parceiro instalador",
-    role: "Canal técnico",
+    image: "/home/avaliacao2.png",
+    name: "Gesiel Meireles",
     quote:
-      "O diferencial foi o suporte consultivo. Não foi só venda: houve orientação real para escolher a solução certa.",
+      "Primeira vez que comprei nessa loja, atendimento ótimo,conversa pelo Whatsapp não demorou a responder.",
   },
   {
-    initials: "HV",
-    name: "Gestão hospitalar",
-    role: "Operação crítica",
+    image: "/home/avaliacao3.png",
+    name: "Maurício Campos",
     quote:
-      "Precisávamos de confiabilidade e prazo. A RETEC entregou ambos com uma comunicação muito próxima do início ao fim.",
+      "Me surpreendi com a quantidade diversidade de material para instalação industrial disponibilizado pela Empresa Retec.",
   },
 ];
 
@@ -386,15 +383,24 @@ export default function Home() {
 
             <div className={styles.testimonialGrid}>
               {testimonials.map((testimonial, idx) => (
-                <ScrollReveal key={testimonial.name} delay={idx * 150} direction="up">
+                <ScrollReveal key={testimonial.name} delay={idx * 150} direction="up" className={styles.testimonialReveal}>
                   <article className={styles.testimonialCard}>
-                    <div className={styles.testimonialStars}>★★★★★</div>
-                    <p className={styles.testimonialQuote}>{testimonial.quote}</p>
+                    <div className={styles.testimonialCardContent}>
+                      <div className={styles.testimonialStars}>★★★★★</div>
+                      <p className={styles.testimonialQuote}>&quot;{testimonial.quote}&quot;</p>
+                    </div>
                     <div className={styles.testimonialAuthor}>
-                      <span className={styles.testimonialAvatar}>{testimonial.initials}</span>
+                      <div className={styles.testimonialAvatar}>
+                        <Image
+                          src={testimonial.image}
+                          alt={testimonial.name}
+                          width={48}
+                          height={48}
+                          className={styles.testimonialAvatarImg}
+                        />
+                      </div>
                       <div>
                         <p className={styles.testimonialName}>{testimonial.name}</p>
-                        <p className={styles.testimonialRole}>{testimonial.role}</p>
                       </div>
                     </div>
                   </article>
