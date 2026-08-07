@@ -7,6 +7,7 @@ const footerGroups = [
     title: "Portfólio",
     links: [
       { label: "Produtos", href: "/solucoes" },
+      { label: "Soluções", href: "/solucoes" },
       { label: "Obras Fornecidas", href: "/obras" },
       { label: "Suporte", href: "/#faq" },
       { label: "Sobre", href: "/sobre" },
