@@ -158,7 +158,7 @@ export default function SolucoesPage() {
               {/* Cards de estatísticas inferiores */}
               <div className={styles.statsRow}>
                 <div className={styles.statCard}>
-                  <CounterNumber value="+40" className={styles.statNumber} />
+                  <CounterNumber value="+44" className={styles.statNumber} />
                   <p className={styles.statLabel}>Anos de mercado</p>
                 </div>
                 <div className={styles.statCard}>

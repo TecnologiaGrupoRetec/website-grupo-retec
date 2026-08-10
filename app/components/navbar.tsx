@@ -126,24 +126,10 @@ export default function Navbar(props: NavbarProps) {
                   <div className={styles.navDropdownMenu}>
                     <Link
                       className={styles.navDropdownItem}
-                      href="/solucoes/expansao-direta"
-                      onClick={closeAll}
-                    >
-                      Expansão Direta
-                    </Link>
-                    <Link
-                      className={styles.navDropdownItem}
                       href="/solucoes/agua-gelada-e-rejeicao-de-calor"
                       onClick={closeAll}
                     >
                       Água Gelada & Rejeição de Calor
-                    </Link>
-                    <Link
-                      className={styles.navDropdownItem}
-                      href="/solucoes/exaustao-e-ventilacao"
-                      onClick={closeAll}
-                    >
-                      Exaustão & Ventilação
                     </Link>
                     <Link
                       className={styles.navDropdownItem}
@@ -161,10 +147,17 @@ export default function Navbar(props: NavbarProps) {
                     </Link>
                     <Link
                       className={styles.navDropdownItem}
-                      href="/solucoes/isolamento-termico-e-acustico"
+                      href="/solucoes/exaustao-e-ventilacao"
                       onClick={closeAll}
                     >
-                      Isolamento Térmico & Acústico
+                      Exaustão & Ventilação
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/expansao-direta"
+                      onClick={closeAll}
+                    >
+                      Expansão Direta
                     </Link>
                     <Link
                       className={styles.navDropdownItem}
@@ -172,6 +165,13 @@ export default function Navbar(props: NavbarProps) {
                       onClick={closeAll}
                     >
                       Filtragem & Qualidade do Ar
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/isolamento-termico-e-acustico"
+                      onClick={closeAll}
+                    >
+                      Isolamento Térmico & Acústico
                     </Link>
                     <Link
                       className={styles.navDropdownItem}
@@ -204,24 +204,24 @@ export default function Navbar(props: NavbarProps) {
                   <div className={styles.navDropdownMenu}>
                     <Link
                       className={styles.navDropdownItem}
+                      href="/solucoes/data-centers-missao-critica"
+                      onClick={closeAll}
+                    >
+                      Data Centers
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/predios-comerciais"
+                      onClick={closeAll}
+                    >
+                      Edifícios Corporativos
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
                       href="/solucoes/hospitais-clinicas"
                       onClick={closeAll}
                     >
                       Hospitais
-                    </Link>
-                    <Link
-                      className={styles.navDropdownItem}
-                      href="/solucoes/industrias-farmaceuticas-processos-industriais"
-                      onClick={closeAll}
-                    >
-                      Laboratórios
-                    </Link>
-                    <Link
-                      className={styles.navDropdownItem}
-                      href="/solucoes/residencial-alto-padrao"
-                      onClick={closeAll}
-                    >
-                      Residências de Alto Padrão
                     </Link>
                     <Link
                       className={styles.navDropdownItem}
@@ -239,24 +239,17 @@ export default function Navbar(props: NavbarProps) {
                     </Link>
                     <Link
                       className={styles.navDropdownItem}
-                      href="/solucoes/shopping-centers"
+                      href="/solucoes/industrias-farmaceuticas-processos-industriais"
                       onClick={closeAll}
                     >
-                      Shopping Centers
+                      Laboratórios
                     </Link>
                     <Link
                       className={styles.navDropdownItem}
-                      href="/solucoes/predios-comerciais"
+                      href="/solucoes/residencial-alto-padrao"
                       onClick={closeAll}
                     >
-                      Edifícios Corporativos
-                    </Link>
-                    <Link
-                      className={styles.navDropdownItem}
-                      href="/solucoes/data-centers-missao-critica"
-                      onClick={closeAll}
-                    >
-                      Data Centers
+                      Residências de Alto Padrão
                     </Link>
                     <Link
                       className={styles.navDropdownItem}
@@ -264,6 +257,13 @@ export default function Navbar(props: NavbarProps) {
                       onClick={closeAll}
                     >
                       Retrofit
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/shopping-centers"
+                      onClick={closeAll}
+                    >
+                      Shopping Centers
                     </Link>
                   </div>
                 </details>
