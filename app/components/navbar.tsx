@@ -182,7 +182,14 @@ export default function Navbar(props: NavbarProps) {
                     </Link>
                   </div>
                 </details>
-                <Link href="https://www.loja.gruporetec.com.br/" onClick={closeAll}>Loja Virtual</Link>
+                <Link
+                  href="https://www.loja.gruporetec.com.br/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={closeAll}
+                >
+                  Loja Virtual
+                </Link>
                 <details
                   className={styles.navDropdown}
                   open={solucoesOpen}
