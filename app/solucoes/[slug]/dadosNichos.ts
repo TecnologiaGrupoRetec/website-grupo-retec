@@ -442,7 +442,7 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
     slug: "residencial-alto-padrao",
     segmento: "Residencial de alto padrão",
     grupo: "Ambientes de Conforto e Experiência",
-    imageUrl: "/about/about2.jpg",
+    imageUrl: "/projects/casa-alto-padrao.jpg",
     ctaImageUrl: "/produtos/climatizacao-equipamentos/vrv-s.webp",
     hero: {
       titulo: "Soluções HVAC para residências de alto padrão",

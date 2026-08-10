@@ -14,8 +14,10 @@ export default function Navbar(props: NavbarProps) {
   void props.activeTab;
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [produtosOpen, setProdutosOpen] = useState(false);
   const [solucoesOpen, setSolucoesOpen] = useState(false);
 
+  const produtosTimer = useRef<NodeJS.Timeout | null>(null);
   const solucoesTimer = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
@@ -35,9 +37,25 @@ export default function Navbar(props: NavbarProps) {
   }, []);
 
   const closeAll = () => {
+    if (produtosTimer.current) clearTimeout(produtosTimer.current);
     if (solucoesTimer.current) clearTimeout(solucoesTimer.current);
     setIsOpen(false);
+    setProdutosOpen(false);
     setSolucoesOpen(false);
+  };
+
+  const handleProdutosEnter = () => {
+    if (produtosTimer.current) clearTimeout(produtosTimer.current);
+    produtosTimer.current = setTimeout(() => {
+      setProdutosOpen(true);
+    }, 120);
+  };
+
+  const handleProdutosLeave = () => {
+    if (produtosTimer.current) clearTimeout(produtosTimer.current);
+    produtosTimer.current = setTimeout(() => {
+      setProdutosOpen(false);
+    }, 150);
   };
 
   const handleSolucoesEnter = () => {
@@ -96,10 +114,10 @@ export default function Navbar(props: NavbarProps) {
                 <Link href="/sobre" onClick={closeAll}>Sobre</Link>
                 <details
                   className={styles.navDropdown}
-                  open={solucoesOpen}
-                  onToggle={(e) => setSolucoesOpen(e.currentTarget.open)}
-                  onMouseEnter={handleSolucoesEnter}
-                  onMouseLeave={handleSolucoesLeave}
+                  open={produtosOpen}
+                  onToggle={(e) => setProdutosOpen(e.currentTarget.open)}
+                  onMouseEnter={handleProdutosEnter}
+                  onMouseLeave={handleProdutosLeave}
                 >
                   <summary className={styles.navDropdownTrigger}>
                     <Link href="/solucoes" onClick={closeAll}>Produtos</Link>
@@ -165,7 +183,83 @@ export default function Navbar(props: NavbarProps) {
                   </div>
                 </details>
                 <Link href="https://www.loja.gruporetec.com.br/" onClick={closeAll}>Loja Virtual</Link>
-                <Link href="/solucoes" onClick={closeAll}>Soluções</Link>
+                <details
+                  className={styles.navDropdown}
+                  open={solucoesOpen}
+                  onToggle={(e) => setSolucoesOpen(e.currentTarget.open)}
+                  onMouseEnter={handleSolucoesEnter}
+                  onMouseLeave={handleSolucoesLeave}
+                >
+                  <summary className={styles.navDropdownTrigger}>
+                    <Link href="/solucoes" onClick={closeAll}>Soluções</Link>
+                    <span className={styles.navDropdownArrow} aria-hidden="true" />
+                  </summary>
+                  <div className={styles.navDropdownMenu}>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/hospitais-clinicas"
+                      onClick={closeAll}
+                    >
+                      Hospitais
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/industrias-farmaceuticas-processos-industriais"
+                      onClick={closeAll}
+                    >
+                      Laboratórios
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/residencial-alto-padrao"
+                      onClick={closeAll}
+                    >
+                      Residências de Alto Padrão
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/hoteis"
+                      onClick={closeAll}
+                    >
+                      Hotéis
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/industrias-farmaceuticas-processos-industriais"
+                      onClick={closeAll}
+                    >
+                      Indústrias
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/shopping-centers"
+                      onClick={closeAll}
+                    >
+                      Shopping Centers
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/predios-comerciais"
+                      onClick={closeAll}
+                    >
+                      Edifícios Corporativos
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/data-centers-missao-critica"
+                      onClick={closeAll}
+                    >
+                      Data Centers
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/predios-comerciais"
+                      onClick={closeAll}
+                    >
+                      Retrofit
+                    </Link>
+                  </div>
+                </details>
                 <Link href="/obras" onClick={closeAll}>Obras</Link>
                 <Link href="/blog" onClick={closeAll}>Blog</Link>
               </nav>
