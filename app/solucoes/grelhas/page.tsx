@@ -5,6 +5,7 @@ import Link from "next/link";
 import Navbar from "../../components/navbar";
 import Footer from "../../components/footer";
 import styles from "./grelhas.module.scss";
+import TechnicalSpecsAccordion from "../../components/technicalSpecsAccordion";
 
 export const metadata: Metadata = {
     title: "Grelhas de ventilação | RETEC",
@@ -13,47 +14,162 @@ export const metadata: Metadata = {
 };
 
 const produtos = [
-    {
-        nome: "Grelha TROX AT-AG",
-        tipo: "Insuflamento",
-        descricao:
-            "Grelha em alumínio com aletas ajustáveis para direcionamento do fluxo de ar e distribuição uniforme no ambiente.",
-        aplicacao:
-            "Escritórios, salas de reunião, hotéis, residências e ambientes climatizados.",
-        imagem:
-            "/solucoes/grelhas/grelha_trox_at_ag.png",
-    },
-    {
-        nome: "Grelha TROX AR-A",
-        tipo: "Retorno",
-        descricao:
-            "Grelha de retorno com aletas fixas, indicada para captação do ar de retorno ou exaustão com acabamento discreto.",
-        aplicacao:
-            "Sistemas de ar-condicionado, escritórios, ambientes comerciais e áreas comuns.",
-        imagem:
-            "/solucoes/grelhas/grelha_trox_ar_a.png",
-    },
-    {
-        nome: "Grelha TROX AR-AG",
-        tipo: "Retorno com regulagem",
-        descricao:
-            "Grelha de retorno com possibilidade de regulagem de vazão, auxiliando no balanceamento da distribuição de ar.",
-        aplicacao:
-            "Hotéis, edifícios comerciais, hospitais e instalações HVAC com controle de vazão.",
-        imagem:
-            "/solucoes/grelhas/grelha_trox_ar_ag.png",
-    },
-    {
-        nome: "Grelha Veneziana TROX AWK",
-        tipo: "Captação e renovação",
-        descricao:
-            "Grelha veneziana com aletas fixas indicada para captação de ar externo, retorno e aplicações em áreas técnicas.",
-        aplicacao:
-            "Fachadas, salas de máquinas, portas técnicas e sistemas de renovação de ar.",
-        imagem:
-            "/solucoes/grelhas/grelha_trox_awk.png",
-    },
+  {
+    nome: "Grelha TROX AT-AG",
+    tipo: "Insuflamento",
+    descricao:
+      "Grelha em alumínio para distribuição de ar em sistemas de climatização e ventilação, com configuração adequada ao direcionamento e controle do fluxo.",
+    aplicacao:
+      "Escritórios, salas de reunião, hotéis, residências e ambientes climatizados.",
+    imagem:
+      "/solucoes/grelhas/grelha_trox_at_ag.png",
+
+    technicalSpecs: [
+      {
+        label: "Tamanhos nominais",
+        value: "Diversas dimensões conforme o projeto",
+      },
+      {
+        label: "Material",
+        value: "Alumínio",
+      },
+      {
+        label: "Função",
+        value: "Insuflamento e distribuição de ar",
+      },
+      {
+        label: "Regulagem",
+        value: "Registro para controle do fluxo de ar",
+      },
+      {
+        label: "Instalação",
+        value: "Parede, teto ou rede de dutos",
+      },
+      {
+        label: "Acabamento",
+        value: "Anodizado ou pintura conforme especificação",
+      },
+    ],
+  },
+
+  {
+    nome: "Grelha TROX AR-A",
+    tipo: "Retorno",
+    descricao:
+      "Grelha de retorno em alumínio com aletas horizontais fixas, desenvolvida para captação eficiente do ar de retorno ou exaustão.",
+    aplicacao:
+      "Sistemas de ar-condicionado, escritórios, ambientes comerciais e áreas comuns.",
+    imagem:
+      "/solucoes/grelhas/grelha_trox_ar_a.png",
+
+    technicalSpecs: [
+      {
+        label: "Tamanhos nominais",
+        value: "Diversas dimensões conforme o projeto",
+      },
+      {
+        label: "Material",
+        value: "Perfis de alumínio",
+      },
+      {
+        label: "Aletas",
+        value: "Horizontais fixas",
+      },
+      {
+        label: "Função",
+        value: "Retorno ou exaustão de ar",
+      },
+      {
+        label: "Regulagem",
+        value: "Sem registro na configuração A",
+      },
+      {
+        label: "Acabamento",
+        value: "Alumínio anodizado ou pintura especificada",
+      },
+    ],
+  },
+
+  {
+    nome: "Grelha TROX AR-AG",
+    tipo: "Retorno com regulagem",
+    descricao:
+      "Grelha de retorno em alumínio com aletas horizontais fixas e registro posterior, permitindo ajuste da passagem de ar e apoio ao balanceamento do sistema.",
+    aplicacao:
+      "Hotéis, edifícios comerciais, hospitais e instalações HVAC com controle de vazão.",
+    imagem:
+      "/solucoes/grelhas/grelha_trox_ar_ag.png",
+
+    technicalSpecs: [
+      {
+        label: "Tamanhos nominais",
+        value: "Diversas dimensões conforme o projeto",
+      },
+      {
+        label: "Material",
+        value: "Perfis de alumínio",
+      },
+      {
+        label: "Aletas",
+        value: "Horizontais fixas",
+      },
+      {
+        label: "Função",
+        value: "Retorno ou exaustão de ar",
+      },
+      {
+        label: "Regulagem",
+        value: "Registro posterior para controle de vazão",
+      },
+      {
+        label: "Acabamento",
+        value: "Alumínio anodizado ou pintura especificada",
+      },
+    ],
+  },
+
+  {
+    nome: "Veneziana TROX AWK",
+    tipo: "Captação e renovação",
+    descricao:
+      "Veneziana exterior projetada para fechamento de aberturas de sistemas de ventilação e climatização, reduzindo a entrada direta de chuva, folhas e pássaros.",
+    aplicacao:
+      "Fachadas, salas de máquinas, áreas técnicas e sistemas de tomada ou renovação de ar.",
+    imagem:
+      "/solucoes/grelhas/grelha_trox_awk.png",
+
+    technicalSpecs: [
+      {
+        label: "Tipo",
+        value: "Veneziana exterior",
+      },
+      {
+        label: "Material",
+        value: "Alumínio",
+      },
+      {
+        label: "Aletas",
+        value: "Fixas",
+      },
+      {
+        label: "Função",
+        value: "Captação, renovação e proteção de aberturas externas",
+      },
+      {
+        label: "Proteção",
+        value: "Contra entrada direta de chuva, folhas e pássaros",
+      },
+      {
+        label: "Dimensões",
+        value: "Diversos tamanhos e medidas intermediárias",
+      },
+    ],
+  },
 ];
+
+const productColumns = [0, 1, 2].map((columnIndex) =>
+  produtos.filter((_, index) => index % 3 === columnIndex)
+);
 
 const aplicacoes = [
     {
@@ -209,45 +325,53 @@ export default function GrelhasPage() {
                             </div>
 
                             <div className={styles.productGrid}>
-                                {produtos.map((produto) => (
-                                    <article
+                                {productColumns.map((column, columnIndex) => (
+                                    <div
+                                    className={styles.productColumn}
+                                    key={columnIndex}
+                                    >
+                                    {column.map((produto) => (
+                                        <article
                                         key={produto.nome}
                                         className={styles.productCard}
                                         >
-                                          <div className={styles.productImageWrapper}>
+                                        <div className={styles.productImageWrapper}>
                                             <Image
-                                                src={produto.imagem}
-                                                alt={produto.nome}
-                                                fill
-                                                sizes="
-                                                    (max-width: 700px) 100vw,
-                                                    (max-width: 1100px) 50vw,
-                                                    33vw
-                                                "
-                                                className={styles.productImage}
+                                            src={produto.imagem}
+                                            alt={produto.nome}
+                                            fill
+                                            sizes="
+                                                (max-width: 700px) 100vw,
+                                                (max-width: 1100px) 50vw,
+                                                33vw
+                                            "
+                                            className={styles.productImage}
                                             />
                                         </div>
 
                                         <div className={styles.productContent}>
-
                                             <span className={styles.productType}>
-                                                {produto.tipo}
+                                            {produto.tipo}
                                             </span>
 
                                             <h3>{produto.nome}</h3>
-                                            
+
                                             <p>{produto.descricao}</p>
 
                                             <div className={styles.applicationText}>
-                                                <strong>Indicado para:</strong>
-                                                <span>{produto.aplicacao}</span>
+                                            <strong>Indicado para:</strong>
+                                            <span>{produto.aplicacao}</span>
                                             </div>
 
+                                            <TechnicalSpecsAccordion
+                                            specs={produto.technicalSpecs}
+                                            />
                                         </div>
-
-                                    </article>
+                                        </article>
+                                    ))}
+                                    </div>
                                 ))}
-                            </div>
+                                </div>
 
                         </div>
 
