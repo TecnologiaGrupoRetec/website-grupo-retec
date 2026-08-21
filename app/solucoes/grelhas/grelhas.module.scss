@@ -416,3 +416,13 @@
   background: var(--light-blue);
   color: #fff;
 }
+
+.actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.secondaryCtaBtn {
+  margin-left: 16px;
+}
