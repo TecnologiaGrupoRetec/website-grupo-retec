@@ -265,14 +265,6 @@ export default function Navbar(props: NavbarProps) {
                     >
                       Shopping Centers
                     </Link>
-
-                    <Link
-                      className={styles.navDropdownItem}
-                      href="/solucoes/grelhas"
-                      onClick={closeAll}
-                    >
-                      Grelhas de Ventilação
-                    </Link>
                     
                   </div>
                 </details>
