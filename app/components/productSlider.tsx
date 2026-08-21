@@ -5,7 +5,16 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./styles/product-slider.module.scss";
 
-const productCategories = [
+type ProductCategory = {
+  title: string;
+  slug: string;
+  description: string;
+  image: string;
+  secondaryLink?: string;
+  secondaryLabel?: string;
+};
+
+const productCategories: ProductCategory[] = [
   {
     title: "Expansão Direta",
     slug: "expansao-direta",
@@ -29,6 +38,10 @@ const productCategories = [
     slug: "difusao-e-controle-de-ar",
     description: "Grelhas de insuflamento e retorno, difusores de ar, venezianas de captação e dampers de regulagem.",
     image: "/produtos/difusao-controle-ar/grelha_de_retorno_trox_ar_a.webp",
+
+    // Link adicional para esta categoria
+    secondaryLink: "/solucoes/grelhas",
+    secondaryLabel: "Ver Grelhas",
   },
   {
     title: "Dutos e Rede de Ar",
@@ -89,7 +102,7 @@ export default function ProductSlider() {
       <div className={styles.container}>
         <div className={styles.sliderWrapper}>
 
-          {/* Imagem anterior do carrossel (fila de exibição) */}
+          {/* Imagem anterior do carrossel */}
           <div className={`${styles.prevImageWrapper} ${isTransitioning ? styles.transitioning : ""}`}>
             <Image
               src={prevSlide.image}
@@ -131,34 +144,79 @@ export default function ProductSlider() {
             &#8594;
           </button>
 
-          {/* Conteúdo textual da Categoria Ativa */}
-          <div className={`${styles.contentArea} ${isTransitioning ? styles.transitioning : ""}`}>
-            <span className={styles.eyebrow}>Linhas de Soluções</span>
-            <h3 className={styles.title}>{activeSlide.title}</h3>
-            <p className={styles.description}>{activeSlide.description}</p>
+          {/* Conteúdo da categoria ativa */}
+          <div
+            className={`${styles.contentArea} ${
+              isTransitioning ? styles.transitioning : ""
+            }`}
+          >
+            <span className={styles.eyebrow}>
+              Linhas de Soluções
+            </span>
 
-            <Link href={`/solucoes/${activeSlide.slug}`} className={styles.ctaBtn}>
-              <div className={styles.iconBox}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
-                  <polyline points="14 2 14 8 20 8" />
-                  <line x1="16" y1="13" x2="8" y2="13" />
-                  <line x1="16" y1="17" x2="8" y2="17" />
-                  <line x1="10" y1="9" x2="8" y2="9" />
-                </svg>
-              </div>
-              <span>Ver Soluções</span>
-            </Link>
+            <h3 className={styles.title}>
+              {activeSlide.title}
+            </h3>
+
+            <p className={styles.description}>
+              {activeSlide.description}
+            </p>
+
+            {/* Área dos botões */}
+            <div className={styles.actions}>
+              <Link
+                href={`/solucoes/${activeSlide.slug}`}
+                className={styles.ctaBtn}
+              >
+                <div className={styles.iconBox}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="16" y1="13" x2="8" y2="13" />
+                    <line x1="16" y1="17" x2="8" y2="17" />
+                    <line x1="10" y1="9" x2="8" y2="9" />
+                  </svg>
+                </div>
+
+                <span>Ver Soluções</span>
+              </Link>
+
+              {activeSlide.secondaryLink && (
+                  <Link
+                    href={activeSlide.secondaryLink}
+                    className={styles.ctaBtn}
+                  >
+                    <div className={styles.iconBox}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M5 12h14" />
+                        <path d="m13 6 6 6-6 6" />
+                      </svg>
+                    </div>
+
+                    <span>{activeSlide.secondaryLabel}</span>
+                  </Link>
+                )}
+            </div>
           </div>
 
         </div>
