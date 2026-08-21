@@ -33,6 +33,7 @@
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(-50%);
   }
@@ -45,7 +46,8 @@
   right: 0;
   top: 36px;
   z-index: 999;
-  transition: 
+
+  transition:
     padding 300ms cubic-bezier(0.4, 0, 0.2, 1),
     top 300ms cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -81,6 +83,7 @@
   justify-content: space-between;
   padding: 16px 32px;
   position: relative;
+
   transition:
     padding 300ms cubic-bezier(0.4, 0, 0.2, 1),
     background-color 300ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -120,9 +123,11 @@
   border-radius: 999px;
   display: block;
   height: 2px;
+
   transition:
     opacity 180ms ease,
     transform 180ms ease;
+
   width: 20px;
 }
 
@@ -174,6 +179,7 @@
     opacity: 0;
     transform: translateY(-8px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -224,6 +230,34 @@
   top: calc(100% + 14px);
   z-index: 30;
 
+  /* SCROLL DOS MENUS PRODUTOS E SOLUÇÕES */
+  max-height: calc(100vh - 220px);
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scrollbar-gutter: stable;
+
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(15, 40, 84, 0.35) transparent;
+
+  /* Chrome, Edge, Safari e Opera */
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(15, 40, 84, 0.3);
+    border-radius: 999px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(15, 40, 84, 0.5);
+  }
+
   &::before {
     content: "";
     position: absolute;
@@ -241,6 +275,7 @@
   font-size: 15px;
   line-height: 1.45;
   padding: 10px 12px;
+
   transition:
     background-color 180ms ease,
     color 180ms ease;
@@ -262,11 +297,13 @@
   font-weight: 500;
   padding: 11px 20px;
   text-align: center;
+
   transition:
     transform 180ms ease,
     background-color 180ms ease,
     color 180ms ease,
     border-color 180ms ease;
+
   white-space: nowrap;
 
   &:hover {
@@ -367,6 +404,11 @@
     transform: none;
     width: 100%;
     box-sizing: border-box;
+
+    /* Mantém o scroll também no menu mobile */
+    max-height: calc(100vh - 260px);
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
   }
 
   .navCta {
@@ -435,4 +477,3 @@
     }
   }
 }
-
