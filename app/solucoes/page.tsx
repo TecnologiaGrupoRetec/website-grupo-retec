@@ -8,6 +8,7 @@ import SegmentoCardsCarousel from "../components/segmentoCardsCarousel";
 import BrandMarquee from "../components/brandMarquee";
 import ScrollReveal from "../components/scrollReveal";
 import CounterNumber from "../components/counterNumber";
+import ProductSlider from "../components/productSlider";
 
 const suppliedCompanies = [
   { src: "/home/empresas_fornecidas/logo_ache.webp", alt: "Aché", link: "https://www.ache.com.br/" },
@@ -213,6 +214,9 @@ export default function SolucoesPage() {
             </div>
           </div>
         </section>
+
+        {/* Lista de produtos */}
+        <ProductSlider />
 
         {/* Carrosel de Empresas que Fornecemos Soluções de Climatização */}
         <section className={styles.section} id="clientes">

@@ -265,6 +265,7 @@ export default function Navbar(props: NavbarProps) {
                     >
                       Shopping Centers
                     </Link>
+                    
                   </div>
                 </details>
                 <Link href="/obras" onClick={closeAll}>Obras</Link>
