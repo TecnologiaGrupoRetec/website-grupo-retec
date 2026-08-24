@@ -343,7 +343,7 @@ export default function DampersPage() {
 
               <div className={styles.heroImageWrapper}>
                 <Image
-                  src="/solucoes/dampers/damper_trox_retangular.jpg"
+                  src="/solucoes/dampers/damper_trox_retangular.png"
                   alt="Damper corta-fogo retangular TROX"
                   fill
                   priority
