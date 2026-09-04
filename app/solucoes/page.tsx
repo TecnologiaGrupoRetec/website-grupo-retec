@@ -8,6 +8,7 @@ import SegmentoCardsCarousel from "../components/segmentoCardsCarousel";
 import BrandMarquee from "../components/brandMarquee";
 import ScrollReveal from "../components/scrollReveal";
 import CounterNumber from "../components/counterNumber";
+import ProductSlider from "../components/productSlider";
 
 const suppliedCompanies = [
   { src: "/home/empresas_fornecidas/logo_ache.webp", alt: "Aché", link: "https://www.ache.com.br/" },
@@ -25,6 +26,7 @@ const suppliedCompanies = [
   { src: "/home/empresas_fornecidas/logo_sabin.webp", alt: "Sabin", link: "https://www.sabin.com.br/" },
   { src: "/home/empresas_fornecidas/logo_terral.webp", alt: "Terral", link: "https://www.terral.com.br/" },
   { src: "/home/empresas_fornecidas/logo_villela-carvalho.webp", alt: "Villela Carvalho", link: "https://www.villela.com.br/" },
+  { src: "/home/empresas_fornecidas/logo_saint-gobain.webp", alt: "Saint-Gobain", link: "https://www.saint-gobain.com.br/" },
 ];
 
 const representativeBrands = [
@@ -157,7 +159,7 @@ export default function SolucoesPage() {
               {/* Cards de estatísticas inferiores */}
               <div className={styles.statsRow}>
                 <div className={styles.statCard}>
-                  <CounterNumber value="+40" className={styles.statNumber} />
+                  <CounterNumber value="+44" className={styles.statNumber} />
                   <p className={styles.statLabel}>Anos de mercado</p>
                 </div>
                 <div className={styles.statCard}>
@@ -213,6 +215,9 @@ export default function SolucoesPage() {
           </div>
         </section>
 
+        {/* Lista de produtos */}
+        <ProductSlider />
+
         {/* Carrosel de Empresas que Fornecemos Soluções de Climatização */}
         <section className={styles.section} id="clientes">
           <div className={styles.container}>
@@ -265,7 +270,7 @@ export default function SolucoesPage() {
               </div>
 
               <a
-                href={`https://wa.me/5561991311283`}
+                href={`https://wa.me/5561998904494`}
                 target="_blank"
                 rel="noreferrer"
                 className={styles.representativesCtaButton}

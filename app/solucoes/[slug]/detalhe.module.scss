@@ -408,4 +408,67 @@
   }
 }
 
+.tabNavigationFooter {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  margin-top: 32px;
+  margin-bottom: 24px;
+  width: 100%;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+.prevTabBtn,
+.nextTabBtn {
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid rgba(58, 160, 219, 0.3);
+  border-radius: 30px;
+  color: #0f2854;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 14px;
+  font-weight: 600;
+  gap: 10px;
+  padding: 12px 24px;
+  transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(15, 40, 84, 0.06);
+
+  strong {
+    color: #3aa0db;
+    font-weight: 700;
+  }
+
+  &:hover {
+    background: #3aa0db;
+    border-color: #3aa0db;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(58, 160, 219, 0.25);
+
+    strong {
+      color: #ffffff;
+    }
+  }
+}
+
+.nextTabBtn {
+  margin-left: auto;
+}
+
+.prevTabBtn {
+  margin-right: auto;
+}
+
+.tabNavIcon {
+  height: 18px;
+  width: 18px;
+  flex-shrink: 0;
+}
+
 

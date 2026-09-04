@@ -5,82 +5,141 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./styles/product-slider.module.scss";
 
-const productCategories = [
+type ProductCategory = {
+  title: string;
+  slug: string;
+  description: string;
+  image: string;
+  secondaryLink?: string;
+  secondaryLabel?: string;
+};
+
+const productCategories: ProductCategory[] = [
   {
     title: "Expansão Direta",
     slug: "expansao-direta",
-    description: "Sistemas Splits, Cassetes, Hi-walls e VRV/VRF de alta eficiência energética e controle térmico zonado.",
+    description:
+      "Sistemas Splits, Cassetes, Hi-walls e VRV/VRF de alta eficiência energética e controle térmico zonado.",
     image: "/produtos/climatizacao-equipamentos/vrv-inova.webp",
   },
+
   {
     title: "Água Gelada",
     slug: "agua-gelada-e-rejeicao-de-calor",
-    description: "Chillers de alto desempenho, mini chillers e torres de resfriamento para refrigeração de alta performance.",
-    image: "/produtos/refrigeracao-alta-perfomace/chiller-parafuso.webp",
+    description:
+      "Chillers de alto desempenho, mini chillers e torres de resfriamento para refrigeração de alta performance.",
+    image:
+      "/produtos/refrigeracao-alta-perfomace/chiller-parafuso.webp",
   },
+
   {
     title: "Exaustão e Ventilação",
     slug: "exaustao-e-ventilacao",
-    description: "Exaustores axiais e centrífugos, gabinetes acústicos de renovação e tratamento de ar nas normas ANVISA.",
-    image: "/produtos/exaustao-e-ventilacao/exaustor_banheiro_sicflux_sonora_18_silencioso_bivolt.webp",
+    description:
+      "Exaustores axiais e centrífugos, gabinetes acústicos de renovação e tratamento de ar nas normas ANVISA.",
+    image:
+      "/produtos/exaustao-e-ventilacao/exaustor_banheiro_sicflux_sonora_18_silencioso_bivolt.webp",
   },
+
+  /*
+   * DIFUSÃO E CONTROLE DE AR
+   * Slide já existente, com acesso específico para Grelhas
+   */
   {
     title: "Difusão e Controle de Ar",
     slug: "difusao-e-controle-de-ar",
-    description: "Grelhas de insuflamento e retorno, difusores de ar, venezianas de captação e dampers de regulagem.",
-    image: "/produtos/difusao-controle-ar/grelha_de_retorno_trox_ar_a.webp",
+    description:
+      "Grelhas de insuflamento e retorno, difusores de ar, venezianas de captação e soluções para distribuição e balanceamento do fluxo de ar.",
+    image:
+      "/produtos/difusao-controle-ar/grelha_de_retorno_trox_ar_a.webp",
+    secondaryLink: "/solucoes/grelhas",
+    secondaryLabel: "Ver Grelhas",
   },
+
+  /*
+   * DAMPERS
+   * Pertence à categoria Difusão e Controle de Ar.
+   */
+  {
+  title: "Difusão e Controle de Ar",
+  slug: "difusao-e-controle-de-ar",
+  description:
+    "Dampers corta-fogo para compartimentação e proteção de sistemas de ventilação e climatização, auxiliando no controle da propagação de fogo e fumaça através da rede de dutos.",
+  image:
+    "/solucoes/dampers/damper_trox_retangular.png",
+  secondaryLink: "/solucoes/dampers",
+  secondaryLabel: "Ver Dampers",
+  },
+
   {
     title: "Dutos e Rede de Ar",
     slug: "dutos-e-rede-de-ar",
-    description: "Dutos flexíveis e conexões estanques para condução do ar condicionado com mínima perda de carga.",
-    image: "/produtos/dutos-e-conexoes/duto_flexivel_sem_isolamento_rocktec_ventilacao_e_exaustao.webp",
+    description:
+      "Dutos flexíveis e conexões estanques para condução do ar condicionado com mínima perda de carga.",
+    image:
+      "/produtos/dutos-e-conexoes/duto_flexivel_sem_isolamento_rocktec_ventilacao_e_exaustao.webp",
   },
+
   {
     title: "Isolamento Térmico",
     slug: "isolamento-termico-e-acustico",
-    description: "Mantas e tubos isolantes de borracha elastomérica para eficiência térmica e controle de condensação.",
-    image: "/produtos/isolamento-e-vedacao/manta_em_la_de_rocha_tf_32.webp",
+    description:
+      "Mantas e tubos isolantes de borracha elastomérica para eficiência térmica e controle de condensação.",
+    image:
+      "/produtos/isolamento-e-vedacao/manta_em_la_de_rocha_tf_32.webp",
   },
+
   {
     title: "Filtragem de Ar",
     slug: "filtragem-e-qualidade-do-ar",
-    description: "Filtros absolutos HEPA, caixas de filtragem e módulos para purificação do ar e saúde ocupacional.",
-    image: "/produtos/filtragem-qualidade-ar/filtro_medio_m5_f754_590x550x48_trox.webp",
-  }
+    description:
+      "Filtros absolutos HEPA, caixas de filtragem e módulos para purificação do ar e saúde ocupacional.",
+    image:
+      "/produtos/filtragem-qualidade-ar/filtro_medio_m5_f754_590x550x48_trox.webp",
+  },
 ];
 
 export default function ProductSlider() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isTransitioning, setIsTransitioning] =
+    useState(false);
 
-  const prevIndex = (activeIndex - 1 + productCategories.length) % productCategories.length;
+  const prevIndex =
+    (activeIndex - 1 + productCategories.length) %
+    productCategories.length;
+
   const activeSlide = productCategories[activeIndex];
   const prevSlide = productCategories[prevIndex];
 
   const changeSlide = useCallback((newIndex: number) => {
     setIsTransitioning(true);
-    const timeout = setTimeout(() => {
+
+    setTimeout(() => {
       setActiveIndex(newIndex);
       setIsTransitioning(false);
     }, 250);
-    return () => clearTimeout(timeout);
   }, []);
 
   const handleNext = useCallback(() => {
-    const nextIdx = (activeIndex + 1) % productCategories.length;
-    changeSlide(nextIdx);
+    const nextIndex =
+      (activeIndex + 1) % productCategories.length;
+
+    changeSlide(nextIndex);
   }, [activeIndex, changeSlide]);
 
   const handlePrev = useCallback(() => {
-    const prevIdx = (activeIndex - 1 + productCategories.length) % productCategories.length;
-    changeSlide(prevIdx);
+    const previousIndex =
+      (activeIndex - 1 + productCategories.length) %
+      productCategories.length;
+
+    changeSlide(previousIndex);
   }, [activeIndex, changeSlide]);
 
   useEffect(() => {
     const timer = setInterval(() => {
       handleNext();
     }, 3500);
+
     return () => clearInterval(timer);
   }, [handleNext]);
 
@@ -89,8 +148,14 @@ export default function ProductSlider() {
       <div className={styles.container}>
         <div className={styles.sliderWrapper}>
 
-          {/* Imagem anterior do carrossel (fila de exibição) */}
-          <div className={`${styles.prevImageWrapper} ${isTransitioning ? styles.transitioning : ""}`}>
+          {/* Imagem anterior */}
+          <div
+            className={`${styles.prevImageWrapper} ${
+              isTransitioning
+                ? styles.transitioning
+                : ""
+            }`}
+          >
             <Image
               src={prevSlide.image}
               alt={prevSlide.title}
@@ -101,8 +166,9 @@ export default function ProductSlider() {
             />
           </div>
 
-          {/* Botão Rolagem para a esquerda (Prev) */}
+          {/* Botão anterior */}
           <button
+            type="button"
             onClick={handlePrev}
             className={`${styles.arrowBtn} ${styles.prevArrow}`}
             aria-label="Categoria anterior"
@@ -110,8 +176,14 @@ export default function ProductSlider() {
             &#8592;
           </button>
 
-          {/* Imagem ativa atual do carrossel */}
-          <div className={`${styles.activeImageWrapper} ${isTransitioning ? styles.transitioning : ""}`}>
+          {/* Imagem principal */}
+          <div
+            className={`${styles.activeImageWrapper} ${
+              isTransitioning
+                ? styles.transitioning
+                : ""
+            }`}
+          >
             <Image
               src={activeSlide.image}
               alt={activeSlide.title}
@@ -122,8 +194,9 @@ export default function ProductSlider() {
             />
           </div>
 
-          {/* Botão Rolagem para a direita (Next) */}
+          {/* Próxima categoria */}
           <button
+            type="button"
             onClick={handleNext}
             className={`${styles.arrowBtn} ${styles.nextArrow}`}
             aria-label="Próxima categoria"
@@ -131,34 +204,108 @@ export default function ProductSlider() {
             &#8594;
           </button>
 
-          {/* Conteúdo textual da Categoria Ativa */}
-          <div className={`${styles.contentArea} ${isTransitioning ? styles.transitioning : ""}`}>
-            <span className={styles.eyebrow}>Linhas de Soluções</span>
-            <h3 className={styles.title}>{activeSlide.title}</h3>
-            <p className={styles.description}>{activeSlide.description}</p>
+          {/* Conteúdo */}
+          <div
+            className={`${styles.contentArea} ${
+              isTransitioning
+                ? styles.transitioning
+                : ""
+            }`}
+          >
+            <span className={styles.eyebrow}>
+              Linhas de Soluções
+            </span>
 
-            <Link href={`/solucoes/${activeSlide.slug}`} className={styles.ctaBtn}>
-              <div className={styles.iconBox}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
-                  <polyline points="14 2 14 8 20 8" />
-                  <line x1="16" y1="13" x2="8" y2="13" />
-                  <line x1="16" y1="17" x2="8" y2="17" />
-                  <line x1="10" y1="9" x2="8" y2="9" />
-                </svg>
-              </div>
-              <span>Ver Soluções</span>
-            </Link>
+            <h3 className={styles.title}>
+              {activeSlide.title}
+            </h3>
+
+            <p className={styles.description}>
+              {activeSlide.description}
+            </p>
+
+            <div className={styles.actions}>
+              {/* Categoria geral */}
+              <Link
+                href={`/solucoes/${activeSlide.slug}`}
+                className={styles.ctaBtn}
+              >
+                <div className={styles.iconBox}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line
+                      x1="16"
+                      y1="13"
+                      x2="8"
+                      y2="13"
+                    />
+                    <line
+                      x1="16"
+                      y1="17"
+                      x2="8"
+                      y2="17"
+                    />
+                    <line
+                      x1="10"
+                      y1="9"
+                      x2="8"
+                      y2="9"
+                    />
+                  </svg>
+                </div>
+
+                <span>Ver Soluções</span>
+              </Link>
+
+              {/* Subpágina específica */}
+              {activeSlide.secondaryLink &&
+                activeSlide.secondaryLabel && (
+                  <Link
+                    href={
+                      activeSlide.secondaryLink
+                    }
+                    className={styles.ctaBtn}
+                  >
+                    <div
+                      className={styles.iconBox}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M5 12h14" />
+                        <path d="m13 6 6 6-6 6" />
+                      </svg>
+                    </div>
+
+                    <span>
+                      {
+                        activeSlide.secondaryLabel
+                      }
+                    </span>
+                  </Link>
+                )}
+            </div>
           </div>
 
         </div>

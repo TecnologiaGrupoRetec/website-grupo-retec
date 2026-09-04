@@ -26,14 +26,14 @@ const timelineItems = [
     year: "2021 a 2024",
     description:
       "Em busca de melhores condições de atendimento técnico e comercial, iniciamos a transição estratégica para o SIA.",
-    image: "/home/new-facade.webp",
+    image: "/home/showroom.webp",
     alt: "Fachada da RETEC no SIA",
   },
   {
     year: "2024",
     description:
       "Inauguramos o showroom no SIA para proporcionar uma experiência mais completa aos nossos clientes e parceiros.",
-    image: "/about/empty-office.webp",
+    image: "/home/hall_entrada.webp",
     alt: "Showroom da RETEC",
   },
   {
@@ -73,7 +73,7 @@ export default function Home() {
               <br /><br />
               Hoje, com mais de 40 anos de mercado, mantém a liderança na distribuição de HVAC no Distrito Federal e em todo o estado de Goiás, com produtos para ar-condicionado, difusão de ar, dutos, filtros, isolamentos, ventilação e exaustão.
             </p>
-            <a className={styles.contact} href="https://wa.me/5561991311283">
+            <a className={styles.contact} href="https://wa.me/5561998904494">
               Fale com a gente
             </a>
           </div>
@@ -156,7 +156,7 @@ export default function Home() {
         </div>
 
         <a
-          href={`https://wa.me/5561991311283`}
+          href={`https://wa.me/5561998904494`}
           target="_blank"
           rel="noreferrer"
           className={styles.representativesCtaButton}

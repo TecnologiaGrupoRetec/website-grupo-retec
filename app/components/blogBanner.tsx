@@ -8,7 +8,7 @@ export default function BlogBanner() {
         <div className={styles.bannerWrapper}>
             {/* Alterar o link depois */}
             <Link
-                href="https://wa.me/5561991311283?text=Olá%2C%20vi%20o%20banner%20no%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento"
+                href="https://wa.me/5561998904494?text=Olá%2C%20vi%20o%20banner%20no%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento"
                 target="_blank"
                 rel="noopener noreferrer"
             >

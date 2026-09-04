@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,6 +14,11 @@ export default function Navbar(props: NavbarProps) {
   void props.activeTab;
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [produtosOpen, setProdutosOpen] = useState(false);
+  const [solucoesOpen, setSolucoesOpen] = useState(false);
+
+  const produtosTimer = useRef<NodeJS.Timeout | null>(null);
+  const solucoesTimer = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,12 +29,48 @@ export default function Navbar(props: NavbarProps) {
       }
     };
 
-    // Check on mount (in case the user starts page refreshed while scrolled)
+
     handleScroll();
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const closeAll = () => {
+    if (produtosTimer.current) clearTimeout(produtosTimer.current);
+    if (solucoesTimer.current) clearTimeout(solucoesTimer.current);
+    setIsOpen(false);
+    setProdutosOpen(false);
+    setSolucoesOpen(false);
+  };
+
+  const handleProdutosEnter = () => {
+    if (produtosTimer.current) clearTimeout(produtosTimer.current);
+    produtosTimer.current = setTimeout(() => {
+      setProdutosOpen(true);
+    }, 120);
+  };
+
+  const handleProdutosLeave = () => {
+    if (produtosTimer.current) clearTimeout(produtosTimer.current);
+    produtosTimer.current = setTimeout(() => {
+      setProdutosOpen(false);
+    }, 150);
+  };
+
+  const handleSolucoesEnter = () => {
+    if (solucoesTimer.current) clearTimeout(solucoesTimer.current);
+    solucoesTimer.current = setTimeout(() => {
+      setSolucoesOpen(true);
+    }, 120);
+  };
+
+  const handleSolucoesLeave = () => {
+    if (solucoesTimer.current) clearTimeout(solucoesTimer.current);
+    solucoesTimer.current = setTimeout(() => {
+      setSolucoesOpen(false);
+    }, 150);
+  };
 
   return (
     <>
@@ -45,7 +86,7 @@ export default function Navbar(props: NavbarProps) {
       <header className={`${styles.navbarSection} ${scrolled ? styles.scrolled : ""}`}>
         <div className={styles.container}>
           <div className={styles.navbarShell}>
-            <Link className={styles.logoLink} href="/" onClick={() => setIsOpen(false)}>
+            <Link className={styles.logoLink} href="/" onClick={closeAll}>
               <Image
                 src="/logo-since-white-no-bg.svg"
                 alt="Grupo RETEC"
@@ -70,44 +111,173 @@ export default function Navbar(props: NavbarProps) {
 
             <div className={styles.navMenu}>
               <nav className={styles.navLinks} aria-label="Navegacao principal">
-                <Link href="/sobre" onClick={() => setIsOpen(false)}>Sobre</Link>
-                <Link href="/solucoes" onClick={() => setIsOpen(false)}>Soluções</Link>
-                <details className={styles.navDropdown}>
+                <Link href="/sobre" onClick={closeAll}>Sobre</Link>
+                <details
+                  className={styles.navDropdown}
+                  open={produtosOpen}
+                  onToggle={(e) => setProdutosOpen(e.currentTarget.open)}
+                  onMouseEnter={handleProdutosEnter}
+                  onMouseLeave={handleProdutosLeave}
+                >
                   <summary className={styles.navDropdownTrigger}>
-                    Loja Virtual
+                    <Link href="/solucoes" onClick={closeAll}>Produtos</Link>
                     <span className={styles.navDropdownArrow} aria-hidden="true" />
                   </summary>
                   <div className={styles.navDropdownMenu}>
-                    <a
+                    <Link
                       className={styles.navDropdownItem}
-                      href="https://www.artmosferabrasil.com.br/"
-                      target="_blank"
-                      rel="noreferrer"
-                      onClick={() => setIsOpen(false)}
+                      href="/solucoes/agua-gelada-e-rejeicao-de-calor"
+                      onClick={closeAll}
                     >
-                      E-commerce
-                    </a>
-                    <a
+                      Água Gelada & Rejeição de Calor
+                    </Link>
+                    <Link
                       className={styles.navDropdownItem}
-                      href="https://www.mercadolivre.com.br/pagina/ra20250419195946#from=share_eshop"
-                      target="_blank"
-                      rel="noreferrer"
-                      onClick={() => setIsOpen(false)}
+                      href="/solucoes/difusao-e-controle-de-ar"
+                      onClick={closeAll}
                     >
-                      Mercado Livre
-                    </a>
+                      Difusão & Controle de Ar
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/dutos-e-rede-de-ar"
+                      onClick={closeAll}
+                    >
+                      Dutos & Rede de Ar
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/exaustao-e-ventilacao"
+                      onClick={closeAll}
+                    >
+                      Exaustão & Ventilação
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/expansao-direta"
+                      onClick={closeAll}
+                    >
+                      Expansão Direta
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/filtragem-e-qualidade-do-ar"
+                      onClick={closeAll}
+                    >
+                      Filtragem & Qualidade do Ar
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/isolamento-termico-e-acustico"
+                      onClick={closeAll}
+                    >
+                      Isolamento Térmico & Acústico
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/suporte-fixacao-e-instalacao"
+                      onClick={closeAll}
+                    >
+                      Suporte, Fixação e Instalação
+                    </Link>
                   </div>
                 </details>
-                <Link href="/obras" onClick={() => setIsOpen(false)}>Obras</Link>
-                <Link href="/blog" onClick={() => setIsOpen(false)}>Blog</Link>
+                <Link
+                  href="https://www.loja.gruporetec.com.br/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={closeAll}
+                >
+                  Loja Virtual
+                </Link>
+                <details
+                  className={styles.navDropdown}
+                  open={solucoesOpen}
+                  onToggle={(e) => setSolucoesOpen(e.currentTarget.open)}
+                  onMouseEnter={handleSolucoesEnter}
+                  onMouseLeave={handleSolucoesLeave}
+                >
+                  <summary className={styles.navDropdownTrigger}>
+                    <Link href="/solucoes" onClick={closeAll}>Soluções</Link>
+                    <span className={styles.navDropdownArrow} aria-hidden="true" />
+                  </summary>
+                  <div className={styles.navDropdownMenu}>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/data-centers-missao-critica"
+                      onClick={closeAll}
+                    >
+                      Data Centers
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/predios-comerciais"
+                      onClick={closeAll}
+                    >
+                      Edifícios Corporativos
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/hospitais-clinicas"
+                      onClick={closeAll}
+                    >
+                      Hospitais
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/hoteis"
+                      onClick={closeAll}
+                    >
+                      Hotéis
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/industrias-farmaceuticas-processos-industriais"
+                      onClick={closeAll}
+                    >
+                      Indústrias
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/industrias-farmaceuticas-processos-industriais"
+                      onClick={closeAll}
+                    >
+                      Laboratórios
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/residencial-alto-padrao"
+                      onClick={closeAll}
+                    >
+                      Residências de Alto Padrão
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/predios-comerciais"
+                      onClick={closeAll}
+                    >
+                      Retrofit
+                    </Link>
+                    <Link
+                      className={styles.navDropdownItem}
+                      href="/solucoes/shopping-centers"
+                      onClick={closeAll}
+                    >
+                      Shopping Centers
+                    </Link>
+                    
+                  </div>
+                </details>
+                <Link href="/obras" onClick={closeAll}>Obras</Link>
+                <Link href="/blog" onClick={closeAll}>Blog</Link>
               </nav>
 
               <a
                 className={styles.navCta}
-                href="https://wa.me/5561991311283"
+                href="https://wa.me/5561998904494"
                 target="_blank"
                 rel="noreferrer"
-                onClick={() => setIsOpen(false)}
+                onClick={closeAll}
               >
                 Falar com o consultor
               </a>

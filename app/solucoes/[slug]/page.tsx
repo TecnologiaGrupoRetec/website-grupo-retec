@@ -232,7 +232,7 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
                   <p key={idx} className={nichoStyles.heroSupportText}>{text}</p>
                 ))}
                 <a
-                  href={`https://wa.me/5561991311283?text=${encodeURIComponent(nichoData.whatsappMessage)}`}
+                  href={`https://wa.me/5561998904494?text=${encodeURIComponent(nichoData.whatsappMessage)}`}
                   target="_blank"
                   rel="noreferrer"
                   className={nichoStyles.heroBtn}
@@ -375,7 +375,7 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
                   A RETEC apoia sua obra com portfólio HVAC completo, suporte comercial e fornecimento técnico especializado. Envie sua lista de materiais, memorial descritivo ou necessidade técnica para receber apoio especializado.
                 </p>
                 <a
-                  href={`https://wa.me/5561991311283?text=${encodeURIComponent(nichoData.whatsappMessage)}`}
+                  href={`https://wa.me/5561998904494?text=${encodeURIComponent(nichoData.whatsappMessage)}`}
                   target="_blank"
                   rel="noreferrer"
                   className={nichoStyles.ctaBtn}
@@ -469,7 +469,7 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
 
                   {/* Seletor de Categorias por Abas (caso existam abas definidas) */}
                   {catData?.tabs && (
-                    <div className={styles.filterContainer}>
+                    <div id="produtos-filter-container" className={styles.filterContainer}>
                       {catData.tabs.map((tab) => (
                         <button
                           key={tab.nome}
@@ -515,6 +515,53 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
                       </ScrollReveal>
                     ))}
                   </div>
+
+                  {/* Navegação entre Abas ao final dos produtos */}
+                  {catData?.tabs && (() => {
+                    const currentIdx = catData.tabs.findIndex((t) => t.nome === selectedCategory);
+                    const nextTab = (currentIdx !== -1 && currentIdx < catData.tabs.length - 1) ? catData.tabs[currentIdx + 1] : null;
+                    const prevTab = (currentIdx > 0) ? catData.tabs[currentIdx - 1] : null;
+
+                    if (!nextTab && !prevTab) return null;
+
+                    return (
+                      <div className={styles.tabNavigationFooter}>
+                        {prevTab ? (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setSelectedCategory(prevTab.nome);
+                              const filterEl = document.getElementById("produtos-filter-container");
+                              if (filterEl) filterEl.scrollIntoView({ behavior: "smooth", block: "start" });
+                            }}
+                            className={styles.prevTabBtn}
+                          >
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className={styles.tabNavIcon}>
+                              <path d="M19 12H5M12 19l-7-7 7-7" />
+                            </svg>
+                            <span>Anterior: <strong>{prevTab.nome}</strong></span>
+                          </button>
+                        ) : <div />}
+
+                        {nextTab ? (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setSelectedCategory(nextTab.nome);
+                              const filterEl = document.getElementById("produtos-filter-container");
+                              if (filterEl) filterEl.scrollIntoView({ behavior: "smooth", block: "start" });
+                            }}
+                            className={styles.nextTabBtn}
+                          >
+                            <span>Próxima categoria: <strong>{nextTab.nome}</strong></span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className={styles.tabNavIcon}>
+                              <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                          </button>
+                        ) : null}
+                      </div>
+                    );
+                  })()}
                 </>
               )}
 
@@ -540,7 +587,7 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
                   {data.ctaText || "Precisa de suporte no dimensionamento ou fornecimento de materiais para esta linha em sua obra? Fale diretamente com nossa equipe."}
                 </p>
                 <a
-                  href={`https://wa.me/5561991311283?text=${encodeURIComponent(
+                  href={`https://wa.me/5561998904494?text=${encodeURIComponent(
                     data.ctaWhatsAppText || `Olá! Gostaria de solicitar um orçamento e saber mais informações sobre a linha de fornecimento: ${data.title}.`
                   )}`}
                   target="_blank"

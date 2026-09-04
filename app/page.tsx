@@ -37,6 +37,7 @@ const suppliedCompanies = [
   { src: "/home/empresas_fornecidas/logo_sabin.webp", alt: "Sabin" },
   { src: "/home/empresas_fornecidas/logo_terral.webp", alt: "Terral" },
   { src: "/home/empresas_fornecidas/logo_villela-carvalho.webp", alt: "Villela Carvalho" },
+  { src: "/home/empresas_fornecidas/logo_saint-gobain.webp", alt: "Saint-Gobain" },
 ];
 
 const processSteps = [
@@ -117,37 +118,50 @@ const highlightCards = [
     description:
       "Infraestrutura crítica que depende de controle térmico preciso.",
   },
+  {
+    label: "Residencial",
+    title: "Casas e condomínios de alto padrão",
+    icon: "/icons/casa.svg",
+    urlLink: "/solucoes/residencia-alto-padrao",
+    description:
+      "Conforto térmico com inteligência e design.",
+  },
+  {
+    label: "Governamental",
+    title: "Órgãos públicos e espaços de convivência",
+    icon: "/icons/governo.svg",
+    urlLink: "/solucoes/governamental-institucional",
+    description:
+      "Controle de climatização, ventilação e exaustão para órgãos públicos, templos, escolas e instituições.",
+  }
 ];
 
 const testimonials = [
   {
-    initials: "DF",
-    name: "Equipe de obra em Brasília",
-    role: "Cliente corporativo",
+    image: "/home/avaliacao.png",
+    name: "Messias Fernandes",
     quote:
-      "A RETEC entrou no projeto com leitura técnica e agilidade. O atendimento trouxe segurança para toda a execução.",
+      "Empresa referência em produtos HVAC, conta com os melhores produtos e uma equipe qualificada e sempre disposta a solucionar o problema do cliente na área de climatização.",
   },
   {
-    initials: "GO",
-    name: "Parceiro instalador",
-    role: "Canal técnico",
+    image: "/home/avaliacao2.png",
+    name: "Gesiel Meireles",
     quote:
-      "O diferencial foi o suporte consultivo. Não foi só venda: houve orientação real para escolher a solução certa.",
+      "Primeira vez que comprei nessa loja, atendimento ótimo,conversa pelo Whatsapp não demorou a responder.",
   },
   {
-    initials: "HV",
-    name: "Gestão hospitalar",
-    role: "Operação crítica",
+    image: "/home/avaliacao3.png",
+    name: "Maurício Campos",
     quote:
-      "Precisávamos de confiabilidade e prazo. A RETEC entregou ambos com uma comunicação muito próxima do início ao fim.",
+      "Me surpreendi com a quantidade diversidade de material para instalação industrial disponibilizado pela Empresa Retec.",
   },
 ];
 
 const faqs = [
   {
-    question: "Quais tipos de solução a RETEC atende?",
+    question: "Quais tipos de soluções a RETEC fornece?",
     answer:
-      "Atendemos sistemas HVAC para aplicações comerciais, hospitalares, laboratoriais e industriais, com foco em climatização, ventilação, exaustão e componentes especializados.",
+      "Atendemos sistemas HVAC para aplicações comerciais, residencias de alto padrão, hospitalares, laboratoriais e industriais, com foco em climatização, ventilação, exaustão, isolamento térmicos e componentes especializados.",
   },
   {
     question: "Vocês fazem apenas fornecimento ou também apoio técnico?",
@@ -192,14 +206,14 @@ const locations = [
     subtitle: "Showroom e matriz em Brasília",
     image: "/home/showroom.webp",
     alt: "Fachada da unidade Brasília",
-    href: "https://www.google.com/maps/search/?api=1&query=SIA+Trecho+17+Rua+17+N%C2%BA+1380+Bras%C3%ADlia",
+    href: "https://www.google.com/maps/search/?api=1&query=Grupo+Retec+SIA+Trecho+17+Rua+17+N%C2%BA+1380+Bras%C3%ADlia",
   },
   {
     city: "Goiânia",
     subtitle: "Filial estratégica para atender o Centro-Oeste",
     image: "/home/goiania_retec.webp",
     alt: "Unidade de Goiânia",
-    href: "https://www.google.com/maps/search/?api=1&query=Av.+Caiap%C3%B3,+452+-+St.+Genoveva+Goi%C3%A2nia",
+    href: "https://www.google.com/maps/search/?api=1&query=Grupo+Retec+Av.+Caiap%C3%B3,+452+-+St.+Genoveva+Goi%C3%A2nia",
   },
 ];
 
@@ -263,16 +277,37 @@ export default function Home() {
         <section className={styles.section}>
           <div className={styles.container}>
             <div className={styles.highlightsLayout}>
-              <ScrollReveal direction="up">
-                <div className={styles.sectionIntro}>
-                  <p className={styles.eyebrow}>Atuação</p>
-                  <h2 className={styles.sectionTitle}>Onde o Grupo RETEC gera valor</h2>
-                  <p className={styles.sectionText}>
-                    Portfólio técnico e leitura consultiva <br />
-                    para projetos que exigem eficiencia energetica, desempenho, qualidade e prazos confiaveis.
-                  </p>
-                </div>
-              </ScrollReveal>
+              <div className={styles.highlightsLeftColumn}>
+                <ScrollReveal direction="up">
+                  <div className={styles.sectionIntro}>
+                    <p className={styles.eyebrow}>Atuação</p>
+                    <h2 className={styles.sectionTitle}>Onde o Grupo RETEC gera valor</h2>
+                    <p className={styles.sectionText}>
+                      Portfólio técnico e leitura consultiva <br />
+                      para projetos que exigem eficiência energética, desempenho, qualidade e prazos confiáveis.
+                    </p>
+                  </div>
+                </ScrollReveal>
+
+                <ScrollReveal direction="up" delay={200} className={styles.atuacaoBannerReveal}>
+                  <div className={styles.atuacaoBannerCard}>
+                    <Image
+                      src="/home/atuacao-banner.png"
+                      alt="Engenharia e Distribuição HVAC Grupo RETEC"
+                      width={540}
+                      height={320}
+                      className={styles.atuacaoBannerImg}
+                    />
+                    <div className={styles.atuacaoBannerOverlay}>
+                      <span className={styles.atuacaoBannerTag}>Atendimento Especializado</span>
+                      <h3 className={styles.atuacaoBannerTitle}>Distribuição de produtos HVAC</h3>
+                      <p className={styles.atuacaoBannerSub}>
+                        Soluções de alta performance e suporte técnico especializado para todos os segmentos de mercado.
+                      </p>
+                    </div>
+                  </div>
+                </ScrollReveal>
+              </div>
 
               <div className={styles.highlightGrid}>
                 {highlightCards.map((card, idx) => {
@@ -348,20 +383,94 @@ export default function Home() {
 
             <div className={styles.testimonialGrid}>
               {testimonials.map((testimonial, idx) => (
-                <ScrollReveal key={testimonial.name} delay={idx * 150} direction="up">
+                <ScrollReveal key={testimonial.name} delay={idx * 150} direction="up" className={styles.testimonialReveal}>
                   <article className={styles.testimonialCard}>
-                    <div className={styles.testimonialStars}>★★★★★</div>
-                    <p className={styles.testimonialQuote}>{testimonial.quote}</p>
+                    <div className={styles.testimonialCardContent}>
+                      <div className={styles.testimonialStars}>★★★★★</div>
+                      <p className={styles.testimonialQuote}>&quot;{testimonial.quote}&quot;</p>
+                    </div>
                     <div className={styles.testimonialAuthor}>
-                      <span className={styles.testimonialAvatar}>{testimonial.initials}</span>
+                      <div className={styles.testimonialAvatar}>
+                        <Image
+                          src={testimonial.image}
+                          alt={testimonial.name}
+                          width={48}
+                          height={48}
+                          className={styles.testimonialAvatarImg}
+                        />
+                      </div>
                       <div>
                         <p className={styles.testimonialName}>{testimonial.name}</p>
-                        <p className={styles.testimonialRole}>{testimonial.role}</p>
                       </div>
                     </div>
                   </article>
                 </ScrollReveal>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Liderança & Direção + Nossa Missão */}
+        <section className={`${styles.section} ${styles.leadershipSection}`} id="lideranca">
+          <div className={styles.container}>
+            <ScrollReveal direction="up">
+              <div className={styles.missionHeader}>
+                <p className={styles.missionEyebrow}>Nossa Missão</p>
+                <blockquote className={styles.missionQuote}>
+                  “Melhorar a vida das pessoas através da qualidade do ar.”
+                </blockquote>
+                <div className={styles.missionAccentLine} />
+              </div>
+            </ScrollReveal>
+
+            <div className={styles.leadershipGrid}>
+              <ScrollReveal direction="left">
+                <div className={styles.leadershipContent}>
+                  <p className={styles.leadershipEyebrow}>Liderança & Direção</p>
+                  <h2 className={styles.leadershipName}>Patrick Galletti</h2>
+                  <p className={styles.leadershipRole}>CEO do Grupo RETEC</p>
+                  <div className={styles.leadershipAccentLine} />
+                  <blockquote className={styles.leadershipQuote}>
+                    &quot;Acreditamos que o ar que respiramos influencia a forma como vivemos, trabalhamos, aprendemos e cuidamos das pessoas. Por isso, há mais de 45 anos, dedicamos nosso conhecimento para construir ambientes mais saudáveis, eficientes e confortáveis.&quot;
+                  </blockquote>
+
+                  <a
+                    href="https://www.instagram.com/patrickggalletti/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.leadershipSocialLink}
+                  >
+                    <svg
+                      className={styles.leadershipSocialIcon}
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                    <span>@patrickggalletti</span>
+                  </a>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal direction="right" className={styles.leadershipImageReveal}>
+                <div className={styles.leadershipImageWrapper}>
+                  <div className={styles.leadershipGlow} />
+                  <Image
+                    src="/home/patrick-fundo-transparente.png"
+                    alt="Patrick Galletti - CEO Grupo RETEC"
+                    width={520}
+                    height={600}
+                    className={styles.leadershipImg}
+                  />
+                </div>
+              </ScrollReveal>
             </div>
           </div>
         </section>
@@ -421,7 +530,7 @@ export default function Home() {
                   <div className={styles.presenceUnits}>
                     <a
                       className={styles.unitBtn}
-                      href="https://www.google.com/maps/search/?api=1&query=SIA+Trecho+17+Rua+17+N%C2%BA+1380+Bras%C3%ADlia"
+                      href={locations[0].href}
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -430,7 +539,7 @@ export default function Home() {
                     </a>
                     <a
                       className={styles.unitBtn}
-                      href="https://www.google.com/maps/search/?api=1&query=Av.+Caiap%C3%B3,+452+-+St.+Genoveva+Goi%C3%A2nia"
+                      href={locations[1].href}
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -486,17 +595,17 @@ export default function Home() {
         <ScrollReveal direction="up" className={styles.representativesCta}>
           <div className={styles.representativesCtaGlow} aria-hidden="true" />
           <div className={styles.representativesCtaContent}>
-            <p className={styles.representativesCtaEyebrow}>Atendimento especializado</p>
+            <p className={styles.representativesCtaEyebrow}>Consultores Especializados</p>
             <h2 className={styles.representativesCtaTitle}>
-              Seu projeto precisa de experiência técnica em climatização?
+              Você precisa de atendimento rápido, produtos de referência e alta qualidade em climatizacao?
             </h2>
             <p className={styles.representativesCtaText}>
-              Conte com quem há mais de 40 anos fornece equipamentos HVAC para obras, empresas e grandes empreendimentos.
+              Conte com quem há mais de 40 anos fornece equipamentos de HVAC e centrais de água gelada para obras, empresas, grandes empreendimentos e residenciais de luxo.
             </p>
           </div>
 
           <a
-            href={`https://wa.me/5561991311283`}
+            href={`https://wa.me/5561998904494`}
             target="_blank"
             rel="noreferrer"
             className={styles.representativesCtaButton}

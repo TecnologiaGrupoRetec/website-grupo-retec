@@ -18,6 +18,7 @@ import hiWallImg from "../../produtos/climatizacao-equipamentos/hi-wall.webp";
 import chillerParafusoImg from "../../produtos/refrigeracao-alta-perfomace/chiller-parafuso.webp";
 import chillerUalImg from "../../produtos/refrigeracao-alta-perfomace/chiller-ual.webp";
 import miniChillerDaikinImg from "../../produtos/refrigeracao-alta-perfomace/mini-chiller-daikin.webp";
+import torreEvapcoImg from "../../produtos/refrigeracao-alta-perfomace/torre-de-resfriamento.webp";
 
 // 3. Exaustão e Ventilação
 import exaustorAci250Img from "../../produtos/exaustao-e-ventilacao/exaustor_aci_250_sicflux.webp";
@@ -60,6 +61,8 @@ import tuboArmaflexAfImg from "../../produtos/isolamento-e-vedacao/tubo_isolante
 // 7. Filtragem e Qualidade do Ar
 import caixaFiltroFilboxImg from "../../produtos/filtragem-qualidade-ar/caixa_de_filtro_filbox_red_g4_f8_sicflux.webp";
 import filtroPlissadoTroxImg from "../../produtos/filtragem-qualidade-ar/filtro_medio_m5_f754_590x550x48_trox.webp";
+import bagInBagOutImg from "../../produtos/filtragem-qualidade-ar/bag_in_bag_out.webp";
+import cabineFluxoLamimnarImg from "../../produtos/filtragem-qualidade-ar/cabine_fluxo_laminar.webp";
 
 // 8. Acessórios e Fixação
 import manometroGlicerinaImg from "../../produtos/acessorios/manometro_com_glicerina_inox_dn100_0_10_bar_0_150_psi_rosca_1_2_inferior.webp";
@@ -197,6 +200,12 @@ export const produtosPorCategoria: Record<string, CategoryProductsData> = {
         descricao: "O Mini Chiller Inverter Daikin oferece alto desempenho e eficiência térmica em um design extremamente compacto. Ideal para residências e comércios de pequeno a médio porte, utiliza tecnologia inverter para otimizar o consumo de energia de forma silenciosa.",
         excelentePara: "Residências de alto padrão, clínicas, escritórios, consultórios e projetos com restrição de espaço externo.",
         imagem: miniChillerDaikinImg
+      },
+      {
+        titulo: "Torre de Resfriamento Evapco",
+        descricao: "A Torre de Resfriamento da Evapco possui design moderno e compacto, conta com sistema de distribuição de água por bicos EvapJet™, que garantem distribuição uniforme de água e excelente transferência de calor. O sistema de ventilação é composto por ventilador axial de alta eficiência, que proporciona baixo nível de ruído e alta vazão de ar.",
+        excelentePara: "Hotéis, hospitais, prédios comerciais de médio e grande porte, indústrias e projetos com necessidade de restrições de ruído.",
+        imagem: torreEvapcoImg
       }
     ]
   },
@@ -409,6 +418,18 @@ export const produtosPorCategoria: Record<string, CategoryProductsData> = {
         descricao: "O Filtro Plissado Médio M5 F754 Trox é um filtro de ar plissado de classe de filtragem média M5 da marca Trox, modelo F754 (dimensões 590x550x48mm). Possui grande área de filtragem, baixa perda de carga inicial e alta capacidade de retenção de partículas finas.",
         excelentePara: "Pré-filtragem de unidades de tratamento de ar (UTAs), fancoils, sistemas de exaustão e tomadas de ar externo industriais ou hospitalares.",
         imagem: filtroPlissadoTroxImg
+      },
+      {
+        titulo: "Bag In Bag Out",
+        descricao: "O Bag In Bag Out é um sistema de filtragem de ar utilizado em ambientes que exigem alto grau de pureza, como salas limpas, laboratórios e indústrias farmacêuticas. O sistema permite a troca de filtros de alta eficiência (HEPA/ULPA) de forma segura, sem expor os operadores ao material particulado.",
+        excelentePara: "Salas limpas, laboratórios, indústrias farmacêuticas, hospitais e qualquer ambiente que exija alto grau de pureza do ar.",
+        imagem: bagInBagOutImg
+      },
+      {
+        titulo: "Cabine de Fluxo Laminar",
+        descricao: "A Cabine de Fluxo Laminar é um equipamento utilizado para garantir a pureza do ar em ambientes controlados. Através de um sistema de filtragem HEPA, o equipamento remove partículas do ar, criando um ambiente estéril para processos sensíveis.",
+        excelentePara: "Salas limpas, laboratórios, indústrias farmacêuticas, hospitais e qualquer ambiente que exija alto grau de pureza do ar.",
+        imagem: cabineFluxoLamimnarImg
       }
     ]
   },
