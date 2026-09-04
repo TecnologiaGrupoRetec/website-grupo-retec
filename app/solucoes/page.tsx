@@ -269,13 +269,13 @@ export default function SolucoesPage() {
                 </p>
               </div>
 
-              <a
-                href={`https://wa.me/5561998904494`}
+                            <a
+                href={`https://wa.me/5561998904494?text=${encodeURIComponent("Olá! Desejo conhecer as soluções da RETEC.")}`}
                 target="_blank"
                 rel="noreferrer"
                 className={styles.representativesCtaButton}
               >
-                <span>Falar com um consultor</span>
+                <span>Conheça nossas soluções</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
