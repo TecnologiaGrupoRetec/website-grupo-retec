@@ -122,7 +122,7 @@ const highlightCards = [
     label: "Residencial",
     title: "Casas e condomínios de alto padrão",
     icon: "/icons/casa.svg",
-    urlLink: "/solucoes/residencia-alto-padrao",
+    urlLink: "/solucoes/residencial-alto-padrao",
     description:
       "Conforto térmico com inteligência e design.",
   },
