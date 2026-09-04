@@ -14,7 +14,7 @@ O Grupo RETEC atende projetos comerciais, corporativos, hospitalares, industriai
 ## Soluções e produtos
 
 - [Soluções HVAC](https://www.gruporetec.com.br/solucoes): visão geral do portfólio e das marcas representadas.
-- [Expansão direta](https://www.gruporetec.com.br/solucoes/expansao-direta): splits, cassetes, hi-walls, fan coils e sistemas VRV/VRF.
+- [VRV/VRF](https://www.gruporetec.com.br/solucoes/expansao-direta): splits, cassetes, hi-walls, fan coils e sistemas VRV/VRF.
 - [Água gelada e rejeição de calor](https://www.gruporetec.com.br/solucoes/agua-gelada-e-rejeicao-de-calor): chillers, torres de resfriamento e sistemas hidrônicos.
 - [Exaustão e ventilação](https://www.gruporetec.com.br/solucoes/exaustao-e-ventilacao): exaustores, ventiladores e gabinetes para renovação e extração de ar.
 - [Difusão e controle de ar](https://www.gruporetec.com.br/solucoes/difusao-e-controle-de-ar): grelhas, difusores, venezianas e dampers.

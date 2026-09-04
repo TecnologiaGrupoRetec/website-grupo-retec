@@ -157,7 +157,7 @@ export default function Navbar(props: NavbarProps) {
                       href="/solucoes/expansao-direta"
                       onClick={closeAll}
                     >
-                      Expansão Direta
+                      VRV/VRF
                     </Link>
                     <Link
                       className={styles.navDropdownItem}

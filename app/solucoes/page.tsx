@@ -41,7 +41,7 @@ const representativeBrands = [
 
 const categories = [
   {
-    title: "Expansão Direta",
+    title: "VRV/VRF",
     slug: "expansao-direta",
     description: "Máquinas, evaporadoras, condensadoras, fancoletes e sistemas VRV/VRF para projetos comerciais e técnicos.",
     tag: ["Evaporadoras", "Condensadoras", "Fancoletes", "VRV/VRF", "Daikin"],
