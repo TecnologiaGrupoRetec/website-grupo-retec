@@ -16,7 +16,7 @@ type ProductCategory = {
 
 const productCategories: ProductCategory[] = [
   {
-    title: "Expansão Direta",
+    title: "VRV/VRF",
     slug: "expansao-direta",
     description:
       "Sistemas Splits, Cassetes, Hi-walls e VRV/VRF de alta eficiência energética e controle térmico zonado.",
