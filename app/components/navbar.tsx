@@ -269,7 +269,7 @@ export default function Navbar(props: NavbarProps) {
                   </div>
                 </details>
                 <Link href="/obras" onClick={closeAll}>Obras</Link>
-                <Link href="/blog" onClick={closeAll}>Blog</Link>
+                <Link href="/blog" onClick={closeAll}>Artigos</Link>
               </nav>
 
               <a

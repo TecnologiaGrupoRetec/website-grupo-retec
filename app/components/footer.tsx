@@ -19,7 +19,7 @@ const footerGroups = [
       { label: "História", href: "/#historia" },
       { label: "Equipe", href: "/sobre" },
       { label: "Contato", href: "https://wa.me/5561998904494" },
-      { label: "Blog", href: "/blog" },
+      { label: "Artigos", href: "/blog" },
     ],
   },
   {
