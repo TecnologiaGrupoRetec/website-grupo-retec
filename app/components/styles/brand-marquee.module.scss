@@ -1,22 +1,40 @@
 @import "../../variables.scss";
 
 .brandMarquee {
-  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-  overflow-x: auto;
-  scrollbar-width: none;
+  mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  overflow: hidden;
   position: relative;
   width: 100%;
+  user-select: none;
 
-  &::-webkit-scrollbar {
-    display: none;
+  &:hover {
+    .brandTrack {
+      animation-play-state: paused;
+    }
   }
 }
 
 .brandTrack {
   display: flex;
   width: max-content;
+  animation: marquee 35s linear infinite;
   will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes marquee {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+  }
 }
 
 .brandRow {

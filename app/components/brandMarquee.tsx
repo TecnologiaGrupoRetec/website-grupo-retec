@@ -30,38 +30,15 @@ interface BrandMarqueeProps {
 }
 
 export default function BrandMarquee({ items, theme = "light" }: BrandMarqueeProps) {
-  const marqueeRef = useRef<HTMLDivElement>(null);
+  if (!items || items.length === 0) return null;
 
-  // If there are very few items, duplicate them multiple times so the infinite scroll resets smoothly
+  // Garante quantidade mínima de itens para que o loop infinito CSS ocorra sem cortes
   const displayItems = items.length < 5
     ? [...items, ...items, ...items, ...items]
     : items;
 
-  useEffect(() => {
-    const marquee = marqueeRef.current;
-    if (!marquee || displayItems.length === 0) return;
-
-    let animationFrameId: number;
-
-    const scroll = () => {
-      marquee.scrollLeft += 0.8; // scroll speed
-      if (marquee.scrollLeft >= marquee.scrollWidth / 2) {
-        marquee.scrollLeft = 0;
-      }
-      animationFrameId = requestAnimationFrame(scroll);
-    };
-
-    animationFrameId = requestAnimationFrame(scroll);
-    return () => cancelAnimationFrame(animationFrameId);
-  }, [displayItems.length]);
-
-  if (items.length === 0) return null;
-
   return (
-    <div
-      ref={marqueeRef}
-      className={`${styles.brandMarquee} ${theme === "dark" ? styles.darkTheme : ""}`}
-    >
+    <div className={`${styles.brandMarquee} ${theme === "dark" ? styles.darkTheme : ""}`}>
       <div className={styles.brandTrack}>
         {[0, 1].map((groupIndex) => (
           <div
