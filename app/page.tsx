@@ -431,7 +431,7 @@ export default function Home() {
                   <p className={styles.leadershipRole}>CEO do Grupo RETEC</p>
                   <div className={styles.leadershipAccentLine} />
                   <blockquote className={styles.leadershipQuote}>
-                    &quot;Acreditamos que o ar que respiramos influencia a forma como vivemos, trabalhamos, aprendemos e cuidamos das pessoas. Por isso, há mais de 45 anos, dedicamos nosso conhecimento para construir ambientes mais saudáveis, eficientes e confortáveis.&quot;
+                    &quot;Acreditamos que o ar que respiramos influencia a forma como vivemos, trabalhamos, aprendemos e cuidamos das pessoas. Por isso, há mais de 44 anos, dedicamos nosso conhecimento para construir ambientes mais saudáveis, eficientes e confortáveis.&quot;
                   </blockquote>
 
                   <a
@@ -600,7 +600,7 @@ export default function Home() {
               Você precisa de atendimento rápido, produtos de referência e alta qualidade em climatizacao?
             </h2>
             <p className={styles.representativesCtaText}>
-              Conte com quem há mais de 40 anos fornece equipamentos de HVAC e centrais de água gelada para obras, empresas, grandes empreendimentos e residenciais de luxo.
+              Conte com quem há mais de 44 anos fornece equipamentos de HVAC e centrais de água gelada para obras, empresas, grandes empreendimentos e residenciais de luxo.
             </p>
           </div>
 

@@ -56,7 +56,7 @@ export default function Home() {
         className={styles.aboutHero}
       >
         <span className={styles.detail}>
-          Há mais de 40 anos o Grupo RETEC acompanha a climatização no Distrito Federal e em Goiás, conectando empresas e instaladores às principais soluções em ar-condicionado, ventilação, exaustão, refrigeração e isolamentos térmicos.
+          Há mais de 44 anos o Grupo RETEC acompanha a climatização no Distrito Federal e em Goiás, conectando empresas e instaladores às principais soluções em ar-condicionado, ventilação, exaustão, refrigeração e isolamentos térmicos.
         </span>
       </Main>
 
@@ -71,7 +71,7 @@ export default function Home() {
               <br /><br />
               A experiência acumulada e a busca constante por bons parceiros tornaram o Grupo RETEC referência tanto para quem instala quanto para quem procura a solução certa para o projeto.
               <br /><br />
-              Hoje, com mais de 40 anos de mercado, mantém a liderança na distribuição de HVAC no Distrito Federal e em todo o estado de Goiás, com produtos para ar-condicionado, difusão de ar, dutos, filtros, isolamentos, ventilação e exaustão.
+              Hoje, com mais de 44 anos de mercado, mantém a liderança na distribuição de HVAC no Distrito Federal e em todo o estado de Goiás, com produtos para ar-condicionado, difusão de ar, dutos, filtros, isolamentos, ventilação e exaustão.
             </p>
             <a className={styles.contact} href="https://wa.me/5561998904494">
               Fale com a gente
@@ -151,7 +151,7 @@ export default function Home() {
             Seu projeto precisa de experiência técnica em climatização?
           </h2>
           <p className={styles.representativesCtaText}>
-            Conte com quem há mais de 40 anos fornece equipamentos HVAC para obras, empresas e grandes empreendimentos.
+            Conte com quem há mais de 44 anos fornece equipamentos HVAC para obras, empresas e grandes empreendimentos.
           </p>
         </div>
 

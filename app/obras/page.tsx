@@ -108,7 +108,7 @@ export default function Projects() {
               Seu projeto precisa de experiência técnica em climatização?
             </h2>
             <p className={styles.representativesCtaText}>
-              Conte com quem há mais de 40 anos fornece equipamentos HVAC para obras, empresas e grandes empreendimentos.
+              Conte com quem há mais de 44 anos fornece equipamentos HVAC para obras, empresas e grandes empreendimentos.
             </p>
           </div>
 

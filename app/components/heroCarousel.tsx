@@ -16,7 +16,7 @@ const slides = [
   {
     image: "/home/hall_entrada.webp",
     alt: "Escritório do Grupo RETEC",
-    title: "+40 anos fornecendo HVAC no Centro-Oeste. ",
+    title: "+44 anos fornecendo HVAC no Centro-Oeste. ",
     subtitle: "Representante autorizada das principais marcas de HVAC da região, com acesso a produto original e suporte de fábrica.",
     hasTypewriter: false,
   },
