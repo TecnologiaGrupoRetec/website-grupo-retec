@@ -9,8 +9,8 @@ const slides = [
   {
     image: "/home/showroom.webp",
     alt: "Showroom Grupo RETEC",
-    title: "Líder em HVAC para obras de pequeno, médio e grande porte.",
-    subtitle: "Um único fornecedor para tudo que a obra precisa, do acessório mais simples ao aparelho de maior capacidade.",
+    title: "Fornecedor líder de soluções HVAC para obras de pequeno, médio e grande porte.",
+    subtitle: "Um único fornecedor para equipamentos, sistemas e componentes de climatização, com experiência técnica atendimento especializado em cada etapa da obra.",
     hasTypewriter: false,
   },
   {
