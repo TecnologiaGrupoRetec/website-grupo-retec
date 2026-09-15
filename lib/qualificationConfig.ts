@@ -1,41 +1,62 @@
 export interface QualificationLead {
-  id?: string;
   nome: string;
   tipoPessoa: "PF" | "PJ";
   empresa?: string;
   email: string;
   telefone: string;
-  areaAtuacao: "Projetista" | "Construtora" | "Arquiteto" | "Instalador" | "Cliente Final";
-  tipoObra: "Residencial" | "Comercial" | "Hospitalar" | "Industrial" | "Outro";
+  areaAtuacao: string;
+  tipoObra: string;
   tipoObraOutroDetalhe?: string;
-  vendedorDestino?: string;
-  whatsappDestino?: string;
-  createdAt?: string;
 }
 
-// Configuração dos contatos de WhatsApp por Tipo de Obra
-// Insira o número no formato internacional sem espaços (ex: "5561999999999")
-export const SALES_WHATSAPP_MAP: Record<QualificationLead["tipoObra"], { nome: string; numero: string }> = {
-  Residencial: {
-    nome: "Vendedor Residencial",
-    numero: process.env.NEXT_PUBLIC_WHATSAPP_RESIDENCIAL || "", // Deixe em branco ou preencha com o número (Ex: 5561998904494)
+export const SALES_WHATSAPP_MAP: Record<string, { nome: string; numero: string }> = {
+  // Luan Araujo
+  "Hospitais": { 
+    nome: "Luan Araujo", 
+    numero: "5561991311283" 
   },
-  Comercial: {
-    nome: "Vendedor Comercial",
-    numero: process.env.NEXT_PUBLIC_WHATSAPP_COMERCIAL || "",
+  "Indústrias": { 
+    nome: "Luan Araujo", 
+    numero: "5561991311283" 
   },
-  Hospitalar: {
-    nome: "Vendedor Hospitalar",
-    numero: process.env.NEXT_PUBLIC_WHATSAPP_HOSPITALAR || "",
+
+  // Wellisson Chaves
+  "Condomínios": { 
+    nome: "Wellisson Chaves", 
+    numero: "5561991694504" 
   },
-  Industrial: {
-    nome: "Vendedor Industrial",
-    numero: process.env.NEXT_PUBLIC_WHATSAPP_INDUSTRIAL || "",
+  "Shoppings": { 
+    nome: "Wellisson Chaves", 
+    numero: "5561991694504" 
   },
-  Outro: {
-    nome: "Triagem / Geral",
-    numero: process.env.NEXT_PUBLIC_WHATSAPP_OUTRO || "",
+  "Centros Corporativos": { 
+    nome: "Wellisson Chaves", 
+    numero: "5561991694504" 
   },
+  "Instaladores": { 
+    nome: "Wellisson Chaves", 
+    numero: "5561991694504" 
+  },
+
+  // Roberto Carlos
+  "Instaladores em geral": { 
+    nome: "Roberto Carlos", 
+    numero: "5561994158716" 
+  },
+  "Centros de Ensino": { 
+    nome: "Roberto Carlos", 
+    numero: "5561994158716" 
+  },
+  "Igrejas": { 
+    nome: "Roberto Carlos", 
+    numero: "5561994158716" 
+  },
+
+  // Gestor de Vendas (Fallback / Outros)
+  "Outro": { 
+    nome: "Pedro Henrique", 
+    numero: "5561998904494" 
+  }
 };
 
 // Fallback padrão de WhatsApp caso o vendedor específico ainda não tenha número cadastrado

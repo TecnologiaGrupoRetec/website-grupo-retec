@@ -17,13 +17,14 @@ export default function QualificationModal({ isOpen, onClose }: QualificationMod
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
   const [areaAtuacao, setAreaAtuacao] = useState<QualificationLead["areaAtuacao"]>("Cliente Final");
-  const [tipoObra, setTipoObra] = useState<QualificationLead["tipoObra"]>("Residencial");
+  
+  // Atualizado para iniciar com a primeira opção válida do novo mapeamento
+  const [tipoObra, setTipoObra] = useState<QualificationLead["tipoObra"]>("Hospitais");
   const [tipoObraOutro, setTipoObraOutro] = useState("");
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  // document.body nao existe durante o SSR — so renderiza o portal depois de montado
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -106,8 +107,6 @@ export default function QualificationModal({ isOpen, onClose }: QualificationMod
     }
   };
 
-  // createPortal renderiza o modal direto no <body>, fora de qualquer
-  // ScrollReveal/transform/overflow:hidden que recortaria o modal.
   return createPortal(
     <div className={styles.modalOverlay} onClick={onClose}>
       <div className={styles.modalContainer} onClick={(e) => e.stopPropagation()}>
@@ -217,6 +216,7 @@ export default function QualificationModal({ isOpen, onClose }: QualificationMod
               </select>
             </div>
 
+            {/* NOVAS OPÇÕES DE OBRAS MAPEADAS PARA OS VENDEDORES */}
             <div className={styles.formGroup}>
               <label htmlFor="lead-obra">Tipo de Obra *</label>
               <select
@@ -225,10 +225,15 @@ export default function QualificationModal({ isOpen, onClose }: QualificationMod
                 onChange={(e) => setTipoObra(e.target.value as any)}
                 required
               >
-                <option value="Residencial">Residencial</option>
-                <option value="Comercial">Comercial</option>
-                <option value="Hospitalar">Hospitalar</option>
-                <option value="Industrial">Industrial</option>
+                <option value="Hospitais">Hospitais</option>
+                <option value="Indústrias">Indústrias</option>
+                <option value="Condomínios">Condomínios</option>
+                <option value="Shoppings">Shoppings</option>
+                <option value="Centros Corporativos">Centros Corporativos</option>
+                <option value="Instaladores">Instaladores</option>
+                <option value="Instaladores em geral">Instaladores em geral</option>
+                <option value="Centros de Ensino">Centros de Ensino</option>
+                <option value="Igrejas">Igrejas</option>
                 <option value="Outro">Outro</option>
               </select>
             </div>
@@ -241,7 +246,7 @@ export default function QualificationModal({ isOpen, onClose }: QualificationMod
                   type="text"
                   value={tipoObraOutro}
                   onChange={(e) => setTipoObraOutro(e.target.value)}
-                  placeholder="Ex: Galpão logístico, escola, etc."
+                  placeholder="Ex: Galpão logístico, residência, etc."
                 />
               </div>
             )}

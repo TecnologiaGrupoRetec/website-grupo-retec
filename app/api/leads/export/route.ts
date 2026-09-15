@@ -2,37 +2,25 @@ import { NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 import ExcelJS from "exceljs";
 
-// Função para formatar o nome do arquivo exatamente como solicitado
-function getWeeklyFileName(startDateStr?: string | null, endDateStr?: string | null) {
-  const targetDate = startDateStr ? new Date(startDateStr) : new Date();
-  
-  // Nomes dos meses em português
-  const meses = ["janeiro", "fevereiro", "marco", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
-  const mesNome = meses[targetDate.getMonth()];
-  const ano = targetDate.getFullYear().toString().slice(-2); // Ex: "26"
-
-  let diaSegunda, diaSexta;
-
-  // Se a gestora filtrou uma data específica, usamos os dias do filtro
-  if (startDateStr && endDateStr) {
-    diaSegunda = new Date(startDateStr).getDate().toString().padStart(2, "0");
-    diaSexta = new Date(endDateStr).getDate().toString().padStart(2, "0");
-  } else {
-    // Se não filtrou, calcula a segunda e sexta da semana atual
-    const dayOfWeek = targetDate.getDay(); 
-    const distanceToMonday = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
-    const monday = new Date(targetDate);
-    monday.setDate(targetDate.getDate() + distanceToMonday);
-    
-    const friday = new Date(monday);
-    friday.setDate(monday.getDate() + 4);
-
-    diaSegunda = monday.getDate().toString().padStart(2, "0");
-    diaSexta = friday.getDate().toString().padStart(2, "0");
+// Função ajustada para o formato exato: mesInicial-diaInicial_mesFinal-diaFinal.xlsx
+function getCustomFileName(startDateStr?: string | null, endDateStr?: string | null) {
+  if (!startDateStr || !endDateStr) {
+    return "leads_geral.xlsx";
   }
 
-  // Resultado: setembro_26_semana07-11.xlsx
-  return `${mesNome}_${ano}_semana${diaSegunda}-${diaSexta}.xlsx`;
+  const startObj = new Date(startDateStr + "T00:00:00");
+  const endObj = new Date(endDateStr + "T00:00:00");
+
+  const meses = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
+  
+  const mesInicio = meses[startObj.getMonth()];
+  const diaInicio = String(startObj.getDate()).padStart(2, "0");
+  
+  const mesFim = meses[endObj.getMonth()];
+  const diaFim = String(endObj.getDate()).padStart(2, "0");
+
+  // Exemplo: set-01_set-20.xlsx
+  return `${mesInicio}-${diaInicio}_${mesFim}-${diaFim}.xlsx`;
 }
 
 export async function GET(req: Request) {
@@ -97,7 +85,7 @@ export async function GET(req: Request) {
     });
 
     const buffer = await workbook.xlsx.writeBuffer();
-    const finalFileName = getWeeklyFileName(startDate, endDate);
+    const finalFileName = getCustomFileName(startDate, endDate);
 
     return new NextResponse(buffer, {
       status: 200,

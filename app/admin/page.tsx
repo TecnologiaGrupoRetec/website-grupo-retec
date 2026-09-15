@@ -26,7 +26,7 @@ export default function AdminDashboard() {
   const [posts, setPosts] = useState<Post[]>([]);
   const router = useRouter();
 
-  // Estados do Formulário
+  // Estados do Formulário de Posts
   const [title, setTitle] = useState("");
   const [lead, setLead] = useState("");
   const [tag, setTag] = useState("Saúde");
@@ -37,18 +37,20 @@ export default function AdminDashboard() {
     { type: "paragraph", text: "" }
   ]);
 
+  // Estados para o Filtro de Leads e Exportação de Excel
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+
   const [uploadingImage, setUploadingImage] = useState(false);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ type: "", text: "" });
 
-  // Preenche a data de publicação automaticamente com o dia atual formatado
   useEffect(() => {
     const today = new Date();
-    const formatted = today.toLocaleDateString("pt-BR"); // Formato DD/MM/YYYY
+    const formatted = today.toLocaleDateString("pt-BR");
     setDate(formatted);
   }, []);
 
-  // Verifica permissão ao carregar e busca posts
   useEffect(() => {
     fetch("/api/auth/check")
       .then((res) => {
@@ -166,7 +168,6 @@ export default function AdminDashboard() {
       const data = await res.json();
       if (res.ok && data.success) {
         setMessage({ type: "success", text: "Matéria publicada no blog com sucesso!" });
-        // Limpa formulário
         setTitle("");
         setLead("");
         setMainImage("");
@@ -204,6 +205,15 @@ export default function AdminDashboard() {
     }
   };
 
+  // Função para baixar o relatório Excel filtrado por data
+  const handleDownloadExcel = () => {
+    let url = "/api/leads/export";
+    if (startDate && endDate) {
+      url += `?startDate=${startDate}&endDate=${endDate}`;
+    }
+    window.open(url, "_blank");
+  };
+
   if (!authorized) {
     return <div className={styles.emptyState}>Carregando painel de controle...</div>;
   }
@@ -221,7 +231,7 @@ export default function AdminDashboard() {
       </header>
 
       <main className={styles.content}>
-        {/* Esquerda: Formulário de criação */}
+        {/* Esquerda: Formulário de criação de posts */}
         <section className={styles.formCard}>
           <h2 className={styles.sectionTitle}>Cadastrar Post</h2>
 
@@ -314,7 +324,6 @@ export default function AdminDashboard() {
               </div>
             </div>
 
-            {/* Editor estruturado de blocos de texto */}
             <div className={styles.bodyBlocksContainer}>
               <label>Conteúdo da Matéria (Adicione parágrafos ou subtítulos)</label>
 
@@ -357,28 +366,85 @@ export default function AdminDashboard() {
           </form>
         </section>
 
-        {/* Direita: Lista de publicações dinâmicas existentes */}
-        <section className={styles.postsListCard}>
-          <h2 className={styles.sectionTitle}>Publicações Ativas (Admin)</h2>
+        {/* Direita: Gerenciamento de Leads e Lista de Posts */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+          
+          {/* NOVO CARD: Exportação de Leads por Período */}
+          <section className={styles.formCard}>
+            <h2 className={styles.sectionTitle}>Relatório de Leads (Excel)</h2>
+            <p style={{ fontSize: "0.9rem", color: "#64748b", marginBottom: "16px" }}>
+              Filtre por período para exportar a planilha com os clientes pré-qualificados do site. Deixe em branco para baixar todos.
+            </p>
 
-          {posts.length === 0 ? (
-            <div className={styles.emptyState}>
-              Nenhum post criado pelo admin ainda. Publique um no formulário!
-            </div>
-          ) : (
-            posts.map((post) => (
-              <div key={post.slug} className={styles.postItem}>
-                <div className={styles.postInfo}>
-                  <h3>{post.titulo}</h3>
-                  <span>{post.data} | Categoria: {post.tag}</span>
+            <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+                <div>
+                  <label style={{ display: "block", fontSize: "0.8rem", fontWeight: "600", marginBottom: "4px", color: "#334155" }}>Início:</label>
+                  <input
+                    type="date"
+                    value={startDate}
+                    onChange={(e) => setStartDate(e.target.value)}
+                    style={{ width: "100%", padding: "8px", borderRadius: "6px", border: "1px solid #cbd5e1", fontSize: "0.9rem" }}
+                  />
                 </div>
-                <button className={styles.btnDanger} onClick={() => handleDeletePost(post.slug)}>
-                  Excluir
-                </button>
+                <div>
+                  <label style={{ display: "block", fontSize: "0.8rem", fontWeight: "600", marginBottom: "4px", color: "#334155" }}>Fim:</label>
+                  <input
+                    type="date"
+                    value={endDate}
+                    onChange={(e) => setEndDate(e.target.value)}
+                    style={{ width: "100%", padding: "8px", borderRadius: "6px", border: "1px solid #cbd5e1", fontSize: "0.9rem" }}
+                  />
+                </div>
               </div>
-            ))
-          )}
-        </section>
+
+              <button
+                type="button"
+                onClick={handleDownloadExcel}
+                style={{
+                  padding: "10px 16px",
+                  backgroundColor: "#0070f3",
+                  color: "#ffffff",
+                  border: "none",
+                  borderRadius: "6px",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  textAlign: "center",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "8px"
+                }}
+              >
+                📥 Baixar Planilha Filtrada (.xlsx)
+              </button>
+            </div>
+          </section>
+
+          {/* Lista de publicações dinâmicas existentes */}
+          <section className={styles.postsListCard} style={{ flex: 1 }}>
+            <h2 className={styles.sectionTitle}>Publicações Ativas (Admin)</h2>
+
+            {posts.length === 0 ? (
+              <div className={styles.emptyState}>
+                Nenhum post criado pelo admin ainda. Publique um no formulário!
+              </div>
+            ) : (
+              posts.map((post) => (
+                <div key={post.slug} className={styles.postItem}>
+                  <div className={styles.postInfo}>
+                    <h3>{post.titulo}</h3>
+                    <span>{post.data} | Categoria: {post.tag}</span>
+                  </div>
+                  <button className={styles.btnDanger} onClick={() => handleDeletePost(post.slug)}>
+                    Excluir
+                  </button>
+                </div>
+              ))
+            )}
+          </section>
+
+        </div>
       </main>
     </div>
   );
