@@ -234,6 +234,7 @@ export default function QualificationModal({ isOpen, onClose }: QualificationMod
                 <option value="Instaladores em geral">Instaladores em geral</option>
                 <option value="Centros de Ensino">Centros de Ensino</option>
                 <option value="Igrejas">Igrejas</option>
+                <option value="Residencial">Residencial</option>
                 <option value="Outro">Outro</option>
               </select>
             </div>

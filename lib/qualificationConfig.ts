@@ -56,6 +56,10 @@ export const SALES_WHATSAPP_MAP: Record<string, { nome: string; numero: string }
   "Outro": { 
     nome: "Pedro Henrique", 
     numero: "5561998904494" 
+  },
+  "Residencial": { 
+    nome: "Pedro Henrique", 
+    numero: "5561998904494" 
   }
 };
 
