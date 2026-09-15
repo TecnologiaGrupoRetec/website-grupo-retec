@@ -205,7 +205,7 @@ export default function QualificationModal({ isOpen, onClose }: QualificationMod
               <select
                 id="lead-area"
                 value={areaAtuacao}
-                onChange={(e) => setAreaAtuacao(e.target.value as any)}
+                onChange={(e) => setAreaAtuacao(e.target.value as QualificationLead["areaAtuacao"])}
                 required
               >
                 <option value="Projetista">Projetista</option>
@@ -222,7 +222,7 @@ export default function QualificationModal({ isOpen, onClose }: QualificationMod
               <select
                 id="lead-obra"
                 value={tipoObra}
-                onChange={(e) => setTipoObra(e.target.value as any)}
+                onChange={(e) => setTipoObra(e.target.value as QualificationLead["tipoObra"])}
                 required
               >
                 <option value="Hospitais">Hospitais</option>
