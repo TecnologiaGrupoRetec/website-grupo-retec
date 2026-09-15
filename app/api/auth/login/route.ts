@@ -5,11 +5,11 @@ export async function POST(request: Request) {
   try {
     const { username, password } = await request.json();
 
-    const expectedUsername = process.env.ADMIN_USERNAME;
+    const expectedUsernamesEnv = process.env.ADMIN_USERNAME;
     const expectedPassword = process.env.ADMIN_PASSWORD;
     const sessionSecret = process.env.SESSION_SECRET;
 
-    if (process.env.NODE_ENV === "production" && (!expectedUsername || !expectedPassword || !sessionSecret)) {
+    if (process.env.NODE_ENV === "production" && (!expectedUsernamesEnv || !expectedPassword || !sessionSecret)) {
       console.error("ERRO: Variáveis de ambiente de autenticação ausentes no servidor.");
       return NextResponse.json(
         { success: false, message: "Erro de configuração de segurança no servidor." },
@@ -17,11 +17,18 @@ export async function POST(request: Request) {
       );
     }
 
-    const finalUsername = expectedUsername || "admin";
+    // Pega os usuários do .env, separa por vírgula e remove espaços extras
+    const allowedUsernames = expectedUsernamesEnv 
+      ? expectedUsernamesEnv.split(",").map((u) => u.trim()) 
+      : ["admin"];
+
     const finalPassword = expectedPassword || "admin-retec-2026";
     const finalSecret = sessionSecret || "segredo-super-secreto-retec-2026";
 
-    if (username === finalUsername && password === finalPassword) {
+    // Verifica se o usuário digitado está na lista e se a senha confere
+    const isValidUser = allowedUsernames.includes(username);
+
+    if (isValidUser && password === finalPassword) {
       const sessionToken = Buffer.from(`${username}:${finalSecret}`).toString("base64");
 
       // Define o cookie seguro HTTP-only
