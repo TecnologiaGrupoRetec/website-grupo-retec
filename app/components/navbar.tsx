@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import QualificationModal from "./qualificationModal";
 
 import styles from "./styles/navbar.module.scss";
 
@@ -71,6 +72,8 @@ export default function Navbar(props: NavbarProps) {
       setSolucoesOpen(false);
     }, 150);
   };
+
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <>
@@ -272,19 +275,21 @@ export default function Navbar(props: NavbarProps) {
                 <Link href="/blog" onClick={closeAll}>Artigos</Link>
               </nav>
 
-              <a
+              <button
+                type="button"
                 className={styles.navCta}
-                href="https://wa.me/5561998904494"
-                target="_blank"
-                rel="noreferrer"
-                onClick={closeAll}
+                onClick={() => setModalOpen(true)}
               >
                 Falar com o consultor
-              </a>
+              </button>
             </div>
           </div>
         </div>
       </header>
+      <QualificationModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+      />
     </>
   );
 }

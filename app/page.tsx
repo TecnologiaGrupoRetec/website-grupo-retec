@@ -10,6 +10,7 @@ import BrandMarquee from "./components/brandMarquee";
 import ScrollReveal from "./components/scrollReveal";
 import BrazilMap from "./components/brazilMap";
 import ProductSlider from "./components/productSlider";
+import CtaButton from "./components/ctaButton";
 
 const representativeBrands = [
   { src: "/home/empresas_representantes/armacell.png", alt: "Armacell" },
@@ -604,17 +605,7 @@ export default function Home() {
             </p>
           </div>
 
-          <a
-            href={`https://wa.me/5561998904494`}
-            target="_blank"
-            rel="noreferrer"
-            className={styles.representativesCtaButton}
-          >
-            <span>Falar com um consultor</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </a>
+          <CtaButton className={styles.representativesCtaButton} />
         </ScrollReveal>
 
 

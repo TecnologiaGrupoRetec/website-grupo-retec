@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase"; // Importação corrigida com @/
-import { QualificationLead, SALES_WHATSAPP_MAP } from "@/lib/qualificationConfig"; // Importação corrigida com @/
+import { supabase } from "@/lib/supabase"; 
+import { QualificationLead, SALES_WHATSAPP_MAP } from "@/lib/qualificationConfig";
 
 export async function POST(req: Request) {
   try {
@@ -47,9 +47,27 @@ export async function POST(req: Request) {
       lead: newLead,
     });
   } catch (error) {
-    console.error("Erro na rota /api/leads:", error);
+    console.error("Erro na rota /api/leads (POST):", error);
+    if (error instanceof Error) {
+      console.error("Nome:", error.name);
+      console.error("Mensagem:", error.message);
+      console.error("Cause:", (error as any).cause);
+      console.error("Stack:", error.stack);
+    }
     return NextResponse.json(
-      { success: false, message: "Erro interno ao processar lead." },
+      {
+        success: false,
+        message: "Erro interno ao processar lead.",
+        // debug: só para diagnóstico local, remover em produção
+        debug:
+          process.env.NODE_ENV !== "production"
+            ? {
+                name: error instanceof Error ? error.name : null,
+                message: error instanceof Error ? error.message : String(error),
+                cause: error instanceof Error ? (error as any).cause?.message ?? (error as any).cause : null,
+              }
+            : undefined,
+      },
       { status: 500 }
     );
   }
@@ -82,9 +100,26 @@ export async function GET(req: Request) {
       leads: data,
     });
   } catch (error) {
-    console.error("Erro ao listar leads:", error);
+    console.error("Erro na rota /api/leads (GET):", error);
+    if (error instanceof Error) {
+      console.error("Nome:", error.name);
+      console.error("Mensagem:", error.message);
+      console.error("Cause:", (error as any).cause);
+      console.error("Stack:", error.stack);
+    }
     return NextResponse.json(
-      { success: false, message: "Erro ao listar leads." },
+      {
+        success: false,
+        message: "Erro ao listar leads.",
+        debug:
+          process.env.NODE_ENV !== "production"
+            ? {
+                name: error instanceof Error ? error.name : null,
+                message: error instanceof Error ? error.message : String(error),
+                cause: error instanceof Error ? (error as any).cause?.message ?? (error as any).cause : null,
+              }
+            : undefined,
+      },
       { status: 500 }
     );
   }

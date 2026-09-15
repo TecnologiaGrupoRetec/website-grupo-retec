@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import styles from "./styles/qualification-modal.module.scss";
 import { QualificationLead, buildWhatsAppLink } from "../../lib/qualificationConfig";
 
@@ -22,16 +23,25 @@ export default function QualificationModal({ isOpen, onClose }: QualificationMod
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  // document.body nao existe durante o SSR — so renderiza o portal depois de montado
+  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
-      if (isOpen) {
-        document.body.style.overflow = "hidden";
-      } else {
-        document.body.style.overflow = "unset";
-      }
-      return () => { document.body.style.overflow = "unset"; };
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
   }, [isOpen]);
 
-  if (!isOpen) return null;
+  if (!isOpen || !mounted) return null;
 
   const formatPhone = (value: string) => {
     const numbers = value.replace(/\D/g, "").slice(0, 11);
@@ -73,7 +83,6 @@ export default function QualificationModal({ isOpen, onClose }: QualificationMod
     };
 
     try {
-      // Salva no backend / banco de dados
       await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -81,11 +90,9 @@ export default function QualificationModal({ isOpen, onClose }: QualificationMod
       });
     } catch (err) {
       console.error("Erro ao salvar lead na API:", err);
-      // Continua para o WhatsApp mesmo em caso de erro na API para não perder o contato do cliente
     } finally {
       setLoading(false);
 
-      // Redireciona para o WhatsApp do vendedor com: Nome, E-mail, Área de Atuação e Tipo de Obra
       const whatsappUrl = buildWhatsAppLink({
         nome,
         email,
@@ -99,7 +106,9 @@ export default function QualificationModal({ isOpen, onClose }: QualificationMod
     }
   };
 
-  return (
+  // createPortal renderiza o modal direto no <body>, fora de qualquer
+  // ScrollReveal/transform/overflow:hidden que recortaria o modal.
+  return createPortal(
     <div className={styles.modalOverlay} onClick={onClose}>
       <div className={styles.modalContainer} onClick={(e) => e.stopPropagation()}>
         <div className={styles.modalHeader}>
@@ -248,6 +257,7 @@ export default function QualificationModal({ isOpen, onClose }: QualificationMod
           </div>
         </form>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

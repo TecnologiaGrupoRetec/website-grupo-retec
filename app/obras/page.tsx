@@ -8,10 +8,12 @@ import Footer from '../components/footer';
 import ScrollReveal from "../components/scrollReveal";
 import CounterNumber from "../components/counterNumber";
 import { projects, tags } from "./projetos";
+import QualificationModal from "../components/qualificationModal";
 
 export default function Projects() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const tagNames = Object.values(tags);
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <div className={styles.page}>
@@ -124,21 +126,24 @@ export default function Projects() {
             </p>
           </div>
 
-          <a
-            href={`https://wa.me/5561998904494`}
-            target="_blank"
-            rel="noreferrer"
+          <button
+            type="button"
+            onClick={() => setModalOpen(true)}
             className={styles.representativesCtaButton}
           >
             <span>Falar com um consultor</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
-          </a>
+          </button>
         </ScrollReveal>
 
       </main>
       <Footer />
+      <QualificationModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+      />
     </div>
   );
 }

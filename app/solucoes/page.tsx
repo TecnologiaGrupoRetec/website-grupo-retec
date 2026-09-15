@@ -9,6 +9,8 @@ import BrandMarquee from "../components/brandMarquee";
 import ScrollReveal from "../components/scrollReveal";
 import CounterNumber from "../components/counterNumber";
 import ProductSlider from "../components/productSlider";
+import { useState } from "react";
+import QualificationModal from "../components/qualificationModal";
 
 const suppliedCompanies = [
   { src: "/home/empresas_fornecidas/logo_ache.webp", alt: "Aché", link: "https://www.ache.com.br/" },
@@ -115,6 +117,7 @@ const categories = [
 ];
 
 export default function SolucoesPage() {
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <div className={styles.page}>
@@ -148,10 +151,7 @@ export default function SolucoesPage() {
                 <a href="#categorias" className={styles.primaryButton}>
                   Ver categorias
                 </a>
-                <a
-                  href="#clientes"
-                  className={styles.secondaryButton}
-                >
+                <a href="#clientes" className={styles.secondaryButton}>
                   Ver nichos atendidos
                 </a>
               </div>
@@ -174,6 +174,7 @@ export default function SolucoesPage() {
             </div>
           </div>
         </section>
+
         {/* Seção das Categorias de Produtos */}
         <section className={styles.categoriesSection} id="categorias">
           <div className={styles.container}>
@@ -269,21 +270,26 @@ export default function SolucoesPage() {
                 </p>
               </div>
 
-                            <a
-                href={`https://wa.me/5561998904494?text=${encodeURIComponent("Olá! Desejo conhecer as soluções da RETEC.")}`}
-                target="_blank"
-                rel="noreferrer"
+              {/* Botão corrigido usando o Modal de Qualificação */}
+              <button
+                type="button"
+                onClick={() => setModalOpen(true)}
                 className={styles.representativesCtaButton}
               >
                 <span>Conheça nossas soluções</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
-              </a>
+              </button>
             </ScrollReveal>
           </div>
         </section>
       </main>
+
+      <QualificationModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+      />
 
       <Footer />
     </div>
