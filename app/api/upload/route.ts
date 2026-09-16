@@ -61,7 +61,7 @@ export async function POST(request: Request) {
       
       await fs.mkdir(uploadDir, { recursive: true });
       const filePath = path.join(uploadDir, uniqueFileName);
-      await fs.writeFile(filePath, buffer);
+      await fs.writeFile(filePath, new Uint8Array(buffer));
 
       const fileUrl = `/uploads/${uniqueFileName}`;
       return NextResponse.json({ success: true, url: fileUrl });

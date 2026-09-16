@@ -139,7 +139,6 @@ export async function POST(request: Request) {
           data,
           imagem_principal,
           corpo_texto,
-          criado_em: new Date().toISOString(), // Grava a data/hora atual no banco
         }
       ])
       .select()

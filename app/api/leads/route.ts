@@ -27,7 +27,6 @@ export async function POST(req: Request) {
       tipo_obra_outro: body.tipoObra === "Outro" ? (body.tipoObraOutroDetalhe || "").trim() : null,
       vendedor_destino: vendedorInfo.nome,
       whatsapp_destino: vendedorInfo.numero,
-      created_at: new Date().toISOString(),
     };
 
     const { error: dbError } = await supabase.from("leads_qualificacao").insert([newLead]);
