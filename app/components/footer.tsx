@@ -1,5 +1,8 @@
-import Image from "next/image";
+"use client";
 
+import { useState } from "react";
+import Image from "next/image";
+import QualificationModal from "./qualificationModal";
 import styles from "./styles/footer.module.scss";
 
 const footerGroups = [
@@ -18,7 +21,7 @@ const footerGroups = [
     links: [
       { label: "História", href: "/#historia" },
       { label: "Equipe", href: "/sobre" },
-      { label: "Contato", href: "https://wa.me/5561998904494" },
+      { label: "Contato", href: "#", isModalLink: true },
       { label: "Artigos", href: "/blog" },
     ],
   },
@@ -40,6 +43,8 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
@@ -60,11 +65,38 @@ export default function Footer() {
               <div className={styles.footerColumn} key={group.title}>
                 <h3 className={styles.footerColumnTitle}>{group.title}</h3>
                 <div className={styles.footerLinks}>
-                  {group.links.map((link) => (
-                    <a href={link.href} key={link.label}>
-                      {link.label}
-                    </a>
-                  ))}
+                  {group.links.map((link) => {
+                    // Se tiver a flag isModalLink, renderizamos como botão
+                    if (link.isModalLink) {
+                      return (
+                        <button
+                          key={link.label}
+                          type="button"
+                          onClick={() => setIsModalOpen(true)}
+                          className={styles.modalLinkButton}
+                          style={{
+                            background: "none",
+                            border: "none",
+                            padding: 0,
+                            margin: 0,
+                            font: "inherit",
+                            color: "inherit",
+                            cursor: "pointer",
+                            textAlign: "left"
+                          }}
+                        >
+                          {link.label}
+                        </button>
+                      );
+                    }
+                    
+                    // Caso contrário, renderizamos o link normal
+                    return (
+                      <a href={link.href} key={link.label}>
+                        {link.label}
+                      </a>
+                    );
+                  })}
                 </div>
               </div>
             ))}
@@ -114,6 +146,9 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
+      {/* RENDERIZANDO O MODAL */}
+      <QualificationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </footer>
   );
 }

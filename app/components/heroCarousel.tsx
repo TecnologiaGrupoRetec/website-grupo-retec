@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Typewriter from "./typewriter";
+import QualificationModal from "./qualificationModal";
 import styles from "../index.module.scss";
 
 const slides = [
@@ -31,6 +32,7 @@ const slides = [
 
 export default function HeroCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const nextSlide = useCallback(() => {
     setActiveIndex((prev) => (prev + 1) % slides.length);
@@ -77,14 +79,14 @@ export default function HeroCarousel() {
               </div>
 
               <div className={styles.heroActions}>
-                <a
+                {/* BOTÃO ATUALIZADO PARA O MODAL */}
+                <button
+                  type="button"
                   className={styles.primaryButton}
-                  href="https://wa.me/5561998904494"
-                  target="_blank"
-                  rel="noreferrer"
+                  onClick={() => setIsModalOpen(true)}
                 >
                   Contato
-                </a>
+                </button>
                 <a className={styles.secondaryButton} href="#processo">
                   Explorar
                 </a>
@@ -119,6 +121,9 @@ export default function HeroCarousel() {
           />
         ))}
       </div>
+
+      {/* RENDERIZANDO O MODAL */}
+      <QualificationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 }
