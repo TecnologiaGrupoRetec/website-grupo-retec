@@ -158,6 +158,24 @@ const testimonials = [
   },
 ];
 
+const benefitsCards = [
+  {
+    title: "Melhora na produtividade",
+    description:
+      "Garantir prazos mais precisos, já que um ambiente climatizado contribui para o aumento da produtividade, impactando positivamente na credibilidade com clientes e fornecedores.",
+  },
+  {
+    title: "Saúde e conforto",
+    description:
+      "Ambientes climatizados renovam o ar, reduzem poluentes e alérgenos, prevenindo problemas respiratórios e desconfortos térmicos.\n\nManter a temperatura e a umidade adequadas contribui para o equilíbrio térmico do corpo, prevenindo desconfortos e doenças.",
+  },
+  {
+    title: "Controle de perdas",
+    description:
+      "O controle térmico ajuda a garantir a qualidade do produto final.\n\nDurante o processo de fabricação, manter a temperatura adequada é fundamental para qualquer indústria.",
+  },
+];
+
 const faqs = [
   {
     question: "Quais tipos de soluções a RETEC fornece?",
@@ -403,6 +421,36 @@ export default function Home() {
                       <div>
                         <p className={styles.testimonialName}>{testimonial.name}</p>
                       </div>
+                    </div>
+                  </article>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Seção Benefícios da Climatização */}
+        <section className={`${styles.section} ${styles.sectionDark}`}>
+          <div className={styles.container}>
+            <ScrollReveal direction="up">
+              <div className={`${styles.sectionIntro} ${styles.sectionIntroCentered} ${styles.onDark}`}>
+                <h2 className={styles.sectionTitle} style={{ textAlign: "center", marginBottom: "40px" }}>
+                  Benefícios da climatização:
+                </h2>
+              </div>
+            </ScrollReveal>
+
+            <div className={styles.testimonialGrid}>
+              {benefitsCards.map((card, idx) => (
+                <ScrollReveal key={card.title} delay={idx * 150} direction="up" className={styles.testimonialReveal}>
+                  <article className={styles.testimonialCard} style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", height: "100%" }}>
+                    <div className={styles.testimonialCardContent}>
+                      <h3 style={{ fontSize: "1.25rem", fontWeight: "700", color: "#fff", marginBottom: "16px", lineHeight: "1.3" }}>
+                        {card.title}
+                      </h3>
+                      <p className={styles.testimonialQuote} style={{ whiteSpace: "pre-line", fontStyle: "normal" }}>
+                        {card.description}
+                      </p>
                     </div>
                   </article>
                 </ScrollReveal>
