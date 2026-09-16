@@ -6,7 +6,6 @@ import Navbar from "../components/navbar";
 import Image from "next/image";
 import Footer from '../components/footer';
 import ScrollReveal from "../components/scrollReveal";
-import CounterNumber from "../components/counterNumber";
 import { projects, tags } from "./projetos";
 import QualificationModal from "../components/qualificationModal";
 
