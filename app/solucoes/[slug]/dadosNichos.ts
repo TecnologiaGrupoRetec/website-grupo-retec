@@ -14,7 +14,8 @@ export type SolucaoPorNicho = {
   produtosAplicaveis: string[] | { grupo: string; produtos: string[] }[];
   marcas: string[];
   cta: string;
-  whatsappMessage: string;
+  // Nova propriedade: mapeia este nicho para o tipo de obra do Modal (qualificationConfig.ts)
+  chaveMapa: "Hospitais" | "Indústrias" | "Condomínios" | "Shoppings" | "Centros Corporativos" | "Instaladores" | "Instaladores em geral" | "Centros de Ensino" | "Igrejas" | "Residencial" | "Outro";
 };
 
 export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
@@ -76,8 +77,8 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
       "Fibra cerâmica"
     ],
     marcas: ["TROX", "EVAPCO", "Daikin", "Armstrong", "Rocktec", "Armacell", "Projelmec"],
-    cta: "Solicitar orçamento para indústrias farmacêuticas e processos industriais",
-    whatsappMessage: "Olá! Gostaria de falar com um especialista sobre soluções de HVAC para Indústrias Farmacêuticas e Processos Industriais."
+    cta: "Solicitar orçamento para indústrias farmacêuticas",
+    chaveMapa: "Indústrias"
   },
   "hospitais-clinicas": {
     slug: "hospitais-clinicas",
@@ -139,8 +140,8 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
       "Lã de rocha"
     ],
     marcas: ["TROX", "Daikin", "EVAPCO", "Armstrong", "Rocktec", "Armacell"],
-    cta: "Solicitar orçamento para hospitais, centros clínicos e clínicas",
-    whatsappMessage: "Olá! Gostaria de falar com um especialista sobre soluções de HVAC para Hospitais e Clínicas."
+    cta: "Solicitar orçamento para hospitais e clínicas",
+    chaveMapa: "Hospitais"
   },
   "shopping-centers": {
     slug: "shopping-centers",
@@ -200,7 +201,7 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
     ],
     marcas: ["Daikin", "EVAPCO", "TROX", "Armstrong", "Rocktec", "Armacell", "Sicflux", "Projelmec"],
     cta: "Solicitar orçamento para shopping centers",
-    whatsappMessage: "Olá! Gostaria de falar com um especialista sobre soluções de HVAC para Shopping Centers."
+    chaveMapa: "Shoppings"
   },
   "hoteis": {
     slug: "hoteis",
@@ -261,7 +262,7 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
     ],
     marcas: ["Daikin", "TROX", "Sicflux", "Rocktec", "Armacell", "Armstrong"],
     cta: "Solicitar orçamento para hotéis",
-    whatsappMessage: "Olá! Gostaria de falar com um especialista sobre soluções de HVAC para Hotéis."
+    chaveMapa: "Outro"
   },
   "predios-comerciais": {
     slug: "predios-comerciais",
@@ -323,7 +324,7 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
     ],
     marcas: ["Daikin", "TROX", "Armstrong", "Rocktec", "Armacell", "Sicflux"],
     cta: "Solicitar orçamento para prédios comerciais",
-    whatsappMessage: "Olá! Gostaria de falar com um especialista sobre soluções de HVAC para Prédios Comerciais."
+    chaveMapa: "Centros Corporativos"
   },
   "instaladoras-construtoras": {
     slug: "instaladoras-construtoras",
@@ -378,8 +379,8 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
       "Adesivos, selantes e consumíveis"
     ],
     marcas: ["Daikin", "Rocktec", "Armacell", "TROX", "Armstrong", "Sicflux", "Projelmec"],
-    cta: "Solicitar orçamento para instaladoras e construtoras",
-    whatsappMessage: "Olá! Gostaria de falar com um especialista sobre soluções de HVAC para Instaladoras e Construtoras."
+    cta: "Solicitar orçamento para instaladoras",
+    chaveMapa: "Instaladores"
   },
   "governamental-institucional": {
     slug: "governamental-institucional",
@@ -435,8 +436,8 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
       "Suportes e acessórios de instalação"
     ],
     marcas: ["Daikin", "EVAPCO", "TROX", "Armstrong", "Sicflux", "Projelmec", "Rocktec", "Armacell"],
-    cta: "Solicitar orçamento para governamental e institucional",
-    whatsappMessage: "Olá! Gostaria de falar com um especialista sobre soluções de HVAC para Ambientes Governamentais e Institucionais."
+    cta: "Solicitar orçamento",
+    chaveMapa: "Outro"
   },
   "residencial-alto-padrao": {
     slug: "residencial-alto-padrao",
@@ -494,8 +495,8 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
       "Suportes e controles"
     ],
     marcas: ["Daikin", "TROX", "Rocktec", "Armacell", "Sicflux"],
-    cta: "Solicitar orçamento para residencial de alto padrão",
-    whatsappMessage: "Olá! Gostaria de falar com um especialista sobre soluções de HVAC para Residências de Alto Padrão."
+    cta: "Solicitar orçamento",
+    chaveMapa: "Condomínios"
   },
   "escolas-centros-ensino": {
     slug: "escolas-centros-ensino",
@@ -545,8 +546,8 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
       "Isolamento e suportes"
     ],
     marcas: ["Daikin", "TROX", "Sicflux", "Rocktec", "Armacell"],
-    cta: "Solicitar orçamento para escolas e centros de ensino",
-    whatsappMessage: "Olá! Gostaria de falar com um especialista sobre soluções de HVAC para Escolas e Centros de Ensino."
+    cta: "Solicitar orçamento",
+    chaveMapa: "Centros de Ensino"
   },
   "academias-centros-fitness": {
     slug: "academias-centros-fitness",
@@ -600,8 +601,8 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
       "Isolamento e suportes"
     ],
     marcas: ["Daikin", "TROX", "Sicflux", "Projelmec", "Rocktec", "Armacell"],
-    cta: "Solicitar orçamento para academias e centros fitness",
-    whatsappMessage: "Olá! Gostaria de falar com um especialista sobre soluções de HVAC para Academias e Centros Fitness."
+    cta: "Solicitar orçamento",
+    chaveMapa: "Outro"
   },
   "restaurantes": {
     slug: "restaurantes",
@@ -656,8 +657,8 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
       "Suportes e bombas de dreno"
     ],
     marcas: ["Daikin", "TROX", "Sicflux", "Projelmec", "Rocktec", "Armacell"],
-    cta: "Solicitar orçamento para restaurantes",
-    whatsappMessage: "Olá! Gostaria de falar com um especialista sobre soluções de HVAC para Restaurantes."
+    cta: "Solicitar orçamento",
+    chaveMapa: "Outro"
   },
   "data-centers-missao-critica": {
     slug: "data-centers-missao-critica",
@@ -786,7 +787,7 @@ export const solucoesPorNicho: Record<string, SolucaoPorNicho> = {
       }
     ],
     marcas: ["Daikin", "EVAPCO", "TROX", "Armstrong", "AAF", "Rocktec", "Armacell", "Projelmec", "Sicflux"],
-    cta: "Solicitar orçamento para data centers e ambientes de missão crítica",
-    whatsappMessage: "Olá! Gostaria de falar com um especialista sobre soluções de HVAC para Data Centers e Ambientes de Missão Crítica."
+    cta: "Solicitar orçamento",
+    chaveMapa: "Outro"
   }
 };

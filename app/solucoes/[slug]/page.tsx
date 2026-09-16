@@ -12,6 +12,7 @@ import styles from "./detalhe.module.scss";
 import nichoStyles from "./nicho.module.scss";
 import BrandMarquee from "../../components/brandMarquee";
 import ScrollReveal from "../../components/scrollReveal";
+import QualificationModal from "../../components/qualificationModal";
 
 // Informações detalhadas para cada linha de fornecimento
 const solutionsData: Record<string, {
@@ -191,19 +192,12 @@ function categorizarProdutos(produtos: string[]): { categoria: string; produtos:
 }
 
 export default function SolucaoDetalhePage({ params }: { params: { slug: string } }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string>(() => {
-    if (params.slug === "exaustao-e-ventilacao") {
-      return "Exaustor";
-    }
-    if (params.slug === "difusao-e-controle-de-ar") {
-      return "Grelhas Trox";
-    }
-    if (params.slug === "isolamento-termico-e-acustico") {
-      return "Isolamento Térmico e Acústico";
-    }
-    if (params.slug === "suporte-fixacao-e-instalacao") {
-      return "Suportes e Fixação";
-    }
+    if (params.slug === "exaustao-e-ventilacao") return "Exaustor";
+    if (params.slug === "difusao-e-controle-de-ar") return "Grelhas Trox";
+    if (params.slug === "isolamento-termico-e-acustico") return "Isolamento Térmico e Acústico";
+    if (params.slug === "suporte-fixacao-e-instalacao") return "Suportes e Fixação";
     return "VRV";
   });
 
@@ -231,17 +225,18 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
                 {nichoData.hero.textoApoio?.map((text, idx) => (
                   <p key={idx} className={nichoStyles.heroSupportText}>{text}</p>
                 ))}
-                <a
-                  href={`https://wa.me/5561998904494?text=${encodeURIComponent(nichoData.whatsappMessage)}`}
-                  target="_blank"
-                  rel="noreferrer"
+                
+                {/* BOTÃO HERO ATUALIZADO */}
+                <button
+                  onClick={() => setIsModalOpen(true)}
                   className={nichoStyles.heroBtn}
+                  type="button"
                 >
                   <span>Solicitar orçamento</span>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ width: '16px', height: '16px' }}>
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
-                </a>
+                </button>
               </ScrollReveal>
               <ScrollReveal direction="left" className={nichoStyles.heroRight}>
                 <Image
@@ -374,23 +369,27 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
                 <p className={nichoStyles.ctaText}>
                   A RETEC apoia sua obra com portfólio HVAC completo, suporte comercial e fornecimento técnico especializado. Envie sua lista de materiais, memorial descritivo ou necessidade técnica para receber apoio especializado.
                 </p>
-                <a
-                  href={`https://wa.me/5561998904494?text=${encodeURIComponent(nichoData.whatsappMessage)}`}
-                  target="_blank"
-                  rel="noreferrer"
+                
+                {/* BOTÃO CTA FINAL ATUALIZADO */}
+                <button
+                  onClick={() => setIsModalOpen(true)}
                   className={nichoStyles.ctaBtn}
+                  type="button"
                 >
                   <span>{nichoData.cta}</span>
                   <svg className={nichoStyles.btnIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
-                </a>
+                </button>
               </div>
             </ScrollReveal>
           </div>
         </section>
 
         <Footer />
+        
+        {/* RENDERIZANDO O MODAL */}
+        <QualificationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
     );
   }
@@ -402,7 +401,6 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
     notFound();
   }
 
-  // Identifica a lista de produtos a ser exibida
   const produtosExibidos = catData
     ? catData.tabs
       ? catData.tabs.find((t) => t.nome === selectedCategory)?.produtos
@@ -467,7 +465,6 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
                     {`Linha de ${data.title} que distribuímos:`}
                   </h3>
 
-                  {/* Seletor de Categorias por Abas (caso existam abas definidas) */}
                   {catData?.tabs && (
                     <div id="produtos-filter-container" className={styles.filterContainer}>
                       {catData.tabs.map((tab) => (
@@ -483,7 +480,6 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
                     </div>
                   )}
 
-                  {/* Listagem dos Cards dos Produtos com Layout Alternado */}
                   <div className={styles.productFadeIn}>
                     {produtosExibidos.map((produto, index) => (
                       <ScrollReveal
@@ -516,7 +512,6 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
                     ))}
                   </div>
 
-                  {/* Navegação entre Abas ao final dos produtos */}
                   {catData?.tabs && (() => {
                     const currentIdx = catData.tabs.findIndex((t) => t.nome === selectedCategory);
                     const nextTab = (currentIdx !== -1 && currentIdx < catData.tabs.length - 1) ? catData.tabs[currentIdx + 1] : null;
@@ -586,19 +581,18 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
                 <p className={styles.ctaText}>
                   {data.ctaText || "Precisa de suporte no dimensionamento ou fornecimento de materiais para esta linha em sua obra? Fale diretamente com nossa equipe."}
                 </p>
-                <a
-                  href={`https://wa.me/5561998904494?text=${encodeURIComponent(
-                    data.ctaWhatsAppText || `Olá! Gostaria de solicitar um orçamento e saber mais informações sobre a linha de fornecimento: ${data.title}.`
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+
+                {/* BOTÃO SIDEBAR CTA ATUALIZADO */}
+                <button
+                  onClick={() => setIsModalOpen(true)}
                   className={styles.ctaButton}
+                  type="button"
                 >
                   <span>Fale com o consultor</span>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className={styles.buttonArrow}>
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -606,6 +600,9 @@ export default function SolucaoDetalhePage({ params }: { params: { slug: string 
       </section>
 
       <Footer />
+      
+      {/* RENDERIZANDO O MODAL TAMBÉM NA PÁGINA DE PRODUTOS */}
+      <QualificationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 }

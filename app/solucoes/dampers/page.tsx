@@ -1,17 +1,22 @@
-import type { Metadata } from "next";
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 import Navbar from "../../components/navbar";
 import Footer from "../../components/footer";
 import TechnicalSpecsAccordion from "../../components/technicalSpecsAccordion";
+import QualificationModal from "../../components/qualificationModal";
 import styles from "./dampers.module.scss";
 
-export const metadata: Metadata = {
-  title: "Dampers corta-fogo | RETEC",
-  description:
-    "Dampers corta-fogo para compartimentação de sistemas de ventilação e climatização, com opções retangulares e redondas para diferentes classes de resistência ao fogo.",
-};
+/* 
+  NOTA SOBRE SEO:
+  Como esta página agora usa "use client" para o modal funcionar, 
+  o `metadata` não pode ficar aqui. Para manter o SEO, crie um arquivo 
+  chamado `layout.tsx` na mesma pasta (`app/solucoes/dampers/layout.tsx`) 
+  e coloque a exportação do metadata lá.
+*/
 
 const produtos = [
   {
@@ -290,9 +295,7 @@ const aplicacoes = [
 ];
 
 export default function DampersPage() {
-  const whatsappMessage = encodeURIComponent(
-    "Olá! Gostaria de solicitar informações e orçamento para dampers corta-fogo.",
-  );
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div className={styles.page}>
@@ -330,14 +333,14 @@ export default function DampersPage() {
                     Ver modelos
                   </a>
 
-                  <a
-                    href={`https://wa.me/5561998904494?text=${whatsappMessage}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  {/* BOTÃO HERO ATUALIZADO PARA ABRIR O MODAL */}
+                  <button
+                    onClick={() => setIsModalOpen(true)}
+                    type="button"
                     className={styles.secondaryButton}
                   >
                     Solicitar orçamento
-                  </a>
+                  </button>
                 </div>
               </div>
 
@@ -552,21 +555,24 @@ export default function DampersPage() {
                 </p>
               </div>
 
-              <a
-                href={`https://wa.me/5561998904494?text=${whatsappMessage}`}
-                target="_blank"
-                rel="noopener noreferrer"
+              {/* BOTÃO CTA FINAL ATUALIZADO PARA ABRIR O MODAL */}
+              <button
+                onClick={() => setIsModalOpen(true)}
+                type="button"
                 className={styles.ctaButton}
               >
                 Falar com a RETEC
                 <span aria-hidden="true">&rarr;</span>
-              </a>
+              </button>
             </div>
           </div>
         </section>
       </main>
 
       <Footer />
+      
+      {/* COMPONENTE DO MODAL AQUI */}
+      <QualificationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 }
