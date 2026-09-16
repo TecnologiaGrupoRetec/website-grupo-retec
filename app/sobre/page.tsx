@@ -2,7 +2,6 @@ import styles from "./sobre.module.scss";
 import Navbar from "../components/navbar";
 import Image from "next/image";
 import Footer from '../components/footer';
-//import Cta from "../components/cta";
 import ScrollReveal from "../components/scrollReveal";
 import Main from "../components/main";
 import VerticalTimeline from "../components/verticalTimeline";
@@ -47,7 +46,6 @@ const timelineItems = [
 ];
 
 export default function Home() {
-
   return (
     <div className={styles.page}>
       <Navbar activeTab="about" />
@@ -64,9 +62,7 @@ export default function Home() {
       <section className={styles.about}>
         <div className={styles.content}>
           <div className={styles.description}>
-            <h3 className={styles.subtitle}>
-              Nossa História
-            </h3>
+            <h3 className={styles.subtitle}>Nossa História</h3>
             <p className={styles.text}>
               O Grupo RETEC inaugurou em 1982 para representar no Distrito Federal e em Goiás as melhores marcas de produtos para instalações de ar-condicionado, ventilação, exaustão e refrigeração, sendo a primeira empresa da região a oferecer esses produtos.
               <br /><br />
@@ -89,12 +85,8 @@ export default function Home() {
 
       <section className={styles.principles}>
         <div className={styles.principlesContent}>
-          <h2 className={styles.principlesTitle}>
-            Nossos Pilares
-          </h2>
-          <h3 className={styles.principlesSubtitle}>
-            Missão, Visão e Valores
-          </h3>
+          <h2 className={styles.principlesTitle}>Nossos Pilares</h2>
+          <h3 className={styles.principlesSubtitle}>Missão, Visão e Valores</h3>
 
           <div className={styles.principlesContainer}>
             <div style={{ "--r": -15 } as React.CSSProperties} className={styles.glassCard}>
@@ -144,6 +136,72 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Liderança & Direção + Nossa Missão (Trazido da página inicial) */}
+      <section className={`${styles.section} ${styles.leadershipSection}`} id="lideranca">
+        <div className={styles.container}>
+          <ScrollReveal direction="up">
+            <div className={styles.missionHeader}>
+              <p className={styles.missionEyebrow}>Nossa Missão</p>
+              <blockquote className={styles.missionQuote}>
+                “Melhorar a vida das pessoas através da qualidade do ar.”
+              </blockquote>
+              <div className={styles.missionAccentLine} />
+            </div>
+          </ScrollReveal>
+
+          <div className={styles.leadershipGrid}>
+            <ScrollReveal direction="left">
+              <div className={styles.leadershipContent}>
+                <p className={styles.leadershipEyebrow}>Liderança & Direção</p>
+                <h2 className={styles.leadershipName}>Patrick Galletti</h2>
+                <p className={styles.leadershipRole}>CEO do Grupo RETEC</p>
+                <div className={styles.leadershipAccentLine} />
+                <blockquote className={styles.leadershipQuote}>
+                  &quot;Acreditamos que o ar que respiramos influencia a forma como vivemos, trabalhamos, aprendemos e cuidamos das pessoas. Por isso, há mais de 44 anos, dedicamos nosso conhecimento para construir ambientes mais saudáveis, eficientes e confortáveis.&quot;
+                </blockquote>
+
+                <a
+                  href="https://www.instagram.com/patrickggalletti/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.leadershipSocialLink}
+                >
+                  <svg
+                    className={styles.leadershipSocialIcon}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                  </svg>
+                  <span>@patrickggalletti</span>
+                </a>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal direction="right" className={styles.leadershipImageReveal}>
+              <div className={styles.leadershipImageWrapper}>
+                <div className={styles.leadershipGlow} />
+                <Image
+                  src="/home/patrick-fundo-transparente.png"
+                  alt="Patrick Galletti - CEO Grupo RETEC"
+                  width={520}
+                  height={600}
+                  className={styles.leadershipImg}
+                />
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
       <ScrollReveal direction="up" className={styles.representativesCta}>
         <div className={styles.representativesCtaGlow} aria-hidden="true" />
         <div className={styles.representativesCtaContent}>
@@ -158,7 +216,6 @@ export default function Home() {
 
         <CtaButton className={styles.representativesCtaButton} />
       </ScrollReveal>
-
 
       <Footer />
     </div>

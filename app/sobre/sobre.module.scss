@@ -751,3 +751,203 @@
     width: fit-content;
   }
 }
+
+/* =========================================
+   ESTILOS DE LIDERANÇA E MISSÃO (COMPLETO)
+   ========================================= */
+
+/* CONTAINER - Essencial para não espalhar na tela toda */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+/* SESSÃO MISSÃO (Ficava em cima da liderança) */
+.missionHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 72px; /* Espaço entre a missão e o Patrick */
+  padding-top: 64px;
+}
+
+.missionEyebrow {
+  color: #3aa0db;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.missionQuote {
+  font-size: 24px;
+  font-weight: 400;
+  max-width: 700px;
+  line-height: 1.4;
+  margin-bottom: 24px;
+  color: #ffffff;
+}
+
+.missionAccentLine {
+  background: linear-gradient(90deg, #3aa0db 0%, rgba(58, 160, 219, 0.2) 100%);
+  border-radius: 2px;
+  height: 4px;
+  width: 90px;
+}
+
+/* =========================================
+   O SEU CÓDIGO DE LIDERANÇA ORIGINAL ABAIXO
+   ========================================= */
+.leadershipSection {
+  background: linear-gradient(135deg, #07152d 0%, #0f2854 55%, #123665 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  overflow: hidden;
+  position: relative;
+  
+  /* Adicionei um padding aqui para o desktop respirar bem */
+  padding-bottom: 64px; 
+
+  @media (max-width: 980px) {
+    padding: 72px 0;
+  }
+}
+
+.leadershipGrid {
+  align-items: center;
+  display: grid;
+  gap: 56px;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+
+  @media (max-width: 980px) {
+    gap: 40px;
+    grid-template-columns: 1fr;
+  }
+}
+
+.leadershipContent {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+.leadershipEyebrow {
+  color: #3aa0db;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.leadershipName {
+  color: #ffffff;
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 6px;
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+  }
+}
+
+.leadershipRole {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.leadershipAccentLine {
+  background: linear-gradient(90deg, #3aa0db 0%, rgba(58, 160, 219, 0.2) 100%);
+  border-radius: 2px;
+  height: 4px;
+  margin-bottom: 28px;
+  width: 90px;
+}
+
+.leadershipQuote {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.65;
+  margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 17px;
+  }
+}
+
+.leadershipSocialLink {
+  align-items: center;
+  color: #ffffff;
+  display: inline-flex;
+  font-size: 16px;
+  font-weight: 700;
+  gap: 10px;
+  margin-top: 24px;
+  text-decoration: none;
+  transition: color 300ms cubic-bezier(0.16, 1, 0.3, 1), transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    color: #3aa0db;
+    transform: translateY(-2px);
+  }
+}
+
+.leadershipSocialIcon {
+  height: 22px;
+  width: 22px;
+  transition: stroke 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.leadershipImageReveal {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.leadershipImageWrapper {
+  align-items: flex-end;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.leadershipGlow {
+  background: radial-gradient(circle, rgba(58, 160, 219, 0.4) 0%, rgba(15, 40, 84, 0) 75%);
+  border-radius: 50%;
+  bottom: 0;
+  height: 440px;
+  pointer-events: none;
+  position: absolute;
+  width: 440px;
+  z-index: 0;
+}
+
+.leadershipImg {
+  display: block;
+  height: auto;
+  max-height: 640px;
+  object-fit: contain;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  transform: scale(1.12);
+  transform-origin: bottom center;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 98%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 98%);
+
+  @media (max-width: 980px) {
+    max-height: 460px;
+    transform: scale(1);
+  }
+}
