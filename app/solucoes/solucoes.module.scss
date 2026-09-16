@@ -163,20 +163,24 @@
 // ==========================================
 .statsRow {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
   width: 100%;
   margin-top: 48px;
 
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr); /* Em telas médias, quebra para 3 */
+  }
+
   @media (max-width: 768px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* No celular, fica 2 colunas */
     gap: 12px;
     margin-top: 36px;
   }
 }
 
 .statCard {
-  background: rgba(255, 255, 255, 0.05); // Translucent glassmorphic background
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -211,7 +215,7 @@
 .statNumber {
   font-size: 36px;
   font-weight: 700;
-  color: $white;
+  color: #ffffff;
   line-height: 1;
 }
 

@@ -40,17 +40,6 @@ export default function Projects() {
                   Fornecemos produtos de alta qualidade e eficiência para obras de diferentes portes.
                 </p>
               </div>
-
-              <div className={styles.statsRow}>
-                <div className={styles.statCard}>
-                  <CounterNumber value="+50mil" className={styles.statNumber} />
-                  <p className={styles.statLabel}>Obras atendidas</p>
-                </div>
-                <div className={styles.statCard}>
-                  <CounterNumber value="+200 milhões" className={styles.statNumber} />
-                  <p className={styles.statLabel}>Em equipamentos e produtos fornecidos</p>
-                </div>
-              </div>
             </div>
           </div>
         </section>

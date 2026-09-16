@@ -156,7 +156,7 @@ export default function SolucoesPage() {
                 </a>
               </div>
 
-              {/* Cards de estatísticas inferiores */}
+              {/* Cards de estatísticas inferiores organizados */}
               <div className={styles.statsRow}>
                 <div className={styles.statCard}>
                   <CounterNumber value="+44" className={styles.statNumber} />
@@ -169,6 +169,14 @@ export default function SolucoesPage() {
                 <div className={styles.statCard}>
                   <span className={styles.statNumber}>B2B</span>
                   <p className={styles.statLabel}>Suporte para obras HVAC</p>
+                </div>
+                <div className={styles.statCard}>
+                  <CounterNumber value="+50mil" className={styles.statNumber} />
+                  <p className={styles.statLabel}>Obras atendidas</p>
+                </div>
+                <div className={styles.statCard}>
+                  <CounterNumber value="+200 milhões" className={styles.statNumber} />
+                  <p className={styles.statLabel}>Em equipamentos e produtos fornecidos</p>
                 </div>
               </div>
             </div>
